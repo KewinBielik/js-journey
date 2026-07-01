@@ -47,4 +47,14 @@ The most important file here. Fill it in EVERY session. Re-read the last entry b
 - **What I learned:** Reinforced how AND/OR/NOT work, and kept using the JS brace convention. Reused an existing variable instead of redeclaring it.
 - **What confused me:** The `!` operator felt odd at first, but made sense after thinking it through.
 
-<!-- Add your next entry below this line -->
+## Lesson 5 — if and while loops
+- **Date:** 2026-07-01 · Streak day 2
+- **What I did:** Wrote for and while loops, some with if statements inside.
+- **What I learned:** It's important to write `let` while declaring a variable inside a for loop. Without `let` the variable is global and will return an error in an actual job codebase. 
+- **What confused me:** Nothing really.
+
+## Lesson 6 — functions, parameters and return
+- **Date:** 2026-07-01 · Streak day 2
+- **What I did:** Defined simple functions that were using return, if statements and loops.
+- **What I learned:** When writing an "If (x) return true else return false" you can always just write "return x" and thats much better. 
+- **What confused me:** Nothing really.
