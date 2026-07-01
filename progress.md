@@ -2,38 +2,49 @@
 
 The most important file here. Fill it in EVERY session. Re-read the last entry before you start.
 
-Format for each day:
-- **What I did**
-- **What I learned** (in my own words)
-- **What confused me / questions for my mentor**
-- **Streak day #**
+**Two different counters (don't mix them up):**
+- **Lesson #** = where I am in the curriculum (matches the folder, e.g. `day-03`).
+- **Streak day** = how many separate CALENDAR days I've shown up to learn.
+
+**Template to copy for each new entry:**
+```
+## Lesson N — <topic>
+- **Date:** YYYY-MM-DD · Streak day X
+- **What I did:**
+- **What I learned:**
+- **What confused me:**
+```
 
 ---
 
-## Day 0 — Setup (example entry, written by my mentor)
+## Lesson 0 — Setup
+- **Date:** 2026-06-30 · Streak day 1
 - **What I did:** Decided on JavaScript. Set up the `js-journey` folder and read the rules.
-- **What I learned:** The language matters less than showing up daily. Web dev is the
-  fastest proven path to a remote job for a self-taught developer.
-- **What confused me:** Nothing yet — but that's about to change, and that's the point.
-- **Streak day #**0
+- **What I learned:** The language matters less than showing up daily. Web dev is the fastest proven path to a remote job for a self-taught developer.
+- **What confused me:** Nothing yet.
 
----
+## Lesson 1 — Variables (let / const)
+- **Date:** 2026-06-30 · Streak day 1
+- **What I did:** Declared variables holding numbers, strings and booleans using both `let` and `const`.
+- **What I learned:** `let` is for values that can change, `const` for values that stay the same. There's no need to declare the type beforehand (dynamic typing). `console.log()` prints to the console.
+- **What confused me:** That I don't write `bool varName` — I just use `let`/`const` and JavaScript figures out the type.
 
-<!-- Add your Day 1 entry below this line -->
-## Day 1 - Basic variables
-- **What I did:** Declared variables such as numbers, strings and booleans using both 'let' and 'const'
-- **What I learned:** Let is used to create variables that can change values, const cannot be changed. Let is used to define both integers, strings and bools - there is no need to define the type beforehand. console.log() is used to print to console.
-- **What confused me:** I was confused that I don't have to write 'bool varName' and instead I just had to use let
- 
+## Lesson 2 — Numbers & template literals
+- **Date:** 2026-06-30 · Streak day 1
+- **What I did:** Declared two numbers and did sum, difference, product, division and remainder (`%`). Used template literals to print sentences with variables.
+- **What I learned:** Using backticks `` ` `` instead of `"` lets me drop variables straight into text with `${ }` — much easier than joining with `+`.
+- **What confused me:** Nothing really.
 
- ## Day 1.1 - Operations on numbers and template literal
- - **What I did:** Declared 2 numbers and performed sum, difference, product, division and remainder operations. Used template literal to print sentences with variables.
- - **What I learned:** Using `` instead of "" inside of console.log() allows for much easier printing of values thanks to template literal and ${}.
- - **What confused me:** Nothing really confused me.
- - **Streak day #**1 (same day as first lesson).
+## Lesson 3 — if / else & comparisons
+- **Date:** 2026-06-30 · Streak day 1
+- **What I did:** Declared values and compared them with `if` / `else if` / `else` to print different results.
+- **What I learned:** JavaScript's default brace style differs from C++/C#, and I'm adopting the JS convention. Comparison uses `===`, not `=`.
+- **What confused me:** I expected equality to be `==`; learned that `===` (strict) is the one to always use.
 
- ## Day 1.2 - If statements using comparsion
- - **What I did:** declared values and compared them using If and else If statements to print different results
- - **What I learned:** I learned that the default style in JavaScript structures IF brackets different than c++ or C#. I will adopt the JS convention.
- - **What confused me:** I did not know that the comparsion is done by "===", I expected it to be "=="
- - **Streak day #**1 
+## Lesson 4 — Logical operators (&& || !)
+- **Date:** 2026-06-30 · Streak day 1
+- **What I did:** Wrote `if` statements combining conditions with `&&`, `||`, and `!`.
+- **What I learned:** Reinforced how AND/OR/NOT work, and kept using the JS brace convention. Reused an existing variable instead of redeclaring it.
+- **What confused me:** The `!` operator felt odd at first, but made sense after thinking it through.
+
+<!-- Add your next entry below this line -->
