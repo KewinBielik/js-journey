@@ -25,13 +25,13 @@ The most important file here. Fill it in EVERY session. Re-read the last entry b
 
 ## Lesson 1 — Variables (let / const)
 - **Date:** 2026-06-30 · Streak day 1
-- **What I did:** Declared variables holding numbers, strings and booleans using both `let` and `const`.
+- **What I did:** Declared variables holding numbers, strings, and booleans using both `let` and `const`.
 - **What I learned:** `let` is for values that can change, `const` for values that stay the same. There's no need to declare the type beforehand (dynamic typing). `console.log()` prints to the console.
 - **What confused me:** That I don't write `bool varName` — I just use `let`/`const` and JavaScript figures out the type.
 
 ## Lesson 2 — Numbers & template literals
 - **Date:** 2026-06-30 · Streak day 1
-- **What I did:** Declared two numbers and did sum, difference, product, division and remainder (`%`). Used template literals to print sentences with variables.
+- **What I did:** Declared two numbers and did sum, difference, product, division, and remainder (`%`). Used template literals to print sentences with variables.
 - **What I learned:** Using backticks `` ` `` instead of `"` lets me drop variables straight into text with `${ }` — much easier than joining with `+`.
 - **What confused me:** Nothing really.
 
@@ -49,24 +49,36 @@ The most important file here. Fill it in EVERY session. Re-read the last entry b
 
 ## Lesson 5 — for and while loops
 - **Date:** 2026-07-01 · Streak day 2
-- **What I did:** Wrote for and while loops, some with if statements inside.
-- **What I learned:** It's important to write `let` while declaring a variable inside a for loop. Without `let` the variable is global and will return an error in an actual job codebase. 
+- **What I did:** Wrote `for` and `while` loops, some with `if` statements inside.
+- **What I learned:** Always declare the loop counter with `let`. Without it, the variable becomes global and will throw an error in a real job codebase.
 - **What confused me:** Nothing really.
 
-## Lesson 6 — functions, parameters and return
+## Lesson 6 — Functions, parameters, and return
 - **Date:** 2026-07-01 · Streak day 2
-- **What I did:** Defined simple functions that were using return, if statements and loops.
-- **What I learned:** When writing an `If (x) return true else return false` you can always just write `return x` and thats much better. 
+- **What I did:** Defined functions using `return`, `if` statements, and loops.
+- **What I learned:** When writing `if (x) return true; else return false;`, you can usually just write `return x;` — much cleaner.
 - **What confused me:** Nothing really.
 
-## Lesson 7 — arrays, indexing, and looping over lists
+## Lesson 7 — Arrays, indexing, and looping over lists
 - **Date:** 2026-07-02 · Streak day 3
-- **What I did:** Created arrays, looped over them with `for loops` and with `const item of array`, wrote a function for finding max value in an array.
-- **What I learned:** `Parameter` is the name in function's definition parentheses, a placeholder waiting to be filled. `argument` is the actual value handed over to the function. `property` is the "variable's variable". 
-- **What confused me:** I still tend to use the old style of brackets, the `const item of array` way of looping was not intuitive at first.
+- **What I did:** Created arrays, looped over them with `for` loops and `for...of`, and wrote a function to find the max value in an array.
+- **What I learned:** A **parameter** is the placeholder name in a function definition. An **argument** is the actual value passed in when calling the function. Arrays are zero-indexed, so the last item is at `array[array.length - 1]`.
+- **What confused me:** The `for...of` loop wasn't intuitive at first, and I still sometimes fall back into my old C++/C# brace style.
 
-## Lesson 8 — objects and arrays of objects
+## Lesson 8 — Objects and arrays of objects
 - **Date:** 2026-07-02 · Streak day 3
-- **What I did:** Created `objects` with multiple `properties` and `arrays of objects`, made a function that run through an `array of objects` and returned a sum of up their `property` value.
-- **What I learned:** When declaring objects, the house style is to write no space before the colon, so this: `title: " ... "` instead of this: `title : " ... "`. I should try to write a code that tests itself, meaning if I write a `for loop` that filters `objects` with `x property` then I should have at least one `object` with that `property` so that it actually excludes something and I can see that it works.
-- **What confused me:** Defining objects was not intuitve at first.
+- **What I did:** Created objects with multiple properties and arrays of objects. Wrote a function that looped through an array of objects and returned the sum of a property value.
+- **What I learned:** Object house style is no space before the colon: `{title: "..."}` not `{title : "..."}`. When testing filters, include data that should be excluded so you can actually verify the filter works.
+- **What confused me:** Object syntax wasn't intuitive at first. Also noticed that JavaScript doesn't declare parameter types, so passing the wrong type can fail silently (e.g. return `NaN`).
+
+## Lesson 9 — Array methods (forEach, map, filter, reduce)
+- **Date:** 2026-07-02 · Streak day 3
+- **What I did:** Used array methods — `.forEach()`, `.map()`, `.filter()`, and `.reduce()` — including chaining `.filter().map()`.
+- **What I learned:** All four methods loop over an array and call a callback function for each item. JavaScript runs the loop; my callback just does one job per call.
+  - **`.forEach()`** — callback does something (e.g. `console.log`); method returns nothing useful.
+  - **`.map()`** — callback returns one transformed item; method returns a **new array** of those items.
+  - **`.filter()`** — callback returns `true` or `false`; method returns a **new array** of items that passed.
+  - **`.reduce()`** — callback returns an updated running total; method returns **one final value**. The second argument (e.g. `0`) is the starting value for the first round.
+- **What confused me:** `.reduce()` was the hardest — especially the starting value (`0`) and how the return value becomes the next round's running total. It helped to see it as the same pattern as a manual `let sum = 0` loop.
+
+<!-- Add your next entry below this line -->
