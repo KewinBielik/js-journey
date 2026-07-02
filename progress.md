@@ -47,7 +47,7 @@ The most important file here. Fill it in EVERY session. Re-read the last entry b
 - **What I learned:** Reinforced how AND/OR/NOT work, and kept using the JS brace convention. Reused an existing variable instead of redeclaring it.
 - **What confused me:** The `!` operator felt odd at first, but made sense after thinking it through.
 
-## Lesson 5 — if and while loops
+## Lesson 5 — for and while loops
 - **Date:** 2026-07-01 · Streak day 2
 - **What I did:** Wrote for and while loops, some with if statements inside.
 - **What I learned:** It's important to write `let` while declaring a variable inside a for loop. Without `let` the variable is global and will return an error in an actual job codebase. 
@@ -56,5 +56,11 @@ The most important file here. Fill it in EVERY session. Re-read the last entry b
 ## Lesson 6 — functions, parameters and return
 - **Date:** 2026-07-01 · Streak day 2
 - **What I did:** Defined simple functions that were using return, if statements and loops.
-- **What I learned:** When writing an "If (x) return true else return false" you can always just write "return x" and thats much better. 
+- **What I learned:** When writing an `If (x) return true else return false` you can always just write `return x` and thats much better. 
 - **What confused me:** Nothing really.
+
+## Lesson 7 — arrays, indexing, and looping over lists
+- **Date:** 2026-07-02 · Streak day 3
+- **What I did:** Created arrays, looped over them with `for loops` and with `const item of array`, wrote a function for finding max value in an array.
+- **What I learned:** `Parameter` is the name in function's definition parentheses, a placeholder waiting to be filled. `argument` is the actual value handed over to the function. `property` is the "variable's variable". 
+- **What confused me:** I still tend to use the old style of brackets, the `const item of array` way of looping was not intuitive at first.
