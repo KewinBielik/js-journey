@@ -81,4 +81,9 @@ The most important file here. Fill it in EVERY session. Re-read the last entry b
   - **`.reduce()`** — callback returns an updated running total; method returns **one final value**. The second argument (e.g. `0`) is the starting value for the first round.
 - **What confused me:** `.reduce()` was the hardest — especially the starting value (`0`) and how the return value becomes the next round's running total. It helped to see it as the same pattern as a manual `let sum = 0` loop.
 
+## Lesson 10 —  Mini-Project task manager
+- **Date:** 2026-07-02 · Streak day 3
+- **What I did:** Created a "task manager" with 7 functions that were using all that I have learned before.
+- **What I learned:** There are many ways to write code and often more than one is effecient, it's highly depending on the scenario.
+- **What confused me:** I did not see a way to use `.reduce()` untill I realized that the running total can be an object with few counters.
 <!-- Add your next entry below this line -->
