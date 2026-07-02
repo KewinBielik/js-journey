@@ -64,3 +64,9 @@ The most important file here. Fill it in EVERY session. Re-read the last entry b
 - **What I did:** Created arrays, looped over them with `for loops` and with `const item of array`, wrote a function for finding max value in an array.
 - **What I learned:** `Parameter` is the name in function's definition parentheses, a placeholder waiting to be filled. `argument` is the actual value handed over to the function. `property` is the "variable's variable". 
 - **What confused me:** I still tend to use the old style of brackets, the `const item of array` way of looping was not intuitive at first.
+
+## Lesson 8 — objects and arrays of objects
+- **Date:** 2026-07-02 · Streak day 3
+- **What I did:** Created `objects` with multiple `properties` and `arrays of objects`, made a function that run through an `array of objects` and returned a sum of up their `property` value.
+- **What I learned:** When declaring objects, the house style is to write no space before the colon, so this: `title: " ... "` instead of this: `title : " ... "`. I should try to write a code that tests itself, meaning if I write a `for loop` that filters `objects` with `x property` then I should have at least one `object` with that `property` so that it actually excludes something and I can see that it works.
+- **What confused me:** Defining objects was not intuitve at first.
