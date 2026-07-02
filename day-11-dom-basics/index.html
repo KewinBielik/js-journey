@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 11 — DOM Basics</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .box {
+            padding: 1rem;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            margin: 1rem 0;
+            transition: background 0.3s;
+        }
+        .box.highlight {
+            background: #fef3c7;
+            border-color: #f59e0b;
+        }
+        button {
+            padding: 0.5rem 1rem;
+            margin: 0.25rem;
+            cursor: pointer;
+        }
+        #counter {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="mainTitle">Lesson 11 — DOM Basics</h1>
+    <p id="subtitle">JavaScript can change this page.</p>
+
+    <div class="box" id="messageBox">
+        <p id="message">Click the buttons below to see magic happen.</p>
+    </div>
+
+    <button id="changeTextBtn">Change the title</button>
+    <button id="toggleHighlightBtn">Toggle highlight</button>
+
+    <hr>
+
+    <p>Counter: <span id="counter">0</span></p>
+    <button id="incrementBtn">+1</button>
+    <button id="decrementBtn">-1</button>
+
+    <hr>
+
+    <input type="text" id="nameInput" placeholder="Type your name">
+    <button id="greetBtn">Greet me</button>
+    <p id="greeting"></p>
+
+    <script src="script.js"></script>
+</body>
+</html>

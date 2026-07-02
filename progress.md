@@ -86,4 +86,11 @@ The most important file here. Fill it in EVERY session. Re-read the last entry b
 - **What I did:** Created a "task manager" with 7 functions that were using all that I have learned before.
 - **What I learned:** There are many ways to write code and often more than one is effecient, it's highly depending on the scenario.
 - **What confused me:** I did not see a way to use `.reduce()` untill I realized that the running total can be an object with few counters.
+
+## Lesson N — <topic>
+- **Date:**2026-07-02 · Streak day 3
+- **What I did:** I edited stuff on a website, I worked on the DOM - Document Object Model.
+- **What I learned:** I learned about document.getElementById(), btn.addEventListener("click", function (){}) and div.classlist.toggle(). All of these are completely new to me.
+- **What confused me:** It was confusing how the element "nameInput" .textContent was empty and I had to read the .value instead.
+
 <!-- Add your next entry below this line -->
