@@ -81,16 +81,28 @@ The most important file here. Fill it in EVERY session. Re-read the last entry b
   - **`.reduce()`** — callback returns an updated running total; method returns **one final value**. The second argument (e.g. `0`) is the starting value for the first round.
 - **What confused me:** `.reduce()` was the hardest — especially the starting value (`0`) and how the return value becomes the next round's running total. It helped to see it as the same pattern as a manual `let sum = 0` loop.
 
-## Lesson 10 —  Mini-Project task manager
+## Lesson 10 — Mini-project: task manager
 - **Date:** 2026-07-02 · Streak day 3
-- **What I did:** Created a "task manager" with 7 functions that were using all that I have learned before.
-- **What I learned:** There are many ways to write code and often more than one is effecient, it's highly depending on the scenario.
-- **What confused me:** I did not see a way to use `.reduce()` untill I realized that the running total can be an object with few counters.
+- **What I did:** Built a task manager with 7 functions using everything learned so far.
+- **What I learned:** There are often multiple valid ways to solve a problem — the best choice depends on the scenario (readability vs efficiency). `getTaskCount()` should return a real object `{}`, not a template string that looks like one.
+- **What confused me:** Didn't see how to use `.reduce()` at first until I realized the running total can be an object with multiple counters.
 
-## Lesson N — <topic>
-- **Date:**2026-07-02 · Streak day 3
-- **What I did:** I edited stuff on a website, I worked on the DOM - Document Object Model.
-- **What I learned:** I learned about document.getElementById(), btn.addEventListener("click", function (){}) and div.classlist.toggle(). All of these are completely new to me.
-- **What confused me:** It was confusing how the element "nameInput" .textContent was empty and I had to read the .value instead.
+## Lesson 11 — DOM basics (select, change, listen)
+- **Date:** 2026-07-02 · Streak day 3
+- **What I did:** Changed a live webpage using JavaScript — text, buttons, classes, a counter, and reading from an input.
+- **What I learned:** The **DOM** is the browser's live version of the HTML that JS can read and change. Key tools: `document.getElementById()`, `.textContent`, `.addEventListener("click", ...)`, `.classList.toggle()`. Inputs use `.value`, not `.textContent`.
+- **What confused me:** Why `nameInput.textContent` was empty — learned that typed text lives in `.value`.
+
+## Lesson 12 — Dynamic lists and the render pattern
+- **Date:** 2026-07-03 · Streak day 4
+- **What I did:** Built a shopping list app — add items, render from an array, delete with buttons.
+- **What I learned:**
+  - **Render pattern:** data lives in the array; `render()` syncs it to the page. After any change → update array → call `render()` again.
+  - **Creating elements:** `document.createElement("li")` / `createElement("button")` — same pattern, different tag names.
+  - **`forEach(item, index)`** — second parameter is the position; needed for delete.
+  - **Remove from array:** use `items.splice(index, 1)`, not `delete items[index]` (which leaves a hole).
+  - **Guard clause:** `if (input.value === "") return;` — short early exit when there's nothing to do.
+  - **Don't double-write text:** use either `li.textContent` OR a `<span>`, not both.
+- **What confused me:** New syntax piled up fast (`index`, `splice`, guard clauses). Felt simple and hard at the same time — which probably means it's clicking.
 
 <!-- Add your next entry below this line -->

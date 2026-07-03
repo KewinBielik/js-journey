@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 12 — Dynamic Lists</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 500px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0.75rem;
+            margin: 0.25rem 0;
+            background: #f3f4f6;
+            border-radius: 6px;
+        }
+        button {
+            cursor: pointer;
+            padding: 0.4rem 0.8rem;
+        }
+        .delete-btn {
+            background: #fee2e2;
+            border: 1px solid #fca5a5;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+        .add-row {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        #itemInput {
+            flex: 1;
+            padding: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Shopping List</h1>
+
+    <div class="add-row">
+        <input type="text" id="itemInput" placeholder="Add an item...">
+        <button id="addBtn">Add</button>
+    </div>
+
+    <ul id="itemList"></ul>
+
+    <script src="script.js"></script>
+</body>
+</html>
