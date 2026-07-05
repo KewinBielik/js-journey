@@ -107,6 +107,14 @@ The most important file here. Fill it in EVERY session. Re-read the last entry b
 
 ## Lesson 13 — Arrow functions
 - **Date:** 2026-07-05 · Streak day 5
-- **What I did:** Created short functions with the new `arrow syntax`.
-- **What I learned:** `Arrow functions` are often used in `array methods`, they are much shorter and look cleaner. I also learned that JS has `Automatic Semicolon Insertion` (ASI) and that's why it doesn't throw an error when the semicolon is missing. I will still write semicolons myself as that's apparently safer approach. 
-- **What confused me:** Nothing really.
+- **What I did:** Created short functions with the new arrow syntax.
+- **What I learned:** Arrow functions are often used in array methods — they are much shorter and look cleaner. I also learned that JS has **Automatic Semicolon Insertion (ASI)** and that's why it doesn't throw an error when the semicolon is missing. I will still write semicolons myself as that's apparently the safer approach. You can skip `{` and `return` when the function body is a single expression.
+- **What confused me:** Nothing really — but it definitely feels like new syntax.
+
+## Lesson 14 — Todo list mini-project
+- **Date:** 2026-07-05 · Streak day 5
+- **What I did:** Built a todo list app — add tasks, render from an array, delete / mark as done with buttons. I had to write all the functions from scratch this time.
+- **What I learned:** I learned how it feels to write everything myself from 0. I had to look back to other lessons to remind myself the proper syntax and I believe this taught me a lot. Having to find the styles in the HTML page and connecting them to the elements myself was also a good learn. Harder than Lesson 10 because there was no scaffolding. Also learned: don't decrement `nextId` on delete — it only goes up for new tasks.
+- **What confused me:** I was confused by the CSS selector `.task-item.done .task-title` — I had no idea how to apply this to elements I created in JS. The solution was: an `<li>` with class `task-item`, then `add("done")` when completed, and a `<span>` with class `task-title` for the text. This was really hard to figure out, but it makes sense — applying the style to the whole `<li>` would also affect how the buttons look.
+
+<!-- Add your next entry below this line -->
