@@ -105,4 +105,8 @@ The most important file here. Fill it in EVERY session. Re-read the last entry b
   - **Don't double-write text:** use either `li.textContent` OR a `<span>`, not both.
 - **What confused me:** New syntax piled up fast (`index`, `splice`, guard clauses). Felt simple and hard at the same time — which probably means it's clicking.
 
-<!-- Add your next entry below this line -->
+## Lesson 13 — Arrow functions
+- **Date:** 2026-07-05 · Streak day 5
+- **What I did:** Created short functions with the new `arrow syntax`.
+- **What I learned:** `Arrow functions` are often used in `array methods`, they are much shorter and look cleaner. I also learned that JS has `Automatic Semicolon Insertion` (ASI) and that's why it doesn't throw an error when the semicolon is missing. I will still write semicolons myself as that's apparently safer approach. 
+- **What confused me:** Nothing really.
