@@ -1,0 +1,171 @@
+/* ============================================
+   Lesson 15 — HTML & CSS Foundations
+   Read LESSON.md first. Complete the TODOs below.
+   Save → refresh browser to see changes.
+   ============================================ */
+
+/* --------------------------------------------
+   TODO 1: Add CSS variables in :root
+   --brand: #0d9488 (teal)
+   --text: #1f2937 (dark gray)
+   --bg: #ffffff
+   --bg-alt: #f3f4f6 (light gray for alternating sections)
+   -------------------------------------------- */
+
+/* (write your :root variables here) */
+:root {
+   --brand: #0d9488;
+   --text: #1f2937;
+   --bg: #ffffff;
+   --bg-alt: #f3f4f6;
+}
+
+
+/* --------------------------------------------
+   TODO 2: Base styles
+   - body: font-family system-ui, sans-serif; color var(--text); margin 0
+   - .container: max-width 720px; margin 0 auto; padding 0 1rem
+   -------------------------------------------- */
+
+/* (write your base styles here) */
+
+body {
+   font-family: system-ui, sans-serif;
+   color: var(--text);
+   margin: 0;
+}
+
+.container {
+   max-width: 720px;
+   margin: 0 auto;
+   padding: 0 1rem;
+}
+
+/* --------------------------------------------
+   TODO 3: Header
+   - .site-header: padding 1rem 0; border-bottom 1px solid #e5e7eb
+   - .site-header .container: display flex; justify-content space-between; align-items center
+   - .logo: color var(--brand); font-size 1.25rem
+   - .nav a: margin-left 1rem; color var(--text); text-decoration none
+   - .nav a:hover: color var(--brand)
+   -------------------------------------------- */
+
+/* (write your header styles here) */
+
+.site-header {
+   padding: 1rem 0;
+   border-bottom: 1px solid #e5e7eb;
+}
+
+.site-header .container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.logo {
+   color: var(--brand);
+   font-size: 1.25rem;
+}
+
+.nav a {
+   margin-left: 1rem;
+   color: var(--text);
+   text-decoration: none;
+}
+
+.nav a:hover {
+   color: var(--brand);
+}
+
+
+/* --------------------------------------------
+   TODO 4: Hero section
+   - .hero: padding 3rem 0; background var(--bg-alt)
+   - .eyebrow: color var(--brand); font-weight 600; font-size 0.9rem; text-transform uppercase
+   - .lead: font-size 1.15rem; color #4b5563
+   - .hero-actions: display flex; gap 1rem; margin-top 1.5rem
+   -------------------------------------------- */
+
+/* (write your hero styles here) */
+
+.hero {
+   padding: 3rem 0;
+   background: var(--bg-alt);
+}
+
+.eyebrow {
+   color: var(--brand);
+   font-weight: 600;
+   font-size: 0.9rem;
+   text-transform: uppercase;
+}
+
+.lead {
+   font-size: 1.15rem;
+   color: #4b5563;
+}
+
+.hero-actions {
+   display: flex;
+   gap: 1rem;
+   margin-top: 1.5rem;
+}
+
+
+/* --------------------------------------------
+   TODO 5: Buttons
+   - .btn: padding 0.6rem 1.2rem; border-radius 8px; text-decoration none; font-weight 600
+   - .btn-primary: background var(--brand); color white
+   - .btn-ghost: border 2px solid var(--brand); color var(--brand)
+   -------------------------------------------- */
+
+/* (write your button styles here) */
+
+.btn {
+   padding: 0.6rem 1.2rem;
+   border-radius: 8px;
+   text-decoration: none;
+   font-weight: 600;
+}
+
+.btn-primary {
+   background: var(--brand);
+   color: white;
+}
+
+.btn-ghost {
+   border: 2px solid var(--brand);
+   color: var(--brand);
+}
+
+
+/* --------------------------------------------
+   TODO 6: Sections & footer
+   - .section: padding 2.5rem 0
+   - .section-alt: background var(--bg-alt)
+   - .skill-list li: margin 0.5rem 0
+   - .site-footer: padding 1.5rem 0; text-align center; color #6b7280; border-top 1px solid #e5e7eb
+   -------------------------------------------- */
+
+/* (write your section & footer styles here) */
+
+.section {
+   padding: 2.5rem 0;
+}
+
+.section-alt {
+   background: var(--bg-alt);
+}
+
+.skill-list li {
+   margin: 0.5rem 0;
+}
+
+.site-footer {
+   padding: 1.5rem 0;
+   text-align: center;
+   color: #6b7280;
+   border-top: 1px solid #e5e7eb;
+
+}

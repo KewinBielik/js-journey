@@ -117,4 +117,10 @@ The most important file here. Fill it in EVERY session. Re-read the last entry b
 - **What I learned:** I learned how it feels to write everything myself from 0. I had to look back to other lessons to remind myself the proper syntax and I believe this taught me a lot. Having to find the styles in the HTML page and connecting them to the elements myself was also a good learn. Harder than Lesson 10 because there was no scaffolding. Also learned: don't decrement `nextId` on delete — it only goes up for new tasks.
 - **What confused me:** I was confused by the CSS selector `.task-item.done .task-title` — I had no idea how to apply this to elements I created in JS. The solution was: an `<li>` with class `task-item`, then `add("done")` when completed, and a `<span>` with class `task-title` for the text. This was really hard to figure out, but it makes sense — applying the style to the whole `<li>` would also affect how the buttons look.
 
+## Lesson 15 — HTML & CSS (first pass — too fast)
+- **Date:** 2026-07-06 · Streak day 6
+- **What I did:** Styled a portfolio page using `styles.css` — variables, flexbox, sections. Followed TODO comments step by step.
+- **What I learned:** HTML semantic tags (`header`, `main`, `section`). CSS selectors like `.skill-list li` mean "li inside that class". `padding` is inside the box, `margin` is outside. `rem` is a relative unit. Two-value shorthand: first = top/bottom, second = left/right. Honest feedback: copying CSS without experiments didn't help me understand it.
+- **What confused me:** Almost all of CSS — flex, `margin: 0 auto`, shorthand values. Too many new ideas at once. Mentor and I agreed: next lessons = HTML only first, then CSS slowly.
+
 <!-- Add your next entry below this line -->
