@@ -123,4 +123,19 @@ The most important file here. Fill it in EVERY session. Re-read the last entry b
 - **What I learned:** HTML semantic tags (`header`, `main`, `section`). CSS selectors like `.skill-list li` mean "li inside that class". `padding` is inside the box, `margin` is outside. `rem` is a relative unit. Two-value shorthand: first = top/bottom, second = left/right. Honest feedback: copying CSS without experiments didn't help me understand it.
 - **What confused me:** Almost all of CSS — flex, `margin: 0 auto`, shorthand values. Too many new ideas at once. Mentor and I agreed: next lessons = HTML only first, then CSS slowly.
 
+## Lesson 16 — HTML basics (structure only)
+- **Date:** 2026-07-07 · Streak day 7
+- **What I did:** Built an "About me" page using only HTML — header, nav links, two sections inside main, footer with GitHub link. No CSS, no JavaScript.
+- **What I learned:**
+  - **`<head>`** = invisible page info (title, charset). **`<body>`** = everything the user sees.
+  - Most tags are pairs: `<p>text</p>`. Links need `href`: `<a href="#about">`. Lists: `<ul>` wraps `<li>` items.
+  - **Page structure:** `body` → `header` → `main` (with multiple `section`s inside) → `footer`.
+  - **Semantic tags** (`header`, `nav`, `main`, `section`, `footer`) don't change the look without CSS — they organize the page, help styling later, accessibility, and SEO. I could use only `<div>`s, but semantic tags are the professional way.
+  - **`<nav>`** groups navigation links so browsers/screen readers know "this is the menu" — not just for styling.
+  - **`<ul>`** = unordered (bullet) list. **`<ol>`** would be numbered/ordered.
+  - **`<a>` without `href`** is not a real link — use `<p>` for plain text.
+  - Browsers apply **default styles** (h1 big/bold, links blue, etc.). CSS overrides those later.
+  - Convention: one `<h1>` per page; use `<h2>` for section titles.
+- **What confused me:** At first I didn't know what each tag actually *was* or where to nest sections (both go inside the same `<main>`). First version of the lesson listed tags without enough syntax examples — after the lesson was updated with a full example and structure map, it clicked much better. Pushed for returning to the original JavaScript lesson style (syntax → example → small TODOs).
+
 <!-- Add your next entry below this line -->
