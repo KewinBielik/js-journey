@@ -138,4 +138,8 @@ The most important file here. Fill it in EVERY session. Re-read the last entry b
   - Convention: one `<h1>` per page; use `<h2>` for section titles.
 - **What confused me:** At first I didn't know what each tag actually *was* or where to nest sections (both go inside the same `<main>`). First version of the lesson listed tags without enough syntax examples — after the lesson was updated with a full example and structure map, it clicked much better. Pushed for returning to the original JavaScript lesson style (syntax → example → small TODOs).
 
-<!-- Add your next entry below this line -->
+## Lesson 17 — More HTML tags
+- **Date:** 2026-07-08 · Streak day 8
+- **What I did:** Modified the website from last Lesson: added an image, changed the text in paragraph to be `bold` and `italics`, changed the link to open in a new tab.
+- **What I learned:** `<img>` + alt, `<strong>/<em>`, `<ol>`, external links with `target="_blank"` and `rel="noopener"`.
+- **What confused me:** I was confused with `&amp;`, this is the syntax to use when you wanna write an & sign - HTML could expect a syntax after & so this it the way to tell it you actually want to write the & sign. there is also `&lt;` for `<` and `&gt;` for `>`.
