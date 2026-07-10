@@ -143,3 +143,14 @@ The most important file here. Fill it in EVERY session. Re-read the last entry b
 - **What I did:** Modified the website from last Lesson: added an image, changed the text in paragraph to be `bold` and `italics`, changed the link to open in a new tab.
 - **What I learned:** `<img>` + alt, `<strong>/<em>`, `<ol>`, external links with `target="_blank"` and `rel="noopener"`.
 - **What confused me:** I was confused with `&amp;`, this is the syntax to use when you wanna write an & sign - HTML could expect a syntax after & so this it the way to tell it you actually want to write the & sign. there is also `&lt;` for `<` and `&gt;` for `>`.
+
+## Lesson 18 — Adding CSS to HTML
+- **Date:** 2026-07-10 · Streak day 9
+- **What I did:** Linked `HTML` to `CSS` file, added style to all `h1`, styled all links inside `<nav>`, created my own `class` and applied it to one element, changed font of all `<p>` on site.
+- **What I learned:** I learned this `selector rule` structure:
+```css
+selector {
+  property: value;
+}
+```
+- **What confused me:** Nothing confusing, I just had to remind myself the `rem` thing for `font-size`

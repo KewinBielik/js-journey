@@ -1,0 +1,29 @@
+/* ============================================
+   Lesson 18 — Your first stylesheet
+   Create this file. Link it from index.html.
+   Write your rules below.
+   ============================================
+
+   Reminder — one rule looks like:
+
+   selector {
+     property: value;
+   }
+
+*/
+
+h1 {
+  color: teal;
+}
+
+.bio {
+  background-color: aquamarine;
+}
+
+.nav a {
+    color:brown;
+}
+
+p {
+  font-size: 1.5rem;
+}
