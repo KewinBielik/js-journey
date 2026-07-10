@@ -154,3 +154,9 @@ selector {
 }
 ```
 - **What confused me:** Nothing confusing, I just had to remind myself the `rem` thing for `font-size`
+
+## Lesson 19 — Box model experiments
+- **Date:** 2026-07-10 · Streak day 9
+- **What I did:** Changed `style properties` for few blocks and observed how does it affect them.
+- **What I learned:** Styling is really cool and intuitive once you understand how is it structured in the boxes with `padding` and `margin`, especially as you learn more tools such as `auto`.
+- **What confused me:** I was mixing up `padding` with `margin` a bit.

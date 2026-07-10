@@ -1,0 +1,18 @@
+/* Lesson 19 — start experimenting below.
+   Goal 1: .card { background-color: ... }
+   Then add padding, margin, border — one at a time.
+*/
+
+.card {
+  background-color: bisque;
+  padding: 16px;
+  max-width: 400px;
+  margin: 20px auto;
+  border: 2px solid #999;
+  text-align: center;
+}
+
+.highlight {
+  padding: 32px 16px;
+
+}
