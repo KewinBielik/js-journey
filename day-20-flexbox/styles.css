@@ -1,0 +1,16 @@
+/* Lesson 20 — flexbox experiments
+   Edit one property at a time. See LESSON.md.
+*/
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+

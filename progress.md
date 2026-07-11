@@ -160,3 +160,9 @@ selector {
 - **What I did:** Changed `style properties` for few blocks and observed how does it affect them.
 - **What I learned:** Styling is really cool and intuitive once you understand how is it structured in the boxes with `padding` and `margin`, especially as you learn more tools such as `auto`.
 - **What confused me:** I was mixing up `padding` with `margin` a bit.
+
+## Lesson 20 — Flexbox experiments
+- **Date:** 2026-07-11 · Streak day 10
+- **What I did:** Applied `display: flex` to `parents` and changed how their `children` inside position with `justify-content`, `align-items`, `gap`
+- **What I learned:** `Flexbox` is used to have one rule on the `container` instead of `margins` and `paddings` on every `child`.
+- **What confused me:** Nothing really.
