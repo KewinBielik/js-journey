@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reference — Simple landing page</title>
+    <link rel="stylesheet" href="reference-styles.css">
+</head>
+<body>
+
+    <!-- HEADER: name + nav. Flex on .header-inner pushes them apart. -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <strong class="logo">Kewin</strong>
+            <nav class="nav">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO: main message. Note real tags: section, h1, p — not <hero> -->
+    <section class="hero">
+        <div class="container">
+            <p class="eyebrow">Self-taught · JavaScript journey</p>
+            <h1>Learning web development, one hour a day</h1>
+            <p class="lead">
+                Building fundamentals in JavaScript, HTML, and CSS.
+                Documenting everything in my GitHub repo.
+            </p>
+            <!-- .hero-actions groups the button/link — gap adds space inside -->
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="https://github.com/KewinBielik" target="_blank" rel="noopener">View GitHub</a>
+                <a class="btn btn-ghost" href="#skills">See skills</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN: one focused section is enough for a simple page -->
+    <main>
+        <section id="skills" class="section">
+            <div class="container">
+                <h2>What I've learned</h2>
+                <ul class="skill-list">
+                    <li>JavaScript — variables, functions, DOM, projects</li>
+                    <li>HTML — semantic structure</li>
+                    <li>CSS — box model, flexbox, layouts</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Kewin · <a href="https://github.com/KewinBielik">GitHub</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

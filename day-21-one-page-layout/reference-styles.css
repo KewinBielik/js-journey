@@ -1,0 +1,142 @@
+/* ============================================
+   REFERENCE STYLES — read the comments!
+   Open reference-index.html in browser.
+   ============================================ */
+
+/* --- Colors as variables: change once, whole site updates --- */
+:root {
+  --brand: #0d9488;
+  --text: #1f2937;
+  --text-muted: #6b7280;
+  --bg: #ffffff;
+  --bg-soft: #f9fafb;
+  --border: #e5e7eb;
+}
+
+/* --- Base: system fonts = looks good on any OS, zero setup --- */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6; /* more readable paragraphs */
+}
+
+/* --- .container: centered content column (used on every section) --- */
+.container {
+  max-width: 720px;
+  margin: 0 auto;   /* centers the block — the proper way you learned */
+  padding: 0 1.25rem; /* side breathing room on mobile */
+}
+
+/* --- HEADER --- */
+.site-header {
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between; /* logo left, nav right */
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo {
+  font-size: 1.15rem;
+  color: var(--brand);
+}
+
+.nav a {
+  margin-left: 1.25rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: var(--brand);
+}
+
+/* --- HERO --- */
+.hero {
+  padding: 3.5rem 0;
+  background: var(--bg-soft);
+}
+
+.eyebrow {
+  color: var(--brand);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.5rem 0;
+}
+
+.hero h1 {
+  margin: 0 0 1rem 0;  /* space below the big title */
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.lead {
+  margin: 0;           /* reset browser default margins for control */
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  max-width: 36em;     /* lines don't stretch too wide — easier to read */
+}
+
+/* THIS answers your spacing question: */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;           /* space BETWEEN the two buttons */
+  margin-top: 1.75rem; /* space BETWEEN the paragraph and the buttons */
+}
+
+/* --- Buttons (links styled as buttons) --- */
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: white;
+}
+
+.btn-ghost {
+  border: 2px solid var(--brand);
+  color: var(--brand);
+}
+
+/* --- MAIN SECTION --- */
+.section {
+  padding: 2.5rem 0;
+}
+
+.section h2 {
+  margin: 0 0 1rem 0;
+}
+
+.skill-list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.skill-list li {
+  margin: 0.5rem 0;
+}
+
+/* --- FOOTER --- */
+.site-footer {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.site-footer a {
+  color: var(--brand);
+}

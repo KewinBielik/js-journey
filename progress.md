@@ -166,3 +166,17 @@ selector {
 - **What I did:** Applied `display: flex` to `parents` and changed how their `children` inside position with `justify-content`, `align-items`, `gap`
 - **What I learned:** `Flexbox` is used to have one rule on the `container` instead of `margins` and `paddings` on every `child`.
 - **What confused me:** Nothing really.
+
+## Lesson 21 — One-page layout mini-project (in progress)
+- **Date:** 2026-07-14 · Streak day 11
+- **What I did:** Built my first full landing page from scratch — `index.html` + `styles.css`. Header with flex, hero block, main with list, footer. Still improving it; studied mentor's `reference-index.html` and commented `reference-styles.css`.
+- **What I learned:**
+  - Combining HTML + CSS on a real page is harder than isolated exercises — but my JS fundamentals (flex, box model, classes) all showed up.
+  - **Spacing between hero text and link:** `margin` on `p` or `a` is professional. Also: `gap` on a flex column, or `margin-top` on a wrapper like `.hero-actions`.
+  - **Fonts:** start with `system-ui` — no need to pick custom fonts yet. A clear `<h1>` + normal `<p>` hierarchy makes pages look much better.
+  - **Sections:** header, hero, main, footer is enough for a simple page.
+  - **`<hero>` is not a real HTML tag** — use `<section class="hero">`.
+  - Good design = spacing, readable fonts, restrained colors (not everything the same beige/orange).
+- **What confused me:** How to add space between paragraph and link without it feeling "hacky." What sections to include. What fonts to use. How to make it look good overall — reference page helped show how pros think about `.container`, variables, and `margin-top` / `gap`.
+
+<!-- Add your next entry below this line -->
