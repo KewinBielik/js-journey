@@ -1,0 +1,99 @@
+/* Lesson 21 — your stylesheet. Create rules in styles.css per LESSON.md spec. */
+
+:root {
+    --brand: #6495ed;
+    --text: #1f2937;
+    --text-muted: #6b7280;
+    --bg: #ffffff;
+    --bg-soft: #f9fafb;
+    --border: #999;
+}
+
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    margin: 0;
+    line-height: 1.6    ;
+}
+
+.container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+.topbar {
+    border-bottom: 1px solid var(--border);
+}
+
+.inner-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 20px 0px;
+    margin: 0px auto;
+}
+
+.logo {
+    font-size: 1.15rem;
+    color: var(--brand);
+    
+}
+
+.nav a {
+    margin-left: 1rem;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+.nav a:hover{
+    color: var(--brand);
+}
+
+.hero {
+    padding: 3.5rem 0;
+    background: var(--bg-soft);
+}
+
+.eyebrow {
+    margin: 0 0 0.5rem 0;
+    color: var(--brand);
+}
+
+.hero h1 {
+    margin: 0 0 1rem 0;
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+.lead {
+    color: var(--text-muted);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.75rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.65rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn-primary {  
+    background: var(--brand);
+    color:white;    
+}
+
+.btn-skills {
+    background: white;
+    color: var(--brand);
+    border: 2px solid var(--brand); 
+}

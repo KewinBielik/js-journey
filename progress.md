@@ -180,3 +180,56 @@ selector {
 - **What confused me:** How to add space between paragraph and link without it feeling "hacky." What sections to include. What fonts to use. How to make it look good overall — reference page helped show how pros think about `.container`, variables, and `margin-top` / `gap`.
 
 <!-- Add your next entry below this line -->
+
+## Lesson 22 — Studying the reference website and upgrading my One-page layout mini-project
+- **Date:** 2026-07-16 · Streak day 12
+- **What I did:** 
+- **What I learned:**
+  - In Style.css you can use .container to style all containers on the page - useful for centering everything at once with max-width and margin: 0 auto. Note that you need elements that have class "container" or "container something"
+  ```css
+  .container {
+  max-width: 720px;
+  margin: 0 auto;   /* centers the block — the proper way you learned */
+  padding: 0 1.25rem; /* side breathing room on mobile */
+  }
+  ```
+  - You can store colors as variables, later refernce them by var(--name), later you won't need to change the whole site, just update colors here
+  ```css
+  :root {
+  --brand: #0d9488;
+  --text: #1f2937;
+  --text-muted: #6b7280;
+  --bg: #ffffff;
+  --bg-soft: #f9fafb;
+  --border: #e5e7eb; 
+  }
+  ```
+  - You can make this cool underline by adding a border-bottom to header or border-top to the footer
+  - You can style how links inside nav look while hovered with:
+  ```css
+  .nav a:hover{
+    color: #999;
+  }
+  ```
+  - You can make links look like buttons, in html you should have a button like `<a class="btn btn-primary">link</a>` and style it like this:
+  ```css
+  .btn {
+    display: inline-block;
+    padding: 0.65rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .btn-primary {  
+      background: var(--brand);
+      color:white;    
+  }
+
+  .btn-skills {
+      background: white;
+      color: var(--brand);
+      border: 2px solid var(--brand); 
+  }
+  ```
+- **What confused me:**
