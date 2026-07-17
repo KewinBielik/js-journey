@@ -59,6 +59,10 @@ main {
     border: 2px solid #999;
 }
 
+main ul{
+    background: #1f2937;
+}
+
 footer {
     text-align: end;
     margin: 100px auto;

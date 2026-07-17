@@ -183,7 +183,7 @@ selector {
 
 ## Lesson 22 — Studying the reference website and upgrading my One-page layout mini-project
 - **Date:** 2026-07-16 · Streak day 12
-- **What I did:** 
+- **What I did:** I tried to learn from the finished website and try to style mine in the same way.
 - **What I learned:**
   - In Style.css you can use .container to style all containers on the page - useful for centering everything at once with max-width and margin: 0 auto. Note that you need elements that have class "container" or "container something"
   ```css
@@ -232,4 +232,8 @@ selector {
       border: 2px solid var(--brand); 
   }
   ```
-- **What confused me:**
+  - You can put links inside paragraphs
+  ```html
+  <p>&copy; 2026 Kewin · <a href="https://github.com/KewinBielik">GitHub</a></p>
+  ```
+- **What confused me:** I am understading the HTML and CSS code now but I am just lacking the styling skill to know how things should be positioned, sized, colored to make the website look good. That will come with time I believe.

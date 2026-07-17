@@ -97,3 +97,34 @@ body {
     color: var(--brand);
     border: 2px solid var(--brand); 
 }
+
+.skill-list {
+    margin: 0;
+    padding: 0 1.25rem;
+}
+
+.skill-list li {
+    margin: 0.5rem 0;
+}
+
+.section {
+    padding: 2.5rem 0;
+}
+
+.section h2 {
+    margin: 0 0 1rem 0;
+}
+
+.footer {
+    padding: 1rem 0;
+    border-top: 1px solid var(--border);
+}
+
+.trademark {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.trademark a {
+    color: var(--brand);
+}
