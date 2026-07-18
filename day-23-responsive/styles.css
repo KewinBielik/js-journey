@@ -1,0 +1,184 @@
+/* Lesson 23 — your finished Lesson 22 styles.
+   Add media queries at the bottom. See LESSON.md. */
+
+:root {
+    --brand: #6495ed;
+    --text: #1f2937;
+    --text-muted: #6b7280;
+    --bg: #ffffff;
+    --bg-soft: #f9fafb;
+    --border: #999;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    body {
+        text-align: center;
+    }
+}
+
+.container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+.topbar {
+    border-bottom: 1px solid var(--border);
+}
+
+.inner-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0px;
+    margin: 0px auto;
+}
+
+@media (max-width: 600px) {
+    .inner-topbar {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
+
+.logo {
+    font-size: 1.15rem;
+    color: var(--brand);
+}
+
+.nav a {
+    margin-left: 1rem;
+    color: var(--text);
+    text-decoration: none;
+}
+
+@media (max-width: 600px) {
+
+    .nav {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .nav a {
+        margin: 0;
+    }
+}
+
+.nav a:hover {
+    color: var(--brand);
+}
+
+.hero {
+    padding: 3.5rem 0;
+    background: var(--bg-soft);
+}
+
+.eyebrow {
+    margin: 0 0 0.5rem 0;
+    color: var(--brand);
+}
+
+@media (max-width: 600px) {
+    .eyebrow {
+        text-align: center;
+    }
+}
+
+.hero h1 {
+    margin: 0 0 1rem 0;
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+@media (max-width: 600px){
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+}
+
+.lead {
+    color: var(--text-muted);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.75rem;
+}
+
+@media (max-width: 600px) {
+    .hero-actions {
+        flex-direction: column;
+        text-align: center;
+        max-width: 350px;
+        margin: 1.75rem auto;
+        margin-bottom: 0;
+    }
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.65rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--brand);
+    color: white;
+}
+
+.btn-skills {
+    background: white;
+    color: var(--brand);
+    border: 2px solid var(--brand);
+}
+
+.skill-list {
+    margin: 0;
+    padding: 0 1.25rem;
+}
+
+@media (max-width: 600px) {
+    .skill-list {
+        list-style-type: none;
+    }
+}
+
+.skill-list li {
+    margin: 0.5rem 0;
+}
+
+.section {
+    padding: 2.5rem 0;
+}
+
+.section h2 {
+    margin: 0 0 1rem 0;
+}
+
+.footer {
+    padding: 1rem 0;
+    border-top: 1px solid var(--border);
+}
+
+.trademark {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.trademark a {
+    color: var(--brand);
+}
+
+/* --- Lesson 23: add your @media rules below this line --- */

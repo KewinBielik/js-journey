@@ -182,7 +182,7 @@ selector {
 <!-- Add your next entry below this line -->
 
 ## Lesson 22 — Studying the reference website and upgrading my One-page layout mini-project
-- **Date:** 2026-07-16 · Streak day 12
+- **Date:** 2026-07-16 and 2026-07-17 · Streak day 13
 - **What I did:** I tried to learn from the finished website and try to style mine in the same way.
 - **What I learned:**
   - In Style.css you can use .container to style all containers on the page - useful for centering everything at once with max-width and margin: 0 auto. Note that you need elements that have class "container" or "container something"
@@ -237,3 +237,9 @@ selector {
   <p>&copy; 2026 Kewin · <a href="https://github.com/KewinBielik">GitHub</a></p>
   ```
 - **What confused me:** I am understading the HTML and CSS code now but I am just lacking the styling skill to know how things should be positioned, sized, colored to make the website look good. That will come with time I believe.
+
+## Lesson 23 — Responsive basics (media queries)
+- **Date:** 2026-07-18 · Streak day 14
+- **What I did:** Made my landing page work on phone width with @media (max-width: 600px). Stacked header, centered content, stacked hero buttons, smaller h1.
+- **What I learned:** @media overrides must come after the default rule or they get overwritten. Multiple @media blocks work; one block at the bottom is also fine.
+- **What confused me:** Nothing really.
