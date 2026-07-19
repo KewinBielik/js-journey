@@ -140,31 +140,31 @@ The most important file here. Fill it in EVERY session. Re-read the last entry b
 
 ## Lesson 17 — More HTML tags
 - **Date:** 2026-07-08 · Streak day 8
-- **What I did:** Modified the website from last Lesson: added an image, changed the text in paragraph to be `bold` and `italics`, changed the link to open in a new tab.
-- **What I learned:** `<img>` + alt, `<strong>/<em>`, `<ol>`, external links with `target="_blank"` and `rel="noopener"`.
-- **What confused me:** I was confused with `&amp;`, this is the syntax to use when you wanna write an & sign - HTML could expect a syntax after & so this it the way to tell it you actually want to write the & sign. there is also `&lt;` for `<` and `&gt;` for `>`.
+- **What I did:** Modified the website from last lesson: added an image, changed paragraph text to **bold** and *italics*, changed the link to open in a new tab.
+- **What I learned:** `<img>` + `alt`, `<strong>` / `<em>`, `<ol>`, external links with `target="_blank"` and `rel="noopener"`.
+- **What confused me:** I was confused with `&amp;` — this is the syntax to use when you wanna write an `&` sign. HTML could expect a tag/syntax after `&`, so this is the way to tell it you actually want the `&` character. There is also `&lt;` for `<` and `&gt;` for `>`.
 
 ## Lesson 18 — Adding CSS to HTML
 - **Date:** 2026-07-10 · Streak day 9
-- **What I did:** Linked `HTML` to `CSS` file, added style to all `h1`, styled all links inside `<nav>`, created my own `class` and applied it to one element, changed font of all `<p>` on site.
-- **What I learned:** I learned this `selector rule` structure:
+- **What I did:** Linked HTML to a CSS file, added styles to all `h1`, styled all links inside `<nav>`, created my own `class` and applied it to one element, changed the font of all `<p>` on the site.
+- **What I learned:** I learned this selector → rule structure:
 ```css
 selector {
   property: value;
 }
 ```
-- **What confused me:** Nothing confusing, I just had to remind myself the `rem` thing for `font-size`
+- **What confused me:** Nothing confusing — I just had to remind myself the `rem` thing for `font-size`.
 
 ## Lesson 19 — Box model experiments
 - **Date:** 2026-07-10 · Streak day 9
-- **What I did:** Changed `style properties` for few blocks and observed how does it affect them.
-- **What I learned:** Styling is really cool and intuitive once you understand how is it structured in the boxes with `padding` and `margin`, especially as you learn more tools such as `auto`.
+- **What I did:** Changed style properties for a few blocks and observed how it affects them.
+- **What I learned:** Styling is really cool and intuitive once you understand how it is structured in boxes with `padding` and `margin`, especially as you learn more tools such as `auto`.
 - **What confused me:** I was mixing up `padding` with `margin` a bit.
 
 ## Lesson 20 — Flexbox experiments
 - **Date:** 2026-07-11 · Streak day 10
-- **What I did:** Applied `display: flex` to `parents` and changed how their `children` inside position with `justify-content`, `align-items`, `gap`
-- **What I learned:** `Flexbox` is used to have one rule on the `container` instead of `margins` and `paddings` on every `child`.
+- **What I did:** Applied `display: flex` to parents and changed how their children position with `justify-content`, `align-items`, `gap`.
+- **What I learned:** Flexbox is used to have one rule on the **container** instead of `margin` and `padding` on every child.
 - **What confused me:** Nothing really.
 
 ## Lesson 21 — One-page layout mini-project (in progress)
@@ -183,35 +183,35 @@ selector {
 
 ## Lesson 22 — Studying the reference website and upgrading my One-page layout mini-project
 - **Date:** 2026-07-16 and 2026-07-17 · Streak day 13
-- **What I did:** I tried to learn from the finished website and try to style mine in the same way.
+- **What I did:** I tried to learn from the finished website and style mine in the same way.
 - **What I learned:**
-  - In Style.css you can use .container to style all containers on the page - useful for centering everything at once with max-width and margin: 0 auto. Note that you need elements that have class "container" or "container something"
+  - In `styles.css` you can use `.container` to style all containers on the page — useful for centering everything at once with `max-width` and `margin: 0 auto`. Note that you need elements that have `class="container"` or `class="container something"`.
   ```css
   .container {
-  max-width: 720px;
-  margin: 0 auto;   /* centers the block — the proper way you learned */
-  padding: 0 1.25rem; /* side breathing room on mobile */
+    max-width: 720px;
+    margin: 0 auto;   /* centers the block — the proper way you learned */
+    padding: 0 1.25rem; /* side breathing room on mobile */
   }
   ```
-  - You can store colors as variables, later refernce them by var(--name), later you won't need to change the whole site, just update colors here
+  - You can store colors as variables, later reference them with `var(--name)` — later you won't need to change the whole site, just update colors here:
   ```css
   :root {
-  --brand: #0d9488;
-  --text: #1f2937;
-  --text-muted: #6b7280;
-  --bg: #ffffff;
-  --bg-soft: #f9fafb;
-  --border: #e5e7eb; 
+    --brand: #0d9488;
+    --text: #1f2937;
+    --text-muted: #6b7280;
+    --bg: #ffffff;
+    --bg-soft: #f9fafb;
+    --border: #e5e7eb;
   }
   ```
-  - You can make this cool underline by adding a border-bottom to header or border-top to the footer
-  - You can style how links inside nav look while hovered with:
+  - You can make a cool underline by adding `border-bottom` to the header or `border-top` to the footer.
+  - You can style how links inside nav look on hover with:
   ```css
-  .nav a:hover{
+  .nav a:hover {
     color: #999;
   }
   ```
-  - You can make links look like buttons, in html you should have a button like `<a class="btn btn-primary">link</a>` and style it like this:
+  - You can make links look like buttons — in HTML use something like `<a class="btn btn-primary">link</a>` and style it like this:
   ```css
   .btn {
     display: inline-block;
@@ -221,25 +221,31 @@ selector {
     text-decoration: none;
   }
 
-  .btn-primary {  
-      background: var(--brand);
-      color:white;    
+  .btn-primary {
+    background: var(--brand);
+    color: white;
   }
 
   .btn-skills {
-      background: white;
-      color: var(--brand);
-      border: 2px solid var(--brand); 
+    background: white;
+    color: var(--brand);
+    border: 2px solid var(--brand);
   }
   ```
-  - You can put links inside paragraphs
+  - You can put links inside paragraphs:
   ```html
   <p>&copy; 2026 Kewin · <a href="https://github.com/KewinBielik">GitHub</a></p>
   ```
-- **What confused me:** I am understading the HTML and CSS code now but I am just lacking the styling skill to know how things should be positioned, sized, colored to make the website look good. That will come with time I believe.
+- **What confused me:** I am understanding the HTML and CSS code now but I am just lacking the styling skill to know how things should be positioned, sized, colored to make the website look good. That will come with time I believe.
 
 ## Lesson 23 — Responsive basics (media queries)
 - **Date:** 2026-07-18 · Streak day 14
-- **What I did:** Made my landing page work on phone width with @media (max-width: 600px). Stacked header, centered content, stacked hero buttons, smaller h1.
-- **What I learned:** @media overrides must come after the default rule or they get overwritten. Multiple @media blocks work; one block at the bottom is also fine.
+- **What I did:** Made my landing page work on phone width with `@media (max-width: 600px)`. Stacked header, centered content, stacked hero buttons, smaller `h1`.
+- **What I learned:** `@media` overrides must come **after** the default rule or they get overwritten. Multiple `@media` blocks work; one block at the bottom is also fine.
 - **What confused me:** Nothing really.
+
+## Lesson 24 — localStorage (persistence)
+- **Date:** 2026-07-19 · Streak day 15
+- **What I did:** Made the todo app remember tasks across refreshes using `localStorage`. Save inside `render()`; load on startup with a `null` check. Also saved `nextId` to avoid duplicate IDs.
+- **What I learned:** `localStorage` only stores strings, so you need `JSON.stringify()` to save and `JSON.parse()` to load. `getItem()` returns `null` when nothing is saved yet.
+- **What confused me:** At first the code did not work and I had no clue why. After quite a lot of debugging I just deleted everything and wrote it down again — this time it worked. Still no clue what was wrong lol.
