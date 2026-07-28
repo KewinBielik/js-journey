@@ -249,3 +249,29 @@ selector {
 - **What I did:** Made the todo app remember tasks across refreshes using `localStorage`. Save inside `render()`; load on startup with a `null` check. Also saved `nextId` to avoid duplicate IDs.
 - **What I learned:** `localStorage` only stores strings, so you need `JSON.stringify()` to save and `JSON.parse()` to load. `getItem()` returns `null` when nothing is saved yet.
 - **What confused me:** At first the code did not work and I had no clue why. After quite a lot of debugging I just deleted everything and wrote it down again — this time it worked. Still no clue what was wrong lol.
+
+
+## Lesson 25 — Fetch-api
+- **Date:** 2026-07-28 · Streak day 16
+- **What I did:** Added `fetch` to a pre-written website, used and displayed data from that fetch — my GitHub avatar, username and public repo count. Also added a `Loading...` state and `try` / `catch` for errors.
+- **What I learned:**
+  - `fetch()` returns a **promise** — data that's yet to come. The program can continue without it and the promise will later say whether we got the data or not.
+  - `await` pauses the function until the promise is settled and then gives the real value. It only works inside an `async` function.
+  - You need **two** awaits and they give different things:
+  ```js
+  const response = await fetch(url);   // info about the connection (status, headers)
+  const data = await response.json();  // the actual JSON data
+  ```
+  - Without `await`, `const data = fetch(url)` is just a pending promise — not the data.
+  - `display` is not true/false — it says what kind of box the element is (`none`, `inline`, `block`). Setting it to `block` unhides the image, but the cleaner way is a `.hidden` class in CSS + `classList.remove()` in JS.
+  - `data.name || data.login` — a fallback for when a field is empty. Same `||` as in Lesson 4.
+  - `fetch` only fails on **network** errors. A 404 still "succeeds", so you check `response.ok` yourself and `throw` to reach the `catch`:
+  ```js
+  if (!response.ok) {
+    throw new Error(response.status);
+  }
+  ```
+  - DevTools → Network throttling (Slow 3G / Offline) is how you actually test loading states and error handling.
+- **What confused me:**
+  - How to remove `display: none` from the image. I tried `display: true` which doesn't exist, then found `initial` on the web which worked (it resets to `inline`), but apparently `block` is the more common choice.
+  - The lesson described a promise as an "IOU" and I had no idea what that meant (it's an English idiom for "I owe you", not a programming term).

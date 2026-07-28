@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 25 — fetch &amp; async/await</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 520px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            line-height: 1.6;
+        }
+        h1 { margin-bottom: 0.25rem; }
+        .hint { color: #6b7280; font-size: 0.95rem; }
+        button {
+            padding: 0.55rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 6px;
+            border: 1px solid #d1d5db;
+            background: #f9fafb;
+        }
+        button:hover { background: #f3f4f6; }
+        .panel {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+        }
+        .avatar {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            display: none;
+        }
+        #status { color: #6b7280; }
+    </style>
+</head>
+<body>
+    <h1>GitHub profile loader</h1>
+    <p class="hint">Lesson 25 — get real data from the internet.</p>
+
+    <button id="loadBtn">Load my GitHub profile</button>
+
+    <div class="panel">
+        <p id="status">Nothing loaded yet.</p>
+        <img id="avatar" class="avatar" alt="">
+        <p id="name"></p>
+        <p id="repos"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

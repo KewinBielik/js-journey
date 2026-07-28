@@ -46,3 +46,18 @@ beats a heroic 8-hour Saturday followed by 3 weeks off.
 - [freeCodeCamp](https://www.freecodecamp.org/) — structured free curriculum (the backbone).
 - My mentor — for explanations, code reviews, quizzes, and project guidance.
 - [MDN Web Docs](https://developer.mozilla.org/) — the official reference for web tech.
+
+---
+
+## Continuing on another PC (AI + git sync)
+
+This repo is set up so lessons continue seamlessly across machines:
+
+1. **Finish session:** commit + push (`progress.md`, lesson folder, `AI-CONTEXT.md`)
+2. **Other PC:** `git pull`, open the folder in Cursor
+3. **AI picks up context** from:
+   - `AI-CONTEXT.md` — teaching style, current lesson, roadmap
+   - `progress.md` — your personal learning log
+   - `.cursor/rules/mentor.mdc` — auto-loaded by Cursor on every chat
+
+When you finish a lesson, the AI mentor updates the **Current status** table in `AI-CONTEXT.md` — you don't need to do it yourself.
