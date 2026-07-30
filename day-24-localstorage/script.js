@@ -71,7 +71,7 @@ addBtn.addEventListener("click", () => {
     tasks.push({ id: nextId, title: taskInput.value, completed: false });
     nextId++;
     taskInput.value = "";
-    render();
+    render();   
 });
 
 let storage = JSON.parse(localStorage.getItem("tasks"));

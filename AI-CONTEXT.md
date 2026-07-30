@@ -22,10 +22,10 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 
 | Field | Value |
 |-------|-------|
-| **Last completed lesson** | 25 — `fetch` + async/await (GitHub API) |
-| **Next lesson** | 26 — small project combining fetch + render + persistence |
-| **Last session date** | 2026-07-28 |
-| **Streak day** | 16 |
+| **Last completed lesson** | 26 — GitHub Repo Explorer (fetch + render + localStorage) |
+| **Next lesson** | TBD — next JS step after mini-project (forms / more API practice / React path) |
+| **Last session date** | 2026-07-30 |
+| **Streak day** | 17 |
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
@@ -98,6 +98,7 @@ day-NN-topic/
 - Mini-projects: task manager, todo list
 - `localStorage` + `JSON.stringify` / `JSON.parse`
 - `fetch` + `async`/`await`, promises, `try`/`catch`, `response.ok`
+- Mini-project: GitHub Repo Explorer (search users, render repos, favourites in `localStorage`)
 
 ### HTML / CSS (working foundation)
 
@@ -118,9 +119,9 @@ day-NN-topic/
 
 | Lesson | Topic |
 |--------|-------|
-| **25** | `fetch` + async/await — call a real API, show data on page |
-| **26** | Small project combining fetch + render + persistence |
-| Later | React (after vanilla async feels natural) |
+| **25** ✓ | `fetch` + async/await — GitHub profile API |
+| **26** ✓ | Mini-project: Repo Explorer (fetch + render + persistence) |
+| **Next** | TBD with Kewin — more JS depth, or start React when ready |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.
 

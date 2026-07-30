@@ -275,3 +275,9 @@ selector {
 - **What confused me:**
   - How to remove `display: none` from the image. I tried `display: true` which doesn't exist, then found `initial` on the web which worked (it resets to `inline`), but apparently `block` is the more common choice.
   - The lesson described a promise as an "IOU" and I had no idea what that meant (it's an English idiom for "I owe you", not a programming term).
+
+## Lesson 26 — Repo explorer mini project
+- **Date:** 2026-07-30 · Streak day 17
+- **What I did:** I have made a "repo explorer" - web app that allows for searching github by username and seeing repositories of that user with few informations and a favourite button. This combaines render(), fetch-api and localStorage.
+- **What I learned:** Mainly that I can already build cool apps with what I got to know so far but also that I can't remember all of it and I have keep coming back to old code.
+- **What confused me:** I again forgot how .pop() works.

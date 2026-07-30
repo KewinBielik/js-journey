@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 26 — GitHub Repo Explorer</title>
+    <style>
+        :root {
+            --brand: #6495ed;
+            --text: #1f2937;
+            --text-muted: #6b7280;
+            --bg-soft: #f9fafb;
+            --border: #e5e7eb;
+        }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+            color: var(--text);
+            max-width: 640px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            line-height: 1.6;
+        }
+        h1 { margin-bottom: 0.25rem; }
+        .hint { color: var(--text-muted); margin-top: 0; }
+
+        .search-row {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1.5rem 0 1rem;
+        }
+        #usernameInput {
+            flex: 1;
+            padding: 0.6rem;
+            font-size: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+        button {
+            padding: 0.55rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: var(--bg-soft);
+        }
+        button:hover { background: #f3f4f6; }
+
+        #status {
+            color: var(--text-muted);
+            min-height: 1.5rem;
+        }
+
+        #repoList {
+            list-style: none;
+            padding: 0;
+        }
+        .repo-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+        .repo-info { flex: 1; }
+        .repo-name {
+            font-weight: 600;
+            color: var(--brand);
+            text-decoration: none;
+        }
+        .repo-name:hover { text-decoration: underline; }
+        .repo-desc {
+            margin: 0.25rem 0 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .repo-meta {
+            margin: 0.25rem 0 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Use this class for your favourite button (see LESSON.md Goal 3). */
+        .btn-fav {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 1.1rem;
+            line-height: 1;
+            padding: 0.4rem 0.6rem;
+        }
+        .btn-fav.is-fav {
+            background: #fef9c3;
+            border-color: #fde047;
+        }
+        .top-section {
+            display: flex;
+            justify-content: space-between  ;
+        }
+    </style>
+</head>
+<body>
+    <h1>GitHub Repo Explorer</h1>
+    <p class="hint">Lesson 26 — fetch real data, render it, remember your favourites.</p>
+
+    <div class="search-row">
+        <input type="text" id="usernameInput" placeholder="GitHub username, e.g. KewinBielik">
+        <button id="searchBtn">Search</button>
+    </div>  
+
+    <p id="status"></p>
+
+    <ul id="repoList"></ul>
+
+    <script src="script.js"></script>
+</body>
+</html>
