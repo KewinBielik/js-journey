@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 27 — Forms</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 520px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            line-height: 1.5;
+            color: #1f2937;
+        }
+        h1 { margin-bottom: 0.25rem; }
+        .hint { color: #6b7280; margin-top: 0; }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+        }
+        label {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        input, textarea, select {
+            font: inherit;
+            font-weight: 400;
+            padding: 0.55rem 0.65rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+        }
+        textarea { min-height: 90px; resize: vertical; }
+        button[type="submit"] {
+            padding: 0.6rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            background: #6495ed;
+            color: white;
+            font-weight: 600;
+        }
+        button[type="submit"]:hover { background: #4f7fd4; }
+
+        #formError {
+            color: #b91c1c;
+            min-height: 1.25rem;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        #notesList {
+            list-style: none;
+            padding: 0;
+        }
+        .note-item {
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            background: #f3f4f6;
+            border-radius: 8px;
+        }
+        .note-item h2 {
+            margin: 0 0 0.35rem;
+            font-size: 1.05rem;
+        }
+        .note-meta {
+            margin: 0 0 0.5rem;
+            color: #6b7280;
+            font-size: 0.85rem;
+        }
+        .note-body { margin: 0; white-space: pre-wrap; }
+        .btn-delete {
+            margin-top: 0.65rem;
+            padding: 0.35rem 0.7rem;
+            cursor: pointer;
+            border: 1px solid #fca5a5;
+            border-radius: 4px;
+            background: #fee2e2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quick notes</h1>
+    <p class="hint">Lesson 27 — forms, validation, and saving what you submit.</p>
+
+    <!-- A real <form> (not just a div + button). See LESSON.md. -->
+    <form id="noteForm">
+        <label>
+            Title
+            <input type="text" id="titleInput" name="title" placeholder="e.g. Idea for portfolio">
+        </label>
+
+        <label>
+            Category
+            <select id="categoryInput" name="category">
+                <option value="">Choose one…</option>
+                <option value="idea">Idea</option>
+                <option value="todo">Todo</option>
+                <option value="learning">Learning</option>
+            </select>
+        </label>
+
+        <label>
+            Note
+            <textarea id="bodyInput" name="body" placeholder="Write something…"></textarea>
+        </label>
+
+        <p id="formError"></p>
+        <button type="submit">Add note</button>
+    </form>
+
+    <ul id="notesList"></ul>
+
+    <script src="script.js"></script>
+</body>
+</html>
