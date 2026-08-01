@@ -281,3 +281,15 @@ selector {
 - **What I did:** I have made a "repo explorer" - web app that allows for searching github by username and seeing repositories of that user with few informations and a favourite button. This combaines render(), fetch-api and localStorage.
 - **What I learned:** Mainly that I can already build cool apps with what I got to know so far but also that I can't remember all of it and I have keep coming back to old code.
 - **What confused me:** I again forgot how .pop() works.
+
+## Lesson 27 — Forms
+- **Date:** 2026-08-01 · Streak day 18
+- **What I did:** Built a quick notes app with a real `<form>` — title, category, body. Validate on submit, add notes to a list, delete them, save with `localStorage`.
+- **What I learned:**
+  - Listen for `submit` on the **form**, not only `click` on the button — then Enter in a field also submits.
+  - `event.preventDefault()` stops the browser from reloading the page on submit.
+  - You can read fields via the form and their `name`s, e.g. `noteForm.title.value`.
+  - `.trim()` on text so spaces-only input fails validation.
+  - `form.reset()` clears all fields after a successful submit.
+  - Same old patterns still apply: `render()`, save in `render()`, `nextId` in `localStorage`, delete with `splice`.
+- **What confused me:** Nothing major — mostly looking back at older lessons for the render / storage pattern.

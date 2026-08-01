@@ -14,17 +14,76 @@
 
 const noteForm = document.getElementById("noteForm");
 const formError = document.getElementById("formError");
+const notesList = document.getElementById("notesList");
 
 let notes = [];
 let nextID = 1;
 
+function render() {
+    notesList.innerHTML = "";
+
+    localStorage.setItem("notes", JSON.stringify(notes));
+
+    notes.forEach((note, index) => {
+        
+        const li = document.createElement("li");
+        li.classList.add("note-item");
+        
+        const header = document.createElement("h2");
+        header.textContent = note.title;
+
+        const meta = document.createElement("p");
+        meta.classList.add("note-meta");
+        meta.textContent = note.category;
+
+        const body = document.createElement("p");
+        body.classList.add("note-body");
+        body.textContent = note.body;
+
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("btn-delete");
+        deleteButton.textContent = "Delete";
+
+        deleteButton.addEventListener("click", () => {
+            notes.splice(index, 1);
+            render();
+        })
+
+
+        li.appendChild(header);
+        li.appendChild(meta);
+        li.appendChild(body);
+        li.appendChild(deleteButton);
+        notesList.appendChild(li);
+    })
+}
+
 noteForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    if (!noteForm.title.value || !noteForm.category.value || !noteForm.body.value || !noteForm.title.value.trim() || !noteForm.title.value.trim()) {
+
+    const title = noteForm.title.value.trim();
+    const category = noteForm.category.value;
+    const body = noteForm.body.value.trim();
+    if (!title || !category || !body) {
         formError.textContent = "You must fill in all values";
         return;
-    }
+    }   
+
     notes.push({id: nextID, title: noteForm.title.value, category: noteForm.category.value, body: noteForm.body.value });
-    console.log(notes);
+    nextID += 1;
+    localStorage.setItem("nextID", JSON.stringify(nextID));
+
+    render();
+    noteForm.reset();
     formError.textContent = "";
 })
+
+let storage = JSON.parse(localStorage.getItem("notes"));
+nextID = JSON.parse(localStorage.getItem("nextID"));
+if (!nextID) nextID = 1;
+if (storage){
+    console.log(`next id set to ${nextID}`);
+    console.log(storage);
+    notes = storage;
+    render();
+}
