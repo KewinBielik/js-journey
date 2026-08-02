@@ -23,9 +23,9 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 | Field | Value |
 |-------|-------|
 | **Last completed lesson** | 27 — Forms (submit, validation, notes + localStorage) |
-| **Next lesson** | TBD — modules / from-memory challenge / React path |
-| **Last session date** | 2026-08-01 |
-| **Streak day** | 18 |
+| **Next lesson** | 28 — ES modules (set up in `day-28-modules/`, in progress) |
+| **Last session date** | 2026-08-02 |
+| **Streak day** | 19 |
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
@@ -123,7 +123,8 @@ day-NN-topic/
 | **25** ✓ | `fetch` + async/await — GitHub profile API |
 | **26** ✓ | Mini-project: Repo Explorer (fetch + render + persistence) |
 | **27** ✓ | Forms — submit, `preventDefault`, validation, notes + localStorage |
-| **Next** | Modules / from-memory challenge / React when ready |
+| **28** | ES modules — split notes app into `storage` / `render` / `main` |
+| **Later** | From-memory challenge / React when ready |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.
 
