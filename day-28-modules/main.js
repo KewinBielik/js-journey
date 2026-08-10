@@ -3,4 +3,35 @@
 // Import from storage.js and render.js. This file is loaded by index.html.
 // See LESSON.md.
 
-console.log("Lesson 28 — modules. Split your Lesson 27 notes app across these files.");
+
+import {loadNextID, loadNotes, saveNextID} from "./storage.js";
+import { render } from "./render.js";
+
+const noteForm = document.getElementById("noteForm");
+const formError = document.getElementById("formError");
+
+
+let notes = loadNotes();
+let nextID = loadNextID();
+
+noteForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const title = noteForm.title.value.trim();
+    const category = noteForm.category.value;
+    const body = noteForm.body.value.trim();
+    if (!title || !category || !body) {
+        formError.textContent = "You must fill in all values";
+        return;
+    }   
+
+    notes.push({ id: nextID, title, category, body });
+    nextID += 1;
+    saveNextID(nextID);
+
+    render(notes);
+    noteForm.reset();
+    formError.textContent = "";
+})
+
+render(notes);

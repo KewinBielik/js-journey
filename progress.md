@@ -293,3 +293,26 @@ selector {
   - `form.reset()` clears all fields after a successful submit.
   - Same old patterns still apply: `render()`, save in `render()`, `nextId` in `localStorage`, delete with `splice`.
 - **What confused me:** Nothing major — mostly looking back at older lessons for the render / storage pattern.
+
+## Lesson 28 — Modules
+*Part 1:*
+- **Date:** 2026-08-02 · Streak day 19
+- **What I did:** So far I have only setup the server to work, this was necessary to have the modules working.
+- **What confused me:** Setting up the server was really weird and confusing, I can't even remember how I did it because it was like a week ago and I am writing the notes right now (08-10).
+- **New approach:** I am thinking now that I should make entries here every time I make some work, even if multiple entires refer to the same lesson.
+
+*Part 2:*
+- **Date:** 2026-08-10 · Streak day 20
+- **What I did:** I divided the code from last lesson into three files: main.js, render.js and storage.js. Comained them by putting `script type = "module"` in index.html. 
+- **What I learned:** 
+  - the import/export syntax:
+    ```js
+    // main.js
+    import {saveNotes} from "./storage.js";
+
+    // storage.js
+    export function saveNotes(notes) {
+        localStorage.setItem("notes", JSON.stringify(notes));
+    }
+    ```
+- **What confused me:**
