@@ -305,7 +305,7 @@ selector {
 - **Date:** 2026-08-10 · Streak day 20
 - **What I did:** I divided the code from last lesson into three files: main.js, render.js and storage.js. Comained them by putting `script type = "module"` in index.html. 
 - **What I learned:** 
-  - the import/export syntax:
+  - The import/export syntax:
     ```js
     // main.js
     import {saveNotes} from "./storage.js";
@@ -315,4 +315,44 @@ selector {
         localStorage.setItem("notes", JSON.stringify(notes));
     }
     ```
-- **What confused me:**
+  - Overrwriting arguments in functions does not change the original variables but if an array is passed and we call it's function then it will operate on the original variable:
+    ```js
+    let nextID = 1;
+
+    function load(id) {
+      id = 5;          // only changes the local copy
+    }
+
+    load(nextID);
+    console.log(nextID); // still 1
+    ```
+    ```js
+    let notes = [];
+
+    function fill(arr) {
+      arr.push({ title: "hi" });  // mutates the SAME array → main sees it
+    }
+
+    fill(notes);
+    console.log(notes.length); // 1
+    ```
+
+    ```js
+    function fill(arr) {
+      arr = [{ title: "hi" }];  // points local `arr` at a NEW array
+    }
+
+    fill(notes);
+    console.log(notes.length); // still 0
+    ```
+- **What confused me:** The website hosted on the server seemed to refresh itself every time I saved the code, apparently this is a feature and it's normal.
+
+## Lesson 29 — From-memory challenge (Link saver)
+- **Date:** 2026-08-11 · Streak day 21
+- **What I did:** Built a link saver from memory — form with title + URL, list with clickable links and delete, `localStorage` so it survives refresh. Skipped the optional modules stretch on purpose (wouldn't have taught much today).
+- **What I learned:**
+  - I can build a full small app mostly from memory + googling, without constantly opening old lesson folders (only peeked ~1–2 times).
+  - Felt more confident at the end — recall practice works better than I expected.
+  - Same pattern as my other list apps: data in an array → `render()` syncs the page → save to `localStorage` → on load, restore and render again.
+  - Still easy to slip on small habits: pass `(event)` into the submit handler (don't rely on a global `event`), and always declare with `const`/`let`.
+- **What confused me:** Nothing major. Googling syntax was enough when I blanked.

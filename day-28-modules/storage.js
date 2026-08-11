@@ -10,11 +10,8 @@ export function saveNotes(notes) {
 export function loadNotes() {
     const storage = JSON.parse(localStorage.getItem("notes"));
     if (!storage) {
-        console.log("The storage is empty, returning empty array");
         return [];
     } else {
-        console.log("There is data in storage, loading");
-        console.log(storage);
         return storage;
     }
     
@@ -27,10 +24,8 @@ export function saveNextID(nextID) {
 export function loadNextID() {
     const storage = JSON.parse(localStorage.getItem("nextID"));
     if (!storage) {
-        console.log("The storage is empty, no ID");
         return 1;
     } else {
-        console.log(`There is data in storage, loading nextID = ${storage}`);
         return storage;
     }
 }

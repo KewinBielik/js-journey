@@ -10,9 +10,6 @@ const notesList = document.getElementById("notesList");
 export function render(notes) {
     notesList.innerHTML = "";
 
-    console.log("attempting to render:");
-    console.log(notes);
-
     //localStorage.setItem("notes", JSON.stringify(notes));
     saveNotes(notes);
 

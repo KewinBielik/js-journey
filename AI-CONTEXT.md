@@ -22,10 +22,10 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 
 | Field | Value |
 |-------|-------|
-| **Last completed lesson** | 27 — Forms (submit, validation, notes + localStorage) |
-| **Next lesson** | 28 — ES modules (set up in `day-28-modules/`, in progress) |
-| **Last session date** | 2026-08-02 |
-| **Streak day** | 19 |
+| **Last completed lesson** | 29 — From-memory challenge (Link saver) |
+| **Next lesson** | TBD — React intro when ready |
+| **Last session date** | 2026-08-11 |
+| **Streak day** | 21 |
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
@@ -100,6 +100,7 @@ day-NN-topic/
 - `fetch` + `async`/`await`, promises, `try`/`catch`, `response.ok`
 - Mini-project: GitHub Repo Explorer (search users, render repos, favourites in `localStorage`)
 - Forms: `submit`, `preventDefault`, validation, `form.reset()`, named form fields
+- ES modules: `import` / `export`, `type="module"`, local server for modules
 
 ### HTML / CSS (working foundation)
 
@@ -123,8 +124,9 @@ day-NN-topic/
 | **25** ✓ | `fetch` + async/await — GitHub profile API |
 | **26** ✓ | Mini-project: Repo Explorer (fetch + render + persistence) |
 | **27** ✓ | Forms — submit, `preventDefault`, validation, notes + localStorage |
-| **28** | ES modules — split notes app into `storage` / `render` / `main` |
-| **Later** | From-memory challenge / React when ready |
+| **28** ✓ | ES modules — split notes app into `storage` / `render` / `main` |
+| **29** ✓ | From-memory challenge — Link saver (form + list + localStorage) |
+| **Next** | React intro when Kewin is ready |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.
 
