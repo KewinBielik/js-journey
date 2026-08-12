@@ -22,10 +22,10 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 
 | Field | Value |
 |-------|-------|
-| **Last completed lesson** | 29 — From-memory challenge (Link saver) |
-| **Next lesson** | TBD — React intro when ready |
-| **Last session date** | 2026-08-11 |
-| **Streak day** | 21 |
+| **Last completed lesson** | 30 — React intro (counter + controlled input working; **understanding shaky — pace was too fast**) |
+| **Next lesson** | 31 — React consolidation, NO new concepts (reread `day-30-react-intro/REFERENCE.md`, rebuild something small with `useState`) |
+| **Last session date** | 2026-08-12 |
+| **Streak day** | 22 |
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
@@ -72,6 +72,13 @@ day-NN-topic/
 
 ### Don't
 
+- **Introduce more than ~2 new concepts in one lesson.** This has now failed twice:
+  Lesson 15 (HTML+CSS at once) and Lesson 30 (Node + npm + Vite + JSX + components +
+  `useState` at once). Kewin can *get it working* by googling, but ends up with no mental
+  model and a bad session. Split tooling setup from language concepts.
+- Assume he learns from terse specs alone — for genuinely new paradigms he needs
+  **study notes** he can reread (see `day-30-react-intro/REFERENCE.md` for the format
+  that works: one idea per section, compared against his own vanilla code)
 - Paste full solutions unless he's truly stuck after trying
 - Over-handhold on CSS (he feedback'd Lesson 23 LESSON.md as too prescriptive)
 - Jump ahead to React/frameworks before vanilla `fetch` + async feel solid
@@ -111,7 +118,7 @@ day-NN-topic/
 
 ### Not yet
 
-- React
+- React (Lesson 30 in progress — Node install + `useState`)
 - Node/backend
 - Full portfolio rebuild (laryngologist site mentioned as future goal)
 
@@ -126,7 +133,8 @@ day-NN-topic/
 | **27** ✓ | Forms — submit, `preventDefault`, validation, notes + localStorage |
 | **28** ✓ | ES modules — split notes app into `storage` / `render` / `main` |
 | **29** ✓ | From-memory challenge — Link saver (form + list + localStorage) |
-| **Next** | React intro when Kewin is ready |
+| **30** | React intro — Vite setup, JSX, `useState` (counter) |
+| **Later** | Props, lists in React, then a small React app |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.
 

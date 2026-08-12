@@ -356,3 +356,16 @@ selector {
   - Same pattern as my other list apps: data in an array → `render()` syncs the page → save to `localStorage` → on load, restore and render again.
   - Still easy to slip on small habits: pass `(event)` into the submit handler (don't rely on a global `event`), and always declare with `const`/`let`.
 - **What confused me:** Nothing major. Googling syntax was enough when I blanked.
+
+
+## Lesson 30 — react intro
+- **Date:** 2026-08-12 · Streak day 22
+- **What I did:** I installed nodeJS and created a simple increase/decrease buttons layout with useState
+- **What I learned:** I haven't learned much because there was barely any explanation in the lesson.md, I had to google everything but it was still really hard to understand so I asked the AI to create much more detailed notes - I am going to read them tomorrow.
+- **What confused me:** Everything, lol.
+
+## Lesson N — <topic>
+- **Date:** YYYY-MM-DD · Streak day X
+- **What I did:**
+- **What I learned:**
+- **What confused me:**

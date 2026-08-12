@@ -1,0 +1,52 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 420px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  line-height: 1.5;
+  color: #1f2937;
+}
+
+h1 {
+  margin-bottom: 0.25rem;
+}
+
+.hint {
+  color: #6b7280;
+  margin-top: 0;
+}
+
+.card {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.count {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0.5rem 0 1rem;
+}
+
+.row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+button {
+  padding: 0.5rem 0.9rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: white;
+}
+
+button.primary {
+  background: #6495ed;
+  border-color: #6495ed;
+  color: white;
+  font-weight: 600;
+}
