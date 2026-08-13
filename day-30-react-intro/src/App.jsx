@@ -32,7 +32,7 @@ function App() {
 
       <div className="card">
         <button onClick={addCount}>+1</button>
-        <button onClick={resetCount}>reset</button>
+        <button onClick={()=>setText("")}>reset</button>
         <button onClick={subCount}>-1</button>
         <p>{count}</p>
         <input type="text" value={text} onChange={changeText}></input>

@@ -358,14 +358,94 @@ selector {
 - **What confused me:** Nothing major. Googling syntax was enough when I blanked.
 
 
-## Lesson 30 — react intro
+## Lesson 30 — React intro
 - **Date:** 2026-08-12 · Streak day 22
 - **What I did:** I installed nodeJS and created a simple increase/decrease buttons layout with useState
 - **What I learned:** I haven't learned much because there was barely any explanation in the lesson.md, I had to google everything but it was still really hard to understand so I asked the AI to create much more detailed notes - I am going to read them tomorrow.
 - **What confused me:** Everything, lol.
 
-## Lesson N — <topic>
-- **Date:** YYYY-MM-DD · Streak day X
-- **What I did:**
-- **What I learned:**
-- **What confused me:**
+## Lesson 31 — React intro part 2
+- **Date:** 2026-08-13 · Streak day 23
+- **What I did:** I read the reference.md to better understand last lesson's concepts.
+- **What I learned:** 
+  - React's advantage is that you dont have to call render() every time something changes and it does not rebuild the whole page, instead it only rebuilds what has changed.
+  - Components are JS functions written by capital letter that return a markup describing what should appear on the screen. So `App()` is doing the job that `render()` function did — except React decides when to call it, not you.
+    ```jsx
+    function App() {
+      return <h1>Hello</h1>;
+    }
+    ``` 
+  - The HTML-looking stuff inside a `.jsx` file is called **JSX**. It is not HTML and it is not a string. It's a JavaScript syntax extension that a tool (Vite) converts into normal JavaScript before the browser sees it. You don't need to understand the conversion. You do need four rules:
+    ### Rule 1 — Curly braces drop JavaScript into markup
+
+    ```jsx
+    <p>{count}</p>
+    ```
+
+    Anything inside `{ }` is evaluated as a JavaScript expression and its result gets displayed. Same idea as `${count}` in a template literal — different punctuation.
+
+    ```jsx
+    <p>{count}</p>                    {/* a variable */}
+    <p>{count * 2}</p>                {/* an expression */}
+    <p>{user.name}</p>                {/* a property */}
+    <p>Hello {name}, you have {n}</p> {/* mixed with text */}
+    ```
+
+    It has to be an *expression* (something producing a value). An `if` statement doesn't work there; a ternary `condition ? a : b` does.
+    ### Rule 2 — `className`, not `class`
+
+    ```jsx
+    <p className="hint">…</p>
+    ```
+
+    Because JSX becomes JavaScript, and `class` is a reserved word in JavaScript. React had to pick a different name. Nothing deeper than that.
+
+    Same reason `for` on a label becomes `htmlFor`.
+
+    ### Rule 3 — Events are camelCase, and you pass the function
+
+    ```jsx
+    <button onClick={addCount}>+1</button>
+    ```
+
+    Compare to your vanilla version:
+
+    ```js
+    deleteButton.addEventListener("click", () => { … });
+    ```
+
+    Two differences:
+
+    - `onclick` → `onClick` (capital C)
+    - You **pass** the function; you don't call it
+
+    `onClick={addCount}` hands React the function so it can call it later, when a click happens. `onClick={addCount()}` would call it *immediately during render* and hand React the result — a classic bug. The missing `()` is the entire difference.
+
+    ### Rule 4 — One parent element
+
+    A component must return a single top-level element. This is why your `App` wraps everything in one `<div>`.
+
+    ```jsx
+    return (
+      <div>        {/* one parent */}
+        <h1>…</h1>
+        <p>…</p>
+      </div>
+    );
+    ```
+
+    Two siblings at the top with no wrapper is an error.
+  - `useState(0)` returns an array of exactly two things: the current value, and a function to change it.
+    ```js
+    const [count, setCount] = useState(0);
+    ```
+    The square brackets unpack that array (destructuring — plain JS). Names `count` / `setCount` are mine. The `0` is only the **starting** value on the first run.
+  - `count = count + 1` does nothing on screen — React never finds out. Must use `setCount(...)`. `count` is `const` on purpose.
+  - What happens on +1: click → `setCount` → React stores the new value → React calls `App()` again → new JSX → only the changed bit updates.
+  - `setCount(a => a + 1)` vs `setCount(count + 1)`: the function form always uses the latest value (safer if several updates happen together). I used this in my counter.
+  - **Controlled inputs:**
+    - `onChange` only → the **browser** owns the box; React copies the text into state. The `<p>{text}</p>` still updates. This is why dropping `value={text}` still "worked" in my test.
+    - `value={text}` + `onChange` → **React** owns the box. Needed if I want a Clear button to empty the input, format as I type, pre-fill, etc.
+    - `value={text}` without `onChange` → the input is stuck / read-only.
+  - Tooling: Node = JS outside the browser. npm = installs packages. Vite = turns JSX into JS the browser understands + refreshes on save. `node_modules` is gitignored — on another PC run `npm install`.
+- **What confused me:** Controlled inputs — I thought `value={text}` was required because the demo still worked without it. It only matters when the **input box** must stay in sync with state, not just the paragraph below.
