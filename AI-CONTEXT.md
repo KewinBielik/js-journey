@@ -22,10 +22,10 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 
 | Field | Value |
 |-------|-------|
-| **Last completed lesson** | 30 — React intro (counter + controlled input working; **understanding shaky — pace was too fast**) |
-| **Next lesson** | 31 — React consolidation, NO new concepts (reread `day-30-react-intro/REFERENCE.md`, rebuild something small with `useState`) |
-| **Last session date** | 2026-08-12 |
-| **Streak day** | 22 |
+| **Last completed lesson** | 32 — React list (link saver with array state) |
+| **Next lesson** | TBD — React props / split into components |
+| **Last session date** | 2026-08-14 |
+| **Streak day** | 24 |
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
@@ -118,7 +118,7 @@ day-NN-topic/
 
 ### Not yet
 
-- React (Lesson 30 in progress — Node install + `useState`)
+- React: JSX, `useState`, controlled inputs (Lesson 30–31; first pass was too fast, notes in `REFERENCE.md`)
 - Node/backend
 - Full portfolio rebuild (laryngologist site mentioned as future goal)
 
@@ -133,8 +133,10 @@ day-NN-topic/
 | **27** ✓ | Forms — submit, `preventDefault`, validation, notes + localStorage |
 | **28** ✓ | ES modules — split notes app into `storage` / `render` / `main` |
 | **29** ✓ | From-memory challenge — Link saver (form + list + localStorage) |
-| **30** | React intro — Vite setup, JSX, `useState` (counter) |
-| **Later** | Props, lists in React, then a small React app |
+| **30** ✓ | React intro — Vite, JSX, `useState` (counter) — pace was too fast |
+| **31** ✓ | Read `REFERENCE.md`, controlled inputs |
+| **32** ✓ | Rebuild link saver in React — array state, `.map()`, no mutate |
+| **Later** | Props / more than one component |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.
 

@@ -449,3 +449,20 @@ selector {
     - `value={text}` without `onChange` → the input is stuck / read-only.
   - Tooling: Node = JS outside the browser. npm = installs packages. Vite = turns JSX into JS the browser understands + refreshes on save. `node_modules` is gitignored — on another PC run `npm install`.
 - **What confused me:** Controlled inputs — I thought `value={text}` was required because the demo still worked without it. It only matters when the **input box** must stay in sync with state, not just the paragraph below.
+
+## Lesson 32 — React-list
+- **Date:** 2026-08-14 · Streak day 24
+- **What I did:** Created the link saver website with React. I tried to write as much as possible from memory and my own understanding but I still have to look things up because React still feels confusing to me.
+- **What I learned:**
+  - All the functions and `useState`s must be **inside** the component. I was putting them outside because I viewed the component like a standard function — then I got an error that pointed this out.
+  - I knew I can't write `onClick={functionName(argument)}` because that would run the function instantly, and instead I have to use `onClick={functionName}`. Now I also get why `onClick={() => functionName(argument)}` works: `() =>` creates a function that takes no arguments (React will still call it with the click event, which we ignore) and then runs another function with **our** argument. We are still passing a function into `onClick`.
+  - `function changeText(event) { ... }` and `const changeText = (event) => { ... }` are the **same thing** — two ways to write a function (arrow functions from Lesson 13). React does not care. I can use `function` everywhere if I want.
+  - The browser / React **always passes an event object** into the handler — same as `addEventListener("submit", (event) => ...)`. `event.target` is the element that changed; `.value` is what's in the input. That's why `changeText` has `event`. `deleteLink` doesn't need `event` — it needs the item's `id`, which I pass myself.
+  - A `<button>` inside a `<form>` defaults to `type="submit"`. Delete was submitting the form until I used `type="button"` and moved the list **outside** the form.
+  - Don't mutate the state array (`push` / `splice`). New array: `setLinks([...links, newLink])` to add, `setLinks(links.filter((link) => link.id !== id))` to delete.
+- **What confused me:**
+  - I couldn't get my head around `useState` on an array until I just wrote `useState([])`.
+  - I again forgot to put `event` as `submit`'s parameter. It's confusing because it does not throw an error and just works (old global `event`).
+  - Overall the lesson was super confusing at first — I had no idea how to access stuff, how to render, etc.
+  - The biggest problem was Delete: I had no clue how I would pass it the link to remove. Also Delete felt like it ran Submit (`"Enter all fields"`) until I learned about default `type="submit"`.
+  - `const` + arrow vs `function` + why `event` is there looked like two different React rules. They're not.
