@@ -466,3 +466,23 @@ selector {
   - Overall the lesson was super confusing at first — I had no idea how to access stuff, how to render, etc.
   - The biggest problem was Delete: I had no clue how I would pass it the link to remove. Also Delete felt like it ran Submit (`"Enter all fields"`) until I learned about default `type="submit"`.
   - `const` + arrow vs `function` + why `event` is there looked like two different React rules. They're not.
+
+## Lesson 33 — React-props
+- **Date:** 2026-08-15 · Streak day 25
+- **What I did:** I created a new component in a new file (`LinkItem.jsx`), imported it into `App.jsx`, and used it in the `.map()` so each link row is its own component with props.
+- **What I learned:**
+  - **Props** is one object. JSX attributes are just a nicer way to pass it:
+    ```jsx
+    <LinkItem title={link.title} url={link.url} onDelete={() => deleteLink(link.id)} />
+    ```
+    inside the component that's `props.title`, `props.url`, `props.onDelete`.
+  - Importing a component from another `.jsx` file: `import LinkItem from "./LinkItem.jsx"`.
+  - `key={link.id}` stays on `<LinkItem>` in the `.map()`, not inside `LinkItem`.
+  - `deleteLink` stays in `App` because `App` owns `links` / `setLinks`. `LinkItem` only tells the button what to run (`onClick={props.onDelete}`). It does call that function on click — it just doesn't know the name `deleteLink` and doesn't touch the array. **App decides what delete means; LinkItem decides when (on click).**
+  - Put a newline/`return` of JSX inside `()` so React doesn't return `undefined`:
+    ```jsx
+    return (
+      <li>...</li>
+    );
+    ```
+- **What confused me:** I put a line break after `return` in `LinkItem.jsx` and it didn't return the `<li>`. Packing the return in `()` fixed it.

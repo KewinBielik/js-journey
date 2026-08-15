@@ -22,10 +22,10 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 
 | Field | Value |
 |-------|-------|
-| **Last completed lesson** | 32 — React list (link saver with array state) |
-| **Next lesson** | TBD — React props / split into components |
-| **Last session date** | 2026-08-14 |
-| **Streak day** | 24 |
+| **Last completed lesson** | 33 — React props (`LinkItem`) |
+| **Next lesson** | TBD — more components / `useEffect` + localStorage in React |
+| **Last session date** | 2026-08-15 |
+| **Streak day** | 25 |
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
@@ -118,7 +118,7 @@ day-NN-topic/
 
 ### Not yet
 
-- React: JSX, `useState`, controlled inputs (Lesson 30–31; first pass was too fast, notes in `REFERENCE.md`)
+- React: JSX, `useState`, lists in state, props / child components
 - Node/backend
 - Full portfolio rebuild (laryngologist site mentioned as future goal)
 
@@ -136,7 +136,8 @@ day-NN-topic/
 | **30** ✓ | React intro — Vite, JSX, `useState` (counter) — pace was too fast |
 | **31** ✓ | Read `REFERENCE.md`, controlled inputs |
 | **32** ✓ | Rebuild link saver in React — array state, `.map()`, no mutate |
-| **Later** | Props / more than one component |
+| **33** ✓ | Props — extract `LinkItem` from the link saver |
+| **Later** | More components / `useEffect` + localStorage in React |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.
 
