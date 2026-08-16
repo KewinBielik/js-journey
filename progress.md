@@ -486,3 +486,14 @@ selector {
     );
     ```
 - **What confused me:** I put a line break after `return` in `LinkItem.jsx` and it didn't return the `<li>`. Packing the return in `()` fixed it.
+
+## Lesson 34 — useEffect + localStorage
+- **Date:** 2026-08-16 · Streak day 26
+- **What I did:** Made the React link saver remember links after refresh — load from `localStorage` as the starting `useState`, save with `useEffect`.
+- **What I learned:**
+  - A **side effect** here means talking to the outside world (`localStorage`), not computing the UI. `useEffect` = after React has painted, also do that.
+  - `[links]` = run the effect after render if `links` changed. More accurate to save both: `[links, nextId]`.
+  - Load with `useState(() => { ... getItem ... })` so it runs **once** as the initial value. Two effects (load + save) can **race**: if save runs first with `[]`, it erases the stored data.
+  - Same `JSON.stringify` / `JSON.parse` / `null` check as Lesson 24.
+  - **Spread (from earlier today):** `[...links, newLink]` first builds **one** new array `[links[0], links[1], …, newLink]`. Then `setLinks` gets that **one** array — not `setLinks(item0, item1, newItem)`.
+- **What confused me:** Didn't have a definition for "side effect" until after. The race (save before load wiping storage) made sense.
