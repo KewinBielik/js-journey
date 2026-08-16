@@ -497,3 +497,15 @@ selector {
   - Same `JSON.stringify` / `JSON.parse` / `null` check as Lesson 24.
   - **Spread (from earlier today):** `[...links, newLink]` first builds **one** new array `[links[0], links[1], …, newLink]`. Then `setLinks` gets that **one** array — not `setLinks(item0, item1, newItem)`.
 - **What confused me:** Didn't have a definition for "side effect" until after. The race (save before load wiping storage) made sense.
+
+## Lesson 35 — Fetch in React
+- **Date:** 2026-08-16 · Streak day 26
+- **What I did:** Built a GitHub profile loader in React — type a username, submit, `useEffect` fetches the API, show avatar + repo count.
+- **What I learned:**
+  - `fetch` is a side effect (network). Don't call it at the top of `App()`. Put it in `useEffect` (or in a click/submit handler).
+  - Split **input** (what I type) from **username** (what I fetch). Submit copies input → username. Effect depends on `[username]` so typing doesn't fetch every keystroke.
+  - The effect callback cannot be `async`. Define `async function load()` inside and call `load()`. Skip fetch if `username` is empty.
+  - Same fetch as Lesson 25: two awaits, `response.ok`, `try` / `catch`, `name || login`.
+  - `{profile && (<img ... />)}` — `&&` in JSX: if `profile` is falsy (`null`), show nothing; if it's the object, show the img. Need `useState(null)` because `[]` is truthy and would still try to draw the image.
+  - GitHub **403 Forbidden** is often the **rate limit** (~60 requests/hour, and Strict Mode can double fetches in dev). My catch said "could not find this profile" for every error, so 403 looked like a missing user. Check Network tab: 404 vs 403.
+- **What confused me:** The `{profile && ( <img /> )}` syntax. Also every search became Forbidden until I learned about the API rate limit.
