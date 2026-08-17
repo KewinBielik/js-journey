@@ -509,3 +509,17 @@ selector {
   - `{profile && (<img ... />)}` — `&&` in JSX: if `profile` is falsy (`null`), show nothing; if it's the object, show the img. Need `useState(null)` because `[]` is truthy and would still try to draw the image.
   - GitHub **403 Forbidden** is often the **rate limit** (~60 requests/hour, and Strict Mode can double fetches in dev). My catch said "could not find this profile" for every error, so 403 looked like a missing user. Check Network tab: 404 vs 403.
 - **What confused me:** The `{profile && ( <img /> )}` syntax. Also every search became Forbidden until I learned about the API rate limit.
+
+## Lesson 36 — Mini-project: Repo explorer (React) Part 1
+- **Date:** 2026-08-17 · Streak day 27
+- **What I did:** Assigned a few `useState`s, made submit fetch the repo list, and `.map()` to show repos on the screen. Not finished yet (no favourites / persist).
+- **What I learned:**
+  - Looking at old code before starting helped — I remembered most of the logic and only had to check syntax a few times (`await`, etc.).
+  - `.map()` with JSX: if you use `{ }` after `=>`, that's a **function body** and you must `return` the JSX. I wrote `repos.map((repo) => {})` which returns `undefined` for every item. Use parentheses to return JSX directly:
+    ```jsx
+    repos.map((repo) => (
+      <li key={repo.id}>...</li>
+    ))
+    ```
+    `{ }` = block (needs `return`). `( )` = return this value.
+- **What confused me:** `.map()` from memory was hard. Even after looking at day 32 I still used `{ }` and couldn't spot that small detail for a while.

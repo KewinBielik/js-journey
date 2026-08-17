@@ -23,9 +23,9 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 | Field | Value |
 |-------|-------|
 | **Last completed lesson** | 35 — Fetch in React (GitHub profile) |
-| **Next lesson** | TBD — small React project combining list + fetch + persist |
-| **Last session date** | 2026-08-16 |
-| **Streak day** | 26 |
+| **Next lesson** | 36 — React repo explorer (`day-36-react-repos/`, in progress) |
+| **Last session date** | 2026-08-17 |
+| **Streak day** | 27 |
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
@@ -139,7 +139,8 @@ day-NN-topic/
 | **33** ✓ | Props — extract `LinkItem` from the link saver |
 | **34** ✓ | `useEffect` + localStorage (persist link saver) |
 | **35** ✓ | Fetch in React — GitHub profile + `useEffect` |
-| **Later** | Small React project combining list + fetch + persist |
+| **36** | Mini-project: React repo explorer (fetch + list + fav persist) |
+| **Later** | More React only if the project needs it; then backend |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.
 
