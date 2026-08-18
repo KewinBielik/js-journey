@@ -8,8 +8,12 @@ const defaultStatus = "Search for a user to see their repos."
 
 function RepoItem (props){
   return (
-      <a href={props.url} target="_blank" rel="noopener" className="name">{props.name}</a>
-  )
+    <li  className="item">
+    <a href={props.url} target="_blank" rel="noopener" className="name">{props.name}</a>
+    <p className="desc">{props.description ? props.description : "No description"}</p>
+    <button className="btn-fav" onClick={props.favButton}> {"⭐"}</button>
+    </li>
+    )
 }
 
 function App() {
@@ -20,6 +24,7 @@ function App() {
   const [status, setStatus] = useState(defaultStatus);
 
   const [repos, setRepos] = useState([]);
+  const [favIds, setFavIds] = useState([]);
 
   useEffect (() => {
     async function load(){
@@ -39,6 +44,25 @@ function App() {
     }
     if (username) load();
   }, [username])
+
+  function addFavourite(id) {
+    if (favIds.includes(id)){
+      setFavIds(favIds.filter((favId)=>favId!==id));
+    } else {
+      setFavIds([...favIds, id]);
+    }
+    console.log(favIds);
+  }
+
+  function isFav(event) {
+    if (event.target.className === "btn-fav"){
+      event.target.className = "btn-fav is-fav";
+    } else {
+      event.target.className = "btn-fav";
+    }
+    
+  
+  }
 
   function changeInput(event){
     setInput(event.target.value);
@@ -72,9 +96,9 @@ function App() {
       <p className="status">{status}</p>
       <ul>
         {repos.map((repo) => (
-          <li key={repo.id}>
-            <RepoItem name={repo.name} url={repo.url}></RepoItem>
-          </li>
+          //<li key={repo.id}>
+            <RepoItem name={repo.name} url={repo.url} key={repo.id} description={repo.description} favButton = {isFav}></RepoItem>
+          //</li>
         ))}
       </ul>
     </div>

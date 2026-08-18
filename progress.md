@@ -510,7 +510,7 @@ selector {
   - GitHub **403 Forbidden** is often the **rate limit** (~60 requests/hour, and Strict Mode can double fetches in dev). My catch said "could not find this profile" for every error, so 403 looked like a missing user. Check Network tab: 404 vs 403.
 - **What confused me:** The `{profile && ( <img /> )}` syntax. Also every search became Forbidden until I learned about the API rate limit.
 
-## Lesson 36 — Mini-project: Repo explorer (React) Part 1
+## Lesson 36 — Mini-project: Repo explorer (React)
 - **Date:** 2026-08-17 · Streak day 27
 - **What I did:** Assigned a few `useState`s, made submit fetch the repo list, and `.map()` to show repos on the screen. Not finished yet (no favourites / persist).
 - **What I learned:**
@@ -523,3 +523,11 @@ selector {
     ```
     `{ }` = block (needs `return`). `( )` = return this value.
 - **What confused me:** `.map()` from memory was hard. Even after looking at day 32 I still used `{ }` and couldn't spot that small detail for a while.
+
+*Part 2:*
+- **Date:** 2026-08-18 · Streak day 28
+- **What I did:** Started favourites — `addFavourite(id)` updates a `favIds` array (add with spread, remove with `.filter`). Stopped for the day before wiring it to the button the React way. Not finished.
+- **What I learned:**
+  - Don't flip `className` on `event.target` (vanilla). React will overwrite it on the next render. The class should come from state: `favIds.includes(repo.id)`.
+  - Pass two props: `isFav={...}` (boolean) and `onToggleFav={() => addFavourite(repo.id)}` (callback with the id already baked in). `RepoItem` doesn't need to call `addFavourite` itself or poke the DOM.
+- **What confused me:** Felt like I had to call `addFavourite` from `isFav` and also pass the id. That was mixing two sources of truth (state + the button's class). One source: `favIds`.

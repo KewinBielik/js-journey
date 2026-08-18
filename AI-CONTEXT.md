@@ -24,8 +24,8 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 |-------|-------|
 | **Last completed lesson** | 35 — Fetch in React (GitHub profile) |
 | **Next lesson** | 36 — React repo explorer (`day-36-react-repos/`, in progress) |
-| **Last session date** | 2026-08-17 |
-| **Streak day** | 27 |
+| **Last session date** | 2026-08-18 |
+| **Streak day** | 28 |
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
