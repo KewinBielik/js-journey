@@ -22,10 +22,10 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 
 | Field | Value |
 |-------|-------|
-| **Last completed lesson** | 35 — Fetch in React (GitHub profile) |
-| **Next lesson** | 36 — React repo explorer (`day-36-react-repos/`, in progress) |
-| **Last session date** | 2026-08-18 |
-| **Streak day** | 28 |
+| **Last completed lesson** | 36 — React repo explorer (fetch + list + persisted favs) |
+| **Next lesson** | TBD — more React only if needed; then backend intro |
+| **Last session date** | 2026-08-19 |
+| **Streak day** | 29 |
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
@@ -105,7 +105,8 @@ day-NN-topic/
 - Mini-projects: task manager, todo list
 - `localStorage` + `JSON.stringify` / `JSON.parse`
 - `fetch` + `async`/`await`, promises, `try`/`catch`, `response.ok`
-- Mini-project: GitHub Repo Explorer (search users, render repos, favourites in `localStorage`)
+- Mini-project: GitHub Repo Explorer (vanilla: search users, render repos, favourites in `localStorage`)
+- Mini-project: GitHub Repo Explorer in React (fetch list, `RepoItem` props, persist fav ids)
 - Forms: `submit`, `preventDefault`, validation, `form.reset()`, named form fields
 - ES modules: `import` / `export`, `type="module"`, local server for modules
 
@@ -139,7 +140,7 @@ day-NN-topic/
 | **33** ✓ | Props — extract `LinkItem` from the link saver |
 | **34** ✓ | `useEffect` + localStorage (persist link saver) |
 | **35** ✓ | Fetch in React — GitHub profile + `useEffect` |
-| **36** | Mini-project: React repo explorer (fetch + list + fav persist) |
+| **36** ✓ | Mini-project: React repo explorer (fetch + list + fav persist) |
 | **Later** | More React only if the project needs it; then backend |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.

@@ -531,3 +531,12 @@ selector {
   - Don't flip `className` on `event.target` (vanilla). React will overwrite it on the next render. The class should come from state: `favIds.includes(repo.id)`.
   - Pass two props: `isFav={...}` (boolean) and `onToggleFav={() => addFavourite(repo.id)}` (callback with the id already baked in). `RepoItem` doesn't need to call `addFavourite` itself or poke the DOM.
 - **What confused me:** Felt like I had to call `addFavourite` from `isFav` and also pass the id. That was mixing two sources of truth (state + the button's class). One source: `favIds`.
+
+*Part 3:*
+- **Date:** 2026-08-19 · Streak day 29
+- **What I did:** Finished the React repo explorer — favourite stars from `favIds` + `isFav` boolean, persist fav ids and last username with `localStorage`. Do not save the repo list.
+- **What I learned:**
+  - Class on the button: `className={props.isFav ? "btn-fav is-fav" : "btn-fav"}` (or a `let` string built from that boolean). Same thing — derived from props, not from the DOM.
+  - Repos are borrowed (GitHub) → refetch. Favourite **ids** and last username are mine → `localStorage`. Ids, not names, because names aren't unique across users.
+  - GitHub page link is `html_url`, not `url`.
+- **What confused me:** Nothing new today — wiring the boolean to the class clicked after yesterday.

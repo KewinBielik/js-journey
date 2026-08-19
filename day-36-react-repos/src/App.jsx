@@ -2,29 +2,30 @@
 // Peek at day-26 (vanilla), day-33 (props), day-34 (persist), day-35 (fetch).
 
 import { useEffect, useState } from "react";
+import RepoItem from "./RepoItem";
 
 const API_URL = "https://api.github.com/users/";
 const defaultStatus = "Search for a user to see their repos."
 
-function RepoItem (props){
-  return (
-    <li  className="item">
-    <a href={props.url} target="_blank" rel="noopener" className="name">{props.name}</a>
-    <p className="desc">{props.description ? props.description : "No description"}</p>
-    <button className="btn-fav" onClick={props.favButton}> {"⭐"}</button>
-    </li>
-    )
-}
+
 
 function App() {
 
   const [input, setInput] = useState("");
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState(()=>{
+    const raw = localStorage.getItem("username");
+    if (raw === null) return "";
+    return raw;
+  });
 
   const [status, setStatus] = useState(defaultStatus);
 
   const [repos, setRepos] = useState([]);
-  const [favIds, setFavIds] = useState([]);
+  const [favIds, setFavIds] = useState(()=>{
+    const raw = JSON.parse(localStorage.getItem("favIds"));
+    if (raw === null) return []
+    return raw;
+  });
 
   useEffect (() => {
     async function load(){
@@ -38,12 +39,21 @@ function App() {
         console.log(data);
         setStatus(defaultStatus);
         setRepos(data);
+        localStorage.setItem("username", username);
       } catch (error) {
         console.log(`we got an error ${error}`);
+        setStatus("Repository not found");
+        setRepos([]);
       }
     }
     if (username) load();
   }, [username])
+
+  useEffect (() => {
+    localStorage.setItem("favIds", JSON.stringify(favIds));
+  }, [favIds])
+
+
 
   function addFavourite(id) {
     if (favIds.includes(id)){
@@ -51,17 +61,6 @@ function App() {
     } else {
       setFavIds([...favIds, id]);
     }
-    console.log(favIds);
-  }
-
-  function isFav(event) {
-    if (event.target.className === "btn-fav"){
-      event.target.className = "btn-fav is-fav";
-    } else {
-      event.target.className = "btn-fav";
-    }
-    
-  
   }
 
   function changeInput(event){
@@ -70,7 +69,6 @@ function App() {
 
   function submit(event) {
     event.preventDefault();
-    console.log("elo");
 
     if (!input.trim()){
       console.log("empty input");
@@ -96,9 +94,13 @@ function App() {
       <p className="status">{status}</p>
       <ul>
         {repos.map((repo) => (
-          //<li key={repo.id}>
-            <RepoItem name={repo.name} url={repo.url} key={repo.id} description={repo.description} favButton = {isFav}></RepoItem>
-          //</li>
+            <RepoItem 
+            name={repo.name} 
+            url={repo.html_url} 
+            key={repo.id} 
+            description={repo.description} 
+            favButton = {()=>{addFavourite(repo.id)}}
+            isFav = {favIds.includes(repo.id)}></RepoItem>
         ))}
       </ul>
     </div>
