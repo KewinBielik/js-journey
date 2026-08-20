@@ -540,3 +540,13 @@ selector {
   - Repos are borrowed (GitHub) → refetch. Favourite **ids** and last username are mine → `localStorage`. Ids, not names, because names aren't unique across users.
   - GitHub page link is `html_url`, not `url`.
 - **What confused me:** Nothing new today — wiring the boolean to the class clicked after yesterday.
+
+## Lesson 37 — Node.js (files)
+- **Date:** 2026-08-20 · Streak day 30
+- **What I did:** Ran `node script.js`, wrote/read `notes.json` with `fs`. First run: no file yet (`ENOENT`); later runs read the file and it grew each time.
+- **What I learned:**
+  - Node runs JS in the terminal — no browser, no `localStorage`. `fs` reads/writes files instead.
+  - Same JSON round-trip: `JSON.stringify` before write, `JSON.parse` after read. `null, 2` pretty-prints the file.
+  - Read first, then `push`, then write — otherwise every run overwrites from a hardcoded array.
+  - `ENOENT` = file not found. `try` / `catch` lets the script continue and still create the file. `console.log(error)` dumps a huge stack; a short message is enough.
+- **What confused me:** Nothing much — lesson was simple. The first-run error looked like a crash but the script actually kept going.

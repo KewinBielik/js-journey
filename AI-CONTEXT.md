@@ -22,10 +22,10 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 
 | Field | Value |
 |-------|-------|
-| **Last completed lesson** | 36 — React repo explorer (fetch + list + persisted favs) |
-| **Next lesson** | TBD — more React only if needed; then backend intro |
-| **Last session date** | 2026-08-19 |
-| **Streak day** | 29 |
+| **Last completed lesson** | 37 — Node.js `fs` + JSON file |
+| **Next lesson** | TBD — Express (your own API) |
+| **Last session date** | 2026-08-20 |
+| **Streak day** | 30 |
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
@@ -120,7 +120,7 @@ day-NN-topic/
 ### Not yet
 
 - React: JSX, `useState`, lists, props, `useEffect` + `localStorage`, `fetch` in `useEffect`
-- Node/backend
+- Node: `fs` read/write, JSON files as storage (`day-37-nodejs`)
 - Full portfolio rebuild (laryngologist site mentioned as future goal)
 
 ---
@@ -141,7 +141,8 @@ day-NN-topic/
 | **34** ✓ | `useEffect` + localStorage (persist link saver) |
 | **35** ✓ | Fetch in React — GitHub profile + `useEffect` |
 | **36** ✓ | Mini-project: React repo explorer (fetch + list + fav persist) |
-| **Later** | More React only if the project needs it; then backend |
+| **37** ✓ | Node.js — run a script, `fs` + JSON file (no Express yet) |
+| **Later** | Express (your own API), then a database |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.
 
