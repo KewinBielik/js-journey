@@ -550,3 +550,13 @@ selector {
   - Read first, then `push`, then write — otherwise every run overwrites from a hardcoded array.
   - `ENOENT` = file not found. `try` / `catch` lets the script continue and still create the file. `console.log(error)` dumps a huge stack; a short message is enough.
 - **What confused me:** Nothing much — lesson was simple. The first-run error looked like a crash but the script actually kept going.
+
+## Lesson 38 — Express
+- **Date:** 2026-08-21 · Streak day 31
+- **What I did:** Installed Express, made `server.js` listen on port 3000. `GET /notes` sends JSON (from `notes.json` via `fs` if the file exists). `GET /hello` sends different JSON. Opened the URLs in the browser.
+- **What I learned:**
+  - Lesson 37's script runs and **exits**. Express **stays running** and waits for HTTP. Stop with `Ctrl+C`. Restart after code changes.
+  - A **route** is "this URL path → this function." `app.get("/notes", ...)` vs `app.get("/hello", ...)`.
+  - `res.json(...)` sends a JS value as JSON (Express does the stringify). Same kind of thing as GitHub's API, on `localhost`.
+  - `fs` only sees files in the folder you ran `node` from. Copy or create `notes.json` next to `server.js` — it's not `notes.js` and it's not in `day-37` automatically.
+- **What confused me:** Thought I had to read Lesson 37's `notes.json` from the other folder / a `notes.js` file. The file has to live (or be copied) into `day-38-express`.
