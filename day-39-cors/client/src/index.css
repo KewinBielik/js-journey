@@ -1,0 +1,29 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 520px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  line-height: 1.5;
+  color: #1f2937;
+}
+
+h1 {
+  margin-bottom: 0.25rem;
+}
+
+.hint {
+  color: #6b7280;
+  margin-top: 0;
+}
+
+.status {
+  color: #6b7280;
+}
+
+.error {
+  color: #b91c1c;
+}
+
+ul {
+  padding-left: 1.25rem;
+}

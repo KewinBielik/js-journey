@@ -560,3 +560,13 @@ selector {
   - `res.json(...)` sends a JS value as JSON (Express does the stringify). Same kind of thing as GitHub's API, on `localhost`.
   - `fs` only sees files in the folder you ran `node` from. Copy or create `notes.json` next to `server.js` — it's not `notes.js` and it's not in `day-37` automatically.
 - **What confused me:** Thought I had to read Lesson 37's `notes.json` from the other folder / a `notes.js` file. The file has to live (or be copied) into `day-38-express`.
+
+## Lesson 39 — React fetches Express (CORS)
+- **Date:** 2026-08-24 · Streak day 32
+- **What I did:** React app `fetch`es `http://localhost:3000/notes`. Saw CORS in the console, then `npm install cors` and `app.use(cors())` on the server. Listed titles from the API.
+- **What I learned:**
+  - **Origin** = protocol + host + **port**. `localhost:5173` and `localhost:3000` are different origins. The **browser** blocks the `fetch` until **Express** allows it (`cors`). You don't fix CORS in React.
+  - Two terminals: API + Vite both have to stay running.
+  - Don't put `fetch` in `useState(() => ...)`. `async` returns a **Promise**, so `list.map` blows up (`map is not a function`).
+  - Load once with `useEffect(..., [])` then `setList(data)`. That is **not** an infinite loop. A loop is `useEffect(..., [list])` **and** `setList` inside — watching the thing you change.
+- **What confused me:** Thought `setList` inside an effect that "uses the list" would loop forever. Empty `[]` means run after first paint only, even if you `setList` once after fetch.

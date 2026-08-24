@@ -22,10 +22,10 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 
 | Field | Value |
 |-------|-------|
-| **Last completed lesson** | 38 — Express GET JSON on localhost |
-| **Next lesson** | TBD — `fetch` your API from React (CORS) |
-| **Last session date** | 2026-08-21 |
-| **Streak day** | 31 |
+| **Last completed lesson** | 39 — React `fetch` to Express (CORS) |
+| **Next lesson** | TBD — POST to your API, then a database |
+| **Last session date** | 2026-08-24 |
+| **Streak day** | 32 |
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
@@ -122,6 +122,7 @@ day-NN-topic/
 - React: JSX, `useState`, lists, props, `useEffect` + `localStorage`, `fetch` in `useEffect`
 - Node: `fs` read/write, JSON files as storage (`day-37-nodejs`)
 - Express: `app.get`, `res.json`, `listen` — JSON API on localhost
+- CORS: React on :5173 fetching Express on :3000; `app.use(cors())`
 - Full portfolio rebuild (laryngologist site mentioned as future goal)
 
 ---
@@ -144,7 +145,8 @@ day-NN-topic/
 | **36** ✓ | Mini-project: React repo explorer (fetch + list + fav persist) |
 | **37** ✓ | Node.js — run a script, `fs` + JSON file (no Express yet) |
 | **38** ✓ | Express — `GET` JSON on localhost (no React/CORS yet) |
-| **Later** | `fetch` your API from React (CORS), then a database |
+| **39** ✓ | React `fetch` to Express — CORS (`cors` package) |
+| **Later** | POST to your API, then a database |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.
 
