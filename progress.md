@@ -570,3 +570,22 @@ selector {
   - Don't put `fetch` in `useState(() => ...)`. `async` returns a **Promise**, so `list.map` blows up (`map is not a function`).
   - Load once with `useEffect(..., [])` then `setList(data)`. That is **not** an infinite loop. A loop is `useEffect(..., [list])` **and** `setList` inside — watching the thing you change.
 - **What confused me:** Thought `setList` inside an effect that "uses the list" would loop forever. Empty `[]` means run after first paint only, even if you `setList` once after fetch.
+
+## Lesson 40 — POST to my API
+
+*Part 1: the server side*
+- **Date:** 2026-08-26 · Streak day 33
+- **What I did:** Added `app.use(express.json())` and a `POST /notes` route — builds the note, `push`, `saveNotes()`, sends it back with 201. Rejects an empty title with 400. Tested from the DevTools console, `notes.json` grew. React form not done yet.
+- **What I learned:**
+  - `GET` asks for data, `POST` carries data. Same `/notes` path, different **method**, so `app.get` and `app.post` don't collide.
+  - `app.use(express.json())` is what parses the body. Without it `req.body` is `undefined`.
+  - `fetch`'s **second argument**: `method`, `headers: { "Content-Type": "application/json" }`, and `body: JSON.stringify(...)`. The body is a string — same round-trip as `localStorage`.
+  - Status codes are the reply's meaning: **201** created, **400** your request was bad, **500** the server broke.
+  - Validate on the **server** too, not just in the form. Anyone can call the API without my page.
+  - No `localStorage` on the server — that's a browser (`window`) API. Node persists to files.
+  - `chrome://newtab` can't `fetch` my API: Chrome's **Content Security Policy** only lets that page talk to `chrome://` URLs. Different thing from CORS — CSP = who *this page* may call, CORS = who may call *this server*. Run the console test from a real `http://` page.
+- **What confused me:** How to keep `nextId` across restarts. First idea was to store it as the first element of the notes array — bad, that array would then hold two kinds of thing and every `.map()` would have to skip it. Went with deriving it instead:
+  ```js
+  const nextId = notes.length ? Math.max(...notes.map((n) => n.id)) + 1 : 1;
+  ```
+  Nothing extra to save and it survives restarts because it's recomputed from the file. Downside: ids get **reused** after a delete. Fine now (no DELETE yet), will need a stored counter or `crypto.randomUUID()` later.

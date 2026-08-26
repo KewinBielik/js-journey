@@ -23,9 +23,9 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 | Field | Value |
 |-------|-------|
 | **Last completed lesson** | 39 — React `fetch` to Express (CORS) |
-| **Next lesson** | TBD — POST to your API, then a database |
-| **Last session date** | 2026-08-24 |
-| **Streak day** | 32 |
+| **Next lesson** | 40 — POST to your API (`day-40-post/`, in progress) |
+| **Last session date** | 2026-08-26 |
+| **Streak day** | 33 |
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
@@ -146,7 +146,8 @@ day-NN-topic/
 | **37** ✓ | Node.js — run a script, `fs` + JSON file (no Express yet) |
 | **38** ✓ | Express — `GET` JSON on localhost (no React/CORS yet) |
 | **39** ✓ | React `fetch` to Express — CORS (`cors` package) |
-| **Later** | POST to your API, then a database |
+| **40** | POST — `express.json()`, `req.body`, `fetch` with a body |
+| **Later** | DELETE/PUT, then a database |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.
 
