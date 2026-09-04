@@ -11,8 +11,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-// TODO (Goal 1): one more app.use(...) is needed before your routes,
-// or req.body will be undefined. See LESSON.md.
+
 
 let notes = [];
 
@@ -35,6 +34,10 @@ app.get("/notes", (req, res) => {
 app.post("/notes", (req, res) => {
   console.log(req.body);   // whatever the client sent
   // ...build the note, add it to the array, save the file
+  if (req.body.title === undefined || req.body.description === undefined) {
+    res.status(400).json("Missing title or description (or both)");
+    return;
+  }
   if (!req.body.title.trim()) {
     res.status(400).json("Bad input, title empty or missing");
     return;
@@ -49,8 +52,6 @@ app.post("/notes", (req, res) => {
   res.status(201).json(newNote);
 });
 
-// TODO (Goal 2): app.post("/notes", ...) — read req.body, add to notes,
-// saveNotes(), and send the new note back.
 
 app.listen(3000, () => {
   console.log("API: http://localhost:3000/notes");

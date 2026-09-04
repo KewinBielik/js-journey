@@ -589,3 +589,13 @@ selector {
   const nextId = notes.length ? Math.max(...notes.map((n) => n.id)) + 1 : 1;
   ```
   Nothing extra to save and it survives restarts because it's recomputed from the file. Downside: ids get **reused** after a delete. Fine now (no DELETE yet), will need a stored counter or `crypto.randomUUID()` later.
+
+*Part 2: the React form*
+- **Date:** 2026-09-04 · Streak day 34
+- **What I did:** Came back after a week off. New PC needed Node (installed via nvm) and `npm install` in both folders. Built the form — two controlled inputs, submit with `preventDefault`, POST with the options object, then re-fetch the list. Notes survive refresh and a server restart.
+- **What I learned:**
+  - `npm install` with no package name just reads `package.json` — that's why gitignoring `node_modules` is fine across two PCs.
+  - After a POST you either append the note from the response or re-fetch the whole list. I picked re-fetch: one extra round trip, but the page always matches the server.
+  - Extracted `load()` out of the `useEffect` so both the effect and `sendNote` can call it. Before that I had the same fetch block written twice.
+  - Server-side validation needs to check `undefined` *before* calling `.trim()` on it, otherwise a body with no `title` key crashes the route instead of returning 400.
+- **What confused me:** Nothing new — but I made the `event` parameter mistake for the third time. `onChange={updateInputTitle}` with `function updateInputTitle()` and no parameter still works because of the old global `event`, so it never errors. Third time is enough: the handler always gets the event, always name it.
