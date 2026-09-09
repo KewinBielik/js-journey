@@ -22,10 +22,10 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 
 | Field | Value |
 |-------|-------|
-| **Last completed lesson** | 39 — React `fetch` to Express (CORS) |
-| **Next lesson** | 40 — POST to your API (`day-40-post/`, in progress) |
-| **Last session date** | 2026-08-26 |
-| **Streak day** | 33 |
+| **Last completed lesson** | 41 — DELETE, route params, UUID ids |
+| **Next lesson** | 42 — PUT/PATCH, editing a note (not set up yet) |
+| **Last session date** | 2026-09-09 |
+| **Streak day** | 35 |
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
@@ -85,6 +85,14 @@ day-NN-topic/
 - Heavy-edit his `progress.md` voice — it's his learning journal
 - Create git commits unless he explicitly asks
 
+### Recurring slips worth watching for
+
+- **Missing `event` parameter** on a handler (`function h() { event.target... }`). Happened
+  in Lessons 27, 32 and 40. It never errors — the deprecated global `window.event` covers
+  for it — so it has to be caught in review.
+- **`{ }` vs `( )` after an arrow** in `.map()` — braces need an explicit `return` (Lesson 36).
+- **`<button>` in a `<form>` defaults to `type="submit"`** (Lesson 32).
+
 ### Lesson format Kewin prefers
 
 1. **Concept** — one clear idea explained in plain language
@@ -117,12 +125,29 @@ day-NN-topic/
 - Responsive basics (`@media`, mobile layout)
 - Still building design intuition — reference study helped
 
-### Not yet
+### React (working)
 
-- React: JSX, `useState`, lists, props, `useEffect` + `localStorage`, `fetch` in `useEffect`
-- Node: `fs` read/write, JSON files as storage (`day-37-nodejs`)
+- JSX, `useState`, lists + `key`, props, controlled inputs
+- `useEffect` — `[]` vs `[dep]`, `localStorage` persistence, `fetch` inside an effect
+- Vite dev server, `npm install` from `package.json` across two PCs (nvm on the Linux box)
+
+### Node / backend (working)
+
+- Node: `fs` read/write, JSON file as storage (`day-37-nodejs`)
 - Express: `app.get`, `res.json`, `listen` — JSON API on localhost
 - CORS: React on :5173 fetching Express on :3000; `app.use(cors())`
+- POST: `express.json()`, `req.body`, `fetch` with `method`/`headers`/`body`, 201 + 400,
+  server-side validation, server owns the id
+
+- DELETE: route params (`/notes/:id`), `req.params` is always a string, 404 as a normal
+  answer, `crypto.randomUUID()` instead of ids derived from the array
+
+### Not yet
+
+- PUT / PATCH — editing an existing note (Lesson 42)
+- Promise `.then()` chains — he uses `async`/`await` fluently but `.then()` still reads as
+  unfamiliar (his words, Lesson 41). Worth 10 minutes when it next comes up naturally.
+- Databases (after CRUD is complete)
 - Full portfolio rebuild (laryngologist site mentioned as future goal)
 
 ---
@@ -146,8 +171,10 @@ day-NN-topic/
 | **37** ✓ | Node.js — run a script, `fs` + JSON file (no Express yet) |
 | **38** ✓ | Express — `GET` JSON on localhost (no React/CORS yet) |
 | **39** ✓ | React `fetch` to Express — CORS (`cors` package) |
-| **40** | POST — `express.json()`, `req.body`, `fetch` with a body |
-| **Later** | DELETE/PUT, then a database |
+| **40** ✓ | POST — `express.json()`, `req.body`, `fetch` with a body |
+| **41** ✓ | DELETE — route params (`/notes/:id`), 404, and the id-reuse bug he predicted |
+| **42** | PUT/PATCH — editing an existing note |
+| **Later** | A database |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.
 

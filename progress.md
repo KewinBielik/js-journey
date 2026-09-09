@@ -599,3 +599,16 @@ selector {
   - Extracted `load()` out of the `useEffect` so both the effect and `sendNote` can call it. Before that I had the same fetch block written twice.
   - Server-side validation needs to check `undefined` *before* calling `.trim()` on it, otherwise a body with no `title` key crashes the route instead of returning 400.
 - **What confused me:** Nothing new — but I made the `event` parameter mistake for the third time. `onChange={updateInputTitle}` with `function updateInputTitle()` and no parameter still works because of the old global `event`, so it never errors. Third time is enough: the handler always gets the event, always name it.
+
+## Lesson 41 — Route parameters and delete in API
+- **Date:** 2026-09-09 · Streak day 35
+- **What I did:** Added a "delete note" option to the API using route parameters, plus a DELETE button on every note. Then reproduced the id-reuse bug I predicted last lesson and fixed it with random IDs.
+- **What I learned:**
+  - **Route parameters:** `app.delete("/notes/:id", ...)` — `:id` is a placeholder that matches anything, and the value lands in `req.params.id`. One route handles every note instead of one route per note.
+  - `req.params.id` is **always a string**, because a URL is just text. My notes had number ids, so `note.id === req.params.id` was `7 === "7"` → `false` and nothing got deleted. Fixed with `Number()`. Same strict `===` rule from Lesson 3, showing up somewhere new.
+  - POST puts its data in the **body**, DELETE puts it in the **URL** — because a note is a thing at an address (`/notes/7`). So the fetch is just `fetch(url/id, { method: "DELETE" })` — no headers, no body, nothing to send.
+  - **404 is not a crash.** It's the correct answer to "delete note 999" when there is no note 999. I'd only ever seen 404 happen *to* me (Lesson 25); now I'm the one sending it.
+  - **The id-reuse bug, reproduced on purpose.** `Math.max(...ids) + 1` only reuses an id when you delete the *highest* one — so it's intermittent, which is worse. Two tabs open: tab A deletes note 11 and adds a new note that gets id 11 again; tab B (never refreshed) clicks delete on its stale note 11 and destroys the new note instead. The server did nothing wrong and returned success. No error anywhere.
+  - **Why `crypto.randomUUID()` fixes it:** an id should be assigned once and never reused, not recomputed from whatever the array currently holds. Now a stale delete gets a clean 404 — "that's gone" — instead of silently hitting a different note. `crypto` is a global in Node 19+, no import needed (same Web Crypto API as the browser).
+  - Once ids were UUIDs I could drop `Number()` — they're strings on both sides now. I wiped the old notes to avoid mixed types; a real app would need a migration script instead.
+- **What confused me:** Nothing was confusing but I had to look up functions like `find()` and `some()`. I used `some()` to check existence and then `filter()` to remove — comparing length before/after would do it in one pass with the condition written once, though mine reads more clearly, so it's a trade rather than a fix. The console commands which use `.then()` are still a bit mysterious.
