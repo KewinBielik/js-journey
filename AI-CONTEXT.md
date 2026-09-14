@@ -23,9 +23,13 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 | Field | Value |
 |-------|-------|
 | **Last completed lesson** | 41 — DELETE, route params, UUID ids |
-| **Next lesson** | 42 — PUT/PATCH, editing a note (not set up yet) |
-| **Last session date** | 2026-09-09 |
-| **Streak day** | 35 |
+| **Next lesson** | 42 — PUT, editing a note (`day-42-put/`, **in progress**) |
+| **Last session date** | 2026-09-14 |
+| **Streak day** | 36 |
+
+> Lesson 42 state: server PUT written (but never sends a response), `validateNote()`
+> shared, `NoteItem` extracted, edit mode half-built. Three bugs listed at the end of the
+> Lesson 42 entry in `progress.md` — start there next session.
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
@@ -173,8 +177,8 @@ day-NN-topic/
 | **39** ✓ | React `fetch` to Express — CORS (`cors` package) |
 | **40** ✓ | POST — `express.json()`, `req.body`, `fetch` with a body |
 | **41** ✓ | DELETE — route params (`/notes/:id`), 404, and the id-reuse bug he predicted |
-| **42** | PUT/PATCH — editing an existing note |
-| **Later** | A database |
+| **42** | PUT — editing a note; the real lesson is *where state lives* (lift vs colocate) |
+| **43** | Likely a database (CRUD is complete after 42) |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.
 

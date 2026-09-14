@@ -612,3 +612,23 @@ selector {
   - **Why `crypto.randomUUID()` fixes it:** an id should be assigned once and never reused, not recomputed from whatever the array currently holds. Now a stale delete gets a clean 404 — "that's gone" — instead of silently hitting a different note. `crypto` is a global in Node 19+, no import needed (same Web Crypto API as the browser).
   - Once ids were UUIDs I could drop `Number()` — they're strings on both sides now. I wiped the old notes to avoid mixed types; a real app would need a migration script instead.
 - **What confused me:** Nothing was confusing but I had to look up functions like `find()` and `some()`. I used `some()` to check existence and then `filter()` to remove — comparing length before/after would do it in one pass with the condition written once, though mine reads more clearly, so it's a trade rather than a fix. The console commands which use `.then()` are still a bit mysterious.
+
+
+## Lesson 42 — PUT and editing a note
+
+*Part 1: the server + extracting the component*
+- **Date:** 2026-09-14 · Streak day 36
+- **What I did:** Wrote the `PUT /notes/:id` route, pulled `validateNote()` out so POST and PUT share it, extracted the `<li>` into a `NoteItem` component, and started edit mode in the UI. Edit is not functional yet.
+- **What I learned:**
+  - I managed to write the PUT syntax by copying `.post`, but I forgot the `:id` in `/notes/:id` and used `body.id` instead of `params.id`. Found both by debugging. PUT is the only route that needs **both** — the id from the URL and the new values from the body.
+  - `notes.find(...)` hands back a **reference** to the object inside the array, so assigning `targetNote.title = ...` edits the note that's really in `notes`. Same rule as Lesson 28 (passing an array into a function and mutating it).
+  - The client can't overwrite the id, because I only assign `title` and `description` — I never spread `req.body` in. The server still owns the id, like in Lesson 40.
+  - **Validation written once.** Pulled the POST checks into `validateNote(body)` that returns an error string or `null`. Fourth time this duplication pattern has shown up (the `load()` copy in 40, `some`+`filter` in 41, now this).
+  - Extracting the note into a component was quite hard, I had to look up Lesson 33. I spent a lot of time fixing a bad import that turned out to be a simple typo.
+  - **`if` before `return` in a component is fine** — it's the normal React "early return" pattern, and it's better than a `display: none` toggle, because the branch that doesn't render doesn't exist in the DOM at all rather than being hidden.
+  - I put the editing state in `App` (`editNoteId`, `editTitle`, `editDesc`) rather than inside `NoteItem` — Option A from the lesson. Only one note can be edited at a time, which is what I want.
+- **What confused me:** Nothing blocking, mostly the component extraction. Still to finish: Save/Cancel, the PUT call from React, and filling the edit inputs with the note's current text (right now clicking EDIT leaves them empty because I only set `editNoteId`).
+- **Bugs found in review, to fix next session:**
+  1. `updateInputTitle` and `updateInputDesc` are each declared **twice** in `App.jsx` — once for the create form, once for the edit fields. JS allows it and silently keeps the last one, so the create form's inputs now write to the *edit* state and typing in them does nothing. No error anywhere.
+  2. The PUT route ends with `res.status(201)` and never sends — `res.status()` only sets the code, so the request hangs until it times out. Needs `.json(...)` or `.end()`, and 200/204 rather than 201 (nothing was created).
+  3. `console.log` right after `setEditNoteId(noteId)` prints the **old** id — `set...` doesn't change the variable in the call that's already running.

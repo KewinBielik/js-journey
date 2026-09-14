@@ -1,0 +1,144 @@
+// Lesson 42 — your Lesson 41 app. It READS, CREATES and DELETES.
+// New job: edit a note in place. Read ../../LESSON.md
+//
+// TODO (Goal 3): pull the <li> out into a NoteItem component (like LinkItem, Lesson 33).
+// TODO (Goal 4): an Edit button that swaps the row into inputs + Save / Cancel.
+// TODO (Goal 5): async function that PUTs the changes, then refreshes.
+
+import { useEffect, useState } from "react";
+import NoteItem from "./NoteItem";
+
+const API_URL = "http://localhost:3000/notes";
+
+function App() {
+  const defaultStatus = "Nothing loaded yet.";
+
+  const [list, setList] = useState([]);
+  const [status, setStatus] = useState(defaultStatus);
+
+  const [inputTitle, setInputTitle] = useState("");
+  const [inputDesc, setInputDesc] = useState("");
+
+  const [editNoteId, setEditNoteId] = useState(null);
+  const [editTitle, setEditTitle] = useState("");
+  const [editDesc, setEditDesc] = useState("");
+
+
+  async function load() {
+    try {
+      setStatus("Loading...");
+      const response = await fetch(API_URL);
+      if (!response.ok) throw new Error(response.status);
+      const data = await response.json();
+      setList(data);
+      setStatus("Loading successful");
+    } catch (error) {
+      console.log(error);
+      setStatus("loading error");
+    }
+  }
+
+  useEffect(() => {
+    load();
+  }, []);
+
+  async function sendNote(note) {
+    try {
+      setStatus("Attempting to send a new note...");
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify(note),
+      });
+      if (!response.ok) throw new Error(response.status);
+      setStatus("Succesfully sent the note");
+      } catch (error) {
+        console.log(error);
+        setStatus("Error while sending");
+        return;
+      }
+      load();
+    }
+  
+  async function deleteNote(noteId){
+    console.log(`Trying to delete note with id = ${noteId}`);
+
+    try {
+      setStatus("Attempting to delete a note...");
+      const response = await fetch(`${API_URL}/${noteId}`, {method: "DELETE"});
+      if (!response.ok) throw new Error(response.status);
+      setStatus("Succesfully deleted the note");
+    } catch (error) {
+      console.log(error);
+      setStatus("Error while sending");
+      return;
+    }
+    load();
+  }
+
+  
+    
+  
+  function submit(event){
+    event.preventDefault();
+    if (!inputDesc.trim() || !inputTitle.trim()){
+      setStatus("Enter both title and description");
+      return;
+    }
+    const newNote = {title : inputTitle, description : inputDesc};
+    sendNote(newNote);
+
+    setInputDesc("");
+    setInputTitle("");
+  }
+
+  function updateInputTitle(event){
+    setInputTitle(event.target.value);
+  }
+
+  function updateInputDesc(event){
+    setInputDesc(event.target.value);
+  }
+
+  function updateEditNoteId(noteId){
+    setEditNoteId(noteId);
+    console.log(`edit id set to ${editNoteId}`);
+  }
+
+  function updateInputTitle(event){
+    setEditTitle(event.target.value);
+  }
+
+  function updateInputDesc(event){
+    setEditDesc(event.target.value);
+  }
+
+  return (
+    <div>
+      <h1>My notes API</h1>
+      <p className="hint">Lesson 41 — read AND write through the API.</p>
+      <form onSubmit={submit}>
+      <input type="text" value={inputTitle} onChange={updateInputTitle} placeholder="Enter Title..."></input>
+      <input type="text" value={inputDesc} onChange={updateInputDesc}  placeholder="Enter description..."></input>
+      <button type="submit">Submit</button>
+      </form>
+      <p className="status">{status}</p>
+      <ul>
+        {list.map((listItem) => (
+          <NoteItem 
+          key={listItem.id} 
+          title={listItem.title} 
+          description={listItem.description} 
+          onDelete={() => deleteNote(listItem.id)} 
+          onEdit={() => updateEditNoteId(listItem.id)}
+          isBeingEdited = {(editNoteId === listItem.id) ? true : false}
+          editTitle = {editTitle}
+          onChangeTitle = {updateInputTitle}
+          />
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
