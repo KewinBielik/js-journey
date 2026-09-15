@@ -76,6 +76,26 @@ function App() {
     load();
   }
 
+  async function editNote(noteId){
+    console.log(`Trying to edit note with id = ${noteId}`);
+
+    try {
+      setStatus("Attempting to edit a note...");
+      const response = await fetch(`${API_URL}/${noteId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({title: editTitle, description: editDesc}),
+      })
+      if (!response.ok) throw new Error(response.status);
+      setStatus("Succesfully edited the note");
+    } catch (error) {
+      console.log(error);
+      setStatus("Error while editing");
+      return;
+    }
+    load();
+  }
+
   
     
   
@@ -102,21 +122,29 @@ function App() {
 
   function updateEditNoteId(noteId){
     setEditNoteId(noteId);
-    console.log(`edit id set to ${editNoteId}`);
+    console.log(`edit id set to ${noteId}`);
+    if (noteId === null) {
+      setEditDesc("");
+      setEditTitle("");
+    } else {
+      const targetNote = list.find((n) => n.id === noteId);
+      setEditDesc(targetNote.description);
+      setEditTitle(targetNote.title);
+    }
   }
 
-  function updateInputTitle(event){
+  function updateEditTitle(event){
     setEditTitle(event.target.value);
   }
 
-  function updateInputDesc(event){
+  function updateEditDesc(event){
     setEditDesc(event.target.value);
   }
 
   return (
     <div>
       <h1>My notes API</h1>
-      <p className="hint">Lesson 41 — read AND write through the API.</p>
+      <p className="hint">Lesson 42 — Adding the edit button.</p>
       <form onSubmit={submit}>
       <input type="text" value={inputTitle} onChange={updateInputTitle} placeholder="Enter Title..."></input>
       <input type="text" value={inputDesc} onChange={updateInputDesc}  placeholder="Enter description..."></input>
@@ -130,10 +158,21 @@ function App() {
           title={listItem.title} 
           description={listItem.description} 
           onDelete={() => deleteNote(listItem.id)} 
+          
           onEdit={() => updateEditNoteId(listItem.id)}
-          isBeingEdited = {(editNoteId === listItem.id) ? true : false}
+          isBeingEdited = {editNoteId === listItem.id}
+
+          cancel ={()=>updateEditNoteId(null)}
+          save ={()=>{
+            editNote(listItem.id);
+            updateEditNoteId(null);
+          }}
+          
           editTitle = {editTitle}
-          onChangeTitle = {updateInputTitle}
+          onChangeTitle = {updateEditTitle}
+          
+          editDesc = {editDesc}
+          onChangeDesc = {updateEditDesc}
           />
         ))}
       </ul>

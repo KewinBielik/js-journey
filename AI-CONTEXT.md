@@ -22,14 +22,14 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 
 | Field | Value |
 |-------|-------|
-| **Last completed lesson** | 41 — DELETE, route params, UUID ids |
-| **Next lesson** | 42 — PUT, editing a note (`day-42-put/`, **in progress**) |
-| **Last session date** | 2026-09-14 |
-| **Streak day** | 36 |
+| **Last completed lesson** | 42 — PUT + edit mode (**CRUD is now complete**) |
+| **Next lesson** | 43 — database (not set up yet) |
+| **Last session date** | 2026-09-15 |
+| **Streak day** | 37 |
 
-> Lesson 42 state: server PUT written (but never sends a response), `validateNote()`
-> shared, `NoteItem` extracted, edit mode half-built. Three bugs listed at the end of the
-> Lesson 42 entry in `progress.md` — start there next session.
+> One open bug in `day-42-put`: opening edit mode clears the draft fields instead of
+> pre-filling them, so editing only the title wipes the description. He knows; it's in the
+> Lesson 42 entry. Good warm-up next session.
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
@@ -146,9 +146,14 @@ day-NN-topic/
 - DELETE: route params (`/notes/:id`), `req.params` is always a string, 404 as a normal
   answer, `crypto.randomUUID()` instead of ids derived from the array
 
+- PUT: update route (URL param **and** body), PUT vs PATCH, shared `validateNote()`,
+  `res.status()` doesn't send — `.json()` / `.end()` does
+- React: child components (`NoteItem`), early return for two render modes, and a
+  deliberate lift-vs-colocate state decision (he chose lift)
+
 ### Not yet
 
-- PUT / PATCH — editing an existing note (Lesson 42)
+- Middleware as a named concept — explained once in Lesson 42, not yet used
 - Promise `.then()` chains — he uses `async`/`await` fluently but `.then()` still reads as
   unfamiliar (his words, Lesson 41). Worth 10 minutes when it next comes up naturally.
 - Databases (after CRUD is complete)
@@ -177,8 +182,8 @@ day-NN-topic/
 | **39** ✓ | React `fetch` to Express — CORS (`cors` package) |
 | **40** ✓ | POST — `express.json()`, `req.body`, `fetch` with a body |
 | **41** ✓ | DELETE — route params (`/notes/:id`), 404, and the id-reuse bug he predicted |
-| **42** | PUT — editing a note; the real lesson is *where state lives* (lift vs colocate) |
-| **43** | Likely a database (CRUD is complete after 42) |
+| **42** ✓ | PUT — editing a note; chose to lift editing state into `App` |
+| **43** | Database — replace `notes.json` + `fs` with real storage |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.
 

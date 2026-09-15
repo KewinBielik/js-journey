@@ -632,3 +632,19 @@ selector {
   1. `updateInputTitle` and `updateInputDesc` are each declared **twice** in `App.jsx` — once for the create form, once for the edit fields. JS allows it and silently keeps the last one, so the create form's inputs now write to the *edit* state and typing in them does nothing. No error anywhere.
   2. The PUT route ends with `res.status(201)` and never sends — `res.status()` only sets the code, so the request hangs until it times out. Needs `.json(...)` or `.end()`, and 200/204 rather than 201 (nothing was created).
   3. `console.log` right after `setEditNoteId(noteId)` prints the **old** id — `set...` doesn't change the variable in the call that's already running.
+
+
+*Part 2: finishing edit mode — CRUD is complete*
+- **Date:** 2026-09-15 · Streak day 37
+- **What I did:** Fixed the three bugs from yesterday (duplicate handler names, the PUT that never replied, the stale `console.log`). Wired up Edit → Save/Cancel with a real PUT. My API now does all four of CRUD.
+- **What I learned:**
+  - **PUT vs PATCH:** PUT changes the whole note to whatever I sent; PATCH changes only the fields it got and leaves the rest as they were.
+  - **Why each method takes what it takes:** DELETE needs only the URL, because all it has to know is *which* note. POST needs only the body, because the note doesn't exist yet — there's no id to point at, POST is what creates it. PUT needs both: which note, and what the new values are.
+  - **Where I put the editing state:** in `App.jsx`, because it felt more natural and simpler. If I wanted multiple notes editable at once I could still keep it in `App` as an array of edits, each referencing its note by id. State inside a component would have been new and I wasn't sure I should go that way.
+  - **`res.status()` doesn't send anything** — it only sets the code and returns `res`. The reply goes out on `.json()` or `.end()`. Yesterday's PUT set 201 and then just hung.
+  - **Duplicate function declarations are legal in JS** and the last one silently wins. Two handlers with the same name broke my create form with no error at all.
+  - **A setter doesn't change the variable in the call that's already running.** `setEditNoteId(id)` then logging `editNoteId` prints the old one. Related: my SAVE handler calls `editNote(...)` and then immediately clears the edit state, and that's safe — `editNote` already read `editTitle` / `editDesc` from the current render's closure, and a setter doesn't reach back and change those.
+  - **Extracting the shared `if` around `validateNote` is possible** — the tool is *middleware*, the same thing as `app.use(cors())`, except passed to one route: `app.post("/notes", requireValidNote, (req, res) => ...)`. The middleware calls `next()` to mean "fine, carry on". Not worth it at two routes, but it's the answer to "can this be written once too?"
+- **What confused me:** I asked whether the four lines that *call* `validateNote` could also be deduplicated, since both routes repeat them — answer above: yes, via middleware, but duplication that small is a fair price for keeping the route readable.
+- **Bug found in review:** clicking EDIT clears `editTitle` / `editDesc` to `""` instead of pre-filling them with the note's current text. So editing only the title sends `description: ""` and **wipes the description** — exactly the PUT-vs-PATCH trap the lesson warned about, reproduced by accident. Fix: pre-fill both from the note when opening edit mode.
+- **On the database question:** my guess was "safer and can be accessed different ways". The sharper answer is that `fs.writeFileSync` rewrites the *entire* file on every single change — two requests arriving together can interleave and lose data, the whole dataset has to fit in memory, and there's no way to read or update one note without loading all of them. Same class of problem as the two-tab experiment in Lesson 41.

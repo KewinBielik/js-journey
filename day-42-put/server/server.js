@@ -32,8 +32,8 @@ function validateNote(body) {
   if (body.title === undefined || body.description === undefined) {
     return "Missing title or description (or both)";
   }
-  if (!body.title.trim()) {
-    return "Bad input, title empty or missing";
+  if (!body.title.trim() || !body.description.trim()) {
+    return "Bad input, title or description empty";
   }
   return null;
 }
@@ -90,7 +90,7 @@ app.put("/notes/:id", (req, res) => {
   targetNote.title = req.body.title;
   targetNote.description = req.body.description;
   saveNotes();
-  res.status(201);
+  res.status(204).end();
 })
 
 // TODO (Goal 1): app.put("/notes/:id", ...) — id from the URL, new values from the
