@@ -648,3 +648,19 @@ selector {
 - **What confused me:** I asked whether the four lines that *call* `validateNote` could also be deduplicated, since both routes repeat them — answer above: yes, via middleware, but duplication that small is a fair price for keeping the route readable.
 - **Bug found in review:** clicking EDIT clears `editTitle` / `editDesc` to `""` instead of pre-filling them with the note's current text. So editing only the title sends `description: ""` and **wipes the description** — exactly the PUT-vs-PATCH trap the lesson warned about, reproduced by accident. Fix: pre-fill both from the note when opening edit mode.
 - **On the database question:** my guess was "safer and can be accessed different ways". The sharper answer is that `fs.writeFileSync` rewrites the *entire* file on every single change — two requests arriving together can interleave and lose data, the whole dataset has to fit in memory, and there's no way to read or update one note without loading all of them. Same class of problem as the two-tab experiment in Lesson 41.
+
+
+## Lesson 43 — SQL on its own (node:sqlite)
+- **Date:** 2026-09-17 · Streak day 38
+- **What I did:** A standalone script, no Express and no React. Created a `notes` table, then INSERT / SELECT / UPDATE / DELETE against it. Ran the no-`WHERE` UPDATE on purpose to see the damage.
+- **What I learned:**
+  - **The vocabulary.** The *database* is the whole `notes.db` file and can hold many tables. A *table* is what my array used to be. A *row* is one note object. A *column* is a property every row has. The *schema* is the set of rules limiting what can go in.
+  - **There is no `saveNotes()`** because I work directly on the data in the file instead of holding an array and rewriting the whole thing every time.
+  - **`?` is a slot for data that can never be read as SQL**, so a user can't smuggle code in as a value and wreck the database — and it also covers the accidental case, like a title with an apostrophe in it.
+  - **`NOT NULL` does not mean "not empty".** I set `description TEXT NOT NULL` without much thought, but it still accepts `""` — it only blocks a *missing* value. Exactly the same distinction that bit me in `validateNote` two days ago, one layer down.
+  - **`.run()` vs `.all()`.** I used `.all()` for UPDATE and DELETE. It works, but `.all()` means "give me the rows" and returns `[]`. `.run()` is the right one and returns `{ changes, lastInsertRowid }` — and `changes === 0` is how I'll detect "no such id" in Lesson 44, replacing `notes.find(...) === undefined`.
+  - **A missing `WHERE` hits every row.** Valid SQL, no complaint, all 9 rows overwritten with the same text.
+- **What confused me:** The lesson described the methods as `db.exec(sql)` and at first I didn't realise "sql" meant the SQL code itself, in backticks. It took some research to work that out — the lesson should have shown one literal call first.
+- **Answers to the closing questions:**
+  - *What can the schema take over from `validateNote`, and what can't it?* I thought the schema couldn't handle `"  "` so `trim()` has to stay in code. That's right about `NOT NULL`, but SQLite can go further with a constraint: `title TEXT NOT NULL CHECK (length(trim(title)) > 0)` makes a whitespace-only title impossible to store. What can't move into the schema is anything needing context the database doesn't have — and above all, turning a constraint violation into a useful **400 + message**. The database only throws; the route decides what the client is told.
+  - *What should `GET /notes` do at 10,000 notes?* My guess was "read only the first or last x" — that's right, and it's called **pagination**: `SELECT * FROM notes ORDER BY title LIMIT 20 OFFSET 40`. Related: `SELECT COUNT(*)` gives the total without transferring a single note, which a JSON array can't do.

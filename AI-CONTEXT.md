@@ -22,14 +22,16 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 
 | Field | Value |
 |-------|-------|
-| **Last completed lesson** | 42 — PUT + edit mode (**CRUD is now complete**) |
-| **Next lesson** | 43 — database (not set up yet) |
-| **Last session date** | 2026-09-15 |
-| **Streak day** | 37 |
+| **Last completed lesson** | 43 — SQL basics with `node:sqlite` |
+| **Next lesson** | 44 — swap the Express API from `fs` to SQLite (not set up yet) |
+| **Last session date** | 2026-09-17 |
+| **Streak day** | 38 |
 
-> One open bug in `day-42-put`: opening edit mode clears the draft fields instead of
-> pre-filling them, so editing only the title wipes the description. He knows; it's in the
-> Lesson 42 entry. Good warm-up next session.
+> Two small fix-ups waiting, both noted in `progress.md`:
+> - `day-43-sqlite/script.js` has a trailing comma in `CREATE TABLE` (crashes), still
+>   contains the destructive no-`WHERE` UPDATE, and uses `.all()` where `.run()` belongs.
+> - `day-42-put` still clears the edit drafts instead of pre-filling them, so editing only
+>   the title wipes the description.
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
@@ -183,7 +185,8 @@ day-NN-topic/
 | **40** ✓ | POST — `express.json()`, `req.body`, `fetch` with a body |
 | **41** ✓ | DELETE — route params (`/notes/:id`), 404, and the id-reuse bug he predicted |
 | **42** ✓ | PUT — editing a note; chose to lift editing state into `App` |
-| **43** | Database — replace `notes.json` + `fs` with real storage |
+| **43** ✓ | SQL alone — `node:sqlite`, one script, no Express (mirrors the 37→38 split) |
+| **44** | Swap the Express API from `fs` + `notes.json` over to the database |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.
 

@@ -1,0 +1,8 @@
+{
+  "name": "day-43-sqlite",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node script.js"
+  }
+}
