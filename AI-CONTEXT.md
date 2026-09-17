@@ -23,15 +23,15 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 | Field | Value |
 |-------|-------|
 | **Last completed lesson** | 43 — SQL basics with `node:sqlite` |
-| **Next lesson** | 44 — swap the Express API from `fs` to SQLite (not set up yet) |
+| **Next lesson** | 44 — SQLite under the Express API (`day-44-db/`, **in progress**) |
 | **Last session date** | 2026-09-17 |
 | **Streak day** | 38 |
 
-> Two small fix-ups waiting, both noted in `progress.md`:
-> - `day-43-sqlite/script.js` has a trailing comma in `CREATE TABLE` (crashes), still
->   contains the destructive no-`WHERE` UPDATE, and uses `.all()` where `.run()` belongs.
-> - `day-42-put` still clears the edit drafts instead of pre-filling them, so editing only
->   the title wipes the description.
+> Lesson 44: main swap is done and the client was never touched (goal met). Next session
+> he wants both stretches — `migrate.js` for the old `notes.json`, and moving all SQL into
+> a `db.js`. There's a **TO FIX list** at the end of the Lesson 44 entry in `progress.md`;
+> the real one is POST replying with `{changes, lastInsertRowid}` instead of the created
+> note. He took no learning notes today and plans to write them tomorrow.
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 

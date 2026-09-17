@@ -664,3 +664,25 @@ selector {
 - **Answers to the closing questions:**
   - *What can the schema take over from `validateNote`, and what can't it?* I thought the schema couldn't handle `"  "` so `trim()` has to stay in code. That's right about `NOT NULL`, but SQLite can go further with a constraint: `title TEXT NOT NULL CHECK (length(trim(title)) > 0)` makes a whitespace-only title impossible to store. What can't move into the schema is anything needing context the database doesn't have — and above all, turning a constraint violation into a useful **400 + message**. The database only throws; the route decides what the client is told.
   - *What should `GET /notes` do at 10,000 notes?* My guess was "read only the first or last x" — that's right, and it's called **pagination**: `SELECT * FROM notes ORDER BY title LIMIT 20 OFFSET 40`. Related: `SELECT COUNT(*)` gives the total without transferring a single note, which a JSON array can't do.
+
+## Lesson 44 — SQLite under the Express API *(in progress)*
+- **Date:** 2026-09-17 · Streak day 38 (second lesson the same day)
+- **What I did:** Swapped the storage under the API. Deleted the `fs` import, the module-level `notes` array and `saveNotes()`; added `node:sqlite` with the same schema as Lesson 43. All four routes run SQL, both 404s come from `result.changes === 0`, and `GET` has an `ORDER BY`. **The client folder was not touched at all** — diffing it against Lesson 42 comes back empty, which was the real goal.
+- **What I learned:** *(no notes taken today — write this tomorrow)*
+
+### TO FIX before this lesson is done
+- [ ] **POST replies with the wrong thing.** `res.status(201).json(result)` sends `{changes, lastInsertRowid}` instead of the note. Since Lesson 40 this route has returned the created note so the client can learn the id the server chose. Build the note object, insert from it, send it back — no extra query needed. (`lastInsertRowid` is SQLite's internal row number, not my UUID.) It only *looks* fine because my client never reads the response body.
+- [ ] Move `import { DatabaseSync }` up with the other imports — it's sitting in the middle of the file.
+- [ ] Delete the stale `// TODO (Goal 1)` block at the bottom; it still talks about `saveNotes()`.
+- [ ] Remove the leftover `console.log(req.params.id)` in DELETE.
+- [ ] `else` after a `return` is redundant, in both PUT and DELETE.
+- [ ] Reconsider `ORDER BY title`: editing a title makes that row jump position in the list. Ordering by creation time would feel more natural, but there's no `created_at` column yet.
+- [ ] Still outstanding from Lesson 42: opening EDIT clears the draft fields instead of pre-filling them, so editing only the title wipes the description.
+
+### Planned for tomorrow
+- [ ] **Stretch A** — `migrate.js`: read the old `notes.json` into the database, then delete the JSON file. This is the migration script I said a real app would need, back in Lesson 41.
+- [ ] **Stretch B** — move all SQL into `db.js` (`getAllNotes`, `addNote`, `updateNote`, `deleteNote`) so `server.js` contains none. Same split as Lesson 28's `storage.js`.
+
+### Answers to the closing questions
+- **What does the client not noticing tell you about boundaries?** Each part does its own thing, so if the client changes the database still handles what it's asked, and the same in reverse — everything works on its own and can be changed separately. (The name is *separation of concerns* / decoupling. The catch: a boundary only pays off while it stays **narrow and stable**. Four routes is small enough to swap the storage in an evening. And the moment a route changes what it returns, clients break silently — which is exactly what my POST did today.)
+- **What can this still not survive?** `notes.db` is still just a file on one PC. Most hosting gives you a disposable disk, so a redeploy or restart wipes it. Two copies of the server can't share it. Backups are me remembering to copy a file. The answer is a database that runs as its own service over the network (Postgres/MySQL) — the SQL itself barely changes. On a different axis: there's still no authentication, so anyone who can reach the URL can delete everything.
