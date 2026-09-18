@@ -670,14 +670,14 @@ selector {
 - **What I did:** Swapped the storage under the API. Deleted the `fs` import, the module-level `notes` array and `saveNotes()`; added `node:sqlite` with the same schema as Lesson 43. All four routes run SQL, both 404s come from `result.changes === 0`, and `GET` has an `ORDER BY`. **The client folder was not touched at all** — diffing it against Lesson 42 comes back empty, which was the real goal.
 - **What I learned:** *(no notes taken today — write this tomorrow)*
 
-### TO FIX before this lesson is done
-- [ ] **POST replies with the wrong thing.** `res.status(201).json(result)` sends `{changes, lastInsertRowid}` instead of the note. Since Lesson 40 this route has returned the created note so the client can learn the id the server chose. Build the note object, insert from it, send it back — no extra query needed. (`lastInsertRowid` is SQLite's internal row number, not my UUID.) It only *looks* fine because my client never reads the response body.
-- [ ] Move `import { DatabaseSync }` up with the other imports — it's sitting in the middle of the file.
-- [ ] Delete the stale `// TODO (Goal 1)` block at the bottom; it still talks about `saveNotes()`.
-- [ ] Remove the leftover `console.log(req.params.id)` in DELETE.
-- [ ] `else` after a `return` is redundant, in both PUT and DELETE.
-- [ ] Reconsider `ORDER BY title`: editing a title makes that row jump position in the list. Ordering by creation time would feel more natural, but there's no `created_at` column yet.
-- [ ] Still outstanding from Lesson 42: opening EDIT clears the draft fields instead of pre-filling them, so editing only the title wipes the description.
+### TO FIX before this lesson is done — all done 2026-09-18
+- [x] **POST replied with the wrong thing.** `res.status(201).json(result)` sent `{changes, lastInsertRowid}` instead of the note. Since Lesson 40 this route has returned the created note so the client can learn the id the server chose. Now builds `newNote` and sends that. (`lastInsertRowid` is SQLite's internal row number, not my UUID.) It only *looked* fine because my client never reads the response body.
+- [x] Moved `import { DatabaseSync }` up with the other imports.
+- [x] Deleted the stale `// TODO (Goal 1)` block at the bottom.
+- [x] Removed the leftover `console.log(req.params.id)` in DELETE.
+- [x] Dropped the redundant `else` after `return` in PUT and DELETE.
+- [x] Replaced `ORDER BY title` (which made a row jump position when you renamed it) with a real `created_at` column and `ORDER BY created_at`.
+- ~~Edit drafts not pre-filled~~ — **this was wrong on my mentor's part**; `updateEditNoteId` has been pre-filling from `list.find(...)` since Lesson 42. Nothing to fix.
 
 ### Planned for tomorrow
 - [ ] **Stretch A** — `migrate.js`: read the old `notes.json` into the database, then delete the JSON file. This is the migration script I said a real app would need, back in Lesson 41.

@@ -3,9 +3,6 @@
 // The whole point of today: the storage under the API changes completely, and
 // the client can't tell. If you find yourself needing to change something here,
 // the server broke its side of the contract — fix it there.
-//
-// (One exception: the known Lesson 42 bug where opening EDIT clears the drafts
-// instead of pre-filling them. Fix that whenever you like — it isn't today's job.)
 
 import { useEffect, useState } from "react";
 import NoteItem from "./NoteItem";

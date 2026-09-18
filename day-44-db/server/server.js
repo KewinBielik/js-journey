@@ -15,19 +15,19 @@
 
 import express from "express";
 import cors from "cors";
+import { DatabaseSync } from "node:sqlite";
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-import { DatabaseSync } from "node:sqlite";
-
 const db = new DatabaseSync("notes.db");
 db.exec(`CREATE TABLE IF NOT EXISTS notes ( 
   id          TEXT PRIMARY KEY,
   title       TEXT NOT NULL,
-  description TEXT NOT NULL
+  description TEXT NOT NULL,
+  created_at  TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   )`);
 
 
@@ -43,7 +43,6 @@ function validateNote(body) {
 }
 
 app.delete("/notes/:id", (req, res) => {
-  console.log(req.params.id);
   
   const result = db.prepare(
     `DELETE FROM notes WHERE id = ?;`
@@ -52,15 +51,16 @@ app.delete("/notes/:id", (req, res) => {
   if (result.changes === 0) {
     res.status(404).json({ error: "no note with that id"});
     return
-  } else {
-    res.status(204).end();
   }
+  res.status(204).end();
+
 });
 
 app.get("/notes", (req, res) => {
   const notes = db.prepare(
-    `SELECT * FROM notes ORDER BY title;`
+    `SELECT * FROM notes ORDER BY created_at;`
     ).all();  
+  console.log(notes);
   res.json(notes);
 });
 
@@ -72,11 +72,19 @@ app.post("/notes", (req, res) => {
     return;
   }
 
-  const result = db.prepare(
-    `INSERT INTO notes (id, title, description) VALUES (?, ?, ?);`
-    ).run(crypto.randomUUID(), req.body.title, req.body.description);
+  const newNote = {
+    id : crypto.randomUUID(),
+    title : req.body.title,
+    description : req.body.description
+  }
 
-  res.status(201).json(result);
+
+
+  db.prepare(
+    `INSERT INTO notes (id, title, description) VALUES (?, ?, ?);`
+    ).run(newNote.id, newNote.title, newNote.description);
+
+  res.status(201).json(newNote);
 });
 
 app.put("/notes/:id", (req, res) => {
@@ -94,14 +102,10 @@ app.put("/notes/:id", (req, res) => {
   if (result.changes === 0) {
     res.status(404).json("Unknown id");
     return;
-  } else {
-    res.status(204).end();
-  }
+  } 
+  res.status(204).end();
 })
 
-// TODO (Goal 1): app.put("/notes/:id", ...) — id from the URL, new values from the
-// body. Find the note, change it, saveNotes(), send the updated note back.
-// 404 if there is no such note. Validate the body like POST does.
 
 app.listen(3000, () => {
   console.log("API: http://localhost:3000/notes");
