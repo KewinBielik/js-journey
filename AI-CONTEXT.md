@@ -22,16 +22,18 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 
 | Field | Value |
 |-------|-------|
-| **Last completed lesson** | 43 — SQL basics with `node:sqlite` |
-| **Next lesson** | 44 — SQLite under the Express API (`day-44-db/`, **in progress**) |
-| **Last session date** | 2026-09-17 |
-| **Streak day** | 38 |
+| **Last completed lesson** | 44 — SQLite under the API, plus both stretches (migration with a transaction, SQL moved into `db.js`) |
+| **Next lesson** | 45 — Middleware (`day-45-middleware/`, goals done, TO FIX list open) |
+| **Last session date** | 2026-09-23 |
+| **Streak day** | 40 |
 
-> Lesson 44: main swap is done and the client was never touched (goal met). Next session
-> he wants both stretches — `migrate.js` for the old `notes.json`, and moving all SQL into
-> a `db.js`. There's a **TO FIX list** at the end of the Lesson 44 entry in `progress.md`;
-> the real one is POST replying with `{changes, lastInsertRowid}` instead of the created
-> note. He took no learning notes today and plans to write them tomorrow.
+> Lesson 45: all goals and the error-handler stretch are done, and the client is untouched.
+> A TO FIX list sits at the end of the Lesson 45 entry. The real bug: `requireValidNote`
+> has no `return` after `next()`, so a valid POST/PUT also tries to send a 400
+> (`ERR_HTTP_HEADERS_SENT` in the server log). Mark 45 complete once that list is done.
+>
+> **New workflow (his choice):** he writes short raw notes in `progress.md` while working,
+> and the mentor turns them into the full entry at the end, keeping his observations.
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
@@ -153,12 +155,17 @@ day-NN-topic/
 - React: child components (`NoteItem`), early return for two render modes, and a
   deliberate lift-vs-colocate state decision (he chose lift)
 
+- SQLite (`node:sqlite`): schema, CRUD SQL, `?` params, `changes` for 404, table-rebuild
+  migration inside a transaction, SQL split into `db.js` that passes plain data only
+- Middleware: `(req, res, next)`, the two ways out, file order, route-level middleware,
+  JSON 404 catch-all, 4-argument error handler; knows what `cors()` / `express.json()` do
+
 ### Not yet
 
-- Middleware as a named concept — explained once in Lesson 42, not yet used
+- Authentication (the planned next use of middleware)
 - Promise `.then()` chains — he uses `async`/`await` fluently but `.then()` still reads as
   unfamiliar (his words, Lesson 41). Worth 10 minutes when it next comes up naturally.
-- Databases (after CRUD is complete)
+- A network database (Postgres) and deployment
 - Full portfolio rebuild (laryngologist site mentioned as future goal)
 
 ---
@@ -186,7 +193,9 @@ day-NN-topic/
 | **41** ✓ | DELETE — route params (`/notes/:id`), 404, and the id-reuse bug he predicted |
 | **42** ✓ | PUT — editing a note; chose to lift editing state into `App` |
 | **43** ✓ | SQL alone — `node:sqlite`, one script, no Express (mirrors the 37→38 split) |
-| **44** | Swap the Express API from `fs` + `notes.json` over to the database |
+| **44** ✓ | Swap the Express API from `fs` + `notes.json` over to the database |
+| **45** | Middleware — logger, `requireValidNote`, JSON 404; error handler as stretch |
+| **Later** | Auth (the natural next use of middleware), then a network database / deployment |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.
 

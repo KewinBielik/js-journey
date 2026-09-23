@@ -665,10 +665,23 @@ selector {
   - *What can the schema take over from `validateNote`, and what can't it?* I thought the schema couldn't handle `"  "` so `trim()` has to stay in code. That's right about `NOT NULL`, but SQLite can go further with a constraint: `title TEXT NOT NULL CHECK (length(trim(title)) > 0)` makes a whitespace-only title impossible to store. What can't move into the schema is anything needing context the database doesn't have — and above all, turning a constraint violation into a useful **400 + message**. The database only throws; the route decides what the client is told.
   - *What should `GET /notes` do at 10,000 notes?* My guess was "read only the first or last x" — that's right, and it's called **pagination**: `SELECT * FROM notes ORDER BY title LIMIT 20 OFFSET 40`. Related: `SELECT COUNT(*)` gives the total without transferring a single note, which a JSON array can't do.
 
-## Lesson 44 — SQLite under the Express API *(in progress)*
-- **Date:** 2026-09-17 · Streak day 38 (second lesson the same day)
-- **What I did:** Swapped the storage under the API. Deleted the `fs` import, the module-level `notes` array and `saveNotes()`; added `node:sqlite` with the same schema as Lesson 43. All four routes run SQL, both 404s come from `result.changes === 0`, and `GET` has an `ORDER BY`. **The client folder was not touched at all** — diffing it against Lesson 42 comes back empty, which was the real goal.
-- **What I learned:** *(no notes taken today — write this tomorrow)*
+## Lesson 44 — SQLite under the Express API
+- **Date:** 2026-09-17, 2026-09-18 and 2026-09-23 · Streak days 38–40
+- **What I did:** Swapped the storage under the API. Deleted the `fs` import, the module-level `notes` array and `saveNotes()`; added `node:sqlite` with the same schema as Lesson 43. All four routes run SQL, both 404s come from `result.changes === 0`, and `GET` has an `ORDER BY`. **The client folder was not touched at all** — diffing it against Lesson 42 comes back empty, which was the real goal. Then did both stretches: a `migrate.js` inside a transaction, and all SQL moved into `db.js`.
+- **What I learned:**
+  - **An API is a promise about what goes in and what comes out.** I replaced the whole storage layer and React never noticed. But my POST broke that promise without anything complaining: it started replying with `{changes, lastInsertRowid}` instead of the note. It only looked fine because my client never reads that response.
+  - **`changes === 0` is the 404.** No need to look the note up first and then act on it. One statement does the work and tells me whether it hit anything.
+  - **`CREATE TABLE IF NOT EXISTS` does nothing once the table exists.** It doesn't add columns or change types. I added `DEFAULT CURRENT_TIMESTAMP` to my code, but the real table in `notes.db` never got it, so new notes got `created_at = null`. My schema lives in two places, the code and the file, and they only match if something keeps them in sync. That something is a migration.
+  - SQLite ignores most column types. A `DATE` column still stores text. `TEXT` says what's really happening.
+  - `DEFAULT CURRENT_TIMESTAMP` lets the database fill in the date, so the route doesn't have to build it.
+  - **Changing a column on a table that has rows needs a rebuild.** `ALTER TABLE ... ADD COLUMN` with a `CURRENT_TIMESTAMP` default fails once the table has rows (it only worked on an empty one, which was misleading). The standard way: create `notes_new`, copy the rows over, drop `notes`, rename `notes_new` to `notes`.
+  - **`COALESCE` is a value, so it goes in the `SELECT` list**, not after `FROM`. `COALESCE(created_at, CURRENT_TIMESTAMP)` keeps the old date or fills a missing one. Name the columns instead of `SELECT *`, because `*` matches by position.
+  - **Transactions:** `BEGIN`, then the work, then `COMMIT`, with `ROLLBACK` in the `catch`. It saved me once: my import had 4 columns but only 3 values, and it failed after `notes` was already dropped. The rollback put everything back. A half-finished migration is worse than one that never started.
+  - A migration has to be safe to run once. Deleting `notes.json` after the import stops a second run from adding every note again.
+  - Before this lesson I had fixed schema changes by deleting the database, twice. Fine for practice data, impossible with real users.
+  - **Layers should only pass plain data.** I first passed the whole `req` into `changeNote`, so `db.js` had to know about `body` and `params`, which is HTTP stuff. And I returned SQLite's raw result, so the routes had to know about `changes`, which is database stuff. Now `db.js` takes plain values and returns `true` / `false`, and each file knows only its own side.
+  - `.run()` returns an object, so `result === 0` is always false. It has to be `result.changes === 0`.
+  - Node needs the `.js` in `import ... from "./db.js"`. Vite fills it in for React files, Node doesn't.
 
 ### TO FIX before this lesson is done — all done 2026-09-18
 - [x] **POST replied with the wrong thing.** `res.status(201).json(result)` sent `{changes, lastInsertRowid}` instead of the note. Since Lesson 40 this route has returned the created note so the client can learn the id the server chose. Now builds `newNote` and sends that. (`lastInsertRowid` is SQLite's internal row number, not my UUID.) It only *looked* fine because my client never reads the response body.
@@ -679,10 +692,45 @@ selector {
 - [x] Replaced `ORDER BY title` (which made a row jump position when you renamed it) with a real `created_at` column and `ORDER BY created_at`.
 - ~~Edit drafts not pre-filled~~ — **this was wrong on my mentor's part**; `updateEditNoteId` has been pre-filling from `list.find(...)` since Lesson 42. Nothing to fix.
 
-### Planned for tomorrow
-- [ ] **Stretch A** — `migrate.js`: read the old `notes.json` into the database, then delete the JSON file. This is the migration script I said a real app would need, back in Lesson 41.
-- [ ] **Stretch B** — move all SQL into `db.js` (`getAllNotes`, `addNote`, `updateNote`, `deleteNote`) so `server.js` contains none. Same split as Lesson 28's `storage.js`.
+### Stretches
+- [x] **Stretch A** — `migrate.js`: read the old `notes.json` into the database, then delete the JSON file. This is the migration script I said a real app would need, back in Lesson 41.
+- [x] **Stretch B** — move all SQL into `db.js` (`getAllNotes`, `addNote`, `updateNote`, `deleteNote`) so `server.js` contains none. Same split as Lesson 28's `storage.js`.
 
 ### Answers to the closing questions
 - **What does the client not noticing tell you about boundaries?** Each part does its own thing, so if the client changes the database still handles what it's asked, and the same in reverse — everything works on its own and can be changed separately. (The name is *separation of concerns* / decoupling. The catch: a boundary only pays off while it stays **narrow and stable**. Four routes is small enough to swap the storage in an evening. And the moment a route changes what it returns, clients break silently — which is exactly what my POST did today.)
 - **What can this still not survive?** `notes.db` is still just a file on one PC. Most hosting gives you a disposable disk, so a redeploy or restart wipes it. Two copies of the server can't share it. Backups are me remembering to copy a file. The answer is a database that runs as its own service over the network (Postgres/MySQL) — the SQL itself barely changes. On a different axis: there's still no authentication, so anyone who can reach the URL can delete everything.
+
+
+## Lesson 45 — Middleware
+- **Date:** 2026-09-23 · Streak day 40
+- **What I did:** Wrote my own middleware: a request logger on every request, `requireValidNote` on POST and PUT (so the validation lines are gone from both routes), a catch-all for unknown paths, and an error handler for the stretch. The client folder is identical to Lesson 44.
+- **What I learned:**
+  - **A middleware is `(req, res, next)`.** It runs before the route and has two ways out: call `next()` to pass the request on, or send a reply and stop there. If it does neither, the request hangs.
+  - **Pass the function, don't call it.** I copied the shape of `app.use(cors())` and wrote `app.use(logRequests())`, which runs my function once at startup and hands Express whatever it returns. It has to be `app.use(logRequests)`. `cors()` and `express.json()` have brackets because they are functions that *build* a middleware and return it. Same lesson as `onClick={fn}` vs `onClick={fn()}` in React.
+  - **Express runs everything in file order.** Every `app.use`, `app.get` and so on goes into one list, and each request walks it from the top until something sends a reply.
+  - **That's why the catch-all goes last and needs no `if`.** Routes only match their own path. A request to `/notes` gets answered by a `/notes` route, which sends a reply instead of calling `next()`, so it never reaches the bottom. Only a request nothing matched falls all the way through to the last `app.use`. Moving it last made the whole routing model click for me.
+  - A route can take several functions: `app.post("/notes", requireValidNote, handler)`. Express runs them left to right.
+  - **A middleware with four arguments `(err, req, res, next)` is an error handler.** It's skipped normally and only runs when something earlier threw.
+  - Express 5 crashes at startup on `app.get("*", ...)`, the pattern older tutorials use. `app.use` with no path does the same job.
+- **What confused me:** Why `express.json()` has to be above the routes, and what `cors()` and `express.json()` actually do. Notes below.
+
+### What `express.json()` and `cors()` actually do
+Both are ordinary middleware: they do one job to `req` or `res`, then call `next()`. (My mentor tested every line below on my installed Express.)
+
+**`express.json()`** — a request body arrives as raw text, not an object. This middleware reads that text, runs `JSON.parse` on it, and puts the result on `req.body`. Before it runs, `req.body` is `undefined`.
+- **Why it has to be above the routes:** because of file order. A route above it runs *before* anything has parsed the body. Tested: a route above it got `undefined`, the same route below it got `{ title: "x" }`.
+- It only parses when the request says `Content-Type: application/json`. Without that header it skips the body, and `req.body` stays `undefined` even below it. That's why every `fetch` with a body since Lesson 40 has sent that header.
+
+**`cors()`** — it does nothing to `req`. It adds a header to every reply: `Access-Control-Allow-Origin: *`. The *browser* checks that header and only then lets my page on `:5173` read a reply from `:3000` (Lesson 39).
+- It also answers the browser's **preflight**. Before a PUT, a DELETE, or a POST with JSON from another origin, the browser first sends an `OPTIONS` request to ask "is this allowed?". `cors()` replies `204` with the allowed methods and **does not call `next()`**, so the request never reaches my routes. That's the "send a reply and stop" way out, from a middleware I didn't write.
+
+### TO FIX
+- [ ] **`requireValidNote` replies twice on a valid note.** After `next()` there's no `return`, so the line below still runs:
+  ```js
+  if (error === null) next();
+  res.status(400).json(error);
+  ```
+  `next()` runs the route, the route sends 201, and then the middleware tries to send a 400 on top. Tested: the client gets its 201, but the server logs `ERR_HTTP_HEADERS_SENT` twice, because the error handler then tries to send a 500 too. It only looks fine from the browser. Fix: `return next();`, or an `if`/`else`. It's the two-ways-out rule: one or the other, never both.
+- [ ] The unknown-path reply is `400`. It should be `404`: the request wasn't malformed, there's just nothing at that address.
+- [ ] The error handler sends `err` to the client as a string. That can leak internals like SQL errors. Log `err` on the server and send the client a plain `{ error: "Something went wrong" }`.
+- [ ] Both final `app.use`s sit below `app.listen`. It works, because Express reads the list on every request, but the convention is to register everything first and put `app.listen` last.
