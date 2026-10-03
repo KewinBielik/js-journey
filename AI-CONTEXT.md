@@ -22,17 +22,16 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 
 | Field | Value |
 |-------|-------|
-| **Last completed lesson** | 46 — API key middleware on POST, PUT, DELETE (401) |
-| **Next lesson** | not set up — real auth (users, hashed passwords, cookies) is the direction, but it's more than one lesson |
+| **Last completed lesson** | 47 — password hashes (`scryptSync` + salt) |
+| **Next lesson** | 48 — not set up. Login should check a stored hash. He understands a stolen hash is a guessing problem, not a reversible one. |
 | **Last session date** | 2026-10-03 |
 | **Streak day** | 41 |
 
-> Lesson 45 fixes are in his working tree and not committed yet. One slip rode along:
-> `requireValidNote` now replies 404 for a bad body. Lesson 46's starter has a TODO on
-> that line. His Lesson 45 checklist boxes are ticked.
->
 > **New workflow (his choice):** he writes short raw notes in `progress.md` while working,
 > and the mentor turns them into the full entry at the end, keeping his observations.
+>
+> Auth is split on purpose. 47 is hash + salt only, one script, no Express. Login route
+> comes after. He still has a hardcoded key in the React source from Lesson 46.
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
@@ -161,7 +160,7 @@ day-NN-topic/
 
 ### Not yet
 
-- Real auth: users, hashed passwords, sessions. Lesson 46 is only the shape (a header checked by middleware), and the secret still lives in the client.
+- Login route, users table, cookies. Lesson 47 is only the hash (scrypt + salt), no Express.
 - Promise `.then()` chains — he uses `async`/`await` fluently but `.then()` still reads as
   unfamiliar (his words, Lesson 41). Worth 10 minutes when it next comes up naturally.
 - A network database (Postgres) and deployment
@@ -195,7 +194,8 @@ day-NN-topic/
 | **44** ✓ | Swap the Express API from `fs` + `notes.json` over to the database |
 | **45** ✓ | Middleware — logger, `requireValidNote`, JSON 404; error handler as stretch |
 | **46** ✓ | API key — middleware checks a header; 401; React sends it on write requests |
-| **Later** | Real auth (users, hashed passwords), then a network database / deployment |
+| **47** ✓ | Password hash — `scryptSync` + salt, one script, no login route yet |
+| **Later** | Login route, then cookies, then a network database / deployment |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.
 

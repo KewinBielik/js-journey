@@ -747,3 +747,17 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   - For this to protect anything, the secret has to live on the **server**. The user proves they know it by typing it. It must not be baked into the downloaded JavaScript.
   - "Remember me" is not "remember the IP." IPs are shared (a whole cafe can look like one address), they change (a phone on mobile data), and they can be faked. A real "remember me" is a random token the server creates after a successful login, stored in a cookie the JavaScript can't read. Not today's job.
 - **What confused me:** Nothing much. The lesson was clear.
+
+## Lesson 47 — Password hashes
+- **Date:** 2026-10-03 · Streak day 41
+- **What I did:** A script only, no Express. Hashed a password with `scryptSync` and a `randomBytes` salt, checked the same salt matches, wrote `checkPassword`, and confirmed the same password with two salts gives two hashes.
+- **What I learned:**
+  - **Store a hash, never the password.** `scryptSync(password, salt, 32)` turns the password into 32 bytes you cannot reverse. Login hashes what the user typed and compares. The original password is never kept.
+  - **`scryptSync` is not a global.** `randomUUID` was. This one is imported from `node:crypto`.
+  - **The salt is why the same password doesn't always look the same.** A new `randomBytes(16)` each time, stored next to the hash. It is not a secret. Without the original salt the check can never match. `Math.random()` is the wrong tool because it is predictable.
+  - Same password + same salt → `timingSafeEqual` is true. Same password + different salt → not equal. `===` is the wrong comparison for buffers.
+  - **The hash and the salt both stay on the server.** A login takes the password the user just typed, mixes in the stored salt, and checks the hash.
+  - **`scryptSync` freezes the process while it runs.** Other requests wait. That's the sync version. The slow part is on purpose: one login can afford it, guessing millions of passwords cannot.
+  - **A stolen hash and salt is not a stolen password.** The algorithm is public and there is still no reverse step. The attacker can only guess: hash a guess with the stolen salt and compare. The salt stops them reusing a precomputed table, and the slowness makes every guess cost time. A stored password would have let them log in immediately, and reuse it on other sites.
+  - **The attacker does use `scryptSync`.** That's the attack. He can't write a faster one that still produces my hashes, because the slowness is the work the algorithm demands, not a slow JavaScript wrapper. Skip the work and the bytes come out different, so the comparison fails. A tighter program or a faster computer makes each guess cheaper, which is why the cost is a setting you can raise. It doesn't open a shortcut.
+- **What confused me:** I thought a hash must have a pattern you can run backwards. It doesn't. Many passwords could land on the same bytes, and the function is built so finding even one of them is guessing, not reversing. Hiding the algorithm is not the protection. `scrypt` is public.
