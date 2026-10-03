@@ -725,12 +725,25 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 - It also answers the browser's **preflight**. Before a PUT, a DELETE, or a POST with JSON from another origin, the browser first sends an `OPTIONS` request to ask "is this allowed?". `cors()` replies `204` with the allowed methods and **does not call `next()`**, so the request never reaches my routes. That's the "send a reply and stop" way out, from a middleware I didn't write.
 
 ### TO FIX
-- [ ] **`requireValidNote` replies twice on a valid note.** After `next()` there's no `return`, so the line below still runs:
+- [x] **`requireValidNote` replies twice on a valid note.** After `next()` there's no `return`, so the line below still runs:
   ```js
   if (error === null) next();
   res.status(400).json(error);
   ```
   `next()` runs the route, the route sends 201, and then the middleware tries to send a 400 on top. Tested: the client gets its 201, but the server logs `ERR_HTTP_HEADERS_SENT` twice, because the error handler then tries to send a 500 too. It only looks fine from the browser. Fix: `return next();`, or an `if`/`else`. It's the two-ways-out rule: one or the other, never both.
-- [ ] The unknown-path reply is `400`. It should be `404`: the request wasn't malformed, there's just nothing at that address.
-- [ ] The error handler sends `err` to the client as a string. That can leak internals like SQL errors. Log `err` on the server and send the client a plain `{ error: "Something went wrong" }`.
-- [ ] Both final `app.use`s sit below `app.listen`. It works, because Express reads the list on every request, but the convention is to register everything first and put `app.listen` last.
+- [x] The unknown-path reply is `400`. It should be `404`: the request wasn't malformed, there's just nothing at that address.
+- [x] The error handler sends `err` to the client as a string. That can leak internals like SQL errors. Log `err` on the server and send the client a plain `{ error: "Something went wrong" }`.
+- [x] Both final `app.use`s sit below `app.listen`. It works, because Express reads the list on every request, but the convention is to register everything first and put `app.listen` last.
+
+## Lesson 46 — API key on the write routes
+- **Date:** 2026-10-03 · Streak day 41
+- **What I did:** Added `requireKey` middleware. POST, PUT, and DELETE refuse a request whose `x-api-key` header doesn't match `API_KEY`, with status 401. GET stays open. The React app sends the header on those three fetches. Also put the bad-body reply back to 400.
+- **What I learned:**
+  - **The key travels in a header**, not the URL and not the body. The URL would show up in logs and history. DELETE has no body, and the body is the note, not the proof. `req.get("x-api-key")` reads it. Header names are case-insensitive, and `req.get` hides that.
+  - **401 means "you didn't prove you're allowed."** Not 400 (bad body) and not 404 (no such note). A 404 here would be a lie.
+  - **The key check comes first**, before `requireValidNote`. A wrong key should not get a "bad input" error. The key has to be right before anything else is checked.
+  - Missing and wrong both return the same 401 and the same message. Saying which one it was would help an attacker.
+  - **This is the shape of the check, not real security.** The key is a string in the React source (`useState("HardPassword123")`), and the browser downloads that file. Anyone can read it in DevTools, and this repo is public, so the string is not a secret. It only stops requests that don't already know it.
+  - For this to protect anything, the secret has to live on the **server**. The user proves they know it by typing it. It must not be baked into the downloaded JavaScript.
+  - "Remember me" is not "remember the IP." IPs are shared (a whole cafe can look like one address), they change (a phone on mobile data), and they can be faked. A real "remember me" is a random token the server creates after a successful login, stored in a cookie the JavaScript can't read. Not today's job.
+- **What confused me:** Nothing much. The lesson was clear.

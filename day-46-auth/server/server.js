@@ -1,6 +1,7 @@
-// Lesson 45 — your finished Lesson 44 API. Read ../LESSON.md
-// New job: middleware. The client folder stays untouched again.
-// Run:  node server.js   (the notes.db from Lesson 44 was copied over)
+// Lesson 46 — your finished Lesson 45 API. Read ../LESSON.md
+// New job: a middleware that refuses requests with no key.
+// This time the React client DOES change: it has to send the key.
+// Run:  node server.js
 
 import express from "express";
 import cors from "cors";
@@ -13,6 +14,17 @@ app.use(cors());
 app.use(express.json());
 app.use(logRequests);
 
+const API_KEY = "HardPassword123";
+
+function requireKey(req, res, next) {
+  const header = req.get("x-api-key");
+  if (header !== API_KEY) {
+    res.status(401).json("Wrong key");
+    return;
+  }
+  next();
+}
+
 
 function logRequests(req, res, next){
   console.log(req.method, req.url, req.body);
@@ -22,7 +34,7 @@ function logRequests(req, res, next){
 function requireValidNote(req, res, next){
   const error = validateNote(req.body);
   if (error === null) return next();
-  res.status(404).json(error);
+  res.status(400).json(error);
 }
 
 
@@ -36,7 +48,7 @@ function validateNote(body) {
   return null;
 }
 
-app.delete("/notes/:id", (req, res) => {
+app.delete("/notes/:id", requireKey, (req, res) => {
   
   const deleted = deleteNote(req.params.id);
 
@@ -53,7 +65,7 @@ app.get("/notes", (req, res) => {
   res.json(notes);
 });
 
-app.post("/notes", requireValidNote, (req, res) => {
+app.post("/notes", requireKey, requireValidNote, (req, res) => {
 
   const newNote = {
     id : crypto.randomUUID(),
@@ -66,7 +78,7 @@ app.post("/notes", requireValidNote, (req, res) => {
   res.status(201).json(newNote);
 });
 
-app.put("/notes/:id", requireValidNote, (req, res) => {
+app.put("/notes/:id", requireKey, requireValidNote, (req, res) => {
 
   const changed = changeNote(req.body.title, req.body.description, req.params.id);
 

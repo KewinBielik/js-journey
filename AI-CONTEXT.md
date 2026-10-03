@@ -22,15 +22,14 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 
 | Field | Value |
 |-------|-------|
-| **Last completed lesson** | 44 — SQLite under the API, plus both stretches (migration with a transaction, SQL moved into `db.js`) |
-| **Next lesson** | 45 — Middleware (`day-45-middleware/`, goals done, TO FIX list open) |
-| **Last session date** | 2026-09-23 |
-| **Streak day** | 40 |
+| **Last completed lesson** | 46 — API key middleware on POST, PUT, DELETE (401) |
+| **Next lesson** | not set up — real auth (users, hashed passwords, cookies) is the direction, but it's more than one lesson |
+| **Last session date** | 2026-10-03 |
+| **Streak day** | 41 |
 
-> Lesson 45: all goals and the error-handler stretch are done, and the client is untouched.
-> A TO FIX list sits at the end of the Lesson 45 entry. The real bug: `requireValidNote`
-> has no `return` after `next()`, so a valid POST/PUT also tries to send a 400
-> (`ERR_HTTP_HEADERS_SENT` in the server log). Mark 45 complete once that list is done.
+> Lesson 45 fixes are in his working tree and not committed yet. One slip rode along:
+> `requireValidNote` now replies 404 for a bad body. Lesson 46's starter has a TODO on
+> that line. His Lesson 45 checklist boxes are ticked.
 >
 > **New workflow (his choice):** he writes short raw notes in `progress.md` while working,
 > and the mentor turns them into the full entry at the end, keeping his observations.
@@ -162,7 +161,7 @@ day-NN-topic/
 
 ### Not yet
 
-- Authentication (the planned next use of middleware)
+- Real auth: users, hashed passwords, sessions. Lesson 46 is only the shape (a header checked by middleware), and the secret still lives in the client.
 - Promise `.then()` chains — he uses `async`/`await` fluently but `.then()` still reads as
   unfamiliar (his words, Lesson 41). Worth 10 minutes when it next comes up naturally.
 - A network database (Postgres) and deployment
@@ -194,8 +193,9 @@ day-NN-topic/
 | **42** ✓ | PUT — editing a note; chose to lift editing state into `App` |
 | **43** ✓ | SQL alone — `node:sqlite`, one script, no Express (mirrors the 37→38 split) |
 | **44** ✓ | Swap the Express API from `fs` + `notes.json` over to the database |
-| **45** | Middleware — logger, `requireValidNote`, JSON 404; error handler as stretch |
-| **Later** | Auth (the natural next use of middleware), then a network database / deployment |
+| **45** ✓ | Middleware — logger, `requireValidNote`, JSON 404; error handler as stretch |
+| **46** ✓ | API key — middleware checks a header; 401; React sends it on write requests |
+| **Later** | Real auth (users, hashed passwords), then a network database / deployment |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.
 

@@ -130,12 +130,12 @@ it's why this lesson comes first.
 
 ## Checklist
 
-- [ ] I can say what `next` does and what happens if I never call it
-- [ ] I can explain why `express.json()` has to be above the routes, using list order
-- [ ] Every request is logged
-- [ ] Validation lives in one middleware used by both POST and PUT
-- [ ] Unknown paths get a JSON 404
-- [ ] The client folder has no changes
+- [x] I can say what `next` does and what happens if I never call it
+- [x] I can explain why `express.json()` has to be above the routes, using list order
+- [x] Every request is logged
+- [x] Validation lives in one middleware used by both POST and PUT
+- [x] Unknown paths get a JSON 404
+- [x] The client folder has no changes
 
 ---
 

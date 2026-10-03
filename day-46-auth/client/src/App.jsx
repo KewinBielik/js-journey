@@ -1,0 +1,197 @@
+// Lesson 46 — this file changes today. Read ../../LESSON.md
+// The three write fetches (POST, PUT, DELETE) need to send a key.
+// GET stays open: loading the list needs no key.
+
+import { useEffect, useState } from "react";
+import NoteItem from "./NoteItem";
+
+const API_URL = "http://localhost:3000/notes";
+
+function App() {
+  const defaultStatus = "Nothing loaded yet.";
+
+  const [list, setList] = useState([]);
+  const [status, setStatus] = useState(defaultStatus);
+
+  const [inputTitle, setInputTitle] = useState("");
+  const [inputDesc, setInputDesc] = useState("");
+
+  const [editNoteId, setEditNoteId] = useState(null);
+  const [editTitle, setEditTitle] = useState("");
+  const [editDesc, setEditDesc] = useState("");
+
+  const [key, setKey] = useState("HardPassword123");
+
+
+  async function load() {
+    try {
+      setStatus("Loading...");
+      const response = await fetch(API_URL);
+      if (!response.ok) throw new Error(response.status);
+      const data = await response.json();
+      setList(data);
+      setStatus("Loading successful");
+    } catch (error) {
+      console.log(error);
+      setStatus("loading error");
+    }
+  }
+
+  useEffect(() => {
+    load();
+  }, []);
+
+  async function sendNote(note) {
+    try {
+      setStatus("Attempting to send a new note...");
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-api-key": key},
+        body: JSON.stringify(note),
+      });
+      if (!response.ok) throw new Error(response.status);
+      setStatus("Succesfully sent the note");
+      } catch (error) {
+        console.log(error);
+        if (error.message === "401"){
+          setStatus("Wrong or empty key");
+          return;
+        }
+        setStatus("Error while sending");
+        return;
+      }
+      load();
+    }
+  
+  async function deleteNote(noteId){
+    console.log(`Trying to delete note with id = ${noteId}`);
+
+    try {
+      setStatus("Attempting to delete a note...");
+      const response = await fetch(`${API_URL}/${noteId}`, 
+        { method: "DELETE",
+          headers: {"x-api-key": key}
+        });
+      if (!response.ok) throw new Error(response.status);
+      setStatus("Succesfully deleted the note");
+    } catch (error) {
+      console.log(error);
+      if (error.message === "401"){
+        setStatus("Wrong or empty key");
+        return;
+      }
+      setStatus("Error while deleting");
+      return;
+    }
+    load();
+  }
+
+  async function editNote(noteId){
+    console.log(`Trying to edit note with id = ${noteId}`);
+
+    try {
+      setStatus("Attempting to edit a note...");
+      const response = await fetch(`${API_URL}/${noteId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json", "x-api-key": key },
+        body: JSON.stringify({title: editTitle, description: editDesc}),
+      })
+      if (!response.ok) throw new Error(response.status);
+      setStatus("Succesfully edited the note");
+    } catch (error) {
+      console.log(error);
+      if (error.message === "401"){
+        setStatus("Wrong or empty key");
+        return;
+      }
+      setStatus("Error while editing");
+      return;
+    }
+    load();
+  }
+
+  
+    
+  
+  function submit(event){
+    event.preventDefault();
+    if (!inputDesc.trim() || !inputTitle.trim()){
+      setStatus("Enter both title and description");
+      return;
+    }
+    const newNote = {title : inputTitle, description : inputDesc};
+    sendNote(newNote);
+
+    setInputDesc("");
+    setInputTitle("");
+  }
+
+  function updateInputTitle(event){
+    setInputTitle(event.target.value);
+  }
+
+  function updateInputDesc(event){
+    setInputDesc(event.target.value);
+  }
+
+  function updateEditNoteId(noteId){
+    setEditNoteId(noteId);
+    console.log(`edit id set to ${noteId}`);
+    if (noteId === null) {
+      setEditDesc("");
+      setEditTitle("");
+    } else {
+      const targetNote = list.find((n) => n.id === noteId);
+      setEditDesc(targetNote.description);
+      setEditTitle(targetNote.title);
+    }
+  }
+
+  function updateEditTitle(event){
+    setEditTitle(event.target.value);
+  }
+
+  function updateEditDesc(event){
+    setEditDesc(event.target.value);
+  }
+
+  return (
+    <div>
+      <h1>My notes API</h1>
+      <p className="hint">Lesson 42 — Adding the edit button.</p>
+      <form onSubmit={submit}>
+      <input type="text" value={inputTitle} onChange={updateInputTitle} placeholder="Enter Title..."></input>
+      <input type="text" value={inputDesc} onChange={updateInputDesc}  placeholder="Enter description..."></input>
+      <button type="submit">Submit</button>
+      </form>
+      <p className="status">{status}</p>
+      <ul>
+        {list.map((listItem) => (
+          <NoteItem 
+          key={listItem.id} 
+          title={listItem.title} 
+          description={listItem.description} 
+          onDelete={() => deleteNote(listItem.id)} 
+          
+          onEdit={() => updateEditNoteId(listItem.id)}
+          isBeingEdited = {editNoteId === listItem.id}
+
+          cancel ={()=>updateEditNoteId(null)}
+          save ={()=>{
+            editNote(listItem.id);
+            updateEditNoteId(null);
+          }}
+          
+          editTitle = {editTitle}
+          onChangeTitle = {updateEditTitle}
+          
+          editDesc = {editDesc}
+          onChangeDesc = {updateEditDesc}
+          />
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
