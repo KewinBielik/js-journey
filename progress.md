@@ -761,3 +761,14 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   - **A stolen hash and salt is not a stolen password.** The algorithm is public and there is still no reverse step. The attacker can only guess: hash a guess with the stolen salt and compare. The salt stops them reusing a precomputed table, and the slowness makes every guess cost time. A stored password would have let them log in immediately, and reuse it on other sites.
   - **The attacker does use `scryptSync`.** That's the attack. He can't write a faster one that still produces my hashes, because the slowness is the work the algorithm demands, not a slow JavaScript wrapper. Skip the work and the bytes come out different, so the comparison fails. A tighter program or a faster computer makes each guess cheaper, which is why the cost is a setting you can raise. It doesn't open a shortcut.
 - **What confused me:** I thought a hash must have a pattern you can run backwards. It doesn't. Many passwords could land on the same bytes, and the function is built so finding even one of them is guessing, not reversing. Hiding the algorithm is not the protection. `scrypt` is public.
+
+## Lesson 48 — Login checks the stored hash
+- **Date:** 2026-10-04 · Streak day 42
+- **What I did:** A small Express server with a `users` table (`username`, `salt`, `hash`, no password column). `createUser` inserts a new salt and hash, and skips the insert if the username is already there. `POST /login` returns 400 for a bad body, the same 401 for an unknown user and a wrong password, and `{ ok: true }` when the password matches. The reply never includes the salt or the hash.
+- **What I learned:**
+  - Login reuses the **stored** salt. A new salt on every attempt would make the old password stop matching, because the hash was built with the original one. The server keeps both, per user.
+  - `.get()` returns one row (or `undefined`). `.run()` is for INSERT/UPDATE/DELETE. I used `.run()` first and had to look it up.
+  - SQLite gives the salt and hash back as bytes `scryptSync` can take directly.
+  - Same 401 and the same message for "no such user" and "wrong password", so the form can't be used to discover which usernames exist.
+  - **`{ ok: true }` only tells that one request.** The rest of the server does not know. HTTP doesn't keep a connection open between clicks: the next `fetch` is a new request, and this route has already finished. What's missing is something the browser sends back next time, so the server can recognise that same user until logout or a timeout. A cookie carrying a random token is the usual way. Not built yet.
+- **What confused me:** Nothing in the idea. I had to look up the SQL and copy the Express and hashing patterns from earlier lessons. 

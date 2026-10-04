@@ -22,16 +22,17 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 
 | Field | Value |
 |-------|-------|
-| **Last completed lesson** | 47 — password hashes (`scryptSync` + salt) |
-| **Next lesson** | 48 — not set up. Login should check a stored hash. He understands a stolen hash is a guessing problem, not a reversible one. |
-| **Last session date** | 2026-10-03 |
-| **Streak day** | 41 |
+| **Last completed lesson** | 48 — `POST /login` checks a stored hash |
+| **Next lesson** | 49 — not set up. A cookie so a later request can prove the login. He described this as the server remembering the user; the gap is that HTTP doesn't keep the connection. |
+| **Last session date** | 2026-10-04 |
+| **Streak day** | 42 |
 
 > **New workflow (his choice):** he writes short raw notes in `progress.md` while working,
 > and the mentor turns them into the full entry at the end, keeping his observations.
 >
-> Auth is split on purpose. 47 is hash + salt only, one script, no Express. Login route
-> comes after. He still has a hardcoded key in the React source from Lesson 46.
+> Auth is split on purpose. 47 was hash + salt in a script. 48 is a `users` table and
+> `POST /login` that checks the stored hash. No cookie and no React yet. The notes app
+> still uses the Lesson 46 API key.
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
@@ -160,7 +161,7 @@ day-NN-topic/
 
 ### Not yet
 
-- Login route, users table, cookies. Lesson 47 is only the hash (scrypt + salt), no Express.
+- Cookies / sessions. Lesson 48 only answers "was this password right?" and then forgets.
 - Promise `.then()` chains — he uses `async`/`await` fluently but `.then()` still reads as
   unfamiliar (his words, Lesson 41). Worth 10 minutes when it next comes up naturally.
 - A network database (Postgres) and deployment
@@ -195,7 +196,8 @@ day-NN-topic/
 | **45** ✓ | Middleware — logger, `requireValidNote`, JSON 404; error handler as stretch |
 | **46** ✓ | API key — middleware checks a header; 401; React sends it on write requests |
 | **47** ✓ | Password hash — `scryptSync` + salt, one script, no login route yet |
-| **Later** | Login route, then cookies, then a network database / deployment |
+| **48** ✓ | Login — `users` table stores salt + hash, `POST /login` checks them |
+| **Later** | A cookie so the server remembers the login, then a network database / deployment |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.
 
