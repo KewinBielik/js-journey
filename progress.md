@@ -772,3 +772,17 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   - Same 401 and the same message for "no such user" and "wrong password", so the form can't be used to discover which usernames exist.
   - **`{ ok: true }` only tells that one request.** The rest of the server does not know. HTTP doesn't keep a connection open between clicks: the next `fetch` is a new request, and this route has already finished. What's missing is something the browser sends back next time, so the server can recognise that same user until logout or a timeout. A cookie carrying a random token is the usual way. Not built yet.
 - **What confused me:** Nothing in the idea. I had to look up the SQL and copy the Express and hashing patterns from earlier lessons. 
+
+## Lesson 49 — Session cookie
+- **Date:** 2026-10-05 · Streak day 43
+- **What I did:** Login now creates a random token (`randomBytes(32).toString("hex")`), stores it in a `sessions` Map as token → username, and sends it back as `Set-Cookie: sid=...; HttpOnly; SameSite=Lax; Path=/`. Added `getToken(req)` to pull `sid` out of the `Cookie` header. `GET /me` returns `{ username }` for a known token and 401 otherwise. `POST /logout` deletes the token from the Map, clears the cookie with `Max-Age=0`, and replies 204. CORS now names `http://localhost:5173` with `credentials: true`.
+- **What I learned:**
+  - **The server attaches the token to a response header, and the browser sends it back on every request.** `Set-Cookie` arrives once, at login. After that the browser adds `Cookie: sid=...` by itself. My fetch code never mentions the token.
+  - **Only with permission.** Every fetch needs `credentials: "include"`, and the server needs `cors({ origin, credentials: true })`. Without it, the browser drops the cookie at login and doesn't send it to `/me`.
+  - **`HttpOnly` hides the cookie from page JavaScript.** `document.cookie` doesn't show `sid`, but the browser still sends it.
+  - **`req.get("cookie")` is one string with every cookie for `localhost`**, not just mine, because cookies ignore ports. `getToken` splits it on `"; "` and finds the part starting with `sid=`.
+  - **The Map is what makes someone logged in.** Each logged-in user's token sits in it until logout. Logout is `sessions.delete(token)`. Clearing the cookie is just tidying up.
+  - **Restarting the server empties the Map.** The browser keeps the cookie and still sends it, but the server no longer recognises anyone.
+  - **Why the cookie holds a token, not the username:** a browser knowing a username doesn't prove it ever logged in, but the token does. A cookie is just text the user can edit in DevTools, so `username=admin` would be a free login. A token only works if it's in the server's Map, and only a correct password puts it there. It's 32 random bytes, so it can't be guessed.
+  - **Surviving a restart:** move the Map into the database, as a `sessions` table of token → username. A file outlives the process.
+- **What confused me:** The first version of the lesson. "`GET /me` with the cookie" didn't tell me what to do. After it was rewritten into small steps with a console test for each, it was doable.

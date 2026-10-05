@@ -22,17 +22,17 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 
 | Field | Value |
 |-------|-------|
-| **Last completed lesson** | 48 — `POST /login` checks a stored hash |
-| **Next lesson** | 49 — not set up. A cookie so a later request can prove the login. He described this as the server remembering the user; the gap is that HTTP doesn't keep the connection. |
-| **Last session date** | 2026-10-04 |
-| **Streak day** | 42 |
+| **Last completed lesson** | 49 — session cookie, `GET /me`, `POST /logout` |
+| **Next lesson** | 50 — not set up yet (proposed: sessions table in SQLite + expiry) |
+| **Last session date** | 2026-10-05 |
+| **Streak day** | 43 |
 
 > **New workflow (his choice):** he writes short raw notes in `progress.md` while working,
 > and the mentor turns them into the full entry at the end, keeping his observations.
 >
-> Auth is split on purpose. 47 was hash + salt in a script. 48 is a `users` table and
-> `POST /login` that checks the stored hash. No cookie and no React yet. The notes app
-> still uses the Lesson 46 API key.
+> 49 is done: login sets an HttpOnly `sid` cookie, sessions live in an in-memory Map, so a
+> restart logs everyone out. Kewin proposed moving the Map into the database himself.
+> Notes app still uses the Lesson 46 API key.
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
@@ -85,7 +85,10 @@ day-NN-topic/
   model and a bad session. Split tooling setup from language concepts.
 - Assume he learns from terse specs alone — for genuinely new paradigms he needs
   **study notes** he can reread (see `day-30-react-intro/REFERENCE.md` for the format
-  that works: one idea per section, compared against his own vanilla code)
+  that works: one idea per section, compared against his own vanilla code).
+  Lesson 49 v1 failed this way ("GET /me with the cookie" meant nothing to him) and
+  was rewritten: for any new mechanism, each step = what to write → exact console
+  test → what you should see. Build routes in tiny runnable steps (log first).
 - Paste full solutions unless he's truly stuck after trying
 - Over-handhold on CSS (he feedback'd Lesson 23 LESSON.md as too prescriptive)
 - Jump ahead to React/frameworks before vanilla `fetch` + async feel solid
@@ -161,7 +164,7 @@ day-NN-topic/
 
 ### Not yet
 
-- Cookies / sessions. Lesson 48 only answers "was this password right?" and then forgets.
+- Cookies / sessions — Lesson 49 is the in-memory version. Not wired to the notes app yet.
 - Promise `.then()` chains — he uses `async`/`await` fluently but `.then()` still reads as
   unfamiliar (his words, Lesson 41). Worth 10 minutes when it next comes up naturally.
 - A network database (Postgres) and deployment
@@ -197,7 +200,9 @@ day-NN-topic/
 | **46** ✓ | API key — middleware checks a header; 401; React sends it on write requests |
 | **47** ✓ | Password hash — `scryptSync` + salt, one script, no login route yet |
 | **48** ✓ | Login — `users` table stores salt + hash, `POST /login` checks them |
-| **Later** | A cookie so the server remembers the login, then a network database / deployment |
+| **49** | Session cookie — random token in a Map, HttpOnly cookie, `GET /me` |
+| **50** | Sessions table in SQLite (survives restart) + expiry |
+| **Later** | Wire the session into the notes app, then a network database / deployment |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.
 
