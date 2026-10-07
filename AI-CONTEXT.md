@@ -22,17 +22,16 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 
 | Field | Value |
 |-------|-------|
-| **Last completed lesson** | 49 — session cookie, `GET /me`, `POST /logout` |
-| **Next lesson** | 50 — not set up yet (proposed: sessions table in SQLite + expiry) |
-| **Last session date** | 2026-10-05 |
-| **Streak day** | 43 |
+| **Last completed lesson** | 50 — sessions table in SQLite + expiry |
+| **Next lesson** | 51 — not set up yet (proposed: replace the notes-app API key with the session) |
+| **Last session date** | 2026-10-07 |
+| **Streak day** | 44 |
 
 > **New workflow (his choice):** he writes short raw notes in `progress.md` while working,
 > and the mentor turns them into the full entry at the end, keeping his observations.
 >
-> 49 is done: login sets an HttpOnly `sid` cookie, sessions live in an in-memory Map, so a
-> restart logs everyone out. Kewin proposed moving the Map into the database himself.
-> Notes app still uses the Lesson 46 API key.
+> 50 is done: sessions live in SQLite with `expires_at`. Cookie / `getToken` unchanged.
+> Notes app still uses the Lesson 46 API key — that is the natural next lesson.
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
@@ -164,7 +163,7 @@ day-NN-topic/
 
 ### Not yet
 
-- Cookies / sessions — Lesson 49 is the in-memory version. Not wired to the notes app yet.
+- Cookies / sessions — Lesson 50 stores sessions in SQLite with expiry. Not wired to the notes app yet.
 - Promise `.then()` chains — he uses `async`/`await` fluently but `.then()` still reads as
   unfamiliar (his words, Lesson 41). Worth 10 minutes when it next comes up naturally.
 - A network database (Postgres) and deployment
@@ -200,9 +199,10 @@ day-NN-topic/
 | **46** ✓ | API key — middleware checks a header; 401; React sends it on write requests |
 | **47** ✓ | Password hash — `scryptSync` + salt, one script, no login route yet |
 | **48** ✓ | Login — `users` table stores salt + hash, `POST /login` checks them |
-| **49** | Session cookie — random token in a Map, HttpOnly cookie, `GET /me` |
-| **50** | Sessions table in SQLite (survives restart) + expiry |
-| **Later** | Wire the session into the notes app, then a network database / deployment |
+| **49** ✓ | Session cookie — random token in a Map, HttpOnly cookie, `GET /me` |
+| **50** ✓ | Sessions table in SQLite (survives restart) + expiry |
+| **51** | Replace the notes-app API key with the session cookie |
+| **Later** | A network database / deployment |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.
 

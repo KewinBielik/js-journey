@@ -786,3 +786,16 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   - **Why the cookie holds a token, not the username:** a browser knowing a username doesn't prove it ever logged in, but the token does. A cookie is just text the user can edit in DevTools, so `username=admin` would be a free login. A token only works if it's in the server's Map, and only a correct password puts it there. It's 32 random bytes, so it can't be guessed.
   - **Surviving a restart:** move the Map into the database, as a `sessions` table of token → username. A file outlives the process.
 - **What confused me:** The first version of the lesson. "`GET /me` with the cookie" didn't tell me what to do. After it was rewritten into small steps with a console test for each, it was doable.
+
+## Lesson 50 — Sessions in SQLite
+- **Date:** 2026-10-07 · Streak day 44
+- **What I did:** Replaced the in-memory `sessions` Map with a `sessions` table (`token`, `username`, `expires_at`). Login `INSERT`s a row, `/me` `SELECT`s it, logout `DELETE`s it. Added a 24-hour lifetime. Both stretches: `/me` deletes an expired row (and clears the cookie), login `Set-Cookie` includes `Max-Age`.
+- **What I learned:**
+  - **The Map was already a table.** `set` → `INSERT`, `get` → `SELECT`, `delete` → `DELETE`. The cookie and `getToken` did not change. A restart no longer logs everyone out, because the guest list is in `users.db`.
+  - **`.get()` returns a row, `.run()` does not.** I used `.run()` first and had to look it up again. A `SELECT` always comes back as an **object of columns**, even if I only asked for `username`. `SELECT username ...` is `{ username: "kewinDev" }`, not the string `"kewinDev"`. Wrapping that object again as `{ username }` nested it: `{ username: { username: "kewinDev" } }`. `.username` on the row is the right way to get the string.
+  - **No row means `undefined`, so I cannot read `.username` until I know the row exists.** Filtering `expires_at` in SQL made `.get()` return `undefined` for an old ticket, and that same bug showed up. Check the row first, then read fields.
+  - **`SELECT *` vs `SELECT username`.** For the stretch I needed the token to delete that one session, not every session for the username (that would kick other devices). Asking for columns chooses which fields are on the object, not whether I get an object.
+  - **One row per token, not per user.** Two browsers are two tickets. Logout (or expiry) of one must not kill the other.
+  - **People do not always log out.** They close the tab. Without deleting expired rows, the table fills with dead tickets. Expiry is what makes an old token stop working; cleanup is what keeps the file small.
+  - **A ticket that never dies is a stolen-laptop ticket.** `expires_at = Date.now() + lifetime`. `/me` treats a past number the same as a missing row: 401.
+- **What confused me:** `.get()` vs `.run()` again. The nested `{ username: { username } }` until I realised SQL returns a row object. Whether clearing the cookie on `/me` is needed if `Max-Age` already expires it — answered in the review.
