@@ -799,3 +799,14 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   - **People do not always log out.** They close the tab. Without deleting expired rows, the table fills with dead tickets. Expiry is what makes an old token stop working; cleanup is what keeps the file small.
   - **A ticket that never dies is a stolen-laptop ticket.** `expires_at = Date.now() + lifetime`. `/me` treats a past number the same as a missing row: 401.
 - **What confused me:** `.get()` vs `.run()` again. The nested `{ username: { username } }` until I realised SQL returns a row object. Whether clearing the cookie on `/me` is needed if `Max-Age` already expires it — answered in the review.
+
+## Lesson 51 — Session on the notes app
+- **Date:** 2026-10-08 · Streak day 45
+- **What I did:** One server now has login and notes. `requireLogin` replaced `requireKey` on GET/POST/PUT/DELETE `/notes`. The React app dropped the API key, sends `credentials: "include"` on every fetch, and shows a login form until `me` is set. `/login`, `/me`, and `/logout` stay public.
+- **What I learned:**
+  - **`requireLogin` is `GET /me` as middleware.** Same cookie → token → sessions row → expiry. Wrong or missing → 401 and stop. Right → `req.username = ...` and `next()`. The notes handlers do not send a key or a token; the browser attaches the cookie.
+  - **`/login` cannot use `requireLogin`.** That would demand a session in order to create one.
+  - **`if (me)` runs on every render, not once.** The `useEffect` with `[]` is what runs once (page open). After login, React only switches to the notes view if `setMe` actually runs.
+  - **`login()` then `checkLoginStatus()` on the next line is too early.** `login` is `async`. The `/me` call happened before `Set-Cookie` was stored, so `me` stayed `null` and it looked like I had to refresh. Waiting until login returns 200, then calling `/me`, fixes it.
+  - **`me` is the client's memory. The server is the truth.** If `/me` is 401, `setMe(null)` sends the user back to the form without a refresh. Do that for 401, not for every error — a network failure is not a logout. React will not notice an expired session by itself; something has to call `/me` or hit a notes route (I already call `checkLoginStatus` after a 401 on write).
+- **What confused me:** Thinking the `if` only ran at page load. It was `me` never changing. Also whether to `setMe(null)` on a failed `/me` — yes, for 401.
