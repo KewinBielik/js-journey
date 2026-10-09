@@ -22,16 +22,17 @@ This repo syncs between PCs via git. Whoever helps Kewin next should treat this 
 
 | Field | Value |
 |-------|-------|
-| **Last completed lesson** | 51 — session on the notes app (`requireLogin`, login form) |
-| **Next lesson** | 52 — not set up yet (proposed: notes belong to a user) |
-| **Last session date** | 2026-10-08 |
-| **Streak day** | 45 |
+| **Last completed lesson** | 52 — notes belong to the logged-in user |
+| **Next lesson** | not set up yet |
+| **Last session date** | 2026-10-09 |
+| **Streak day** | 46 |
 
 > **New workflow (his choice):** he writes short raw notes in `progress.md` while working,
 > and the mentor turns them into the full entry at the end, keeping his observations.
 >
-> 51 is done: notes routes use `requireLogin` instead of an API key. React logs in
-> with the session cookie. Notes are still one shared list — that is the next lesson.
+> 52 is done: notes are filtered by `req.username`. DELETE still has a typo
+> (`req.usernamex` plus backticks) that 500s; PUT ownership check is fine.
+> `requireLogin` and `GET /me` still duplicate the session lookup.
 
 For detailed notes on what was learned, always read `progress.md` — it is the real learning log.
 
@@ -163,8 +164,7 @@ day-NN-topic/
 
 ### Not yet
 
-- Per-user notes — Lesson 51 gates the notes app behind a login, but every user
-  still sees the same list.
+- Sharing one lookup between `requireLogin` and `GET /me` (optional cleanup from 52).
 - Promise `.then()` chains — he uses `async`/`await` fluently but `.then()` still reads as
   unfamiliar (his words, Lesson 41). Worth 10 minutes when it next comes up naturally.
 - A network database (Postgres) and deployment
@@ -203,7 +203,7 @@ day-NN-topic/
 | **49** ✓ | Session cookie — random token in a Map, HttpOnly cookie, `GET /me` |
 | **50** ✓ | Sessions table in SQLite (survives restart) + expiry |
 | **51** ✓ | Replace the notes-app API key with the session cookie |
-| **52** | Notes belong to a user (`username` on the row, filter by `req.username`) |
+| **52** ✓ | Notes belong to a user (`username` on the row, filter by `req.username`) |
 | **Later** | A network database / deployment |
 
 CSS chapter is **paused** — enough for now. JS + APIs is the priority.

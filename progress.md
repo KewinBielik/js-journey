@@ -810,3 +810,15 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   - **`login()` then `checkLoginStatus()` on the next line is too early.** `login` is `async`. The `/me` call happened before `Set-Cookie` was stored, so `me` stayed `null` and it looked like I had to refresh. Waiting until login returns 200, then calling `/me`, fixes it.
   - **`me` is the client's memory. The server is the truth.** If `/me` is 401, `setMe(null)` sends the user back to the form without a refresh. Do that for 401, not for every error — a network failure is not a logout. React will not notice an expired session by itself; something has to call `/me` or hit a notes route (I already call `checkLoginStatus` after a 401 on write).
 - **What confused me:** Thinking the `if` only ran at page load. It was `me` never changing. Also whether to `setMe(null)` on a failed `/me` — yes, for 401.
+
+
+## Lesson 52 — Notes belong to a user
+- **Date:** 2026-10-09 · Streak day 46
+- **What I did:** Added `username` to the `notes` table. `readNotes`, `addNote`, `changeNote`, and `deleteNote` all take that username. GET filters with `WHERE username = ?`. POST stores `req.username`. PUT and DELETE match id **and** username, and `changes === 0` stays a 404. Added a second dev user to test it. The React app did not need a filter.
+- **What I learned:**
+  - **Login only proved that someone is in.** Without an owner column, every account saw the same list, and an id was enough to delete a note.
+  - **The owner is `req.username`, not `req.body.username`.** `requireLogin` already set it from the session. The body is sent by whoever is calling the server, so a logged-in user could name someone else and plant a note in their list. The password check would not stop that.
+  - **Someone else's id is a 404, not a 403.** A 403 would admit the note exists and just isn't yours. 404 gives less away: missing and "not yours" look the same. The note stays.
+  - The change was smaller than I expected. The React list just renders whatever GET returns.
+- **What confused me:** Nothing much. It was clearer than I thought it would be.
+- **Still to fix:** `deleteNote(req.params.id, req.usernamex\`\`)` — stray `x` and backticks. DELETE throws `req.usernamex is not a function` and the error handler replies 500. It should be `req.username`, same as PUT.
