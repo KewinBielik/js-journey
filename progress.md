@@ -821,4 +821,12 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   - **Someone else's id is a 404, not a 403.** A 403 would admit the note exists and just isn't yours. 404 gives less away: missing and "not yours" look the same. The note stays.
   - The change was smaller than I expected. The React list just renders whatever GET returns.
 - **What confused me:** Nothing much. It was clearer than I thought it would be.
-- **Still to fix:** `deleteNote(req.params.id, req.usernamex\`\`)` — stray `x` and backticks. DELETE throws `req.usernamex is not a function` and the error handler replies 500. It should be `req.username`, same as PUT.
+
+## Project #1 - Doctor's website (day 1)
+
+- **Date:** 2026-10-10 · Steak day 47
+- **What project, why project:** I decided that continuing the lessons would be unproductive and started a somewhat simple website project. The goal is to finish this site with minimal help, doing as much as I can by myself to make it challanging and prove that I got have gotten better. The finished project should be a webiste that some doctor could potentially use.
+- **What I did:** Created the project folder, started from an empty HTML and build the website's skeleton with basic styling. Wrote a list of things that should end up on the website.
+- **What I learned:**
+  - **HTML sematics are for clarity.** I am always getting confused by this so this time I made some research to be sure - you could create a whole page with `divs` but sematic tags such as `<header>`, `<nav>`, `<main>`, `<footer>` are better to read for everyone (search engines, humans,  screen readers). *They don't do anything alone.*
+  - **Topbar bottom border.** Doing a div inside the `<header` is the right way to do it. Put a bottom border on header and style the rest in that div.
