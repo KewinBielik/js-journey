@@ -3,10 +3,13 @@ To Do:
 [ ] How to style multiple texts in one section and is it the right way.
 [ ] How to make the navigation work.
 
-[ ] Make things responsive - hover on links.
-[ ] Choose a color pallete and stick to it.
-[ ] Choose fonts.
-[ ] Add a logo?
+[x] Make things responsive - hover on links.
+[x] Choose a color pallete and stick to it.
+[ ] Make the website adjust To different resolutions.
+[ ] Change info to some fake info.
+[x] Highlight on the nav.
+[x] Choose fonts.
+[x] Add a logo?
 [ ] Add more navigations and make them work
 [ ] Add a search?
 [ ] Why choose us?
@@ -16,7 +19,9 @@ To Do:
 [ ] Help?
 [ ] Text over big image (seems to be the thing)
 
-Good site to inspire from: https://neuroaxishealth.com/# 
+Good site to inspire from: 
+https://neuroaxishealth.com/# 
+https://laryngologpoznan.pl/
 
 List of things that should be on the finished site:
 - topbar with logo/photo and nav links

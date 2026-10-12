@@ -830,3 +830,23 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 - **What I learned:**
   - **HTML sematics are for clarity.** I am always getting confused by this so this time I made some research to be sure - you could create a whole page with `divs` but sematic tags such as `<header>`, `<nav>`, `<main>`, `<footer>` are better to read for everyone (search engines, humans,  screen readers). *They don't do anything alone.*
   - **Topbar bottom border.** Doing a div inside the `<header` is the right way to do it. Put a bottom border on header and style the rest in that div.
+
+### Day 2
+- **Date:** 2026-10-12 · Steak day 48
+- **What I did:** 
+  - Started the day by watching one video about learning how to code. I think I am gonna keep this as a part of the schedule - as long as watching content is only 5% of my work, it should be beneficial and not unproductive. I made some notes out of the video and added two sections "Roadmap" and "For future", so that I can better plan my moves and note down things that I will need later - once I start applying to the job. 
+  - I chose and added fonts, color pallete, highlits on nav links, added a logo (a free template), rounded corners and shadow under the big image.
+- **What I learned:**
+  - **Using google fonts.** Besdies standard fonts in HTML there are many more which are not included by default. To include such font you need a `style sheet link` in `<head>`, like this:
+>  ```html
+>    <head>
+><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+><style>
+>body {
+> font-family: "Sofia", sans-serif;
+>}
+></style>
+></head>
+>  ```
+
+I finished on adding the logo and I need to consider how to space and position it.
