@@ -2,6 +2,7 @@
     --background1: #fff;
     --background2: #F0F2F5;
     --details: #177EE5;
+    --text-default: black;
     --text-muted: #6b7280;
 
 
@@ -42,7 +43,7 @@ html, body {
 
 nav {
     display: flex;
-    gap: 5rem;
+    gap: 4rem;
     align-items: center;
 }
 
@@ -50,49 +51,73 @@ nav a {
     transition: color 0.3s ease-in-out;
     text-decoration: none;
     font-size: 1.5rem;
-    color: black;
+    color:  var(--text-default);
 }
 
 nav a:hover {
     color: var(--details);
 }
 
-main {
+.about-me-bg {
     background-color: var(--background2);
     padding: 5rem 0 10rem 0;
 }
 
-.AboutMe {
+.about-me {
     display: flex;
     justify-content: center;
     gap:5rem;
-    margin: 0 10rem 0 10rem;
     max-width: 1200px;
     margin: auto;
 }
 
-.AboutMe h2 {
+.about-me h2 {
     margin: 0;
     font-size: 3rem;
     text-align: left;
     font-family: var(--big-text);
 }
 
-.AboutMe p {
+.about-me .role {
     color: var(--details);
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-family: var(--small-text);
 }
 
-.AboutMe img {
+.about-me .bio {
+    font-size: 1.2rem;
+    font-family: var(--small-text);
+    
+}
+
+.about-me img {
     border-radius: 10%;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
 }
 
+.treatments-bg {
+    background-color: var(--background1);
+    padding: 5rem 0 10rem 0;
+}
+
+.treatments {
+    display:grid;
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.treatments h2 {
+    margin: 0;
+    font-size: 3rem;
+    text-align: left;
+    font-family: var(--big-text);
+}
+
+
 footer {
-    background-color: var(--Background1);
+    background-color:  var(--background2);
     padding: 3rem 0 5rem 0;
-    border-top: 2px solid #6b7280;
 }
 
 footer p {

@@ -832,7 +832,7 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   - **Topbar bottom border.** Doing a div inside the `<header` is the right way to do it. Put a bottom border on header and style the rest in that div.
 
 ### Day 2
-- **Date:** 2026-10-12 · Steak day 48
+- **Date:** 2026-10-12 · Streak day 48
 - **What I did:** 
   - Started the day by watching one video about learning how to code. I think I am gonna keep this as a part of the schedule - as long as watching content is only 5% of my work, it should be beneficial and not unproductive. I made some notes out of the video and added two sections "Roadmap" and "For future", so that I can better plan my moves and note down things that I will need later - once I start applying to the job. 
   - I chose and added fonts, color pallete, highlits on nav links, added a logo (a free template), rounded corners and shadow under the big image.
@@ -849,4 +849,8 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 ></head>
 >  ```
 
-I finished on adding the logo and I need to consider how to space and position it.
+### Day 3
+- **Date:** 2026-10-13 · Streak day 49
+- **What I did:** Changed website language to english, made up some data so the website does not use real info, added more in the about me section, fixed the naming convention of classes and started adding another section.
+- **What I learned:** 
+  - The most widely adopted convention for styling is `BEM` (Block, Element, Modifier). To put it simply: .some-card (block), .some-card__title (element), .some-card__title--active (modifier).
