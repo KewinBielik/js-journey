@@ -854,3 +854,10 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 - **What I did:** Changed website language to english, made up some data so the website does not use real info, added more in the about me section, fixed the naming convention of classes and started adding another section.
 - **What I learned:** 
   - The most widely adopted convention for styling is `BEM` (Block, Element, Modifier). To put it simply: .some-card (block), .some-card__title (element), .some-card__title--active (modifier).
+
+###Day 4
+- **Date:** 2026-10-14 · Streak day 50
+- **What I did:** I have put some content inside the Treatments section, I styled the list as cards, borders, shadows, fonts and buttons. So far the buttons don't align properly, I gotta fix it next time.
+- **What I learned:**
+  - When styling `border-radius` using `px` instead of `%` can allow for more rounded corners without turning the whole button into a circle.
+  - Styling cards as `ul` and `li`'s is the right approach. `flex-wrap: wrap;` allows the list items to wrap around and `list-style: none;` removes default list styling. Combine with `display: flex;` and style it like divs - the upside is that the html reads better.

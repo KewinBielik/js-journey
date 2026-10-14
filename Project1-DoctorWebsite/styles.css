@@ -4,6 +4,7 @@
     --details: #177EE5;
     --text-default: black;
     --text-muted: #6b7280;
+    --text-button: #fff;
 
 
 
@@ -101,18 +102,70 @@ nav a:hover {
 }
 
 .treatments {
-    display:grid;
     justify-content: center;
     max-width: 1200px;
     margin: auto;
+    text-align: center;
+}
+
+.treatments .eyebrow {
+    color: var(--details);
+    font-family: var(--big-text);
+    text-align: center;
 }
 
 .treatments h2 {
     margin: 0;
     font-size: 3rem;
-    text-align: left;
     font-family: var(--big-text);
+    padding-bottom: 2rem;
 }
+
+.treatments-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 4rem;
+    padding: 0;
+    justify-content: center;
+}
+
+.treatments-list li {
+    padding: 1rem;
+    background-color: var(--background2);
+    max-width: 320px;
+    border-radius: 5%;
+    border-top: 5px solid var(--details);
+}
+
+.treatments-list h3 {
+    margin: 0;
+    font-family: var(--big-text);
+    font-size: 1.2rem;
+    border-bottom: 1px solid var(--details);
+    padding-bottom: 1rem;
+}
+
+.treatments-list p {
+    font-family: var(--small-text);
+    font-size: 1.1rem;
+    padding-bottom: 5rem;
+    
+    
+}
+
+.treatments button {
+    all: unset;
+    background-color: var(--details);
+    color: var(--text-button);
+    padding: 1rem;
+    border-radius: 16px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.2rem;
+    
+    
+}
+
 
 
 footer {

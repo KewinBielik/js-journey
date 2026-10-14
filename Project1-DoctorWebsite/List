@@ -3,14 +3,12 @@ To Do:
 [ ] How to style multiple texts in one section and is it the right way.
 [ ] How to make the navigation work.
 
-[x] Make things responsive - hover on links.
-[x] Choose a color pallete and stick to it.
+[x] Instead of having "Treatments" as a header - write a small "WHATE WE OFFER" in color and a header like "Advanced care worth traveling for"
+[x] Treatments as cards
+[x] Cards Styling
+[x] Cards buttons
+[ ] Fix button align
 [ ] Make the website adjust To different resolutions.
-[x] Change info to some fake info.
-[x] Should switch the website to english
-[x] Highlight on the nav.
-[x] Choose fonts.
-[x] Add a logo?
 [ ] Add more navigations and make them work
 [ ] Add a search?
 [ ] Why choose us?
