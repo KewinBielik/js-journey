@@ -15,10 +15,14 @@
 
 html, body {
     margin: 0;
+    scroll-behavior: smooth;
 }
 
 .topbar {
     background-color: var(--background1);
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
 .inner-topbar {
@@ -26,7 +30,7 @@ html, body {
     justify-content: space-between;
     align-items:center;
     margin: auto;
-    max-width: 1200px;
+    max-width: 1400px;
     font-family: var(--big-text);
 }
 
@@ -37,8 +41,8 @@ html, body {
 }
 
 .inner-topbar img {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
 }
 
 
@@ -67,9 +71,15 @@ nav a:hover {
 .about-me {
     display: flex;
     justify-content: center;
-    gap:5rem;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: auto;
+    scroll-margin-top: 200px;
+    
+}
+
+.about-me .info {
+    border-right: 4px solid var(--details);
+    padding: 8rem 2.5rem 2.5rem 0;
 }
 
 .about-me h2 {
@@ -92,8 +102,10 @@ nav a:hover {
 }
 
 .about-me img {
-    border-radius: 10%;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius:  0 150px 150px 0;
+    padding: 2.5rem 0 2.5rem 4rem;
+    width: 800px;
+    height: 500px;
 }
 
 .treatments-bg {
@@ -103,9 +115,10 @@ nav a:hover {
 
 .treatments {
     justify-content: center;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: auto;
     text-align: center;
+    scroll-margin-top: 200px;
 }
 
 .treatments .eyebrow {
@@ -125,51 +138,91 @@ nav a:hover {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    gap: 4rem;
+    gap: 3rem 2.5rem;
     padding: 0;
     justify-content: center;
 }
 
 .treatments-list li {
-    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem;
     background-color: var(--background2);
     max-width: 320px;
     border-radius: 5%;
     border-top: 5px solid var(--details);
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
 }
 
 .treatments-list h3 {
     margin: 0;
     font-family: var(--big-text);
-    font-size: 1.2rem;
-    border-bottom: 1px solid var(--details);
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--details);
     padding-bottom: 1rem;
+    min-height: 60px;
 }
 
 .treatments-list p {
     font-family: var(--small-text);
-    font-size: 1.1rem;
-    padding-bottom: 5rem;
+    font-size: 1.2rem;
+    margin: 2rem 0 8rem;
     
     
 }
+
+
 
 .treatments button {
     all: unset;
     background-color: var(--details);
     color: var(--text-button);
-    padding: 1rem;
+    padding: 0.8rem 1.5rem;
     border-radius: 16px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 1.2rem;
-    
+    max-width: 200px    ;
+    margin: auto auto 0 auto;    
     
 }
 
+.opinions-bg {
+    background-color: var(--background2);
+    padding: 5rem 0 10rem 0;
+}
 
+.opinions {
+    max-width: 1400px;
+    margin: auto;
+    text-align: center;
+}
+
+.opinions h2 {
+    font-size: 3rem;
+    font-family: var(--big-text);
+    margin: 0 15rem;
+    padding: 1rem;
+    border-bottom: 2px solid var(--details);
+}
+
+.opinions p {
+    font-size: 1.2rem;
+    font-family: var(--small-text);
+    margin: 2rem 22rem;
+}
+
+.opinion-card {
+    max-width: 800px;
+    margin: auto;
+    padding: 15rem 0;
+    background-color: var(--background1);
+    border: 4px solid var(--details);
+    border-radius: 50px;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
 
 footer {
-    background-color:  var(--background2);
+    background-color:  var(--background1);
     padding: 3rem 0 5rem 0;
 }
 
