@@ -876,4 +876,24 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   z-index: 999; 
   }
   ```
+
+
+## Project #1 - Doctor's website (day 6)
+
+- **Date:** 2026-10-16 · Streak day 52
+- **What I did:** Designed opinion cards and implemented automatic slow right to left scrolling.
+- **What I learned:** 
+  - I can create animations by creating `@keyframes` like this:
+  ```css
+    @keyframes scroll-left {
+    from {transform: translateX(0%);}
+    to {transform: translateX(100%);}
+    }
+  ```
+  and then use on a section like this:
+  ```css
+    .section {
+      animation: scroll-left 10s linear infinite;
+    }
+  ```
   

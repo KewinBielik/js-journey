@@ -10,9 +10,11 @@ To Do:
 [x] Try out advices from Dawid
 [x] Fix button align
 [x] Make the top bar stay at all times.
-[ ] Change cursor on buttons.
-[ ] Make scrollable opinion cards.
+[x] Change cursor on buttons.
+[x] Make scrollable opinion cards.
+[ ] Fix cards scrolling so that the transform X goes from 0% to 50%.
 [ ] Make the website adjust To different resolutions.
+[ ] Add more details, like icons in the treatments section
 [x] Add more navigations and make them work
 [ ] Add a search?
 [ ] Why choose us?
@@ -24,7 +26,8 @@ To Do:
 
 Good site to inspire from: 
 https://neuroaxishealth.com/# 
-    https://laryngologpoznan.pl/
+https://laryngologpoznan.pl/    
+
 
 List of things that should be on the finished site:
 - topbar with logo/photo and nav links

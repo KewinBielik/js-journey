@@ -16,6 +16,7 @@
 html, body {
     margin: 0;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 .topbar {
@@ -183,6 +184,7 @@ nav a:hover {
     font-size: 1.2rem;
     max-width: 200px    ;
     margin: auto auto 0 auto;    
+    cursor:pointer;
     
 }
 
@@ -205,21 +207,57 @@ nav a:hover {
     border-bottom: 2px solid var(--details);
 }
 
-.opinions p {
+.opinions .desc {
     font-size: 1.2rem;
     font-family: var(--small-text);
-    margin: 2rem 22rem;
+    margin: 2rem 22rem 5rem;
 }
 
-.opinion-card {
-    max-width: 800px;
-    margin: auto;
-    padding: 15rem 0;
-    background-color: var(--background1);
-    border: 4px solid var(--details);
-    border-radius: 50px;
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+.opinions-list {
+    list-style: none;
+    display: flex;
+    gap: 4rem;
+    text-align: left;
+    animation: scroll-left 30s linear infinite;
+    flex-wrap: nowrap;
 }
+
+.opinions-list li {
+    background-color: var(--background1);
+    max-width: 350px;
+    min-width: 350px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.opinions-list h3 {
+    font-size: 1.5rem;
+    font-family: var(--big-text);
+    margin: 0;
+}
+
+.opinions-list .role {
+    font-family: var(--big-text);
+    color: var(--details);
+    font-size: 1.2rem;
+    margin-top: 0.7rem;
+}
+
+.opinions-list .review {
+    font-family: var(--small-text);
+    font-size: 1.1rem;
+}
+
+.opinions-list .date {
+    font-family: var(--small-text);
+    color: var(--text-muted);
+    margin: auto 0 0 0;
+    border-top: 2px solid var(--details);
+    padding-top: 2rem;
+}
+
 
 footer {
     background-color:  var(--background1);
@@ -231,4 +269,9 @@ footer p {
     color: var(--text-muted);
     text-align: center;
     font-family: var(--small-text);
+}
+
+@keyframes scroll-left {
+    from {transform: translateX(-18%);}
+    to {transform: translateX(-229.7%);}
 }
