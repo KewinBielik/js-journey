@@ -16,7 +16,6 @@
 html, body {
     margin: 0;
     scroll-behavior: smooth;
-    overflow-x: hidden;
 }
 
 .topbar {
@@ -139,7 +138,7 @@ nav a:hover {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    gap: 3rem 2.5rem;
+    gap: 6rem 4rem;
     padding: 0;
     justify-content: center;
 }
@@ -194,15 +193,16 @@ nav a:hover {
 }
 
 .opinions {
-    max-width: 1400px;
+
     margin: auto;
     text-align: center;
+    overflow-x: hidden;
 }
 
 .opinions h2 {
     font-size: 3rem;
     font-family: var(--big-text);
-    margin: 0 15rem;
+    margin: 0 25rem;
     padding: 1rem;
     border-bottom: 2px solid var(--details);
 }
@@ -210,15 +210,17 @@ nav a:hover {
 .opinions .desc {
     font-size: 1.2rem;
     font-family: var(--small-text);
-    margin: 2rem 22rem 5rem;
+    margin: 2rem 35rem 5rem;
 }
 
 .opinions-list {
+    width: max-content;
     list-style: none;
     display: flex;
-    gap: 4rem;
     text-align: left;
-    animation: scroll-left 30s linear infinite;
+    padding-left: 4rem;
+    gap: 4rem;
+    animation: scroll-left 40s linear infinite;
     flex-wrap: nowrap;
 }
 
@@ -235,7 +237,6 @@ nav a:hover {
 .opinions-list h3 {
     font-size: 1.5rem;
     font-family: var(--big-text);
-    margin: 0;
 }
 
 .opinions-list .role {
@@ -272,6 +273,29 @@ footer p {
 }
 
 @keyframes scroll-left {
-    from {transform: translateX(-18%);}
-    to {transform: translateX(-229.7%);}
+    from {transform: translateX(0);}
+    to {transform: translateX(-50%);}
+}
+
+#scrollTop {
+    width: 60px;
+    height: 60px;
+
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    display: none;
+    border-radius: 50%;
+    border-style: none;
+    background-color: var(--background1);
+    border: 2px solid var(--details);    
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+#scrollTop img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }

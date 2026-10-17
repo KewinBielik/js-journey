@@ -1,7 +1,6 @@
 To Do:
-[ ] Figure out how to position h1 and nav different. Right now both h1 and nav take the same space from the sides but it bugs me because nav is wider - I would like it to be pushed more to the right so that the center of nav and center of h1 have the same margin. I am skipping this because its not high priority.
-[ ] How to style multiple texts in one section and is it the right way.
-[ ] How to make the navigation work.
+[x] How to style multiple texts in one section and is it the right way.
+[x] How to make the navigation work.
 
 [x] Instead of having "Treatments" as a header - write a small "WHATE WE OFFER" in color and a header like "Advanced care worth traveling for"
 [x] Treatments as cards
@@ -12,7 +11,11 @@ To Do:
 [x] Make the top bar stay at all times.
 [x] Change cursor on buttons.
 [x] Make scrollable opinion cards.
-[ ] Fix cards scrolling so that the transform X goes from 0% to 50%.
+[x] Add jump to top button
+[ ] Clean up the style.css - in what order should the properties be? Right now it's all random.
+[ ] Add animation to the jump to top button.
+[x] Fix cards scrolling so that the transform X goes from 0% to 50%.
+[ ] Add a description in Treatments.
 [ ] Make the website adjust To different resolutions.
 [ ] Add more details, like icons in the treatments section
 [x] Add more navigations and make them work

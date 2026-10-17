@@ -896,4 +896,10 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
       animation: scroll-left 10s linear infinite;
     }
   ```
-  
+
+## Project #1 - Doctor's website (day 7)
+
+- **Date:** 2026-10-17 · Streak day 53
+- **What I did:** I fixed the opinion cards scrolling so that now it goes from 0 to 50% (instead of some values measured by the eye), fixed the topbar not showing, added scroll to top button.
+- **What I learned:** 
+  - I learned how to add a script that applies a function on scrolling and that I should import the script at the end of the `<body>` so that the page can load before the script does.
