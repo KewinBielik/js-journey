@@ -903,3 +903,23 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 - **What I did:** I fixed the opinion cards scrolling so that now it goes from 0 to 50% (instead of some values measured by the eye), fixed the topbar not showing, added scroll to top button.
 - **What I learned:** 
   - I learned how to add a script that applies a function on scrolling and that I should import the script at the end of the `<body>` so that the page can load before the script does.
+
+
+
+## Project #1 - Doctor's website (day 8)
+
+- **Date:** 2026-10-19 · Streak day 54
+- **What I did:** Added transition effect to the scroll to top button, decided on the final structure and started adding the last section "Qualifications"
+- **What I learned:** 
+  - A simple transition can be done purely by styling, use `transition` attribute and a secondary class. For example:
+  ```css
+    .a-class {
+      width: 400px;
+      transition: width 2s;
+    }
+
+    .a-class .wider {
+      width: 600px;
+    }
+  ``` 
+  Now if an element has class `a-class` and we give it the class `.wider` its going to transition the width smoothly in 2s. If we later remove the other class then the width will transitin again.

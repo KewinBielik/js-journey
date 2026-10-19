@@ -1,4 +1,4 @@
-const showAt = 800;
+const showAt = 600;
 
 var scrollTop = document.getElementById("scrollTop");
 
@@ -8,9 +8,9 @@ window.onscroll = function(){
 function scrollfunction(){
 
     if( document.body.scrollTop > showAt || document.documentElement.scrollTop > showAt){
-        scrollTop.style.display = "block";
+        scrollTop.classList.add(`is-visible`);
     } else {
-        scrollTop.style.display = "none";
+        scrollTop.classList.remove(`is-visible`);
     }
 }
 

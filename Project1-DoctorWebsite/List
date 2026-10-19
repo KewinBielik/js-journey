@@ -1,29 +1,16 @@
 To Do:
-[x] How to style multiple texts in one section and is it the right way.
-[x] How to make the navigation work.
-
-[x] Instead of having "Treatments" as a header - write a small "WHATE WE OFFER" in color and a header like "Advanced care worth traveling for"
-[x] Treatments as cards
-[x] Cards Styling
-[x] Cards buttons
-[x] Try out advices from Dawid
-[x] Fix button align
-[x] Make the top bar stay at all times.
-[x] Change cursor on buttons.
-[x] Make scrollable opinion cards.
-[x] Add jump to top button
 [ ] Clean up the style.css - in what order should the properties be? Right now it's all random.
-[ ] Add animation to the jump to top button.
-[x] Fix cards scrolling so that the transform X goes from 0% to 50%.
+[x] Add animation to the jump to top button.
+[ ] Contact button somewhere on front page
+[ ] Section with courses and qualifications
+[ ] A footer with logo, slogan, email, phone number, adress, right reserved and social medias icons to click
 [ ] Add a description in Treatments.
 [ ] Make the website adjust To different resolutions.
 [ ] Add more details, like icons in the treatments section
-[x] Add more navigations and make them work
 [ ] Add a search?
 [ ] Why choose us?
 [ ] Social medias on footer?
 [ ] Phone number, email, adress on footer?
-[x] Opinions
 [ ] Help?
 [ ] Text over big image (seems to be the thing)
 

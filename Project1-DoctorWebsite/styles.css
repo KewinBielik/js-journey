@@ -110,7 +110,7 @@ nav a:hover {
 
 .treatments-bg {
     background-color: var(--background1);
-    padding: 5rem 0 10rem 0;
+    padding: 5rem 0 5rem 0;
 }
 
 .treatments {
@@ -131,7 +131,15 @@ nav a:hover {
     margin: 0;
     font-size: 3rem;
     font-family: var(--big-text);
-    padding-bottom: 2rem;
+    padding-bottom: 4rem;
+
+}
+
+.treatments .desc {
+    font-size: 1.2rem;
+    font-family: var(--small-text);
+    margin: 5rem 20rem;
+    color: var(--text-muted);
 }
 
 .treatments-list {
@@ -193,16 +201,16 @@ nav a:hover {
 }
 
 .opinions {
-
     margin: auto;
     text-align: center;
     overflow-x: hidden;
+    scroll-margin-top: 200px;
 }
 
 .opinions h2 {
     font-size: 3rem;
     font-family: var(--big-text);
-    margin: 0 25rem;
+    margin: 0 25rem 1rem;
     padding: 1rem;
     border-bottom: 2px solid var(--details);
 }
@@ -259,9 +267,41 @@ nav a:hover {
     padding-top: 2rem;
 }
 
+@keyframes scroll-left {
+    from {transform: translateX(0);}
+    to {transform: translateX(-50%);}
+}
+
+.quali-bg {
+    background-color: var(--background1);
+    padding: 10rem 0;
+}
+
+.quali {
+    max-width: 1400px;
+    margin: auto;
+    text-align: left;
+}
+
+.quali .eyebrow {
+    color: var(--details);
+    font-family: var(--big-text);
+}
+
+.quali h2 {
+    font-family: var(--big-text);
+    font-size: 3rem ;
+    margin: 0;
+}
+
+.quali-list {
+    list-style: none;
+    display: none;
+    padding-left: 20px;
+}
 
 footer {
-    background-color:  var(--background1);
+    background-color:  var(--background2);
     padding: 3rem 0 5rem 0;
 }
 
@@ -272,19 +312,16 @@ footer p {
     font-family: var(--small-text);
 }
 
-@keyframes scroll-left {
-    from {transform: translateX(0);}
-    to {transform: translateX(-50%);}
-}
-
 #scrollTop {
     width: 60px;
     height: 60px;
 
+
+    opacity: 0;
+    transition: opacity 0.3s;
     position: fixed;
     right: 40px;
     bottom: 40px;
-    display: none;
     border-radius: 50%;
     border-style: none;
     background-color: var(--background1);
@@ -292,6 +329,12 @@ footer p {
     padding: 0;
     margin: 0;
     cursor: pointer;
+    pointer-events: none;
+}
+
+#scrollTop.is-visible {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 #scrollTop img {
@@ -299,3 +342,19 @@ footer p {
     height: 50px;
     border-radius: 50%;
 }
+
+
+.toggle-input {
+    display: none;
+}
+
+.toggle-input:checked ~ .quali-list {
+    display: block;
+}
+
+.toggle-label {
+    cursor: pointer;
+    display: block;
+    padding: 10px;
+    background: #f0f0f0;
+  }
