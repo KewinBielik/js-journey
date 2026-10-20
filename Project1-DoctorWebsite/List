@@ -2,7 +2,10 @@ To Do:
 [ ] Clean up the style.css - in what order should the properties be? Right now it's all random.
 [x] Add animation to the jump to top button.
 [ ] Contact button somewhere on front page
-[ ] Section with courses and qualifications
+[x] Section with courses and qualifications
+[ ] split quali section to add an image on the right side?
+[x] Expandable courses and qualifications
+[ ] Make the expanding animation smooth.
 [ ] A footer with logo, slogan, email, phone number, adress, right reserved and social medias icons to click
 [ ] Add a description in Treatments.
 [ ] Make the website adjust To different resolutions.

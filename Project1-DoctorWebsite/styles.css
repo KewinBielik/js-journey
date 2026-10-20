@@ -286,18 +286,90 @@ nav a:hover {
 .quali .eyebrow {
     color: var(--details);
     font-family: var(--big-text);
+    margin-left: 0.5rem;
 }
 
 .quali h2 {
     font-family: var(--big-text);
     font-size: 3rem ;
-    margin: 0;
+    margin: 0 0 5rem;
 }
 
-.quali-list {
-    list-style: none;
+.quali-toggle {
     display: none;
-    padding-left: 20px;
+}
+
+.quali-toggle:checked + .quali-toggle-label {
+    color: var(--details);
+}
+
+.quali-toggle-label {
+    cursor: pointer;
+    display: flex;
+    font-family: var(--big-text);
+    font-size: 2rem;
+    margin: 2rem 0;
+    transition: color 0.3s;
+  }
+
+
+.quali-toggle-label .label-number {
+    min-width: 60px;
+    margin: 0;
+    color: var(--text-muted);
+}
+
+
+.quali-toggle-label:hover {
+    color: var(--details);;
+}
+
+#quali-toggle-med:checked ~ .quali-med-desc {
+    max-height: 500px;
+    display: block;
+    transition-behavior: allow-discrete;
+}
+
+
+.quali-med-desc {
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, display 0.3s ease-in-out;
+    transition-behavior: allow-discrete;
+    
+    font-size: 1.2rem;
+    font-family: var(--small-text);
+    
+}
+
+@starting-style {
+    .quali-med-desc {
+        opacity: 0;
+    }
+}
+
+
+#quali-toggle-courses:checked ~ .quali-courses-list {
+    display: block;
+}
+
+.quali-courses-list {
+    display: none;
+    font-family: var(--small-text);
+    font-size: 1.2rem;
+    list-style: none;
+    
+}
+
+#quali-toggle-memb:checked ~ .quali-memb-desc {
+    display: block;
+}
+
+.quali-memb-desc {
+    display: none;
+    font-family: var(--small-text);
+    font-size: 1.2rem;
 }
 
 footer {
@@ -313,8 +385,8 @@ footer p {
 }
 
 #scrollTop {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
 
 
     opacity: 0;
@@ -338,23 +410,7 @@ footer p {
 }
 
 #scrollTop img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
 }
-
-
-.toggle-input {
-    display: none;
-}
-
-.toggle-input:checked ~ .quali-list {
-    display: block;
-}
-
-.toggle-label {
-    cursor: pointer;
-    display: block;
-    padding: 10px;
-    background: #f0f0f0;
-  }

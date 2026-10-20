@@ -923,3 +923,17 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
     }
   ``` 
   Now if an element has class `a-class` and we give it the class `.wider` its going to transition the width smoothly in 2s. If we later remove the other class then the width will transitin again.
+
+
+## Project #1 - Doctor's website (day 9)
+
+- **Date:** 2026-10-20 · Streak day 55
+- **What I did:** Added a bit of styling in the quali section, colors, fonts, hover and expandable elements. I was trying to make a smooth expanding animation but right now it's only smooth on the way back.
+- **What I learned:**
+  - Attaching a `label` to an `input checkbox` and then hiding the `checkbox` so that the user only sees the label and clicks it to activate the checkbox.
+  - Using the "+" combinator allows to influence one element with a certain class (even if mutiple elements have that class). This was very helpful today. 
+  ``` css 
+    .quali-toggle:checked + .quali-toggle-label {
+    color: var(--details);
+    }
+  ```
