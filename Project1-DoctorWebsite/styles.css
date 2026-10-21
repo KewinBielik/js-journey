@@ -274,13 +274,22 @@ nav a:hover {
 
 .quali-bg {
     background-color: var(--background1);
-    padding: 10rem 0;
+    display: flex;
+    align-items: start;
+    gap: 10rem;
+}
+
+.quali-bg img {
+    max-width: 600px;
+    margin: 15rem auto 10rem 0;
+    border-radius: 20px;
 }
 
 .quali {
     max-width: 1400px;
-    margin: auto;
-    text-align: left;
+    min-height: 600px;
+    margin: 0 0 0 auto;
+    padding: 5rem 0 5rem 0;
 }
 
 .quali .eyebrow {
@@ -308,7 +317,7 @@ nav a:hover {
     display: flex;
     font-family: var(--big-text);
     font-size: 2rem;
-    margin: 2rem 0;
+    margin: 0 0 2rem 0;
     transition: color 0.3s;
   }
 
@@ -325,51 +334,83 @@ nav a:hover {
 }
 
 #quali-toggle-med:checked ~ .quali-med-desc {
-    max-height: 500px;
-    display: block;
-    transition-behavior: allow-discrete;
+    max-height: 12rem;
+    margin: 0 0 2rem 0;
+    padding: 0 0 2rem 0;
 }
 
 
 .quali-med-desc {
-    display: none;
     max-height: 0;
+    max-width: 50rem;
     overflow: hidden;
-    transition: max-height 0.3s ease-in-out, display 0.3s ease-in-out;
+    transition: max-height 0.3s ease-in-out, margin 0.3s ease-in-out, padding 0.3s ease-in-out;
     transition-behavior: allow-discrete;
     
+
     font-size: 1.2rem;
     font-family: var(--small-text);
-    
+    margin: 0 0 1rem 0;
+    border-bottom: 2px solid var(--background2);
+    color: var(--text-muted);
 }
 
 @starting-style {
     .quali-med-desc {
-        opacity: 0;
+        height: 0;
     }
 }
 
 
 #quali-toggle-courses:checked ~ .quali-courses-list {
-    display: block;
+    max-height: 12rem;
+    margin: 0 0 2rem 0;
+    padding-bottom: 2rem;
 }
 
 .quali-courses-list {
-    display: none;
+    max-height: 0;
+    max-width: 48.5rem;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, margin 0.3s ease-in-out, padding 0.3s ease-in-out;
+    transition-behavior: allow-discrete;
+    
     font-family: var(--small-text);
     font-size: 1.2rem;
-    list-style: none;
+    margin: 0 0 1rem 0;
+    padding-left: 1.5rem;
+    border-bottom: 2px solid var(--background2);
+    color: var(--text-muted);
     
 }
 
+.quali-courses-list li {
+    margin-bottom: 1rem;
+}
+
+.quali-courses-list li::marker {
+    color: var(--details);
+    font-size: 1.5rem;
+}
+
 #quali-toggle-memb:checked ~ .quali-memb-desc {
-    display: block;
+    max-height: 12rem;
+    margin: 0 0 2rem 0;
+    padding: 0 0 2rem 0;
 }
 
 .quali-memb-desc {
-    display: none;
+    max-height: 0;
+    max-width: 50rem;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, margin 0.3s ease-in-out, padding 0.3s ease-in-out;
+    transition-behavior: allow-discrete;
+
     font-family: var(--small-text);
     font-size: 1.2rem;
+    margin: 0 0 1rem 0;
+    border-bottom: 2px solid var(--background2);
+    color: var(--text-muted);
 }
 
 footer {

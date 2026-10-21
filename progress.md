@@ -937,3 +937,14 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
     color: var(--details);
     }
   ```
+
+
+## Project #1 - Doctor's website (day 10)
+
+- **Date:** 2026-10-21 · Streak day 56
+- **What I did:** Fixed smooth expanding, styled the insides of each quali header, added an image in the quali section. Trying out different ideas and styles took most of the time today, I decided to keep an image next to the quali but I am not sure about that design.
+- **What I learned:**
+  - Two headers with `margin 2rem` will keep distance of `2rem` between each other, but if there is anything between them its gonna be: 2rem, element, 2rem. I had an element with height = 0, and even though it was not visible it was still causing that margin to add up. It was very painful to debug. This was the key to the smooth headers expanding, now I am not changing `display` and only use heigh, margin and padding which css can transition smoothly.
+
+
+  Check for a way of testing ideas and  quickly coming back to prev settings
