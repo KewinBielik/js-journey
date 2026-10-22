@@ -65,7 +65,7 @@ nav a:hover {
 
 .about-me-bg {
     background-color: var(--background2);
-    padding: 5rem 0 10rem 0;
+    padding: 3rem 0 15rem 0;
 }
 
 .about-me {
@@ -79,7 +79,8 @@ nav a:hover {
 
 .about-me .info {
     border-right: 4px solid var(--details);
-    padding: 8rem 2.5rem 2.5rem 0;
+    padding: 5rem 2.5rem 5rem 0;
+    
 }
 
 .about-me h2 {
@@ -98,14 +99,45 @@ nav a:hover {
 .about-me .bio {
     font-size: 1.2rem;
     font-family: var(--small-text);
+}
+
+.about-me button {
+    all: unset;
+    padding: 0.5rem 2.5rem;
+    font-family: var(--big-text);
+    font-size: 1.1rem;
+    border-radius: 30px 30px 30px 30px;
+    margin: 1rem 1rem 0 0;
+    cursor: pointer;
+    transition: color 0.2s ease-in, background-color 0.2s ease-in, border 0.2s ease-in;
+    font-weight: bold;
+}
+
+.about-me button:hover {
+    background-color: var(--background1);
+    color: var(--details);
+    border: 2px solid var(--details);
+}
+
+.about-me .contact-btn {
+    background-color: var(--details);
+    border: 2px solid var(--details);
+    color: var(--background1);
+    
+}
+
+.about-me .consultation-btn {
+    background-color: var(--background1);
+    border: 2px solid black;
+    color: black;
     
 }
 
 .about-me img {
-    border-radius:  0 150px 150px 0;
-    padding: 2.5rem 0 2.5rem 4rem;
-    width: 800px;
-    height: 500px;
+    border-radius:  10px 300px 300px 10px;
+    margin: 1rem 0 1rem 3rem;
+    max-width: 33%;
+    
 }
 
 .treatments-bg {
@@ -276,20 +308,20 @@ nav a:hover {
     background-color: var(--background1);
     display: flex;
     align-items: start;
-    gap: 10rem;
+    gap: 5rem;
 }
 
 .quali-bg img {
-    max-width: 600px;
-    margin: 15rem auto 10rem 0;
+    max-width: 700px;
+    margin: 10rem auto 10rem auto;
     border-radius: 20px;
 }
 
 .quali {
     max-width: 1400px;
-    min-height: 600px;
     margin: 0 0 0 auto;
     padding: 5rem 0 5rem 0;
+    scroll-margin-top: 100px;   
 }
 
 .quali .eyebrow {
@@ -415,13 +447,57 @@ nav a:hover {
 
 footer {
     background-color:  var(--background2);
-    padding: 3rem 0 5rem 0;
+    padding: 0 0 5rem 0;
 }
 
-footer p {
-    margin: 0;
-    color: var(--text-muted);
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--background1);
+}
+
+.contact-info img {
+    max-width: 200px;
+}
+
+.contact-info .slogan {
+    font-family: var(--big-text);
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.contact-info .phone-email {
+    display: flex;
+    justify-content: space-evenly;
+    font-family: var(--big-text);
+    font-size: 1.2rem;
+    gap: 1rem;
+        
+}
+
+.phone, .email {
+    min-width: 300px;
     text-align: center;
+    margin-top: 0;
+}
+
+.phone:hover    , .email:hover {
+    color: var(--details);
+}
+
+.contact-info .address {
+    font-family: var(--big-text);
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+
+
+footer .copyright {
+    color: var(--text-muted);
+    text-align: left;
     font-family: var(--small-text);
 }
 

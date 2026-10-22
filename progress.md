@@ -947,4 +947,10 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   - Two headers with `margin 2rem` will keep distance of `2rem` between each other, but if there is anything between them its gonna be: 2rem, element, 2rem. I had an element with height = 0, and even though it was not visible it was still causing that margin to add up. It was very painful to debug. This was the key to the smooth headers expanding, now I am not changing `display` and only use heigh, margin and padding which css can transition smoothly.
 
 
-  Check for a way of testing ideas and  quickly coming back to prev settings
+## Project #1 - Doctor's website (day 11)
+
+- **Date:** 2026-10-22 · Streak day 57
+- **What I did:** For the `about me` section: found a better photo, adjusted the styling and implemented two buttons. Slighlty adjusted the `Quali section`. Started creating and styling the footer section.
+- **What I learned:**
+  - **Padding impacts border-radius**, this was causing my image in the `about me section` to not round properly when I changed the `border-radius`. Also, the `border-radius` behaves differently when it's passed `%` and when it's passed `px`. Unless I am coping.
+

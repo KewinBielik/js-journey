@@ -1,11 +1,15 @@
 To Do:
 [ ] Clean up the style.css - in what order should the properties be? Right now it's all random.
 [x] Add animation to the jump to top button.
-[ ] Contact button somewhere on front page
+[x] Contact button somewhere on front page
+[ ] fix sections in quali - qualibg should be the major one, then quali and it's things inside, aim for 1400px width
+[ ] fix footer sections, organize this as the rest was organized.
+[ ] Style the treatments buttons better.
+[ ] finish styling the footer.
 [x] Section with courses and qualifications
 [x] split quali section to add an image on the right side?
 [x] Expandable courses and qualifications
-[x  ] Make the expanding animation smooth.
+[x] Make the expanding animation smooth.
 [ ] A footer with logo, slogan, email, phone number, adress, right reserved and social medias icons to click
 [ ] Add a description in Treatments.
 [ ] Make the website adjust To different resolutions.
