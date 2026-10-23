@@ -954,3 +954,10 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 - **What I learned:**
   - **Padding impacts border-radius**, this was causing my image in the `about me section` to not round properly when I changed the `border-radius`. Also, the `border-radius` behaves differently when it's passed `%` and when it's passed `px`. Unless I am coping.
 
+## Project #1 - Doctor's website (day 12)
+
+- **Date:** 2026-10-23 · Streak day 58
+- **What I did:** Fixed the structure of the quali and footer section to match the overall website's structure. Finished footer section and added icons from font-awesome.
+- **What I learned:**
+  - Font-awsome can be imported just as the google font and it includes many great icons.
+

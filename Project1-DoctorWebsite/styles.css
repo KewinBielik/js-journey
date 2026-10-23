@@ -5,6 +5,7 @@
     --text-default: black;
     --text-muted: #6b7280;
     --text-button: #fff;
+    --border-grey: #DCDDE8;
 
 
 
@@ -206,9 +207,15 @@ nav a:hover {
 .treatments-list p {
     font-family: var(--small-text);
     font-size: 1.2rem;
-    margin: 2rem 0 8rem;
+    margin: 2rem 0 0;
     
     
+}
+
+.treatments .fa-solid {
+    font-size: 5rem;
+    margin: 3rem auto;
+    color: var(--details);
 }
 
 
@@ -306,23 +313,25 @@ nav a:hover {
 
 .quali-bg {
     background-color: var(--background1);
-    display: flex;
-    align-items: start;
-    gap: 5rem;
 }
 
-.quali-bg img {
+.quali img {
     max-width: 700px;
-    margin: 10rem auto 10rem auto;
+    margin-top: 2rem;
+    margin-bottom: auto;
     border-radius: 20px;
 }
 
 .quali {
+    display: flex;
     max-width: 1400px;
-    margin: 0 0 0 auto;
+    margin: auto;
+    gap: 5rem;
     padding: 5rem 0 5rem 0;
     scroll-margin-top: 100px;   
 }
+
+
 
 .quali .eyebrow {
     color: var(--details);
@@ -445,61 +454,102 @@ nav a:hover {
     color: var(--text-muted);
 }
 
-footer {
+.contact-info-bg {
     background-color:  var(--background2);
-    padding: 0 0 5rem 0;
+    border-bottom: 1px solid var(--border-grey);
 }
 
 .contact-info {
+    max-width: 1400px;
+    margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-bottom: 2rem;
-    border-bottom: 1px solid var(--background1);
 }
 
 .contact-info img {
     max-width: 200px;
+    padding: 1rem;
 }
 
 .contact-info .slogan {
     font-family: var(--big-text);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
-    margin-top: 0;
+    font-style: italic;
+    margin: 0 0 2rem 0;
 }
 
 .contact-info .phone-email {
     display: flex;
     justify-content: space-evenly;
-    font-family: var(--big-text);
-    font-size: 1.2rem;
     gap: 1rem;
         
 }
 
 .phone, .email {
-    min-width: 300px;
+    min-width: 400px;
     text-align: center;
     margin-top: 0;
+    margin-bottom: 2rem;
 }
 
-.phone:hover    , .email:hover {
+.contact-info a {
+    font-family: var(--big-text);
+    font-size: 1.2rem;
+    width: fit-content;
+    margin: auto;
+    cursor: pointer;
+}
+
+.contact-info a:hover {
     color: var(--details);
 }
 
-.contact-info .address {
-    font-family: var(--big-text);
-    font-size: 1.2rem;
-    margin-top: 0;
+.contact-info .fa-solid {
+    color: var(--details);
+    font-size: 1.1rem;
+    padding-right: 0.2rem;
 }
 
+.copyright-bg {
+    background-color: var(--background2);
+    padding: 2rem 0;
+}
 
-footer .copyright {
+.copyright {
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.copyright p {
+    margin: 0;
     color: var(--text-muted);
     text-align: left;
     font-family: var(--small-text);
 }
+
+.copyright .fa-brands {
+    color: var(--details);
+    border: 2px solid var(--details);
+    background-color: var(--background1);
+    border-radius: 80%;
+    padding: 0.4rem 0.3rem;
+    transition: color 0.3s ease-in, background-color 0.3s ease-in, border-color 0.3s ease-in;
+    margin: 0 0.1rem;
+    cursor: pointer;
+}
+
+.contact-info .fa-brands:hover {
+    background-color: var(--details);
+    color: var(--background1);
+    border-color: var(--details);
+}
+
+
 
 #scrollTop {
     width: 80px;
