@@ -3,21 +3,25 @@ To Do:
 [x] Add animation to the jump to top button.
 [x] Contact button somewhere on front page
 [x] fix sections in quali - qualibg should be the major one, then quali and it's things inside, aim for 1400px width
-[ ] Try making more text in this grey color, maybe the info in about me and in opinions or on the cards. Maybe no black text at all? except of the headers.
+[x] Try making more text in this grey color, maybe the info in about me and in opinions or on the cards. Maybe no black text at all? except of the headers.
 [x] fix footer sections, organize this as the rest was organized.
-[ ] Style the treatments buttons better.
-[ ] Add icons to Treatmens section and improve the styling.
+[x] Style the treatments buttons better.
+[x] Add icons to Treatmens section and improve the styling.
 [x] finish styling the footer.
 [x] Section with courses and qualifications
 [x] split quali section to add an image on the right side?
 [x] Expandable courses and qualifications
 [x] Make the expanding animation smooth.
 [x] A footer with logo, slogan, email, phone number, adress, right reserved and social medias icons to click
-[ ] Add a description in Treatments.
+[ ] Could try makind the treatments card wider and tha gaps between smaller.
+[x] Add a description in Treatments.
 [ ] Make the website adjust To different resolutions.
-[ ] Add more details, like icons in the treatments section
+[x] Add more details, like icons in the treatments section
 [ ] Add a search?
 [ ] Why choose us?
+[ ] Figure out why tab changes the scroll up border to black.
+[ ] add transition to the treatments buttons.
+[ ] fix scroll up transition.
 [x] Social medias on footer?
 [x] Phone number, email, adress on footer?
 [ ] Help?

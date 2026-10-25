@@ -30,8 +30,16 @@
                <h2>Dr. Helen Marlow</h2>
                <p class="role">Ear, nose and throat specialist. Audiology and voice.</p>
                <p class="bio">I am an ear, nose and throat doctor in Bristol. I see adults and children for hearing problems, voice problems, sinus trouble, and throat infections. In a visit I listen first, examine carefully, and explain what I find in plain words, including what to do next. My aim is to treat the problem and leave you clear about it.</p>
-               <button class="contact-btn">Contact</button>
-               <button class="consultation-btn">Book a consultation</button>
+               <div class="info-buttons">
+                  <button class="contact-btn">
+                     <i class="fa-solid fa-phone"></i>
+                     <p>Contact</p>
+                  </button>
+                  <button class="consultation-btn">
+                     <i class="fa-regular fa-calendar"></i>
+                     <p>Book a consultation</p>
+                  </button>
+               </div>
             </div>
             <img src="image1.jpg" alt="Doctor photo example">
          </section>
@@ -40,40 +48,57 @@
          <section class="treatments" id="treatments">
             <p class="eyebrow">WHAT WE OFFER</p>
             <h2>Advanced Care Worth Traveling For:</h2>
+            <p class="desc">At The Marlow Clinic I see adults and children for problems of the ear, nose, throat, and voice. A visit starts with a careful history and an examination, and you leave knowing what I found and what happens next. The cards below are the problems people come with most often: hearing and voice, ear infections and wax, sinus trouble, throat and tonsils, children's ear, nose and throat care, and dizziness. If you are not sure which one fits, book a consultation and we will start there.</p>
             <ul class="treatments-list">
                <li>
-                  <h3>Hearing and voice</h3>
-                  <p>I check how you hear and how your voice sounds, then explain what I find.</p>
-                  <i class="fa-solid fa-ear-listen"></i>
-                  <button>Learn More</button>
+                  <div class="card-header">
+                     <i class="fa-solid fa-ear-listen"></i>
+                     <h3>Hearing and voice</h3>
+                  </div>
+                  <p>A voice that tires, or hearing that has slowly dropped, is easy to put off. I test both, show you what the results mean, and tell you what can be treated and what to watch.</p>
+                  <button>Learn More <i class="fa-solid fa-arrow-right"></i></button>
                </li>
                <li>
-                  <h3>Ear infections and wax</h3>
-                  <p>I treat painful or blocked ears, including wax that is making it hard to hear.</p>
-                  <button>Learn More</button>
+                  <div class="card-header">
+                     <i class="fa-solid fa-ear-deaf"></i>
+                     <h3>Ear infections and wax</h3>
+                  </div>
+                  <p>Pain, pressure, or a blocked ear can make one side feel deaf overnight. I look for infection or wax, clear what is safe to clear in the clinic, and send you home knowing how to keep it from coming straight back.</p>
+                  <button>Learn More <i class="fa-solid fa-arrow-right"></i></button>
                </li>
                <li>
-                  <h3>Sinus and nose</h3>
-                  <p>I look after a blocked nose, sinus pain, and infections that keep coming back.</p>
-                  <button>Learn More</button>
+                  <div class="card-header">
+                     <i class="fa-solid fa-head-side-cough"></i>
+                     <h3>Sinus and nose</h3>
+                  </div>
+                  <p>A blocked nose, face pain, or infections that return every winter need more than another short course of spray. I find out whether the problem is swelling, infection, or the shape of the nose, and we agree a plan that lasts longer than the next cold.</p>
+                  <button>Learn More <i class="fa-solid fa-arrow-right"></i></button>
                </li>
                <li>
-                  <h3>Throat and tonsils</h3>
-                  <p>I see sore throats, swollen tonsils, and trouble swallowing.</p>
-                  <button>Learn More</button>
+                  <div class="card-header">
+                     <i class="fa-solid fa-head-side-virus"></i>
+                     <h3>Throat and tonsils</h3>
+                  </div>
+                  <p>A throat that stays sore, tonsils that keep swelling, or food that is hard to swallow should be looked at properly. I examine the throat, explain whether this is infection, enlargement, or something else, and what the next step is.</p>
+                  <button>Learn More <i class="fa-solid fa-arrow-right"></i></button>
                </li>
                <li>
-                  <h3>Children's ear, nose and throat</h3>
-                  <p>I see children for ear infections, hearing worries, and throat problems.</p>
-                  <button>Learn More</button>
+                  <div class="card-header">
+                     <i class="fa-solid fa-child"></i>
+                     <h3>Children's ear, nose and throat</h3>
+                  </div>
+                  <p>Children get repeated ear infections, snoring, and sore throats, and the visit itself can be the frightening part. I show them the light first, examine only as far as they can manage, and leave you with a clear plan rather than another unanswered appointment.</p>
+                  <button>Learn More <i class="fa-solid fa-arrow-right"></i></button>
                </li>
-               <li>
-                  <h3>Dizziness</h3>
-                  <p>I work out whether unsteadiness is coming from the ear, and what to do next.</p>
-                  <button>Learn More</button>
+               <li>  
+                  <div class="card-header">
+                     <i class="fa-solid fa-face-dizzy"></i>
+                     <h3>Dizziness</h3>
+                  </div>
+                  <p>Unsteadiness that comes in spells, or a room that spins when you turn your head, often starts in the ear. I sort out whether that is the cause, and you leave knowing what will help and what will not.</p>
+                  <button>Learn More <i class="fa-solid fa-arrow-right"></i></button>
                </li>
             </ul>
-         <p class="desc">I see adults and children for problems of the ear, nose, throat, and voice. If you are not sure which one fits, book a consultation and I will explain what I find.</p>   
          </section>
       </section>
       <section class="opinions-bg">
@@ -222,7 +247,7 @@
       </section>
       </footer>
    <button id="scrollTop">
-      <img src="scroll.png">
+      <i class="fa-solid fa-chevron-up"></i>
    </button>
    <script src="script.js"></script>
 </body>

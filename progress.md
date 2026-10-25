@@ -961,3 +961,10 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 - **What I learned:**
   - Font-awsome can be imported just as the google font and it includes many great icons.
 
+
+## Project #1 - Doctor's website (day 13)
+
+- **Date:** 2026-10-24 · Streak day 59
+- **What I did:** Added icons to the treatment cards and improved a lot of the styling there. Minor changes all over the site: icons in about me buttons, description in treatments, changed the img in the scrollUp to an icon and added color transition, fixed color transitions in the footer section. The website now looks finished! Now I have to clean up the mess in the code and make the website adjust to different resolutions and phones.
+- **What I learned:** I don't think there was any new big thing learned today, but I practiced the font-awesome icons more.
+
