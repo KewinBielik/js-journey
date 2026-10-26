@@ -2,7 +2,6 @@
     --background1: #fff;
     --background2: #F0F2F5;
     --details: #177EE5;
-    --text-default: black;
     --text-muted: #6b7280;
     --text-button: #fff;
     --border-grey: #DCDDE8;
@@ -54,10 +53,11 @@ nav {
 }
 
 nav a {
+    all:unset;
     transition: color 0.3s ease-in-out;
     text-decoration: none;
     font-size: 1.5rem;
-    color:  var(--text-default);
+    cursor: pointer;
 }
 
 nav a:hover {
@@ -121,15 +121,12 @@ nav a:hover {
     font-weight: bold;
 }
 
-.about-me button .fa-solid, .fa-regular {
+.about-me button .fa-solid, .about-me button .fa-regular {
     font-size: 1rem;
     margin-top: 0.2rem;
     margin-right: 0.4rem;
 }
 
-.about-me button p {
-    margin: 0.1rem 0;
-}
 
 .about-me button:hover {
     background-color: var(--background1);
@@ -140,7 +137,7 @@ nav a:hover {
 .about-me .contact-btn {
     background-color: var(--details);
     border: 2px solid var(--details);
-    color: var(--background1);
+    color: var(--text-button    );
     
 }
 
@@ -164,7 +161,6 @@ nav a:hover {
 }
 
 .treatments {
-    justify-content: center;
     max-width: 1400px;
     margin: auto;
     text-align: center;
@@ -226,7 +222,6 @@ nav a:hover {
     margin: 0;
     font-family: var(--big-text);
     font-size: 1.3rem;
-    align-items: center;
 }
 
 .treatments-list p {
@@ -252,21 +247,29 @@ nav a:hover {
 
 .treatments button {
     all: unset;
+    color: var(--background1);
     background-color: var(--details);
-    color: var(--text-button);
     padding: 0.8rem 2rem;
     border-radius: 50px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: var(--big-text);
     font-size: 1.2rem;
+    font-weight: bold;
     max-width: 200px    ;
     margin: auto auto 0 0;    
     cursor:pointer;
     align-items: center;
+    border: 2px solid var(--details);
+    transition: background-color 0.2s ease-in-out , color 0.2s ease-in-out;
     
 }
 
 .treatments button .fa-solid {
     font-size: 0.9rem;
+}
+
+.treatments button:hover {
+    background-color: var(--background1);
+    color: var(--details);
 }
 
 .opinions-bg {
@@ -304,6 +307,11 @@ nav a:hover {
     gap: 4rem;
     animation: scroll-left 40s linear infinite;
     flex-wrap: nowrap;
+}
+
+.opinions-list:has(li:hover)
+{
+    animation-play-state: paused;
 }
 
 .opinions-list li {
@@ -410,7 +418,7 @@ nav a:hover {
     color: var(--details);;
 }
 
-#quali-toggle-med:checked ~ .quali-med-desc {
+.quali-toggle:checked + .quali-toggle-label + .quali-med-desc {
     max-height: 12rem;
     margin: 0 0 2rem 0;
     padding: 0 0 2rem 0;
@@ -432,13 +440,6 @@ nav a:hover {
     color: var(--text-muted);
 }
 
-@starting-style {
-    .quali-med-desc {
-        height: 0;
-    }
-}
-
-
 #quali-toggle-courses:checked ~ .quali-courses-list {
     max-height: 12rem;
     margin: 0 0 2rem 0;
@@ -447,7 +448,7 @@ nav a:hover {
 
 .quali-courses-list {
     max-height: 0;
-    max-width: 48.5rem;
+    max-width: 50rem;
     overflow: hidden;
     transition: max-height 0.3s ease-in-out, margin 0.3s ease-in-out, padding 0.3s ease-in-out;
     transition-behavior: allow-discrete;
@@ -532,6 +533,7 @@ nav a:hover {
 }
 
 .contact-info a {
+    all: unset;
     font-family: var(--big-text);
     font-size: 1.2rem;
     width: fit-content;
@@ -594,7 +596,6 @@ nav a:hover {
 
 
     opacity: 0;
-    transition: opacity 0.3s;
     position: fixed;
     right: 40px;
     bottom: 40px;
@@ -608,7 +609,7 @@ nav a:hover {
     cursor: pointer;
     pointer-events: none;
     font-size: 2rem;
-    transition: background-color 0.3s ease-in, color 0.3s ease-in;
+    transition: background-color 0.3s ease-in, color 0.3s ease-in, opacity 0.3s ease-in;
 }
 
 #scrollTop.is-visible {

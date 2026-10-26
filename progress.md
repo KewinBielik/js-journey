@@ -964,7 +964,22 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 
 ## Project #1 - Doctor's website (day 13)
 
-- **Date:** 2026-10-24 · Streak day 59
+- **Date:** 2026-10-25 · Streak day 59
 - **What I did:** Added icons to the treatment cards and improved a lot of the styling there. Minor changes all over the site: icons in about me buttons, description in treatments, changed the img in the scrollUp to an icon and added color transition, fixed color transitions in the footer section. The website now looks finished! Now I have to clean up the mess in the code and make the website adjust to different resolutions and phones.
 - **What I learned:** I don't think there was any new big thing learned today, but I practiced the font-awesome icons more.
 
+
+## Project #1 - Doctor's website (day 14)
+
+- **Date:** 2026-10-26 · Streak day 60
+- **What I did:** Made the buttons in treatments interactive, fixed scroll up button transition, added pause on opinions when hovered and began to clean up and fix the css and html.
+- **What I learned:** 
+  - Using `<p>` inside `<button>` is not allowed. Instead use `<span>`
+  - You can use one `+` after another to select an element further away.
+  - `:has() pseudo class` allows to style based on the presence, state, or position of its descendants or siblings. In my case I used to style a parent element when it's child is hovered.
+  ```css
+    .opinions-list:has(li:hover)
+    {
+      animation-play-state: paused;
+    }
+  ```
