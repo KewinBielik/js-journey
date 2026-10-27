@@ -19,46 +19,44 @@ body {
     font-family: var(--font-body);
 }
 
-.topbar {
-    background-color: var(--background1);
+.topbar-bg {
     position: sticky;
     top: 0;
     z-index: 999;
+    background-color: var(--background1);
 }
 
-.inner-topbar {
+.topbar {
     display: flex;
+    /* align-items:center; */
     justify-content: space-between;
-    align-items:center;
-    margin: auto;
     max-width: 1400px;
+    margin: auto;
     font-family: var(--font-heading);
 }
 
 .logo {
     display: flex;
-    justify-content: center;
     align-items:center;
+    /* justify-content: center; */
 }
 
-.inner-topbar img {
+.logo img {
     width: 120px;
     height: 120px;
 }
 
-
 nav {
     display: flex;
-    gap: 4rem;
     align-items: center;
+    gap: 4rem;
 }
 
 nav a {
-    all:unset;
-    transition: color 0.3s ease-in-out;
-    text-decoration: none;
     font-size: 1.5rem;
-    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    transition: color 0.2s ease-in-out;
 }
 
 nav a:hover {
@@ -66,18 +64,20 @@ nav a:hover {
 }
 
 .about-me-bg {
-    background-color: var(--background2);
     padding: 3rem 0 5rem 0;
+    background-color: var(--background2);
 }
 
 .about-me {
-    display: flex;
-    justify-content: center;
-    max-width: 1400px;
-    margin: auto;
     scroll-margin-top: 200px;
+    display: flex;
+    /* justify-content: center; */
+    max-width: 1400px;  
+    margin: auto;
     
 }
+
+/* Finished clean up here */
 
 .about-me .info {
     border-right: 4px solid var(--details);
@@ -86,10 +86,9 @@ nav a:hover {
 }
 
 .about-me h2 {
-    margin: 0;
-    font-size: 3rem;
-    text-align: left;
+    margin: 0;  
     font-family: var(--font-heading);
+    font-size: 3rem;
 }
 
 .about-me .role {
@@ -106,7 +105,7 @@ nav a:hover {
     display: flex;
 }
 
-.about-me button {
+.info-buttons button {
     all: unset;
     display: flex;
     flex-direction: row;
@@ -121,27 +120,27 @@ nav a:hover {
     font-weight: bold;
 }
 
-.about-me button .fa-solid, .about-me button .fa-regular {
+.info-buttons button .fa-solid, .info-buttons button .fa-regular {
     font-size: 1rem;
     margin-top: 0.2rem;
     margin-right: 0.4rem;
 }
 
 
-.about-me button:hover {
+.info-buttons button:hover {
     background-color: var(--background1);
     color: var(--details);
     border: 2px solid var(--details);
 }
 
-.about-me .contact-btn {
+.info-buttons .contact-btn {
     background-color: var(--details);
     border: 2px solid var(--details);
     color: var(--text-button    );
     
 }
 
-.about-me .consultation-btn {
+.info-buttons .consultation-btn {
     background-color: var(--background1);
     border: 2px solid black;
     color: black;

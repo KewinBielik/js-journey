@@ -988,5 +988,13 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 ## Project #1 - Doctor's website (day 15)
 
 - **Date:** 2026-10-27 · Streak day 61
-- **What I did:** Fixed quali styling, added opinion cards border highlight.
+- **What I did:** Fixed quali styling, added opinion cards border highlight, Fixed missing styling all over the site (I had to somehow mess it up while changing font in all occurences), finally began cleaning up and ordering the css.
 - **What I learned:**
+  - **CSS convention -** I found out how things should be organized in css, the idea is to from the outside of the box inward like this:
+  
+    - **1. Layout -** `display`, `flex-direction`, `flex-wrap`, `justify-content`, `align-items`, `gap`.
+    - **2. Box -** `width`, `height`, `margin`, `border`, `border-radius`, `padding`, `background-color`.
+    - **3. Text -** `font-family`, `font-size`, `font-weight`, `line-height`, `color`, `text-align`.
+    - **4. Motion -** `cursor` first, then `transition`.
+    
+    So first comes a property that sets a `mode` and then properties that depend on it, for example `justify-content` comes after `display` or `border-radius` comes after `border`.  
