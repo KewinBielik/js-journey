@@ -322,7 +322,13 @@ nav a:hover {
     border-radius: 15px;
     display: flex;
     flex-direction: column;
+    border: 2px solid var(--background1);
+    transition: border-color 0.1s ease-in-out;
 
+}
+
+.opinions-list li:hover {
+    border-color: var(--details);
 }
 
 .opinions-list h3 {
@@ -418,14 +424,14 @@ nav a:hover {
     color: var(--details);;
 }
 
-.quali-toggle:checked + .quali-toggle-label + .quali-med-desc {
+.quali-toggle:checked + .quali-toggle-label + .quali-content {
     max-height: 12rem;
     margin: 0 0 2rem 0;
-    padding: 0 0 2rem 0;
+    padding-bottom: 2rem;
 }
 
 
-.quali-med-desc {
+.quali-content {
     max-height: 0;
     max-width: 50rem;
     overflow: hidden;
@@ -440,7 +446,7 @@ nav a:hover {
     color: var(--text-muted);
 }
 
-#quali-toggle-courses:checked ~ .quali-courses-list {
+/* #quali-toggle-courses:checked ~ .quali-courses-list {
     max-height: 12rem;
     margin: 0 0 2rem 0;
     padding-bottom: 2rem;
@@ -460,35 +466,18 @@ nav a:hover {
     border-bottom: 2px solid var(--background2);
     color: var(--text-muted);
     
+} */
+.quali-info ul {
+    padding-left: 1.5rem;
 }
 
-.quali-courses-list li {
+.quali-content li {
     margin-bottom: 1rem;
 }
 
-.quali-courses-list li::marker {
+.quali-content li::marker {
     color: var(--details);
     font-size: 1.5rem;
-}
-
-#quali-toggle-memb:checked ~ .quali-memb-desc {
-    max-height: 12rem;
-    margin: 0 0 2rem 0;
-    padding: 0 0 2rem 0;
-}
-
-.quali-memb-desc {
-    max-height: 0;
-    max-width: 50rem;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out, margin 0.3s ease-in-out, padding 0.3s ease-in-out;
-    transition-behavior: allow-discrete;
-
-    font-family: var(--small-text);
-    font-size: 1.2rem;
-    margin: 0 0 1rem 0;
-    border-bottom: 2px solid var(--background2);
-    color: var(--text-muted);
 }
 
 .contact-info-bg {

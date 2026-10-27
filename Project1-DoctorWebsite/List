@@ -5,7 +5,7 @@ To Do:
 [ ] dead properties
 [ ] put properties in order
 
-[ ] Fix the styling of quali section (I was in the middle of it - the goal is to get rid of 3 unique classes and have it all in one, the + + allowed to make it work.)
+[x] Fix the styling of quali section (I was in the middle of it - the goal is to get rid of 3 unique classes and have it all in one, the + + allowed to make it work.)
 [x] Make opinion cards stop on hover
 [ ] Clean up the style.css - in what order should the properties be? Right now it's all random.
 [x] Add animation to the jump to top button.

@@ -983,3 +983,10 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
       animation-play-state: paused;
     }
   ```
+
+
+## Project #1 - Doctor's website (day 15)
+
+- **Date:** 2026-10-27 · Streak day 61
+- **What I did:** Fixed quali styling, added opinion cards border highlight.
+- **What I learned:**
