@@ -998,3 +998,10 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
     - **4. Motion -** `cursor` first, then `transition`.
     
     So first comes a property that sets a `mode` and then properties that depend on it, for example `justify-content` comes after `display` or `border-radius` comes after `border`.  
+
+
+## Project #1 - Doctor's website (day 16)
+
+- **Date:** 2026-10-28 · Streak day 62
+- **What I did:** Finished cleaning up the CSS.
+- **What I learned:** On the next project I will aim to write my CSS cleanly as I go, so that I don't have to clean it up later.

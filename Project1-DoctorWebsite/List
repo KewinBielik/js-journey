@@ -2,8 +2,8 @@ To Do:
 [x] fix the broken tags
 [x] leaking selector
 [X] add alt to pictures
-[ ] dead properties
-[ ] put properties in order
+[x] dead properties
+[x] put properties in order
 
 Inside a rule, go from the outside of the box inward:   
 
@@ -13,10 +13,10 @@ Inside a rule, go from the outside of the box inward:
 4 Motion and behavior. transition, animation, cursor, pointer-events.
 
 
-[ ] Is color: black the right way to handle nav a?
+[x] Is color: black the right way to handle nav a?
 [x] Fix the styling of quali section (I was in the middle of it - the goal is to get rid of 3 unique classes and have it all in one, the + + allowed to make it work.)
 [x] Make opinion cards stop on hover
-[ ] Clean up the style.css - in what order should the properties be? Right now it's all random.
+[x] Clean up the style.css - in what order should the properties be? Right now it's all random.
 [x] Add animation to the jump to top button.
 [x] Contact button somewhere on front page
 [x] fix sections in quali - qualibg should be the major one, then quali and it's things inside, aim for 1400px width

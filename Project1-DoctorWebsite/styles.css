@@ -2,6 +2,7 @@
     --background1: #fff;
     --background2: #F0F2F5;
     --details: #177EE5;
+    --text: #000;
     --text-muted: #6b7280;
     --text-button: #fff;
     --border-grey: #DCDDE8;
@@ -28,7 +29,6 @@ body {
 
 .topbar {
     display: flex;
-    /* align-items:center; */
     justify-content: space-between;
     max-width: 1400px;
     margin: auto;
@@ -38,7 +38,6 @@ body {
 .logo {
     display: flex;
     align-items:center;
-    /* justify-content: center; */
 }
 
 .logo img {
@@ -55,7 +54,7 @@ nav {
 nav a {
     font-size: 1.5rem;
     text-decoration: none;
-    color: black;
+    color: var(--text);
     transition: color 0.2s ease-in-out;
 }
 
@@ -71,13 +70,10 @@ nav a:hover {
 .about-me {
     scroll-margin-top: 200px;
     display: flex;
-    /* justify-content: center; */
     max-width: 1400px;  
     margin: auto;
     
 }
-
-/* Finished clean up here */
 
 .about-me .info {
     border-right: 4px solid var(--details);
@@ -92,9 +88,9 @@ nav a:hover {
 }
 
 .about-me .role {
-    color: var(--details);
-    font-size: 1.5rem;
     font-family: var(--font-body);
+    font-size: 1.5rem;
+    color: var(--details);
 }
 
 .about-me .bio {
@@ -106,252 +102,239 @@ nav a:hover {
 }
 
 .info-buttons button {
-    all: unset;
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    
+    margin: 1rem 1rem 0 0;
+    border-radius: 30px;
     padding: 0.5rem 2rem;
+    
     font-family: var(--font-heading);
     font-size: 1.1rem;
-    border-radius: 30px;
-    margin: 1rem 1rem 0 0;
-    cursor: pointer;
-    transition: color 0.2s ease-in, background-color 0.2s ease-in, border 0.2s ease-in;
     font-weight: bold;
+    
+    cursor: pointer;
+    transition: color 0.2s ease-in, background-color 0.2s ease-in, border-color 0.2s ease-in;
+}
+
+.info-buttons button:hover {
+    border-color: var(--details);
+    background-color: var(--background1);
+    color: var(--details);
 }
 
 .info-buttons button .fa-solid, .info-buttons button .fa-regular {
+    margin: 0.2rem 0.4rem 0 0;
     font-size: 1rem;
-    margin-top: 0.2rem;
-    margin-right: 0.4rem;
-}
-
-
-.info-buttons button:hover {
-    background-color: var(--background1);
-    color: var(--details);
-    border: 2px solid var(--details);
 }
 
 .info-buttons .contact-btn {
-    background-color: var(--details);
     border: 2px solid var(--details);
+    background-color: var(--details);
     color: var(--text-button    );
     
 }
 
 .info-buttons .consultation-btn {
+    border: 2px solid var(--text);
     background-color: var(--background1);
-    border: 2px solid black;
-    color: black;
+    color: var(--text)
     
 }
-
-.about-me img {
-    border-radius:  10px 300px 300px 10px;
-    margin: 1rem 0 1rem 3rem;
-    max-width: 33%;
     
+.about-me img {
+    max-width: 33%;
+    margin: 1rem 0 1rem 3rem;
+    border-radius:  10px 300px 300px 10px;    
 }
 
 .treatments-bg {
-    background-color: var(--background1);
     padding: 5rem 0;
+    background-color: var(--background1);
 }
 
 .treatments {
+    scroll-margin-top: 200px;
     max-width: 1400px;
     margin: auto;
     text-align: center;
-    scroll-margin-top: 200px;
 }
 
 .treatments .eyebrow {
-    color: var(--details);
     font-family: var(--font-heading);
-    text-align: center;
+    color: var(--details);
 }
 
 .treatments h2 {
-    margin: 0;
-    font-size: 3rem;
+    margin: 0 0 2rem;
     font-family: var(--font-heading);
-    padding-bottom: 2rem;
+    font-size: 3rem;
 }
 
-
 .treatments .desc {
-    font-size: 1.2rem;
-    font-family: var(--font-body);
     margin: 0 15rem 4rem;
+    font-size: 1.2rem;
     color: var(--text-muted);
 }
 
 .treatments-list {
     display: flex;
     flex-wrap: wrap;
-    list-style: none;
-    gap: 3rem 3rem;
-    padding: 0;
     justify-content: center;
+    gap: 3rem 2rem;
+    padding: 0;
 }
 
 .treatments-list li {
     display: flex;
     flex-direction: column;
+    
+    max-width: 320px;
+    border-top: 3px solid var(--details);
+    border-radius: 5%;
     padding: 2rem;
     background-color: var(--background2);
-    max-width: 320px;
-    border-radius: 5%;
-    border-top: 3px solid var(--details);
-    /* box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); */
 }
 
 .card-header {
     display: flex;
     align-items: center;
     gap: 1rem;
+    
     border-bottom: 2px solid var(--border-grey);
     padding-bottom: 1rem;
+    
     text-align: left;
 }
 
-.treatments-list h3 {
+.card-header .fa-solid {
+    min-width: 40px;    
+    border-radius: 50%;
+    padding: 0.8rem 0.7rem;
+    background-color: var(--details);
+    
+    font-size: 2rem;
+    color: var(--background1);
+}
+
+.card-header h3 {
     margin: 0;
     font-family: var(--font-heading);
     font-size: 1.3rem;
 }
 
 .treatments-list p {
-    font-family: var(--font-body);
-    font-size: 1.05rem;  
     margin: 2rem 0 6rem;
+    font-size: 1.05rem;  
     text-align: left;
-    
-    
 }
 
-.card-header .fa-solid {
-    font-size: 2rem;
-    color: var(--background1);
-    background-color: var(--details);
-    border-radius: 50%;
-    padding: 0.8rem 0.7rem;
-    min-width: 40px;
-    
-}
-
-
-
-.treatments button {
-    all: unset;
-    color: var(--background1);
-    background-color: var(--details);
-    padding: 0.8rem 2rem;
+.treatments-list button {
+    max-width: 200px;
+    margin: auto auto 0 0;    
+    border: 2px solid var(--details);
     border-radius: 50px;
+    padding: 0.8rem 2rem;
+    background-color: var(--details);
+
     font-family: var(--font-heading);
     font-size: 1.2rem;
     font-weight: bold;
-    max-width: 200px    ;
-    margin: auto auto 0 0;    
-    cursor:pointer;
-    align-items: center;
-    border: 2px solid var(--details);
-    transition: background-color 0.2s ease-in-out , color 0.2s ease-in-out;
+    color: var(--background1);
     
+    cursor:pointer;
+    transition: background-color 0.2s ease-in-out , color 0.2s ease-in-out;
 }
 
-.treatments button .fa-solid {
-    font-size: 0.9rem;
-}
-
-.treatments button:hover {
+.treatments-list button:hover {
     background-color: var(--background1);
     color: var(--details);
 }
 
+.treatments-list button .fa-solid {
+    font-size: 0.9rem;
+}
+    
 .opinions-bg {
-    background-color: var(--background2);
     padding: 5rem 0 10rem 0;
+    background-color: var(--background2);
 }
 
 .opinions {
+    scroll-margin-top: 200px;
+    overflow-x: hidden;
     margin: auto;
     text-align: center;
-    overflow-x: hidden;
-    scroll-margin-top: 200px;
 }
 
 .opinions h2 {
-    font-size: 3rem;
-    font-family: var(--font-heading);
     margin: 0 25rem 1rem;
-    padding: 2rem;
     border-bottom: 2px solid var(--details);
+    padding: 2rem;
+    
+    font-family: var(--font-heading);
+    font-size: 3rem;
 }
 
 .opinions .desc {
-    font-size: 1.2rem;
-    font-family: var(--font-body);
     margin: 2rem 35rem 5rem;
+    font-size: 1.2rem;
 }
 
 .opinions-list {
-    width: max-content;
-    list-style: none;
     display: flex;
-    text-align: left;
-    padding-left: 4rem;
-    gap: 4rem;
-    animation: scroll-left 40s linear infinite;
     flex-wrap: nowrap;
-}
-
-.opinions-list:has(li:hover)
-{
-    animation-play-state: paused;
+    gap: 4rem;
+    
+    width: max-content;
+    padding-left: 4rem;
+    
+    text-align: left;
+    
+    animation: scroll-left 40s linear infinite;
 }
 
 .opinions-list li {
-    background-color: var(--background1);
-    max-width: 350px;
-    min-width: 350px;
-    padding: 2.5rem;
-    border-radius: 15px;
     display: flex;
     flex-direction: column;
+    
+    width: 350px;
     border: 2px solid var(--background1);
+    border-radius: 15px;
+    padding: 2.5rem;
+    background-color: var(--background1);
+    
     transition: border-color 0.1s ease-in-out;
-
 }
 
 .opinions-list li:hover {
     border-color: var(--details);
 }
 
+.opinions-list:has(li:hover) {
+    animation-play-state: paused;
+}
+
 .opinions-list h3 {
-    font-size: 1.5rem;
     font-family: var(--font-heading);
+    font-size: 1.5rem;
 }
 
 .opinions-list .role {
-    font-family: var(--font-heading);
-    color: var(--details);
-    font-size: 1.2rem;
     margin-top: 0.7rem;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--details);
 }
 
 .opinions-list .review {
-    font-family: var(--font-body);
     font-size: 1.1rem;
 }
 
 .opinions-list .date {
-    font-family: var(--font-body);
-    color: var(--text-muted);
-    margin:  auto 0 0 0;
+    margin: auto 0 0 0;
     border-top: 2px solid var(--details);
     padding-top: 2rem;
+    color: var(--text-muted);
 }
 
 @keyframes scroll-left {
@@ -363,34 +346,26 @@ nav a:hover {
     background-color: var(--background1);
 }
 
-.quali img {
-    max-width: 700px;
-    margin-top: 2rem;
-    margin-bottom: auto;
-    border-radius: 20px;
-}
-
 .quali {
+    scroll-margin-top: 100px;   
     display: flex;
+    gap: 5rem;
+    
     max-width: 1400px;
     margin: auto;
-    gap: 5rem;
-    padding: 5rem 0 5rem 0;
-    scroll-margin-top: 100px;   
+    padding: 5rem 0;
 }
 
-
-
 .quali .eyebrow {
-    color: var(--details);
+    margin-left: 0.2rem;
     font-family: var(--font-heading);
-    margin-left: 0.5rem;
+    color: var(--details);
 }
 
 .quali h2 {
-    font-family: var(--font-heading);
-    font-size: 3rem ;
     margin: 0 0 5rem;
+    font-family: var(--font-heading);
+    font-size: 3rem;
 }
 
 .quali-toggle {
@@ -401,180 +376,184 @@ nav a:hover {
     color: var(--details);
 }
 
+.quali-toggle:checked + .quali-toggle-label + .quali-content {
+    max-height: 12rem;
+    padding-bottom: 2rem;
+}
+
 .quali-toggle-label {
-    cursor: pointer;
     display: flex;
+    
+    margin: 0 0 2rem 0;
+    
     font-family: var(--font-heading);
     font-size: 2rem;
-    margin: 0 0 2rem 0;
-    transition: color 0.3s;
-  }
+    
+    cursor: pointer;
+    transition: color 0.2s;
+}
 
+.quali-toggle-label:hover {
+    color: var(--details);
+}
 
-.quali-toggle-label .label-number {
+.label-number {
     min-width: 60px;
     margin: 0;
     color: var(--text-muted);
 }
 
-
-.quali-toggle-label:hover {
-    color: var(--details);;
-}
-
-.quali-toggle:checked + .quali-toggle-label + .quali-content {
-    max-height: 12rem;
-    margin: 0 0 2rem 0;
-    padding-bottom: 2rem;
-}
-
-
 .quali-content {
-    max-height: 0;
-    max-width: 50rem;
     overflow: hidden;
-    transition: max-height 0.3s ease-in-out, margin 0.3s ease-in-out, padding 0.3s ease-in-out;
-    transition-behavior: allow-discrete;
-    
-
-    font-size: 1.2rem;
-    font-family: var(--font-body);
-    margin: 0 0 1rem 0;
+    max-width: 50rem;
+    max-height: 0;
+    margin: 0 0 2rem 0;
     border-bottom: solid var(--background2);
+    
+    font-size: 1.2rem;
     color: var(--text-muted);
+    
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
 }
 
 .quali-info ul {
     padding-left: 1.5rem;
 }
 
-.quali-content li {
+.quali-info li {
     margin-bottom: 1rem;
 }
 
-.quali-content li::marker {
-    color: var(--details);
+.quali-info li::marker {
     font-size: 1.5rem;
+    color: var(--details);
+}
+
+.quali img {
+    max-width: 700px;
+    margin: 2rem 0 auto;
+    border-radius: 20px;
 }
 
 .contact-info-bg {
-    background-color:  var(--background2);
     border-bottom: 1px solid var(--border-grey);
+    background-color: var(--background2);
 }
 
 .contact-info {
-    max-width: 1400px;
-    margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+    margin: auto;
     padding-bottom: 2rem;
 }
 
 .contact-info img {
     max-width: 200px;
-    padding: 1rem;
+    margin: 1rem;
 }
 
 .contact-info .slogan {
+    margin: 0 0 2rem 0;
+    
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: bold;
     font-style: italic;
-    margin: 0 0 2rem 0;
 }
 
-.contact-info .phone-email {
+.phone-email {
     display: flex;
     justify-content: space-evenly;
-    gap: 1rem;
-        
 }
 
 .phone, .email {
     min-width: 400px;
+    margin: 0 0 2rem;
     text-align: center;
-    margin-top: 0;
-    margin-bottom: 2rem;
+}
+
+.contact-info .fa-solid {
+    margin-right: 0.2rem;
+    font-size: 1.1rem;
+    color: var(--details);
 }
 
 .contact-info a {
-    all: unset;
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
     width: fit-content;
     margin: auto;
+
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--text);
+    
     cursor: pointer;
-    transition: color 0.3s ease-in;
+    transition: color 0.2s ease-in;
 }
 
 .contact-info a:hover {
     color: var(--details);
 }
 
-.contact-info .fa-solid {
-    color: var(--details);
-    font-size: 1.1rem;
-    padding-right: 0.2rem;
-}
-
 .copyright-bg {
-    background-color: var(--background2);
     padding: 2rem 0;
+    background-color: var(--background2);
 }
 
 .copyright {
-    max-width: 1400px;
-    margin: auto;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    
+    max-width: 1400px;
+    margin: auto;
 }
 
 .copyright p {
-    margin: 0;
+    margin: auto 0;
     color: var(--text-muted);
-    text-align: left;
-    font-family: var(--font-body);
 }
 
 .copyright .fa-brands {
-    color: var(--details);
+    margin: 0 0.1rem;
     border: 2px solid var(--details);
-    background-color: var(--background1);
     border-radius: 80%;
     padding: 0.4rem 0.3rem;
-    transition: color 0.3s ease-in, background-color 0.3s ease-in, border-color 0.3s ease-in;
-    margin: 0 0.1rem;
+    background-color: var(--background1);
+    
+    color: var(--details);
+    
     cursor: pointer;
+    transition: color 0.3s ease-in, background-color 0.3s ease-in, border-color 0.3s ease-in;
 }
 
 .copyright .fa-brands:hover {
+    border-color: var(--details);
     background-color: var(--details);
     color: var(--background1);
-    border-color: var(--details);
 }
 
-
-
 #scrollTop {
-    width: 80px;
-    height: 80px;
-
-
-    opacity: 0;
     position: fixed;
     right: 40px;
     bottom: 40px;
-    border-radius: 50%;
-    border-style: none;
-    background-color: var(--background1);
-    border: 2px solid var(--details);    
-    color: var(--details);
-    padding: 0;
+    opacity: 0;
+    
+    width: 80px;
+    height: 80px;
     margin: 0;
+    border: 2px solid var(--details);    
+    border-radius: 50%;
+    padding: 0;
+    background-color: var(--background1);
+
+    font-size: 2rem;
+    color: var(--details);
+
     cursor: pointer;
     pointer-events: none;
-    font-size: 2rem;
     transition: background-color 0.3s ease-in, color 0.3s ease-in, opacity 0.3s ease-in;
 }
 
