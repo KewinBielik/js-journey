@@ -293,6 +293,10 @@ nav a:hover {
     animation: scroll-left 40s linear infinite;
 }
 
+.opinions-list:has(li:hover) {
+    animation-play-state: paused;
+}
+
 .opinions-list li {
     display: flex;
     flex-direction: column;
@@ -308,10 +312,6 @@ nav a:hover {
 
 .opinions-list li:hover {
     border-color: var(--details);
-}
-
-.opinions-list:has(li:hover) {
-    animation-play-state: paused;
 }
 
 .opinions-list h3 {
@@ -408,7 +408,7 @@ nav a:hover {
     max-width: 50rem;
     max-height: 0;
     margin: 0 0 2rem 0;
-    border-bottom: solid var(--background2);
+    border-bottom: 2px solid var(--background2);
     
     font-size: 1.2rem;
     color: var(--text-muted);
@@ -435,8 +435,7 @@ nav a:hover {
     border-radius: 20px;
 }
 
-.contact-info-bg {
-    border-bottom: 1px solid var(--border-grey);
+footer {
     background-color: var(--background2);
 }
 
@@ -446,6 +445,7 @@ nav a:hover {
     align-items: center;
     
     margin: auto;
+    border-bottom: 1px solid var(--border-grey);
     padding-bottom: 2rem;
 }
 
@@ -497,11 +497,6 @@ nav a:hover {
     color: var(--details);
 }
 
-.copyright-bg {
-    padding: 2rem 0;
-    background-color: var(--background2);
-}
-
 .copyright {
     display: flex;
     justify-content: space-between;
@@ -509,6 +504,7 @@ nav a:hover {
     
     max-width: 1400px;
     margin: auto;
+    padding: 2rem 0;
 }
 
 .copyright p {

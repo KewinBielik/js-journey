@@ -1005,3 +1005,11 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 - **Date:** 2026-10-28 · Streak day 62
 - **What I did:** Finished cleaning up the CSS.
 - **What I learned:** On the next project I will aim to write my CSS cleanly as I go, so that I don't have to clean it up later.
+
+
+## Project #1 - Doctor's website (day 17)
+
+- **Date:** 2026-10-30 · Streak day 63
+- **What I did:** 
+- **What I learned:**
+  - **Section vs Div -** A `section` is a block of content with it's own heading, otherwise I should use `div`.

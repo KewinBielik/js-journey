@@ -1,65 +1,15 @@
 To Do:
-[x] fix the broken tags
-[x] leaking selector
-[X] add alt to pictures
-[x] dead properties
-[x] put properties in order
 
-Inside a rule, go from the outside of the box inward:   
-
-1 Position. position, top, z-index, display, flex, gap, alignment.
-2 Box. width, max-width, margin, padding, border, border-radius, overflow.
-3 Text. font-family, font-size, font-weight, color, text-align.
-4 Motion and behavior. transition, animation, cursor, pointer-events.
-
-
-[x] Is color: black the right way to handle nav a?
-[x] Fix the styling of quali section (I was in the middle of it - the goal is to get rid of 3 unique classes and have it all in one, the + + allowed to make it work.)
-[x] Make opinion cards stop on hover
-[x] Clean up the style.css - in what order should the properties be? Right now it's all random.
-[x] Add animation to the jump to top button.
-[x] Contact button somewhere on front page
-[x] fix sections in quali - qualibg should be the major one, then quali and it's things inside, aim for 1400px width
-[x] Try making more text in this grey color, maybe the info in about me and in opinions or on the cards. Maybe no black text at all? except of the headers.
-[x] fix footer sections, organize this as the rest was organized.
-[x] Style the treatments buttons better.
-[x] Add icons to Treatmens section and improve the styling.
-[x] finish styling the footer.
-[x] Section with courses and qualifications
-[x] split quali section to add an image on the right side?
-[x] Expandable courses and qualifications
-[x] Make the expanding animation smooth.
-[x] A footer with logo, slogan, email, phone number, adress, right reserved and social medias icons to click
-[ ] Could try makind the treatments card wider and tha gaps between smaller.
-[x] Add a description in Treatments.
 [ ] Make the website adjust To different resolutions.
-[x] Add more details, like icons in the treatments section
-[ ] Add a search?
-[ ] Why choose us?
 [ ] Figure out why tab changes the scroll up border to black.
-[x] add transition to the treatments buttons.
-[x] fix scroll up transition.
-[x] Social medias on footer?
-[x] Phone number, email, adress on footer?
-[ ] Help?
-[ ] Text over big image (seems to be the thing)
+[x] Change bg-sections into divs.
+[X] Move .opinions-list:has(li:hover)
+[X] Change slogan from <h4> into <p>
+[ ] Change "quali" into "qualifications"
+[x] Remove the unecessary bg sections inside footer, put the bg styling on the footer tag
+
 
 Good site to inspire from: 
 https://neuroaxishealth.com/# 
 https://laryngologpoznan.pl/    
 
-
-List of things that should be on the finished site:
-- topbar with logo/photo and nav links
-- footer with things like contact, rules, blog, policies, articles.
-- The arrow that goes to the top of the website
-- The table of contents, reactive
-- Interactive google map thing
-- Who am I
-- List of certificates
-- What can I treat
-- Book a visit
-- Types of visits
-- Reviews, could be linked from google
-- Change language?
-This should be enough.
