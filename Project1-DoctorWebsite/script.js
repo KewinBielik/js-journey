@@ -1,18 +1,15 @@
 const showAt = 600;
+const scrollTop = document.getElementById("scrollTop");
 
-var scrollTop = document.getElementById("scrollTop");
-
-window.onscroll = function(){
-    scrollfunction()
-};
 function scrollfunction(){
-
     if( document.body.scrollTop > showAt || document.documentElement.scrollTop > showAt){
         scrollTop.classList.add(`is-visible`);
     } else {
         scrollTop.classList.remove(`is-visible`);
     }
 }
+
+window.addEventListener("scroll", scrollfunction, {passive: true});
 
 scrollTop.addEventListener("click", function(){
     window.scrollTo({

@@ -319,7 +319,7 @@ nav a:hover {
     font-size: 1.5rem;
 }
 
-.opinions-list .role {
+.opinions-list .reviewer {
     margin-top: 0.7rem;
     font-family: var(--font-heading);
     font-size: 1.2rem;
@@ -342,11 +342,11 @@ nav a:hover {
     to {transform: translateX(-50%);}
 }
 
-.quali-bg {
+.qualifications-bg {
     background-color: var(--background1);
 }
 
-.quali {
+.qualifications {
     scroll-margin-top: 100px;   
     display: flex;
     gap: 5rem;
@@ -356,32 +356,32 @@ nav a:hover {
     padding: 5rem 0;
 }
 
-.quali .eyebrow {
+.qualifications .eyebrow {
     margin-left: 0.2rem;
     font-family: var(--font-heading);
     color: var(--details);
 }
 
-.quali h2 {
+.qualifications h2 {
     margin: 0 0 5rem;
     font-family: var(--font-heading);
     font-size: 3rem;
 }
 
-.quali-toggle {
+.qualifications-toggle {
     display: none;
 }
 
-.quali-toggle:checked + .quali-toggle-label {
+.qualifications-toggle:checked + .qualifications-toggle-label {
     color: var(--details);
 }
 
-.quali-toggle:checked + .quali-toggle-label + .quali-content {
+.qualifications-toggle:checked + .qualifications-toggle-label + .qualifications-content {
     max-height: 12rem;
     padding-bottom: 2rem;
 }
 
-.quali-toggle-label {
+.qualifications-toggle-label {
     display: flex;
     
     margin: 0 0 2rem 0;
@@ -393,7 +393,7 @@ nav a:hover {
     transition: color 0.2s;
 }
 
-.quali-toggle-label:hover {
+.qualifications-toggle-label:hover {
     color: var(--details);
 }
 
@@ -403,7 +403,7 @@ nav a:hover {
     color: var(--text-muted);
 }
 
-.quali-content {
+.qualifications-content {
     overflow: hidden;
     max-width: 50rem;
     max-height: 0;
@@ -416,20 +416,20 @@ nav a:hover {
     transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
 }
 
-.quali-info ul {
+.qualifications-info ul {
     padding-left: 1.5rem;
 }
 
-.quali-info li {
+.qualifications-info li {
     margin-bottom: 1rem;
 }
 
-.quali-info li::marker {
+.qualifications-info li::marker {
     font-size: 1.5rem;
     color: var(--details);
 }
 
-.quali img {
+.qualifications img {
     max-width: 700px;
     margin: 2rem 0 auto;
     border-radius: 20px;

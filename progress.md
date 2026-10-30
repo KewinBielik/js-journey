@@ -1010,6 +1010,7 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 ## Project #1 - Doctor's website (day 17)
 
 - **Date:** 2026-10-30 · Streak day 63
-- **What I did:** 
+- **What I did:** I have begun to make small changes to the html structure (removing unecessery sections or changing them into divs, "quali" to "qualifications"), following it with the styling and changing the js a bit (window.onscroll to addEventListener). 
 - **What I learned:**
   - **Section vs Div -** A `section` is a block of content with it's own heading, otherwise I should use `div`.
+  - **window.onscroll vs window.addEventListener("scroll", ...) -** The `window.onscroll` that I have been using holds a single function, assigning it again will replace the whatever was stored there. `The window.addEventListener("scroll", ...)` can add a function to a list. Another listener can be added later and both will run.

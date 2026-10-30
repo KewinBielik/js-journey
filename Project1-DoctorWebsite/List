@@ -3,11 +3,13 @@ To Do:
 [ ] Make the website adjust To different resolutions.
 [ ] Figure out why tab changes the scroll up border to black.
 [x] Change bg-sections into divs.
-[X] Move .opinions-list:has(li:hover)
-[X] Change slogan from <h4> into <p>
-[ ] Change "quali" into "qualifications"
+[x] Move .opinions-list:has(li:hover)
+[x] Change slogan from <h4> into <p>
+[x] Change "quali" into "qualifications"
 [x] Remove the unecessary bg sections inside footer, put the bg styling on the footer tag
-
+[x] Change .role in .opinions to .reviewer
+[x] Change js script, from window.onscroll to addEventListener
+ 
 
 Good site to inspire from: 
 https://neuroaxishealth.com/# 
