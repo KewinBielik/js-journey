@@ -30,14 +30,17 @@ body {
 .topbar {
     display: flex;
     justify-content: space-between;
+    gap: 2rem;
     max-width: 1400px;
     margin: auto;
+    padding: 0 1rem;
     font-family: var(--font-heading);
 }
 
 .logo {
     display: flex;
     align-items:center;
+    white-space: nowrap;
 }
 
 .logo img {
@@ -48,10 +51,11 @@ body {
 nav {
     display: flex;
     align-items: center;
-    gap: 4rem;
+    gap: 3rem;
 }
 
 nav a {
+    white-space: nowrap;
     font-size: 1.5rem;
     text-decoration: none;
     color: var(--text);
@@ -72,6 +76,7 @@ nav a:hover {
     display: flex;
     max-width: 1400px;  
     margin: auto;
+    padding: 0 1rem;
     
 }
 
@@ -156,6 +161,7 @@ nav a:hover {
     scroll-margin-top: 200px;
     max-width: 1400px;
     margin: auto;
+    padding: 0 1rem;
     text-align: center;
 }
 
@@ -171,7 +177,8 @@ nav a:hover {
 }
 
 .treatments .desc {
-    margin: 0 15rem 4rem;
+    max-width: 800px;
+    margin: 0 auto 4rem;
     font-size: 1.2rem;
     color: var(--text-muted);
 }
@@ -262,21 +269,24 @@ nav a:hover {
 .opinions {
     scroll-margin-top: 200px;
     overflow-x: hidden;
+    max-width: 1400px;
     margin: auto;
     text-align: center;
 }
 
 .opinions h2 {
-    margin: 0 25rem 1rem;
+    max-width: 900px;
+    margin: 0 auto 2rem;
     border-bottom: 2px solid var(--details);
-    padding: 2rem;
+    padding-bottom: 2rem;
     
     font-family: var(--font-heading);
     font-size: 3rem;
 }
 
 .opinions .desc {
-    margin: 2rem 35rem 5rem;
+    max-width: 800px;
+    margin: 2rem auto 5rem;
     font-size: 1.2rem;
 }
 
@@ -353,7 +363,7 @@ nav a:hover {
     
     max-width: 1400px;
     margin: auto;
-    padding: 5rem 0;
+    padding: 5rem 2rem;
 }
 
 .qualifications .eyebrow {
@@ -430,7 +440,8 @@ nav a:hover {
 }
 
 .qualifications img {
-    max-width: 700px;
+    max-width: 50%;
+    height: auto;
     margin: 2rem 0 auto;
     border-radius: 20px;
 }
@@ -504,7 +515,7 @@ footer {
     
     max-width: 1400px;
     margin: auto;
-    padding: 2rem 0;
+    padding: 2rem;
 }
 
 .copyright p {
@@ -533,7 +544,7 @@ footer {
 
 #scrollTop {
     position: fixed;
-    right: 40px;
+    right: 20px;
     bottom: 40px;
     opacity: 0;
     
@@ -550,7 +561,7 @@ footer {
 
     cursor: pointer;
     pointer-events: none;
-    transition: background-color 0.3s ease-in, color 0.3s ease-in, opacity 0.3s ease-in;
+    transition: background-color 0.3s ease-in, color 0.3s ease-in, opacity 0.3s ease-in, bottom 0.5s ease-in-out;
 }
 
 #scrollTop.is-visible {

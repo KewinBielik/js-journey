@@ -1,6 +1,9 @@
 To Do:
 
 [ ] Make the website adjust To different resolutions.
+    [x] First Breakpoint - 1150px width
+[ ] Clean up the new js code, put it in separate function?
+[ ] Is doing margin auto and max width the right way?
 [ ] Figure out why tab changes the scroll up border to black.
 [x] Change bg-sections into divs.
 [x] Move .opinions-list:has(li:hover)

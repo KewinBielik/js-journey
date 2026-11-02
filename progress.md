@@ -1014,3 +1014,11 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 - **What I learned:**
   - **Section vs Div -** A `section` is a block of content with it's own heading, otherwise I should use `div`.
   - **window.onscroll vs window.addEventListener("scroll", ...) -** The `window.onscroll` that I have been using holds a single function, assigning it again will replace the whatever was stored there. `The window.addEventListener("scroll", ...)` can add a function to a list. Another listener can be added later and both will run.
+
+
+## Project #1 - Doctor's website (day 18)
+
+- **Date:** 2026-11-02 · Streak day 63
+- **What I did:** I made sure that html are css are both fine and begun to make the site adjust to different sizes. So far it scales well down to 1150px width. I spent most of today's session on making the scroll to top button position adjust - I wanted it to be higher once it hits the bottom of the page, because it was covering the social media links. I managed to write the code and figure out the right math all by myself and it was super satisfying to solve a problem on my own.
+- **What I learned:**
+  - You can get the Y position of any html element in js with element.offsetTop (first fint element by id ofc.)
