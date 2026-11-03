@@ -1,20 +1,20 @@
 const showAt = 600;
+const scrollTop = document.getElementById("scrollTop");
+
 const limit = 910;
 const bottomOffset = 40;
-const scrollTop = document.getElementById("scrollTop");
-const copyright = document.getElementById("copyright");
+const copyrightSection = document.getElementById("copyright");
 
-function scrollfunction(){
+function showScrollTop(){
     if( document.body.scrollTop > showAt || document.documentElement.scrollTop > showAt){
         scrollTop.classList.add(`is-visible`);
-        console.log(`1 - ${document.body.scrollTop}`);
-        console.log(`2 - ${document.documentElement.scrollTop}`);
-        console.log(`3 - ${copyright.offsetTop}`);
     } else {
         scrollTop.classList.remove(`is-visible`);
     }
+}
 
-    let distanceFromLimit = copyright.offsetTop - document.documentElement.scrollTop;
+function adjustBottom() {
+    let distanceFromLimit = copyrightSection.offsetTop - document.documentElement.scrollTop;
     if ( distanceFromLimit <= limit )
     {
         let bottom = Math.abs((distanceFromLimit - limit)) + bottomOffset;
@@ -24,10 +24,10 @@ function scrollfunction(){
     {
         scrollTop.style.bottom = bottomOffset.toString() + "px";
     }
-
 }
 
-window.addEventListener("scroll", scrollfunction, {passive: true});
+window.addEventListener("scroll", showScrollTop, {passive: true});
+window.addEventListener("scroll", adjustBottom, {passive: true});
 
 scrollTop.addEventListener("click", function(){
     window.scrollTo({

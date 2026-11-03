@@ -1,10 +1,16 @@
 To Do:
+[ ] Clean up the new dropdown code
 
 [ ] Make the website adjust To different resolutions.
     [x] First Breakpoint - 1150px width
-[ ] Clean up the new js code, put it in separate function?
+[x] Clean up the new js code, put it in separate function?
 [ ] Is doing margin auto and max width the right way?
 [ ] Figure out why tab changes the scroll up border to black.
+[x] style the nav as drop down after 1150px width
+[ ] make the treatment cards scale
+[ ] scale the scrollTop button size
+[x] Remove the console logs in js
+[ ] Make the new function run only on small width?
 [x] Change bg-sections into divs.
 [x] Move .opinions-list:has(li:hover)
 [x] Change slogan from <h4> into <p>

@@ -1022,3 +1022,21 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 - **What I did:** I made sure that html are css are both fine and begun to make the site adjust to different sizes. So far it scales well down to 1150px width. I spent most of today's session on making the scroll to top button position adjust - I wanted it to be higher once it hits the bottom of the page, because it was covering the social media links. I managed to write the code and figure out the right math all by myself and it was super satisfying to solve a problem on my own.
 - **What I learned:**
   - You can get the Y position of any html element in js with element.offsetTop (first fint element by id ofc.)
+
+
+
+## Project #1 - Doctor's website (day 19)
+
+- **Date:** 2026-11-03 · Streak day 64
+- **What I did:** I styled the nav in topbar to appear as a dropdown menu. I am not sure whetever I like the styling and if it should show after just a hover, but for now I will keep it like this. I may have done some mess in the css while experimenting so I will clean this up tomorrow.
+- **What I learned:** 
+  - I couldn't figure out how to center the dropdown content under the dropdown icon, it was aligning by it's left corner and I needed to center it by it's middle. The solution was to change the `left` and `transform`.
+  ```css
+    .nav-horizontal-content {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+  ```  
+
+  `left: 50%` made it so the left corner attached to the middle of the icon (rather than it's left side) and `transform: translate(-50%)` has moved it to the left by 50% of it's width. 
