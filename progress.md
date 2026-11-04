@@ -1040,3 +1040,11 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   ```  
 
   `left: 50%` made it so the left corner attached to the middle of the icon (rather than it's left side) and `transform: translate(-50%)` has moved it to the left by 50% of it's width. 
+
+
+## Project #1 - Doctor's website (day 20)
+
+- **Date:** 2026-11-04 · Streak day 65
+- **What I did:** I improved the drop down menu on width < 1150px. It now expands on click rather on hover and it's width matches the free space on topbar - this one took me long to figure out and was really satisfying to find the solution. I also adjusted the about-me section slightly, to remove the line in the middle and make the picture bigger in width < 1150px. I tried to make treatment cards scale their width but run out of time for today.
+- **What I learned:** 
+  - The `width: 100%` on the dropDown content was not working because the horizontal nav width was really small. The key was to make both nav and nav-horizontal width to expand fully by adding `width: 100%`. Then I could apply the same for nav-horizontal-content. This was very confusing because I did not realize the first div's not expanding fully and I couldn't understand why the width is just the icon's width.

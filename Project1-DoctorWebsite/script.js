@@ -5,6 +5,9 @@ const limit = 910;
 const bottomOffset = 40;
 const copyrightSection = document.getElementById("copyright");
 
+const dropDown = document.getElementById("dropDown");
+const hiddenNav = document.getElementById("hiddenNav");
+
 function showScrollTop(){
     if( document.body.scrollTop > showAt || document.documentElement.scrollTop > showAt){
         scrollTop.classList.add(`is-visible`);
@@ -26,8 +29,13 @@ function adjustBottom() {
     }
 }
 
+
 window.addEventListener("scroll", showScrollTop, {passive: true});
 window.addEventListener("scroll", adjustBottom, {passive: true});
+dropDown.addEventListener("click", function(){
+    hiddenNav.classList.toggle(`is-visible`);
+    dropDown.classList.toggle(`active`);
+});
 
 scrollTop.addEventListener("click", function(){
     window.scrollTo({

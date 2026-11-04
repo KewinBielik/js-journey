@@ -1,10 +1,23 @@
 To Do:
-[ ] Clean up the new dropdown code
+[x] Clean up the new dropdown code
+
+[ ] !!! Keep in mind the added code in treatments (its not working) !!! < ----------------------
+
+
 
 [ ] Make the website adjust To different resolutions.
     [x] First Breakpoint - 1150px width
 [x] Clean up the new js code, put it in separate function?
-[ ] Is doing margin auto and max width the right way?
+
+[ ] Ask:
+    [ ] Is doing margin auto and max width the right way?
+    [ ] Is styling .is-visible and .active the right way? (I mean the way I choose the elements in css, I tag them by .nav-horizontal)
+    [ ] Is the naming of id's and then variables in js right (dropDown and hiddenNav) maybe should go with navMobile idk.
+    [ ] Should I do separate @mobile tag for about-me or just put in the one that I have for the topbar nav (it will also apply at 1150px)
+    [ ] Should ALL `media` settings be kept in the media styling? like the width:100% on nav
+[ ] Right now the drop down menu spaces from the topbar by having a margin-top set to 2.4rem, maybe I should do a translateY?
+[ ] Remove topbar padding on width 1150px?
+[ ] Dropdown menu styling is still a question, maybe highlight on background-color? maybe width on the whole topbar?
 [ ] Figure out why tab changes the scroll up border to black.
 [x] style the nav as drop down after 1150px width
 [ ] make the treatment cards scale
