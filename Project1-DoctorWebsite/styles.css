@@ -77,6 +77,10 @@ nav a:hover {
 }
 
 @media (max-width: 1150px) {
+    .topbar {
+        padding: 0;
+    }
+
     .nav-vertical {
         display: none;
     }
@@ -115,7 +119,7 @@ nav a:hover {
         width: 100%;
         margin-top: 2.4rem;
         border-bottom: 3px solid var(--details);
-        border-radius: 0 0 30px 30px;
+        border-radius: 0 0 0 30px;
         background-color: var(--background1);
         text-align: center;
         
@@ -169,12 +173,13 @@ nav a:hover {
 
 .info-buttons {
     display: flex;
+    gap: 1rem;
 }
 
 .info-buttons button {
     display: flex;
     
-    margin: 1rem 1rem 0 0;
+    margin: 1rem 0;
     border-radius: 30px;
     padding: 0.5rem 2rem;
     
@@ -228,6 +233,54 @@ nav a:hover {
     }
 }
 
+@media (max-width: 1000px) {
+    .topbar img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .topbar h1 {
+        font-size: 1.5rem;
+    }
+
+    .nav-horizontal .fa-bars {
+        font-size: 2rem;
+    }
+
+    .nav-horizontal-content {
+        margin-top: 2rem;
+    }
+
+    nav a {
+        font-size: 1.3rem;
+    }
+
+    .about-me .info {
+        padding-right: 1.5rem;
+    }
+
+    .about-me h2 {
+        font-size: 2rem;
+    }
+
+    .about-me .role {
+        font-size: 1.2rem;
+    }
+
+    .about-me .bio {
+        font-size: 1rem;
+    }
+
+    .info-buttons button {
+        font-size: 0.9rem;
+        padding: 0.3rem 1.5rem;
+    }
+
+    .info-buttons button .fa-solid, .info-buttons button .fa-regular {
+        font-size: 0.9rem;
+        margin: 0.2rem 0.2rem 0 0;
+    }
+}
 
 .treatments-bg {
     padding: 5rem 0;
@@ -271,10 +324,14 @@ nav a:hover {
 .treatments-list li {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     flex-shrink: 1;
-    
+    flex-basis: 265px;
+    /* flex: 1; */
+
     max-width: 320px;
-    min-width: 0;
+    /* min-width: 250px;  */
+    /* min-width: 0; */
     border-top: 3px solid var(--details);
     border-radius: 5%;
     padding: 2rem;
@@ -283,11 +340,11 @@ nav a:hover {
 
 .card-header {
     display: flex;
-    flex-shrink: 1;
+    /* flex-shrink: 1; */
     align-items: center;
     gap: 1rem;
     
-    min-width: 0;
+    /* min-width: 0; */
     border-bottom: 2px solid var(--border-grey);
     padding-bottom: 1rem;
     
@@ -347,11 +404,45 @@ nav a:hover {
     background-color: var(--background2);
 }
 
+@media (max-width: 1000px) {
+
+    .treatments .eyebrow {
+        font-size: 0.8rem;
+    }
+
+    .treatments h2 {
+        font-size: 2rem;
+    }
+
+    .treatments .desc {
+        font-size: 1rem;
+    }
+
+    .card-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .treatments-list p {
+        font-size: 1rem;
+    }
+
+    .treatments-list button {
+        padding: 0.6rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .treatments-list button .fa-solid {
+        font-size: 0.8rem;
+    }
+}
+
+
 .opinions {
     scroll-margin-top: 200px;
     overflow-x: hidden;
     max-width: 1400px;
     margin: auto;
+    padding: 0 1rem;
     text-align: center;
 }
 
@@ -359,7 +450,7 @@ nav a:hover {
     max-width: 900px;
     margin: 0 auto 2rem;
     border-bottom: 2px solid var(--details);
-    padding-bottom: 2rem;
+    padding-bottom:2rem;
     
     font-family: var(--font-heading);
     font-size: 3rem;
@@ -433,6 +524,43 @@ nav a:hover {
     to {transform: translateX(-50%);}
 }
 
+@media (max-width: 1000px) {
+
+    .opinions h2 {
+        max-width: 650px;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        font-size: 2rem;
+    }
+
+    .opinions .desc {
+        max-width: 600px;
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+        font-size: 1rem;
+    }
+
+    .opinions-list li {
+        padding: 2rem;
+    }
+
+    .opinions-list h3 {
+        font-size: 1.2rem;
+    }
+
+    .opinions-list .reviewer {
+        font-size: 1.1rem;
+    }
+    
+    .opinions-list .review {
+        font-size: 1rem;
+    }
+
+    .opinions-list .date {
+        font-size: 0.9rem;
+    }
+}
+
 .qualifications-bg {
     background-color: var(--background1);
 }
@@ -440,7 +568,7 @@ nav a:hover {
 .qualifications {
     scroll-margin-top: 100px;   
     display: flex;
-    gap: 5rem;
+    gap: 4rem;
     
     max-width: 1400px;
     margin: auto;
@@ -525,6 +653,40 @@ nav a:hover {
     height: auto;
     margin: 2rem 0 auto;
     border-radius: 20px;
+}
+
+@media (max-width: 1000px) {
+
+    .qualifications .eyebrow {
+        font-size: 0.8rem;
+    }
+
+    .qualifications h2 {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .qualifications-toggle:checked + .qualifications-toggle-label + .qualifications-content {
+        padding-bottom: 1rem;
+    }
+
+    .qualifications-toggle-label {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .label-number {
+        min-width: 40px;
+    }
+
+    .qualifications-content {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .qualifications-info li::marker {
+        font-size: 1.1rem;
+    }
 }
 
 footer {
@@ -623,6 +785,41 @@ footer {
     color: var(--background1);
 }
 
+@media (max-width: 1000px) {
+
+    .contact-info {
+        padding-bottom: 1.5rem;
+    }
+
+    .contact-info img {
+        max-width: 120px;
+    }
+
+    .contact-info .slogan {
+        font-size: 1.1rem;
+    }
+
+    .contact-info .fa-solid {
+        font-size: 0.9rem;
+    }
+
+    .contact-info a {
+        font-size: 1rem;
+    }
+
+    .copyright {
+        padding: 1.5rem;
+    }
+
+    .copyright p {
+        font-size: 0.8rem;
+    }
+
+    .copyright .fa-brands {
+        font-size: 0.8rem;
+    }
+}
+
 #scrollTop {
     position: fixed;
     right: 20px;
@@ -653,5 +850,14 @@ footer {
 #scrollTop.is-visible:hover {
     background-color: var(--details);
     color: var(--background1);
+}
+
+@media (max-width: 1000px) {
+    #scrollTop {
+        width: 60px;
+        height: 60px;
+
+        font-size: 1.5rem;
+    }
 }
 

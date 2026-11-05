@@ -1,36 +1,32 @@
 To Do:
-[x] Clean up the new dropdown code
-
-[ ] !!! Keep in mind the added code in treatments (its not working) !!! < ----------------------
-
+[ ] Clean up comments in css and make sure the right order is kept (of both properties and tags)
+[ ] Watch content on flex, grow, shrink, basis?
 
 
 [ ] Make the website adjust To different resolutions.
     [x] First Breakpoint - 1150px width
-[x] Clean up the new js code, put it in separate function?
+    [x] 1000px
+    [x] Shrink everything at 1000px
+    [ ] Do a font-size check - I don't want small inaccuracy where .desc in one section has 1.1rem and 1rem in another.
+    [ ] Another settings around 700px - make everything scale with % 
+    [x] Looks fine around 900px
+    [ ] Maybe move the 1000px changes to 1150px? 
 
 [ ] Ask:
     [ ] Is doing margin auto and max width the right way?
     [ ] Is styling .is-visible and .active the right way? (I mean the way I choose the elements in css, I tag them by .nav-horizontal)
     [ ] Is the naming of id's and then variables in js right (dropDown and hiddenNav) maybe should go with navMobile idk.
     [ ] Should I do separate @mobile tag for about-me or just put in the one that I have for the topbar nav (it will also apply at 1150px)
-    [ ] Should ALL `media` settings be kept in the media styling? like the width:100% on nav
+    [ ] Should ALL `media` settings be kept in the media styling? like the width:100% on nav. Or just the ones that actually matter on different res.
+    [ ] What would happen to the treatment cards if someone had a really wide res?
 [ ] Right now the drop down menu spaces from the topbar by having a margin-top set to 2.4rem, maybe I should do a translateY?
-[ ] Remove topbar padding on width 1150px?
+[x] Remove topbar padding on width 1150px?
 [ ] Dropdown menu styling is still a question, maybe highlight on background-color? maybe width on the whole topbar?
 [ ] Figure out why tab changes the scroll up border to black.
-[x] style the nav as drop down after 1150px width
-[ ] make the treatment cards scale
-[ ] scale the scrollTop button size
-[x] Remove the console logs in js
+[x] make the treatment cards scale
+[x] scale the scrollTop button size
 [ ] Make the new function run only on small width?
-[x] Change bg-sections into divs.
-[x] Move .opinions-list:has(li:hover)
-[x] Change slogan from <h4> into <p>
-[x] Change "quali" into "qualifications"
-[x] Remove the unecessary bg sections inside footer, put the bg styling on the footer tag
-[x] Change .role in .opinions to .reviewer
-[x] Change js script, from window.onscroll to addEventListener
+
  
 
 Good site to inspire from: 
