@@ -7,6 +7,7 @@ const copyrightSection = document.getElementById("copyright");
 
 const dropDown = document.getElementById("dropDown");
 const hiddenNav = document.getElementById("hiddenNav");
+const topbarBg = document.getElementById("topbar-bg");
 
 function showScrollTop(){
     if( document.body.scrollTop > showAt || document.documentElement.scrollTop > showAt){
@@ -29,13 +30,20 @@ function adjustBottom() {
     }
 }
 
+function openDropDown() {
+    hiddenNav.classList.toggle(`is-visible`);
+    dropDown.classList.toggle(`active`);
+    topbarBg.classList.toggle(`active`);
+}
+
 
 window.addEventListener("scroll", showScrollTop, {passive: true});
 window.addEventListener("scroll", adjustBottom, {passive: true});
-dropDown.addEventListener("click", function(){
-    hiddenNav.classList.toggle(`is-visible`);
-    dropDown.classList.toggle(`active`);
-});
+dropDown.addEventListener("click", openDropDown);
+
+Array.from(hiddenNav.children).forEach(child => {
+    child.addEventListener("click", openDropDown);
+})
 
 scrollTop.addEventListener("click", function(){
     window.scrollTo({

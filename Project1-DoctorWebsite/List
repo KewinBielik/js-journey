@@ -1,16 +1,18 @@
 To Do:
 [ ] Clean up comments in css and make sure the right order is kept (of both properties and tags)
 [ ] Watch content on flex, grow, shrink, basis?
-
+[ ] Study the Array.from(parent.children).forEach(child => ...) 
 
 [ ] Make the website adjust To different resolutions.
     [x] First Breakpoint - 1150px width
     [x] 1000px
     [x] Shrink everything at 1000px
-    [ ] Do a font-size check - I don't want small inaccuracy where .desc in one section has 1.1rem and 1rem in another.
-    [ ] Another settings around 700px - make everything scale with % 
+    [ ] Do a font-size check - I don't want small inaccuracy where .desc in one section has 1.1rem and 1rem in another. 
     [x] Looks fine around 900px
-    [ ] Maybe move the 1000px changes to 1150px? 
+    [x] Maybe move the 1000px changes to 1150px? 
+    [x] Looks fine around 800px
+    [ ] Below 800px should be all setting scalable so that no more adjustments are needed
+
 
 [ ] Ask:
     [ ] Is doing margin auto and max width the right way?
@@ -20,14 +22,12 @@ To Do:
     [ ] Should ALL `media` settings be kept in the media styling? like the width:100% on nav. Or just the ones that actually matter on different res.
     [ ] What would happen to the treatment cards if someone had a really wide res?
 [ ] Right now the drop down menu spaces from the topbar by having a margin-top set to 2.4rem, maybe I should do a translateY?
-[x] Remove topbar padding on width 1150px?
-[ ] Dropdown menu styling is still a question, maybe highlight on background-color? maybe width on the whole topbar?
+[x] Dropdown menu styling is still a question, maybe highlight on background-color? maybe width on the whole topbar?
 [ ] Figure out why tab changes the scroll up border to black.
-[x] make the treatment cards scale
-[x] scale the scrollTop button size
 [ ] Make the new function run only on small width?
-
- 
+[x] Put transparent background on images, because forcing black theme exposes the "hard-coded" whie background on images.
+[ ] Use the same logo twice, no need for two files
+[ ] Adjust the new logo sizes
 
 Good site to inspire from: 
 https://neuroaxishealth.com/# 

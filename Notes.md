@@ -11,6 +11,7 @@
 - [   ] Pomodoro app. I could use it myself lol.
 - [   ] Something that uses external API like a newsfeed.
 - [   ] HTTP server on raw sockets (the idea comes from this video - https://www.youtube.com/watch?v=EFDVmd6ondM it's probably quite hard)
+- [   ] Use sites such as code wars and exercism to practice coding daily, could do before each session
 
 
 ## How to learn to code:

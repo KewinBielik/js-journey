@@ -1056,3 +1056,17 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 - **What I did:** I Played a bit with `flex`, `flex-grow`, `flex-shrink` and `flex-basis` on treatment cards. I couldn't figure out how to achieve the same effect as the site that I am comparing to but I got a somewhat satisfying result - the cards now scale a bit before they move to the next row. I also made all fonts scale down at 1000px width, some paddings/margins and the scrollTop button size too. Maybe I am gonna change this threshold to 1150, so that it scales "earlier".
 - **What I learned:** 
   - `flex: 1` sets `flex-grow`, `flex-shrink` to 1 and `flex-basis` to 0. This is apparently the best way to make all flex elements scale their size and fill the whole space. My issue was that Some elements were bigger and some smaller - probably because there were 4 in first line and 2 in the second, so the 2 push out elements had more space to expand. I learned something but it's still confusing and not fully clear. 
+
+
+
+## Project #1 - Doctor's website (day 22)
+
+- **Date:** 2026-11-06 · Streak day 67 (six seven lol)
+- **What I did:** I continued making the site scale better for lower res, I made some mess in the code, cleaned up some and made some more. The logos now have transparent background and dont have built in padding (thanks AI). This session was quite chatoic, I definitely want to clean up the code tomorrow.
+- **What I learned:**
+  - Adding an on click event to all children elements of an element: 
+  ```js
+    Array.from(hiddenNav.children).forEach(child => {
+      child.addEventListener("click", openDropDown);
+    })
+  ```
