@@ -1062,7 +1062,7 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 ## Project #1 - Doctor's website (day 22)
 
 - **Date:** 2026-11-06 · Streak day 67 (six seven lol)
-- **What I did:** I continued making the site scale better for lower res, I made some mess in the code, cleaned up some and made some more. The logos now have transparent background and dont have built in padding (thanks AI). This session was quite chatoic, I definitely want to clean up the code tomorrow.
+- **What I did:** I continued making the site scale better for lower res, I made some mess in the code, cleaned up some and made some more. The logos now have transparent background and dont have built in padding (thanks AI). This session was quite chaotic, I definitely want to clean up the code tomorrow.
 - **What I learned:**
   - Adding an on click event to all children elements of an element: 
   ```js
@@ -1070,3 +1070,10 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
       child.addEventListener("click", openDropDown);
     })
   ```
+
+
+## Project #1 - Doctor's website (day 23)
+
+- **Date:** 2026-11-07 · Streak day 68
+- **What I did:**
+- **What I learned:**

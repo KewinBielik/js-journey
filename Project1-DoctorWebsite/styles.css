@@ -16,6 +16,7 @@ html, body {
 }
 
 body {
+    overflow-x: hidden;
     margin: 0;  
     font-family: var(--font-body);
 }
@@ -25,13 +26,11 @@ body {
     top: 0;
     z-index: 999;
     background-color: var(--background1);
-    transition: background-color 0.3s ease-in-out;
 }
 
 .topbar {
     display: flex;
     justify-content: space-between;
-    /* gap: 2rem; */
     max-width: 1400px;
     margin: auto;
     padding-right: 1rem;
@@ -46,15 +45,13 @@ body {
 
 .logo img {
     width: 100px;
-    height: auto;
     padding: 1rem;
 }
 
 nav {
     display: flex;
-    align-items: center;
     justify-content: right;
-    width: 100%;
+    align-items: center;
 }
 
 .nav-vertical {
@@ -63,7 +60,6 @@ nav {
 }
 
 nav a {
-    white-space: nowrap;
     font-size: 1.5rem;
     text-decoration: none;
     color: var(--text);
@@ -78,15 +74,31 @@ nav a:hover {
     display: none;
 }
 
-.nav-horizontal img {
-    display: none;
+@media (max-width:1180px) {
+
+    .topbar img {
+        width: 80px;
+    }
+
+    .topbar h1 {
+        font-size: 1.5rem;
+    }
+
+    nav a {
+        font-size: 1.3rem;
+    }
+
 }
 
 @media (max-width: 1020px) {
 
     .topbar {
-        padding-right: 0;
         gap: 2rem;
+        padding-right: 0;
+    }
+
+    nav {
+        width: 100%;
     }
 
     .nav-vertical {
@@ -100,10 +112,14 @@ nav a:hover {
         text-align: center;
     }
 
+    .nav-horizontal img {
+        display: none;
+    }
+
     .nav-horizontal .fa-bars {
         font-size: 2rem;
-        transition: color 0.2s ease-in-out;
         cursor: pointer;
+        transition: color 0.2s ease-in-out;
     }
 
     .nav-horizontal .fa-bars:hover {
@@ -116,23 +132,21 @@ nav a:hover {
 
     .nav-horizontal-content {
         position: absolute;
-        left: 50%;
-        transform: translateX(-50%);    
         
         overflow: hidden;
-        max-height: 0;  
+        max-height: 0;
         width: 100%;
-        margin-top: 2.4rem;
-        /* border-bottom: 3px solid var(--details); */
+        margin-top: 2.3rem;
         border-radius: 0 0 0 30px;
         background-color: var(--background1);
+
         text-align: center;
         
         transition: max-height 0.3s ease-in-out;
     }
 
     .nav-horizontal-content.is-visible {
-        max-height: 500px;
+        max-height: 500px;   
     }
 
     .nav-horizontal-content a {
@@ -147,20 +161,48 @@ nav a:hover {
     }
 }
 
-@media (max-width:1180px) {
+@media (max-width: 800px) {
 
-    .topbar img {
-        width: 100px;
+    .topbar-bg {
+        transition: background-color 0.3s ease-in-out;
+    }
+    
+    .topbar-bg.active {
+        background-color: var(--background2);
+    }
+    
+    .topbar .logo {
+        display: none;
+    }
+    
+    .nav-horizontal {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+    .nav-horizontal img {
+        display: block;
+        width: 20%;
+        padding: 1rem 0;
     }
 
-    .topbar h1 {
+    .nav-horizontal .fa-bars {
         font-size: 1.5rem;
     }
+    
+    .nav-horizontal-content {
+        left: 50%;
+        transform: translateX(-50%);    
 
-    nav a {
-        font-size: 1.3rem;
+        border-radius: 0 0 30px 30px;
     }
 
+    .nav-horizontal-content a {
+        padding: 0.6rem 1rem;
+        font-size: 1.2rem;
+        text-align: left;
+    }
 }
 
 .about-me-bg {
@@ -173,8 +215,7 @@ nav a:hover {
     display: flex;
     max-width: 1400px;  
     margin: auto;
-    padding: 0 1rem;
-    
+    padding: 0 1rem;    
 }
 
 .about-me .info {
@@ -253,8 +294,7 @@ nav a:hover {
 @media (max-width: 1180px) {
 
     .about-me .info {
-        /* border-right: none; */
-        padding-right: 1.5rem;
+        padding-right: 1.5rem;  
     }
 
     .about-me h2 {
@@ -270,56 +310,13 @@ nav a:hover {
     }
 
     .info-buttons button {
-        font-size: 0.9rem;
         padding: 0.3rem 1.5rem;
+        font-size: 0.9rem;
     }
 
     .info-buttons button .fa-solid, .info-buttons button .fa-regular {
-        font-size: 0.9rem;
         margin: 0.2rem 0.2rem 0 0;
-    }
-
-    .about-me img {
-        max-width: 30%;
-        /* margin-left: 1.5rem; */
-    }
-}
-
-@media (max-width: 800px) {
-    
-    .topbar-bg.active {
-        background-color: var(--background2);
-    }
-    
-    .topbar .logo {
-        display: none;
-    }
-
-    .nav-horizontal .fa-bars {
-        font-size: 1.5rem;
-    }
-
-    nav a {
-        padding: 0.6rem 1rem;
-        font-size: 1.2rem;
-        text-align: left;
-    }
-
-    .nav-horizontal {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-
-    .nav-horizontal img {
-        display: block;
-        padding: 1rem;
-        width: 20%;
-        height: auto;
-    }
-
-    .nav-horizontal-content {
-        border-radius: 0 0 30px 30px;
+        font-size: 0.9rem;
     }
 }
 
@@ -368,11 +365,8 @@ nav a:hover {
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 265px;
-    /* flex: 1; */
 
     max-width: 320px;
-    /* min-width: 250px;  */
-    /* min-width: 0; */
     border-top: 3px solid var(--details);
     border-radius: 5%;
     padding: 2rem;
@@ -381,11 +375,9 @@ nav a:hover {
 
 .card-header {
     display: flex;
-    /* flex-shrink: 1; */
     align-items: center;
     gap: 1rem;
     
-    /* min-width: 0; */
     border-bottom: 2px solid var(--border-grey);
     padding-bottom: 1rem;
     
@@ -439,11 +431,6 @@ nav a:hover {
 .treatments-list button .fa-solid {
     font-size: 0.9rem;
 }
-    
-.opinions-bg {
-    padding: 5rem 0 10rem 0;
-    background-color: var(--background2);
-}
 
 @media (max-width: 1180px) {
 
@@ -476,7 +463,11 @@ nav a:hover {
         font-size: 0.8rem;
     }
 }
-
+    
+.opinions-bg {
+    padding: 5rem 0 10rem 0;
+    background-color: var(--background2);
+}
 
 .opinions {
     scroll-margin-top: 200px;
@@ -582,7 +573,7 @@ nav a:hover {
     }
 
     .opinions-list li {
-        padding: 2rem;
+        padding: 1.5rem;
     }
 
     .opinions-list h3 {
@@ -691,7 +682,6 @@ nav a:hover {
 
 .qualifications img {
     max-width: 50%;
-    height: auto;
     margin: 2rem 0 auto;
     border-radius: 20px;
 }
@@ -703,8 +693,8 @@ nav a:hover {
     }
 
     .qualifications h2 {
-        font-size: 2rem;
         margin-bottom: 2.5rem;
+        font-size: 2rem;
     }
 
     .qualifications-toggle:checked + .qualifications-toggle-label + .qualifications-content {
@@ -712,8 +702,8 @@ nav a:hover {
     }
 
     .qualifications-toggle-label {
-        font-size: 1.5rem;
         margin-bottom: 1rem;
+        font-size: 1.5rem;
     }
 
     .label-number {
@@ -721,8 +711,8 @@ nav a:hover {
     }
 
     .qualifications-content {
-        font-size: 1rem;
         margin-bottom: 1rem;
+        font-size: 1rem;
     }
 
     .qualifications-info li::marker {
@@ -745,7 +735,7 @@ footer {
 }
 
 .contact-info img {
-    max-width: 200px;
+    max-width: 120px;
     margin: 1rem;
 }
 
@@ -833,7 +823,7 @@ footer {
     }
 
     .contact-info img {
-        max-width: 120px;
+        max-width: 100px;
     }
 
     .contact-info .slogan {

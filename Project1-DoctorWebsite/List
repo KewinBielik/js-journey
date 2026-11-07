@@ -1,5 +1,12 @@
 To Do:
-[ ] Clean up comments in css and make sure the right order is kept (of both properties and tags)
+[x] Clean up comments in css and make sure the right order is kept (of both properties and tags)
+    [x] Comments
+    [x] @Media order
+    [x] tags order
+    [x] properties order
+    [x] remove uneeded
+    [x] Move properties to @media if there are needed only when the res changes
+
 [ ] Watch content on flex, grow, shrink, basis?
 [ ] Study the Array.from(parent.children).forEach(child => ...) 
 
@@ -12,15 +19,22 @@ To Do:
     [x] Maybe move the 1000px changes to 1150px? 
     [x] Looks fine around 800px
     [ ] Below 800px should be all setting scalable so that no more adjustments are needed
-
+    [ ] Adjust about-me image after 900 px width    
+    [ ] Align the drop down on 800px width
+    [ ] Move the 800px threshold to something like 720px so that the logo can be bigger.
+    [ ] Small and bold font on drop down after 720px?
+    [ ] White space no wrap on buttons
+    [ ] ScrollTop slightly too low
 
 [ ] Ask:
     [ ] Is doing margin auto and max width the right way?
-    [ ] Is styling .is-visible and .active the right way? (I mean the way I choose the elements in css, I tag them by .nav-horizontal)
     [ ] Is the naming of id's and then variables in js right (dropDown and hiddenNav) maybe should go with navMobile idk.
-    [ ] Should I do separate @mobile tag for about-me or just put in the one that I have for the topbar nav (it will also apply at 1150px)
     [ ] Should ALL `media` settings be kept in the media styling? like the width:100% on nav. Or just the ones that actually matter on different res.
     [ ] What would happen to the treatment cards if someone had a really wide res?
+    [ ] Is overflowX: hidden on body the right way? otherwise there is a scroll on the bottom
+    [ ] Is that unnamed div in nav-horizontal ok?
+    [ ] I am kinda going through the file again to see if everything is kept in the rigth order, I wonder what was the right approach: Making sure that I write clean code as I go or Using some tools that could help me clean it up (like checking what was changed and what was not in git)
+    [ ] Removing the heigh: auto
 [ ] Right now the drop down menu spaces from the topbar by having a margin-top set to 2.4rem, maybe I should do a translateY?
 [x] Dropdown menu styling is still a question, maybe highlight on background-color? maybe width on the whole topbar?
 [ ] Figure out why tab changes the scroll up border to black.
