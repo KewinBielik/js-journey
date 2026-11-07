@@ -1075,5 +1075,7 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 ## Project #1 - Doctor's website (day 23)
 
 - **Date:** 2026-11-07 · Streak day 68
-- **What I did:**
-- **What I learned:**
+- **What I did:** I took my time to clean up the code and make small adjustments.
+- **What I learned:** 
+  - I used `git diff` to see what has changed in my code, so that I didn't have to review all of it.
+  - I realized that my dynamic is a bit inefficient (having to do clean ups after few sessions) and I plan to have a routine of cleaning up the code after end of each session - comparing just the last commit will be much easier than cleaning up commits from 5 sessions.

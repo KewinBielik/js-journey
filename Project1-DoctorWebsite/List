@@ -1,14 +1,8 @@
 To Do:
-[x] Clean up comments in css and make sure the right order is kept (of both properties and tags)
-    [x] Comments
-    [x] @Media order
-    [x] tags order
-    [x] properties order
-    [x] remove uneeded
-    [x] Move properties to @media if there are needed only when the res changes
 
 [ ] Watch content on flex, grow, shrink, basis?
 [ ] Study the Array.from(parent.children).forEach(child => ...) 
+[ ] Read the answered questions
 
 [ ] Make the website adjust To different resolutions.
     [x] First Breakpoint - 1150px width
@@ -20,7 +14,7 @@ To Do:
     [x] Looks fine around 800px
     [ ] Below 800px should be all setting scalable so that no more adjustments are needed
     [ ] Adjust about-me image after 900 px width    
-    [ ] Align the drop down on 800px width
+    [ ] Align the drop down on 800px width (it could be hard because the height of the topbar is scaling)
     [ ] Move the 800px threshold to something like 720px so that the logo can be bigger.
     [ ] Small and bold font on drop down after 720px?
     [ ] White space no wrap on buttons
@@ -29,19 +23,15 @@ To Do:
 [ ] Ask:
     [ ] Is doing margin auto and max width the right way?
     [ ] Is the naming of id's and then variables in js right (dropDown and hiddenNav) maybe should go with navMobile idk.
-    [ ] Should ALL `media` settings be kept in the media styling? like the width:100% on nav. Or just the ones that actually matter on different res.
     [ ] What would happen to the treatment cards if someone had a really wide res?
     [ ] Is overflowX: hidden on body the right way? otherwise there is a scroll on the bottom
     [ ] Is that unnamed div in nav-horizontal ok?
-    [ ] I am kinda going through the file again to see if everything is kept in the rigth order, I wonder what was the right approach: Making sure that I write clean code as I go or Using some tools that could help me clean it up (like checking what was changed and what was not in git)
     [ ] Removing the heigh: auto
 [ ] Right now the drop down menu spaces from the topbar by having a margin-top set to 2.4rem, maybe I should do a translateY?
-[x] Dropdown menu styling is still a question, maybe highlight on background-color? maybe width on the whole topbar?
 [ ] Figure out why tab changes the scroll up border to black.
-[ ] Make the new function run only on small width?
-[x] Put transparent background on images, because forcing black theme exposes the "hard-coded" whie background on images.
-[ ] Use the same logo twice, no need for two files
-[ ] Adjust the new logo sizes
+[ ] Make the adjustBottom function run only on small width?
+[x] Use the same logo twice, no need for two files
+[x] Adjust the new logo sizes
 
 Good site to inspire from: 
 https://neuroaxishealth.com/# 
