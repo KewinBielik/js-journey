@@ -1,7 +1,8 @@
-const showAt = 600;
+const showScrollTopAt = 600;
 const scrollTop = document.getElementById("scrollTop");
 
-const limit = 910;
+const heightThreshold = 920;
+const widthThreshold = 1620;
 const bottomOffset = 40;
 const copyrightSection = document.getElementById("copyright");
 
@@ -10,7 +11,7 @@ const hiddenNav = document.getElementById("hiddenNav");
 const topbarBg = document.getElementById("topbar-bg");
 
 function showScrollTop(){
-    if( document.body.scrollTop > showAt || document.documentElement.scrollTop > showAt){
+    if( document.body.scrollTop > showScrollTopAt || document.documentElement.scrollTop > showScrollTopAt) {
         scrollTop.classList.add(`is-visible`);
     } else {
         scrollTop.classList.remove(`is-visible`);
@@ -18,19 +19,22 @@ function showScrollTop(){
 }
 
 function adjustBottom() {
-    let distanceFromLimit = copyrightSection.offsetTop - document.documentElement.scrollTop;
-    if ( distanceFromLimit <= limit )
-    {
-        let bottom = Math.abs((distanceFromLimit - limit)) + bottomOffset;
-        scrollTop.style.bottom = bottom.toString() + "px";
+
+    if (window.innerWidth > widthThreshold) {
+        scrollTop.style.bottom = bottomOffset.toString() + "px";
+        return;
     }
-    else
-    {
+
+    let distanceFromThreshold = copyrightSection.offsetTop - document.documentElement.scrollTop;
+    if ( distanceFromThreshold <= heightThreshold ) {
+        let bottom = Math.abs((distanceFromThreshold - heightThreshold)) + bottomOffset;
+        scrollTop.style.bottom = bottom.toString() + "px";
+    } else {
         scrollTop.style.bottom = bottomOffset.toString() + "px";
     }
 }
 
-function openDropDown() {
+function toggleDropDown() {
     hiddenNav.classList.toggle(`is-visible`);
     dropDown.classList.toggle(`active`);
     topbarBg.classList.toggle(`active`);
@@ -39,10 +43,10 @@ function openDropDown() {
 
 window.addEventListener("scroll", showScrollTop, {passive: true});
 window.addEventListener("scroll", adjustBottom, {passive: true});
-dropDown.addEventListener("click", openDropDown);
+dropDown.addEventListener("click", toggleDropDown);
 
 Array.from(hiddenNav.children).forEach(child => {
-    child.addEventListener("click", openDropDown);
+    child.addEventListener("click", toggleDropDown);
 })
 
 scrollTop.addEventListener("click", function(){

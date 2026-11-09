@@ -16,7 +16,6 @@ html, body {
 }
 
 body {
-    overflow-x: hidden;
     margin: 0;  
     font-family: var(--font-body);
 }
@@ -109,6 +108,7 @@ nav a:hover {
         position: relative;
         display: block;
         width: 100%;
+        height: 100%;
         text-align: center;
     }
 
@@ -116,18 +116,8 @@ nav a:hover {
         display: none;
     }
 
-    .nav-horizontal .fa-bars {
-        font-size: 2rem;
-        cursor: pointer;
-        transition: color 0.2s ease-in-out;
-    }
-
-    .nav-horizontal .fa-bars:hover {
-        color: var(--details);
-    }
-
-    .nav-horizontal .fa-bars.active {
-        color: var(--details);
+    .nav-menu {
+        height: 100%;
     }
 
     .nav-horizontal-content {
@@ -136,7 +126,7 @@ nav a:hover {
         overflow: hidden;
         max-height: 0;
         width: 100%;
-        margin-top: 2.3rem;
+        top: 100%;
         border-radius: 0 0 0 30px;
         background-color: var(--background1);
 
@@ -159,6 +149,23 @@ nav a:hover {
         background-color: var(--details);
         color: var(--background1);
     }
+
+    .nav-menu .fa-bars {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2rem;
+        cursor: pointer;
+        transition: color 0.2s ease-in-out;
+    }
+
+    .nav-menu .fa-bars:hover {
+        color: var(--details);
+    }
+
+    .nav-menu .fa-bars.active {
+        color: var(--details);
+    }
 }
 
 @media (max-width: 800px) {
@@ -179,6 +186,7 @@ nav a:hover {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
+        height: 100%;
     }
     
     .nav-horizontal img {
@@ -187,14 +195,13 @@ nav a:hover {
         padding: 1rem 0;
     }
 
-    .nav-horizontal .fa-bars {
+    .nav-menu .fa-bars {
         font-size: 1.5rem;
     }
     
-    .nav-horizontal-content {
+    .nav-horizontal-content {    
         left: 50%;
         transform: translateX(-50%);    
-
         border-radius: 0 0 30px 30px;
     }
 
@@ -465,13 +472,13 @@ nav a:hover {
 }
     
 .opinions-bg {
+    overflow-x: hidden;
     padding: 5rem 0 10rem 0;
     background-color: var(--background2);
 }
 
 .opinions {
     scroll-margin-top: 200px;
-    overflow-x: hidden;
     max-width: 1400px;
     margin: auto;
     padding: 0 1rem;
@@ -668,11 +675,9 @@ nav a:hover {
 }
 
 .qualifications-info ul {
+    display: grid;
+    gap: 1rem;
     padding-left: 1.5rem;
-}
-
-.qualifications-info li {
-    margin-bottom: 1rem;
 }
 
 .qualifications-info li::marker {
@@ -751,10 +756,12 @@ footer {
 .phone-email {
     display: flex;
     justify-content: space-evenly;
+    width: 80%;
 }
 
 .phone, .email {
-    min-width: 400px;
+    flex: 1;
+    max-width:  400px;
     margin: 0 0 2rem;
     text-align: center;
 }
@@ -871,6 +878,10 @@ footer {
     cursor: pointer;
     pointer-events: none;
     transition: background-color 0.3s ease-in, color 0.3s ease-in, opacity 0.3s ease-in, bottom 0.5s ease-in-out;
+}
+
+#scrollTop:focus {
+    outline: none;
 }
 
 #scrollTop.is-visible {

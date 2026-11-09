@@ -1079,3 +1079,11 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 - **What I learned:** 
   - I used `git diff` to see what has changed in my code, so that I didn't have to review all of it.
   - I realized that my dynamic is a bit inefficient (having to do clean ups after few sessions) and I plan to have a routine of cleaning up the code after end of each session - comparing just the last commit will be much easier than cleaning up commits from 5 sessions.
+
+
+## Project #1 - Doctor's website (day 24)
+
+- **Date:** 2026-11-09 · Streak day 69 (sixty nine LOL)
+- **What I did:** I changed few names in js to better fit their function and made the adjustBottom function run only for lower width. Added "nav-menu" class to that div in `nav-horizontal` so that it's not unnamed and says it's purpose. Removed the black outline on the ScrollTop button when hovered with `tab`. Added `overflow-x: hidden;` to `opinions-bg` so that the bottom scroll is hidden. I fixed the dropDown content alignment, now it's always positioned at the end of topbar's height.
+- **What I learned:** 
+  - **"An absolute box uses the nearest ancestor whose position is not static."** - while experimneting and trying to figure out how to make the dropDown content "attach" to the bottom of the topbar, I moved the icon under the dropDown and it influenced the adjustment, this got me confused, but it was because the order of elements in flexbox matters - one element with margin/padding pushes the other. the `.nav-horizontal` was the parent all along, it was the icon's size and margin that made it confusing. The final solution was to make the `top` relative to the 
