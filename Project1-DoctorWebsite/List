@@ -14,25 +14,13 @@ To Do:
     [x] Looks fine around 800px
     [ ] Below 800px should be all setting scalable so that no more adjustments are needed
     [ ] Adjust about-me image after 900 px width    
-    [ ] Align the drop down on 800px width (it could be hard because the height of the topbar is scaling)
+    [x] Align the drop down on 800px width (it could be hard because the height of the topbar is scaling)
     [ ] Move the 800px threshold to something like 720px so that the logo can be bigger.
     [ ] Small and bold font on drop down after 720px?
     [ ] White space no wrap on buttons
-    [ ] ScrollTop slightly too low
+    [x] ScrollTop slightly too low
     [ ] Fix the giga wide screen on phone, it looks good at first but if someone zooms out then they see the big blank space and also the opinion cards rolling
 
-[x] Ask:
-    [x] Is doing margin auto and max width the right way?
-    [x] Is the naming of id's and then variables in js right (dropDown and hiddenNav) maybe should go with navMobile idk.
-    [x] What would happen to the treatment cards if someone had a really wide res?
-    [x] Is overflowX: hidden on body the right way? otherwise there is a scroll on the bottom
-    [x] Is that unnamed div in nav-horizontal ok?
-    [x] Removing the heigh: auto
-[ ] Right now the drop down menu spaces from the topbar by having a margin-top set to 2.4rem, maybe I should do a translateY?
-[x] Figure out why tab changes the scroll up border to black.
-[x] Make the adjustBottom function run only on small width?
-[x] Use the same logo twice, no need for two files
-[x] Adjust the new logo sizes
 
 Good site to inspire from: 
 https://neuroaxishealth.com/# 
