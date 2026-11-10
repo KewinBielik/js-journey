@@ -5,21 +5,13 @@ To Do:
 [ ] Read the answered questions
 
 [ ] Make the website adjust To different resolutions.
-    [x] First Breakpoint - 1150px width
-    [x] 1000px
-    [x] Shrink everything at 1000px
     [ ] Do a font-size check - I don't want small inaccuracy where .desc in one section has 1.1rem and 1rem in another. 
-    [x] Looks fine around 900px
-    [x] Maybe move the 1000px changes to 1150px? 
-    [x] Looks fine around 800px
-    [ ] Below 800px should be all setting scalable so that no more adjustments are needed
-    [ ] Adjust about-me image after 900 px width    
-    [x] Align the drop down on 800px width (it could be hard because the height of the topbar is scaling)
-    [ ] Move the 800px threshold to something like 720px so that the logo can be bigger.
-    [ ] Small and bold font on drop down after 720px?
+    [ ] Small and bold font on drop down after 760px?
     [ ] White space no wrap on buttons
-    [x] ScrollTop slightly too low
     [ ] Fix the giga wide screen on phone, it looks good at first but if someone zooms out then they see the big blank space and also the opinion cards rolling
+    [ ] Find a better brighter color for the .role text in about-me at 760px
+    [ ] Style the about-me section at 760px
+    [ ] Think about .treament-list li max-width: none, maybe put it in lower res (rn 1180px)    
 
 
 Good site to inspire from: 

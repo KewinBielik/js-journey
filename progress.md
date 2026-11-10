@@ -1088,3 +1088,28 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 - **What I learned:** 
   - **"An absolute box uses the nearest ancestor whose position is not static."** - while experimneting and trying to figure out how to make the dropDown content "attach" to the bottom of the topbar, I moved the icon under the dropDown and it influenced the adjustment, this got me confused, but it was because the order of elements in flexbox matters - one element with margin/padding pushes the other. the `.nav-horizontal` was the parent all along, it was the icon's size and margin that made it confusing. The final solution was to put the content before the icon and set `top: 100%` - this positions the content's top edge at it's parent bottom edge, the exact result that I needed.
   - **:focus** - pressing tab on websites swtiches the `focus` from one element to another - if the focus is on a button and enter is pressed then the button activates. Every button has a black outline when hovered, this is a default style for the :focus pseudo-class.
+
+
+
+## Project #1 - Doctor's website (day 25)
+
+- **Date:** 2026-11-10 · Streak day 70
+- **What I did:** I started working on about-me section scaling below 900px, the image scales alright. Worked on a different desgin below 760px with a blurred background image. Slighlty changed treatment cards - below 1180px the cards have no `max-width` and once it's only one card in the row, the button stretches to full width.
+- **What I learned:** 
+  - **blurry background image** - this can be done by adding an image to the bg and `backdrop-filter` to the element in front. the `background-color` and `blend-mode` darken the image slightly.
+  ``` css
+        .about-me-bg {
+        padding: 0;
+        background-image: url("aboutMeBg.png");
+        background-position: center;
+        background-size: cover;
+        background-color: rgba(0, 0, 0, 0.5);
+        background-blend-mode: darken;
+    }
+
+        .about-me {
+        padding: 3rem 1rem 5rem; 
+        backdrop-filter: blur(7px);
+        -webkit-backdrop-filter: blur(7px);
+    }
+  ```
