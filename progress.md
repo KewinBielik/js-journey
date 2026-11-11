@@ -1113,3 +1113,11 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
         -webkit-backdrop-filter: blur(7px);
     }
   ```
+
+
+
+## Project #1 - Doctor's website (day 26)
+
+- **Date:** 2026-11-11 · Streak day 71
+- **What I did:** I continued the 760px scaling, the `about-me`, `qualifications`, `footer` and `scrollTop` are basically done. I also adjusted the `treatments` a bit, by setting the `max-width: none` at the res when there is just one card in the row and making the `p` tag margin lower. I also fixed the `scroll-marging-top` on each section at 760px. I really like the image in background designs.
+- **What I learned:** Nothing major today.

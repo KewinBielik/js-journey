@@ -1,9 +1,10 @@
-const showScrollTopAt = 600;
+const showScrollTopAtHeight = 600; // for shoving the scroll to top button after scrolling past the first section.
+const hideScrollTopAtWidth = 430; // for hiding the scroll to top button on lower resolutions.
 const scrollTop = document.getElementById("scrollTop");
 
-const heightThreshold = 920;
-const widthThreshold = 1620;
-const bottomOffset = 40;
+const heightThreshold = 920; // to push the button slightly up after scrolling to the site's bottom.
+const widthThreshold = 1620; // to disable the adjustment for higher resolutions - the button does not cover anything.
+const bottomOffset = 40; 
 const copyrightSection = document.getElementById("copyright");
 
 const dropDown = document.getElementById("dropDown");
@@ -11,7 +12,13 @@ const hiddenNav = document.getElementById("hiddenNav");
 const topbarBg = document.getElementById("topbar-bg");
 
 function showScrollTop(){
-    if( document.body.scrollTop > showScrollTopAt || document.documentElement.scrollTop > showScrollTopAt) {
+    
+    if ( window.innerWidth < hideScrollTopAtWidth) {
+        scrollTop.classList.remove(`is-visible`);
+        return;
+    }
+
+    if ( document.body.scrollTop > showScrollTopAtHeight || document.documentElement.scrollTop > showScrollTopAtHeight ) {
         scrollTop.classList.add(`is-visible`);
     } else {
         scrollTop.classList.remove(`is-visible`);
@@ -20,7 +27,7 @@ function showScrollTop(){
 
 function adjustBottom() {
 
-    if (window.innerWidth > widthThreshold) {
+    if ( window.innerWidth > widthThreshold ) {
         scrollTop.style.bottom = bottomOffset.toString() + "px";
         return;
     }
