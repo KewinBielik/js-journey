@@ -1121,3 +1121,11 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 - **Date:** 2026-11-11 · Streak day 71
 - **What I did:** I continued the 760px scaling, the `about-me`, `qualifications`, `footer` and `scrollTop` are basically done. I also adjusted the `treatments` a bit, by setting the `max-width: none` at the res when there is just one card in the row and making the `p` tag margin lower. I also fixed the `scroll-marging-top` on each section at 760px. I really like the image in background designs.
 - **What I learned:** Nothing major today.
+
+
+## Project #1 - Doctor's website (day 27)
+
+- **Date:** 2026-11-14 · Streak day 72
+- **What I did:** I did minor adjustments for the 760px res in about-me and the footer and also started the two button design for opinion cards at 760px.
+- **What I learned:**
+  - The **"An absolute box uses the nearest ancestor whose position is not static."** has hit me again. I was trying to position the buttons at 50% of the opinions-list-bg which would end up always at the half of the opinion cards height. But setting the `top:50%` was putting the buttons waay higher, around the about-me section, and it took me a lot of time and experimenting to figure out that opinions-list-bg needs `position: relative`. I need to remember that the position is set to static by default and the element will look for that nearest ancestor whose position is NOT static.

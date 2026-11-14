@@ -2,27 +2,25 @@ To Do:
 
 [ ] Watch content on flex, grow, shrink, basis?
 [ ] Study the Array.from(parent.children).forEach(child => ...) 
-[x] Read the answered questions
+
 
 [ ] Make the website adjust To different resolutions.
     [ ] Do a font-size check - I don't want small inaccuracy where .desc in one section has 1.1rem and 1rem in another. 
-    [x] Small and bold font on drop down after 760px?
-    [x] White space no wrap on buttons
     [ ] Fix the giga wide screen on phone, it looks good at first but if someone zooms out then they see the big blank space and also the opinion cards rolling
-    [x] Find a better brighter color for the .role text in about-me at 760px
-    [x] Style the about-me section at 760px
-    [x] Remove book a consultation button's black border
-    [x] Think about .treament-list li max-width: none, maybe put it in lower res (rn 1180px)    
-    [x] Add the new color to root
-    [x] adjust fa-phone and fa-calendar on about me buttons at 760px
-    [x] Style the quali section at 760px, same way as the about-me section
-    [ ] Style the footer at 760px.
-        [ ] Smaller fonts
-        [ ] White space no wrap?    
-        [ ] Allign icons?
-    [x] fix scroll-margin-top on lower res for all navs
+    [x] Style the footer at 760px.
+        [x] Smaller fonts
+        [x] Allign icons?
     [ ] Can the quali image at 760px be at const size and just reveal as the section stretches?
-    [ ] Do opinions stay as the rolling cards at 760px?    
+    [ ] Change opinion section design    
+        [x] Figure out how to position always just one card in the middle and have the next card right at the edge.
+        [x] Add and position two buttons
+        [ ] Style the buttons        
+        [ ] Write the js for the buttons
+        [x] Figure out the right html structure
+    [x] Smaller gap between buttons in about-me.
+    [x] Remove right padding in about-me at 760px
+    [x] Add .adress class so that the div isn't blank 
+    [x] Adjust the font-size in about-me at 760px    
 
 [ ] Should bottomOffset be read out of the scrollTop button styling rather than hardcoded value? Because now changing the styling won't work and you need to change the code too, styling could be removed technically.
 

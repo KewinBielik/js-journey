@@ -360,14 +360,20 @@ nav a:hover {
         -webkit-backdrop-filter: blur(7px);
     }
 
+    .about-me .info {
+        padding-right: 0;
+    }
+
     .about-me h2 {
-        text-align: center;
+        font-size: 1.9rem;
         color: var(--background1);
+        text-align: center;
     }
 
     .about-me .role {
-        text-align: center;
+        font-size: 1.1rem;
         color: var(--details2);
+        text-align: center;
     }
 
     .about-me .bio {
@@ -378,7 +384,7 @@ nav a:hover {
     .info-buttons {
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        gap: 0;
     }
 
     .info-buttons button {
@@ -627,6 +633,10 @@ nav a:hover {
     font-size: 1.2rem;
 }
 
+.opinions-buttons {
+    display: none;
+}
+
 .opinions-list {
     display: flex;
     flex-wrap: nowrap;
@@ -734,6 +744,53 @@ nav a:hover {
 
     .opinions {
         scroll-margin-top: 300px;
+    }
+
+    .opinions-list-bg {
+        position: relative;
+    }
+    
+    .opinions-buttons {
+        display: block;
+    }
+
+    .opinion-cards-left-btn {
+        position: absolute;
+        left: 10svw;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        
+        width: 60px;
+        height: 60px;
+        margin: 0;
+        border: none;
+        padding: 0;
+        background-color: transparent;
+
+        font-size: 3rem;
+        color: var(--details);
+    }
+
+    .opinion-cards-right-btn {
+        position: absolute;
+        left: 90svw;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .opinions-list {
+        justify-content: center;
+        gap: 10svw;
+        
+        padding-left: 10svw;
+
+        animation: none;
+    }
+
+    .opinions-list li {
+        box-sizing: border-box;
+        width: 80svw;
+        padding: 2rem;
     }
 }
 
@@ -879,13 +936,13 @@ nav a:hover {
     }
 
     .qualifications .eyebrow {
-        text-align: center;
         color: var(--details2);
+        text-align: center;
     }
 
     .qualifications h2 {
-        text-align: center;
         color: var(--background1);
+        text-align: center;
     }
 
     .qualifications-toggle:checked + .qualifications-toggle-label {
@@ -1025,10 +1082,6 @@ footer {
         font-size: 1.1rem;
     }
 
-    .contact-info .fa-solid {
-        font-size: 0.9rem;
-    }
-
     .contact-info a {
         font-size: 1rem;
     }
@@ -1064,6 +1117,15 @@ footer {
     .phone-email {
         flex-direction: column;
         align-items: start;
+    }
+
+    .contact-info a {
+        font-size: 0.9rem;
+    }
+
+    .phone, .email, .adress {
+        display: flex;
+        align-items: center;
     }
 
     .copyright {
