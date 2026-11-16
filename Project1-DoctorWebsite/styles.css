@@ -754,36 +754,53 @@ nav a:hover {
         display: block;
     }
 
-    .opinion-cards-left-btn {
+    .opinions-btn-left {
         position: absolute;
-        left: 10svw;
         top: 50%;
+        left: 10svw;
         transform: translate(-50%, -50%);
-        
-        width: 60px;
-        height: 60px;
-        margin: 0;
-        border: none;
-        padding: 0;
+        z-index: 998;
+       
+        border: none; 
         background-color: transparent;
+    }
 
-        font-size: 3rem;
+    .opinions-btn-right {
+        position: absolute;
+        top: 50%;
+        left: 90svw;
+        transform: translate(-50%, -50%);
+        z-index: 998;
+
+        border: none; 
+        background-color: transparent;
+    }
+
+    .opinions-buttons .fa-solid {
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        background-color: var(--background2);
+        
+        font-size: 3.4rem;
         color: var(--details);
     }
 
-    .opinion-cards-right-btn {
-        position: absolute;
-        left: 90svw;
-        top: 50%;
-        transform: translate(-50%, -50%);
+    .opinions-buttons .blocked {
+        background-color: red;
     }
 
     .opinions-list {
+        position: relative;
         justify-content: center;
         gap: 10svw;
-        
-        padding-left: 10svw;
 
+        padding-left: 10svw;
+    
         animation: none;
     }
 
@@ -791,6 +808,18 @@ nav a:hover {
         box-sizing: border-box;
         width: 80svw;
         padding: 2rem;
+    }
+
+    @keyframes switchCardRight {
+        to {
+            transform: translateX(-90svw);
+        }   
+    }
+
+    @keyframes switchCardLeft {
+        to {
+            transform: translateX(90svw);
+        }
     }
 }
 

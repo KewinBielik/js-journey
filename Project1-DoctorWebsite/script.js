@@ -11,6 +11,11 @@ const dropDown = document.getElementById("dropDown");
 const hiddenNav = document.getElementById("hiddenNav");
 const topbarBg = document.getElementById("topbar-bg");
 
+const amountOfOpinionCards = 6;
+const opinionsList = document.getElementById("opinions-list");
+const opinionsBtnLeft = document.getElementById("opinions-btn-left");
+const opinionsBtnRight = document.getElementById("opinions-btn-right");
+
 function showScrollTop(){
     
     if ( window.innerWidth < hideScrollTopAtWidth) {
@@ -54,7 +59,59 @@ dropDown.addEventListener("click", toggleDropDown);
 
 Array.from(hiddenNav.children).forEach(child => {
     child.addEventListener("click", toggleDropDown);
+});
+
+opinionsBtnRight.addEventListener("click", () => {
+    const rect = opinionsList.getBoundingClientRect();
+    console.log(rect.top, rect.left);
+    const ratio = Math.round((rect.left/window.innerWidth) * 100)/100;
+    console.log(window.innerWidth);
+    
+    if (ratio <= amountOfOpinionCards * -0.9) {
+        console.log("tooo far dude");
+        return;
+    }
+    
+    opinionsList.style.animation = "switchCardRight 1s forwards";
+});
+
+opinionsBtnLeft.addEventListener("click", () => {
+    const rect = opinionsList.getBoundingClientRect();
+    console.log(rect.top, rect.left);
+    const ratio = Math.round((rect.left/window.innerWidth) * 100)/100;
+    console.log(window.innerWidth);
+    
+    if (ratio >= 0){
+        console.log("tooo far dude");
+        return;
+    }
+
+    opinionsList.style.animation = "switchCardLeft 1s forwards";
 })
+
+opinionsList.addEventListener("animationend", () => {
+    const rect = opinionsList.getBoundingClientRect();
+    console.log(rect.top, rect.left);
+    const ratio = Math.round((rect.left/window.innerWidth) * 100)/100;
+    console.log(`left/width = ${ratio}`);
+    opinionsList.style.animation = `none`;
+    
+    // opinionsList.style.left = rect.left.toString() + "px";
+    opinionsList.style.left = (ratio * 100) +"svw"
+
+    opinionsBtnLeft.classList.remove("blocked");
+    opinionsBtnRight.classList.remove("blocked");
+
+    if (ratio <= amountOfOpinionCards * -0.9) {
+        opinionsBtnRight.classList.add("blocked");
+    } else if (ratio >= 0) {
+        opinionsBtnLeft.classList.add("blocked");
+    }
+
+})
+
+
+
 
 scrollTop.addEventListener("click", function(){
     window.scrollTo({

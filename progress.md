@@ -1129,3 +1129,14 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 - **What I did:** I did minor adjustments for the 760px res in about-me and the footer and also started the two button design for opinion cards at 760px.
 - **What I learned:**
   - The **"An absolute box uses the nearest ancestor whose position is not static."** has hit me again. I was trying to position the buttons at 50% of the opinions-list-bg which would end up always at the half of the opinion cards height. But setting the `top:50%` was putting the buttons waay higher, around the about-me section, and it took me a lot of time and experimenting to figure out that opinions-list-bg needs `position: relative`. I need to remember that the position is set to static by default and the element will look for that nearest ancestor whose position is NOT static.
+
+
+## Project #1 - Doctor's website (day 28)
+
+- **Date:** 2026-11-16 · Streak day 73
+- **What I did:** I styled the opinion buttons and spent the most of this session on figurting out the right logic for the cards switching in js. This couldn't be done by pure css (I think) because the animations cannot accumulate the position. I am really happy with how things went, it was super satisfying to figure these things out bit by bit. I also made sure that the logic works for different screen widths and keeps working if someone changes the screen width as he is using the buttons.
+- **What I learned:**
+  - **To set `el.style.left` in js the element position cannot be `static`** - This took some time to figure out, but once I fixed that the code has began to work. (statis is set by default, so I changed it to relative).
+  - **The `animationed` event** - I learned new event that I can attach functions to. Animationed runs once the element's animation finishes, it was very useful today.
+  - `el.getBoundClientRect()` - this method returns the size and position of an element relative to the viewport, meaning that if the position changes due to an animation, this method can help get that position. It takes no parameters and is called on a DOM element to retrieve properties including `width`, `height`, `top`, `right`, `bottom`, `left`, `x`, and `y`. 
+
