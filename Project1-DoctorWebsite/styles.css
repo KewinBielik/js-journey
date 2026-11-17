@@ -349,7 +349,7 @@ nav a:hover {
         background-image: url("aboutMeBg.png");
         background-position: center;
         background-size: cover;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.6);
         background-blend-mode: darken;
     }
 
@@ -637,6 +637,10 @@ nav a:hover {
     display: none;
 }
 
+.opinions-list-dots {
+    display: none;
+}
+
 .opinions-list {
     display: flex;
     flex-wrap: nowrap;
@@ -776,7 +780,7 @@ nav a:hover {
         background-color: transparent;
     }
 
-    .opinions-buttons .fa-solid {
+    .opinions-buttons button .fa-solid {
         display: flex;
         justify-content: center;
         align-items: center; 
@@ -788,38 +792,46 @@ nav a:hover {
         
         font-size: 3.4rem;
         color: var(--details);
+
+        cursor: pointer;
+        transition: transform 0.1s ease;
     }
 
-    .opinions-buttons .blocked {
-        background-color: red;
+    .opinions-buttons button:active .fa-solid {
+        transform: scale(0.95);
+    }
+
+    .opinions-list-dots  {
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+        position: absolute;
+        top: 105%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        color: var(--details);
+    }
+
+    .opinions-list-dots .fa-solid {
+        font-size: 1.2rem;
     }
 
     .opinions-list {
-        position: relative;
         justify-content: center;
         gap: 10svw;
+        position: relative;
+        left: 0;
 
         padding-left: 10svw;
-    
-        animation: none;
+        
+        transition: left 1s ease-in-out;
     }
 
     .opinions-list li {
         box-sizing: border-box;
         width: 80svw;
         padding: 2rem;
-    }
-
-    @keyframes switchCardRight {
-        to {
-            transform: translateX(-90svw);
-        }   
-    }
-
-    @keyframes switchCardLeft {
-        to {
-            transform: translateX(90svw);
-        }
     }
 }
 
@@ -952,9 +964,10 @@ nav a:hover {
     
     .qualifications-bg {
         background-image: url("qualibg.jpg");
-        background-position: center;
-        background-size: cover;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-position: center top;
+        background-size: auto 100vh;
+        background-repeat: no-repeat;
+        background-color: rgba(0, 0, 0, 0.6);
         background-blend-mode: darken;
     }
 
@@ -1078,23 +1091,36 @@ footer {
     color: var(--text-muted);
 }
 
+.copyright .socials {
+    display: flex;
+    gap: 0.5rem;
+}
+
 .copyright .fa-brands {
-    margin: 0 0.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 30px;
+    height: 30px;
     border: 2px solid var(--details);
-    border-radius: 80%;
-    padding: 0.4rem 0.3rem;
+    border-radius: 50%;
     background-color: var(--background1);
     
     color: var(--details);
     
     cursor: pointer;
-    transition: color 0.3s ease-in, background-color 0.3s ease-in, border-color 0.3s ease-in;
+    transition: color 0.3s ease-in, background-color 0.3s ease-in, border-color 0.3s ease-in, transform 0.1 ease;
 }
 
 .copyright .fa-brands:hover {
     border-color: var(--details);
     background-color: var(--details);
     color: var(--background1);
+}
+
+.copyright .fa-brands:active {
+    transform: scale(0.95);
 }
 
 @media (max-width: 1180px) {
@@ -1168,6 +1194,7 @@ footer {
     right: 20px;
     bottom: 40px;
     opacity: 0;
+    z-index: 999;
     
     width: 80px;
     height: 80px;
@@ -1182,11 +1209,20 @@ footer {
 
     cursor: pointer;
     pointer-events: none;
-    transition: background-color 0.3s ease-in, color 0.3s ease-in, opacity 0.3s ease-in, bottom 0.5s ease-in-out;
+    transition: 
+    background-color 0.3s ease-in, 
+    color 0.3s ease-in, 
+    opacity 0.3s ease-in,
+    bottom 0.5s ease-in-out,
+    transform 0.1s ease; 
 }
 
 #scrollTop:focus {
     outline: none;
+}
+
+#scrollTop:active {
+    transform: scale(0.95);
 }
 
 #scrollTop.is-visible {
@@ -1213,12 +1249,3 @@ footer {
         right: 10px;
     }
 }
-
-/* 
-@media (max-width: 430px) {
-    
-    #scrollTop.is-visible {
-        display: none;
-    }
-} */
-

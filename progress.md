@@ -1140,3 +1140,14 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   - **The `animationed` event** - I learned new event that I can attach functions to. Animationed runs once the element's animation finishes, it was very useful today.
   - `el.getBoundClientRect()` - this method returns the size and position of an element relative to the viewport, meaning that if the position changes due to an animation, this method can help get that position. It takes no parameters and is called on a DOM element to retrieve properties including `width`, `height`, `top`, `right`, `bottom`, `left`, `x`, and `y`. 
 
+
+
+## Project #1 - Doctor's website (day 29)
+
+- **Date:** 2026-11-17 · Streak day 74
+- **What I did:** I finished the 760px opinions section's design, implemented better logic. Also slightly improved the js code for adjusting the bottom of scrollTop - had some unoptimal code here too. Added click styles to all buttons (almost). I also fixed the quali image scaling at 760px. The giga wide screen on phone seems to got fixed by itself, will check again at the end of the project.  
+- **Some conclusions:** 
+  - My code logic from yesterday was ok, but it did a lot of unecessery work. For some reason I left like tracking the cards position by increasing/decreasing a variable by 1 is a dumb way and can lead to bugs. My approach was doing almost the same thing, it just had more calculations but it didn't make it less prone to bugs, I would even state the opposite. A better solution was way simpler, I really feel like it was the first idea that came to my mind but I have ditched it and tried to work around the `animation` instead.
+  - I couldn't figure out the right way to fix the background image scaling in qualifications section at 760px because I didn't realize the background-size can also be set to raw values. I should have researched how this property works first. 
+- **What I learned:**
+  - **Simple code** - I feel like today's experience has showed me that I should always aim for the simplest code possible and kinda sparked and idea on how to do it - in my next problem I will try to simplify it and work from the end, so for example in this case that I had just now: Since I already figured out the cards positioning with `svw` (one card being 80svw + 10svw on the left, 10svw on the right to always keep it centered and hide the other cards) I should have think of a way to simple move the card by 90svw with each click.

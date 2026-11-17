@@ -4,17 +4,21 @@ const scrollTop = document.getElementById("scrollTop");
 
 const heightThreshold = 920; // to push the button slightly up after scrolling to the site's bottom.
 const widthThreshold = 1620; // to disable the adjustment for higher resolutions - the button does not cover anything.
-const bottomOffset = 40; 
+const bottomOffset = parseFloat(getComputedStyle(scrollTop).bottom); 
 const copyrightSection = document.getElementById("copyright");
 
 const dropDown = document.getElementById("dropDown");
 const hiddenNav = document.getElementById("hiddenNav");
 const topbarBg = document.getElementById("topbar-bg");
 
-const amountOfOpinionCards = 6;
+let opinionCardsPosition = 0;
+const opinionCardsAmount = 6;
 const opinionsList = document.getElementById("opinions-list");
 const opinionsBtnLeft = document.getElementById("opinions-btn-left");
 const opinionsBtnRight = document.getElementById("opinions-btn-right");
+const opinionsListDotsDom = document.getElementById("opinions-list-dots");
+const opinionsListDots = Array.from(opinionsListDotsDom.children)
+
 
 function showScrollTop(){
     
@@ -33,16 +37,16 @@ function showScrollTop(){
 function adjustBottom() {
 
     if ( window.innerWidth > widthThreshold ) {
-        scrollTop.style.bottom = bottomOffset.toString() + "px";
+        scrollTop.style.bottom = "";
         return;
     }
 
     let distanceFromThreshold = copyrightSection.offsetTop - document.documentElement.scrollTop;
     if ( distanceFromThreshold <= heightThreshold ) {
         let bottom = Math.abs((distanceFromThreshold - heightThreshold)) + bottomOffset;
-        scrollTop.style.bottom = bottom.toString() + "px";
+        scrollTop.style.bottom = bottom + "px";
     } else {
-        scrollTop.style.bottom = bottomOffset.toString() + "px";
+        scrollTop.style.bottom = "";
     }
 }
 
@@ -50,6 +54,47 @@ function toggleDropDown() {
     hiddenNav.classList.toggle(`is-visible`);
     dropDown.classList.toggle(`active`);
     topbarBg.classList.toggle(`active`);
+}
+
+function toggleOpinionListDot(){
+    opinionsListDots[opinionCardsPosition].classList.toggle("fa-solid");
+    opinionsListDots[opinionCardsPosition].classList.toggle("fa-regular");
+}
+
+function moveOpinionCardsRight() {
+
+    toggleOpinionListDot();
+    opinionCardsPosition += 1;
+
+    if (opinionCardsPosition >= opinionCardsAmount) {
+        opinionCardsPosition = 0;
+    }
+
+    toggleOpinionListDot();
+    opinionsList.style.left = -(opinionCardsPosition * 90) + "svw";
+    
+    opinionsBtnRight.disabled = true;
+    setTimeout(() => {
+        opinionsBtnRight.disabled = false;
+      }, 1000);
+}
+
+function moveOpinionCardsLeft() {
+
+    toggleOpinionListDot();
+    opinionCardsPosition -= 1;
+
+    if (opinionCardsPosition < 0) {
+        opinionCardsPosition += opinionCardsAmount;
+    }
+
+    toggleOpinionListDot();
+    opinionsList.style.left = -(opinionCardsPosition * 90) + "svw";
+    
+    opinionsBtnLeft.disabled = true;
+    setTimeout(() => {
+        opinionsBtnLeft.disabled = false;
+      }, 1000);
 }
 
 
@@ -61,59 +106,10 @@ Array.from(hiddenNav.children).forEach(child => {
     child.addEventListener("click", toggleDropDown);
 });
 
-opinionsBtnRight.addEventListener("click", () => {
-    const rect = opinionsList.getBoundingClientRect();
-    console.log(rect.top, rect.left);
-    const ratio = Math.round((rect.left/window.innerWidth) * 100)/100;
-    console.log(window.innerWidth);
-    
-    if (ratio <= amountOfOpinionCards * -0.9) {
-        console.log("tooo far dude");
-        return;
-    }
-    
-    opinionsList.style.animation = "switchCardRight 1s forwards";
-});
+opinionsBtnRight.addEventListener("click", moveOpinionCardsRight);
+opinionsBtnLeft.addEventListener("click", moveOpinionCardsLeft);
 
-opinionsBtnLeft.addEventListener("click", () => {
-    const rect = opinionsList.getBoundingClientRect();
-    console.log(rect.top, rect.left);
-    const ratio = Math.round((rect.left/window.innerWidth) * 100)/100;
-    console.log(window.innerWidth);
-    
-    if (ratio >= 0){
-        console.log("tooo far dude");
-        return;
-    }
-
-    opinionsList.style.animation = "switchCardLeft 1s forwards";
-})
-
-opinionsList.addEventListener("animationend", () => {
-    const rect = opinionsList.getBoundingClientRect();
-    console.log(rect.top, rect.left);
-    const ratio = Math.round((rect.left/window.innerWidth) * 100)/100;
-    console.log(`left/width = ${ratio}`);
-    opinionsList.style.animation = `none`;
-    
-    // opinionsList.style.left = rect.left.toString() + "px";
-    opinionsList.style.left = (ratio * 100) +"svw"
-
-    opinionsBtnLeft.classList.remove("blocked");
-    opinionsBtnRight.classList.remove("blocked");
-
-    if (ratio <= amountOfOpinionCards * -0.9) {
-        opinionsBtnRight.classList.add("blocked");
-    } else if (ratio >= 0) {
-        opinionsBtnLeft.classList.add("blocked");
-    }
-
-})
-
-
-
-
-scrollTop.addEventListener("click", function(){
+scrollTop.addEventListener("click", ()=>{
     window.scrollTo({
         left: 0,
         top: 0,
