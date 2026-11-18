@@ -1151,3 +1151,11 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   - I couldn't figure out the right way to fix the background image scaling in qualifications section at 760px because I didn't realize the background-size can also be set to raw values. I should have researched how this property works first. 
 - **What I learned:**
   - **Simple code** - I feel like today's experience has showed me that I should always aim for the simplest code possible and kinda sparked and idea on how to do it - in my next problem I will try to simplify it and work from the end, so for example in this case that I had just now: Since I already figured out the cards positioning with `svw` (one card being 80svw + 10svw on the left, 10svw on the right to always keep it centered and hide the other cards) I should have think of a way to simple move the card by 90svw with each click.
+
+  ## Project #1 - Doctor's website (day 30)
+
+- **Date:** 2026-11-18 · Streak day 75
+- **What I did:** Today I mainly styled the :focus state on all buttons. This took more time than it should, but at least it's done now. I also had to fix the focus on hidden nav links, because the keyboard user could select those while there were hidden.
+- **Note:** Yesterday I deleted `animation: none` from opinion-list at the end of the session. I haven't realized this made the cards start rolling ay 760px, so that commit looks really bad.
+- **What I learned:**
+  - **`<a>` has no .disabled** - For buttons I can use `btn.style.disabled = "true"` but links don't have that attribute. I had to use `link.tabIndex = -1`.

@@ -7,9 +7,10 @@ const widthThreshold = 1620; // to disable the adjustment for higher resolutions
 const bottomOffset = parseFloat(getComputedStyle(scrollTop).bottom); 
 const copyrightSection = document.getElementById("copyright");
 
-const dropDown = document.getElementById("dropDown");
-const hiddenNav = document.getElementById("hiddenNav");
 const topbarBg = document.getElementById("topbar-bg");
+const dropDown = document.getElementById("nav-drop-down");
+const hiddenNav = document.getElementById("hidden-nav");
+const hiddenNavContent = Array.from(hiddenNav.children);
 
 let opinionCardsPosition = 0;
 const opinionCardsAmount = 6;
@@ -51,9 +52,12 @@ function adjustBottom() {
 }
 
 function toggleDropDown() {
-    hiddenNav.classList.toggle(`is-visible`);
     dropDown.classList.toggle(`active`);
     topbarBg.classList.toggle(`active`);
+    hiddenNav.classList.toggle(`is-visible`);
+    hiddenNavContent.forEach (el => {
+        el.tabIndex = !el.tabIndex;
+    })
 }
 
 function toggleOpinionListDot(){
@@ -102,8 +106,9 @@ window.addEventListener("scroll", showScrollTop, {passive: true});
 window.addEventListener("scroll", adjustBottom, {passive: true});
 dropDown.addEventListener("click", toggleDropDown);
 
-Array.from(hiddenNav.children).forEach(child => {
-    child.addEventListener("click", toggleDropDown);
+hiddenNavContent.forEach(el => {
+    el.addEventListener("click", toggleDropDown);
+    el.tabIndex = -1;    
 });
 
 opinionsBtnRight.addEventListener("click", moveOpinionCardsRight);

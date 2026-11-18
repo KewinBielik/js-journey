@@ -70,6 +70,10 @@ nav a:hover {
     color: var(--details);
 }
 
+nav a:focus {
+    color: var(--details);
+}
+
 .nav-horizontal {
     display: none;
 }
@@ -130,14 +134,36 @@ nav a:hover {
         top: 100%;
         border-radius: 0 0 0 30px;
         background-color: var(--background1);
-
+        
         text-align: center;
         
         transition: max-height 0.3s ease-in-out;
     }
-
+    
     .nav-horizontal-content.is-visible {
         max-height: 500px;   
+    }
+    
+    .nav-drop-down {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+
+        padding: 0;
+        background-color: transparent;
+        border: none;
+
+        font-size: 2rem;
+        cursor: pointer;
+        transition: color 0.2s ease-in-out;
+    }
+
+    .nav-drop-down.active {
+        color: var(--details);
+    }
+
+    .nav-drop-down:hover {
+        color: var(--details);
     }
 
     .nav-horizontal-content a {
@@ -151,21 +177,10 @@ nav a:hover {
         color: var(--background1);
     }
 
-    .nav-menu .fa-bars {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 2rem;
-        cursor: pointer;
-        transition: color 0.2s ease-in-out;
-    }
-
-    .nav-menu .fa-bars:hover {
-        color: var(--details);
-    }
-
-    .nav-menu .fa-bars.active {
-        color: var(--details);
+    .nav-horizontal-content a:focus {
+        outline: none;    
+        background-color: var(--details);
+        color: var(--background1);
     }
 }
 
@@ -267,10 +282,20 @@ nav a:hover {
     white-space: nowrap;
     
     cursor: pointer;
-    transition: color 0.2s ease-in, background-color 0.2s ease-in, border-color 0.2s ease-in;
+    transition:
+    border-color 0.2s ease-in,
+    background-color 0.2s ease-in, 
+    color 0.2s ease-in;
 }
 
 .info-buttons button:hover {
+    border-color: var(--details);
+    background-color: var(--background1);
+    color: var(--details);
+}
+
+.info-buttons button:focus {
+    outline-offset: 5px;
     border-color: var(--details);
     background-color: var(--background1);
     color: var(--details);
@@ -284,15 +309,13 @@ nav a:hover {
 .info-buttons .contact-btn {
     border: 2px solid var(--details);
     background-color: var(--details);
-    color: var(--text-button    );
-    
+    color: var(--text-button);
 }
 
 .info-buttons .consultation-btn {
     border: 2px solid var(--text);
     background-color: var(--background1);
     color: var(--text)
-    
 }
     
 .about-me img {
@@ -414,6 +437,12 @@ nav a:hover {
         color: var(--background1);
     }
 
+    .info-buttons .contact-btn:focus {
+        border-color: var(--details2);
+        background-color: var(--details2);
+        color: var(--background1);  
+    }
+
     .info-buttons .consultation-btn {
         border-color: var(--background1);
         background-color: transparent;
@@ -424,6 +453,12 @@ nav a:hover {
         border-color: var(--details2);
         background-color: transparent;
         color: var(--details2);;
+    }
+
+    .info-buttons .consultation-btn:focus {
+        border-color: var(--details2);
+        background-color: transparent;
+        color: var(--details2);
     }
 
     .about-me img {
@@ -535,6 +570,12 @@ nav a:hover {
 }
 
 .treatments-list button:hover {
+    background-color: var(--background1);
+    color: var(--details);
+}
+
+.treatments-list button:focus {
+    outline-offset: 5px;
     background-color: var(--background1);
     color: var(--details);
 }
@@ -780,6 +821,19 @@ nav a:hover {
         background-color: transparent;
     }
 
+    .opinions-buttons button:focus {
+        outline: none;
+    }
+
+    .opinions-buttons button:focus .fa-solid {
+        color: var(--details2);
+    }
+
+    .opinions-buttons button:active .fa-solid {
+        color: var(--details);
+        transform: scale(0.95);
+    }
+
     .opinions-buttons button .fa-solid {
         display: flex;
         justify-content: center;
@@ -794,11 +848,7 @@ nav a:hover {
         color: var(--details);
 
         cursor: pointer;
-        transition: transform 0.1s ease;
-    }
-
-    .opinions-buttons button:active .fa-solid {
-        transform: scale(0.95);
+        transition:  transform 0.1s ease, color 0.1s ease;
     }
 
     .opinions-list-dots  {
@@ -826,12 +876,17 @@ nav a:hover {
         padding-left: 10svw;
         
         transition: left 1s ease-in-out;
+        animation:  none;
     }
 
     .opinions-list li {
         box-sizing: border-box;
         width: 80svw;
         padding: 2rem;
+    }
+
+    .opinions-list li:hover {
+        border-color: var(--background1);
     }
 }
 
@@ -1210,15 +1265,18 @@ footer {
     cursor: pointer;
     pointer-events: none;
     transition: 
-    background-color 0.3s ease-in, 
-    color 0.3s ease-in, 
-    opacity 0.3s ease-in,
     bottom 0.5s ease-in-out,
-    transform 0.1s ease; 
+    transform 0.1s ease,
+    opacity 0.3s ease-in,
+    border-color 0.3s ease-in,
+    background-color 0.3s ease-in, 
+    color 0.3s ease-in;
 }
 
-#scrollTop:focus {
-    outline: none;
+#scrollTop:focus-visible {
+    outline-offset: 5px;
+    background-color: var(--details);
+    color: var(--background1);
 }
 
 #scrollTop:active {

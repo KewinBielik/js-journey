@@ -6,20 +6,15 @@ To Do:
 [ ] Reference the images used?
 [ ] Make the website adjust To different resolutions.
     [ ] Do a font-size check - I don't want small inaccuracy where .desc in one section has 1.1rem and 1rem in another. 
-    [x] Fix the giga wide screen on phone, it looks good at first but if someone zooms out then they see the big blank space and also the opinion cards rolling
-    [x] Can the quali image at 760px be at const size and just reveal as the section stretches?
-    [x] Change opinion section design
-        [x] Write the js for the buttons
-        [x] Read the AI opinion on my JS script.
-        [x] Add click animation to buttons.
-        [x] Add these cool dots        
-    [x] Click style for footer icons on phone
     [ ] Check how the site responds on phone    
-    [ ] Click style for other buttons.
+    [ ] periodic card swipes on opinion cards below 760px
+    [x] Remove hover from opinion cards at 760px - Did I do it right?    
+    [x] Fix no focus on dropDown 
+    [x] Fix focus on hidden nav    
 
-[x] Should bottomOffset be read out of the scrollTop button styling rather than hardcoded value? Because now changing the styling won't work and you need to change the code too, styling could be removed technically.
-[ ] Add ScrollUp function?
-[ ] Remove focus styling from opinion cards buttons.
+[x] Add ScrollUp function?
+[x] Style :focus on all buttons
+[x] Why can the dropDown be selected by tab and clicked with enter but fa-bars:focus does not style it?
 
 Good site to inspire from: 
 https://neuroaxishealth.com/# 
