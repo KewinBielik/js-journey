@@ -20,6 +20,9 @@ const opinionsBtnRight = document.getElementById("opinions-btn-right");
 const opinionsListDotsDom = document.getElementById("opinions-list-dots");
 const opinionsListDots = Array.from(opinionsListDotsDom.children)
 
+let intervalId = null;
+const delay = 7000;
+const carouselQuery = window.matchMedia("(max-width: 760px)");
 
 function showScrollTop(){
     
@@ -77,10 +80,7 @@ function moveOpinionCardsRight() {
     toggleOpinionListDot();
     opinionsList.style.left = -(opinionCardsPosition * 90) + "svw";
     
-    opinionsBtnRight.disabled = true;
-    setTimeout(() => {
-        opinionsBtnRight.disabled = false;
-      }, 1000);
+    moveCardsPeriodically();
 }
 
 function moveOpinionCardsLeft() {
@@ -94,13 +94,47 @@ function moveOpinionCardsLeft() {
 
     toggleOpinionListDot();
     opinionsList.style.left = -(opinionCardsPosition * 90) + "svw";
-    
-    opinionsBtnLeft.disabled = true;
-    setTimeout(() => {
-        opinionsBtnLeft.disabled = false;
-      }, 1000);
+
+    moveCardsPeriodically(); 
 }
 
+function buttonPop(btn) {
+    btn.disabled = true;
+    btn.classList.toggle("pop");
+    setTimeout(() => {
+        btn.disabled = false;
+        btn.classList.toggle("pop");
+    }, 1000);
+}
+
+function moveCardsPeriodically() {
+    if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+    }
+
+    if (!carouselQuery.matches) {
+        return;
+    }
+
+    intervalId = setInterval(moveOpinionCardsRight, delay);
+}
+
+function syncCarouselToWidth() {
+
+    if (intervalId) {
+        clearInterval(intervalId);  
+        intervalId = null;
+    }
+
+    toggleOpinionListDot();
+    opinionCardsPosition = 0;
+    toggleOpinionListDot();
+    opinionsList.style.left = "";
+}
+
+carouselQuery.addEventListener("change", syncCarouselToWidth);
+syncCarouselToWidth();
 
 window.addEventListener("scroll", showScrollTop, {passive: true});
 window.addEventListener("scroll", adjustBottom, {passive: true});
@@ -111,8 +145,15 @@ hiddenNavContent.forEach(el => {
     el.tabIndex = -1;    
 });
 
-opinionsBtnRight.addEventListener("click", moveOpinionCardsRight);
-opinionsBtnLeft.addEventListener("click", moveOpinionCardsLeft);
+opinionsBtnRight.addEventListener("click", () => { 
+    moveOpinionCardsRight(); 
+    buttonPop(opinionsBtnRight);
+});
+
+opinionsBtnLeft.addEventListener("click", () => {
+    moveOpinionCardsLeft();
+    buttonPop(opinionsBtnLeft);
+});
 
 scrollTop.addEventListener("click", ()=>{
     window.scrollTo({

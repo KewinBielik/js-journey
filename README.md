@@ -1,63 +1,38 @@
 # JavaScript Journey 🚀
 
-My path from beginner to a remote programming job. Started by following the proven
-self-taught route (freeCodeCamp + building real projects), with a mentor reviewing my code.
+My path from beginner to a programming job. Started with simple code lessons with AI (it built the lessons and explained things, I wrote the code) untill it got unproductive and I began my first project - a simple doctor's website. 
 
 ## The Goal
 A remote junior front-end / full-stack developer job.
 
 ## The Commitment
-**1 hour+ every day.** Consistency beats intensity. A boring hour every day
-beats a heroic 8-hour Saturday followed by 3 weeks off.
+**1 hour+ every day.** Consistency beats intensity. So far I have pushed it to 3h a day.
 
 ---
 
-## The Rules (my contract with myself)
+## The Rules
 
-1. **I type every line myself.** No copy-pasting full solutions for the first ~6 months.
+1. **I type every line myself.** No copy-pasting full solutions.
 2. **AI is my tutor, never my ghostwriter.** I use it to explain, quiz, and review —
    not to write code I don't understand.
-3. **I never move on until I can explain the code out loud**, line by line.
-4. **I show up daily**, even on bad days. On a terrible day, 10 minutes still counts —
-   the streak matters more than the amount.
-5. **I write in my learning log every session** (`progress.md`). Reviewing yesterday's
-   notes is the secret weapon for making knowledge stick.
+3. **I write in my learning log every session** (`progress.md`). 
 
 ---
 
-## How each 1-hour session works
+## How each session works
 
-- **5 min** — Re-read yesterday's notes in `progress.md`.
-- **~40 min** — One focused Pomodoro: read a little, then *immediately* code it myself.
-- **~10 min** — Write 3–5 lines in `progress.md`: what I learned, what confused me.
-- **5 min** — Commit my work to Git ("save my progress").
+- Re-read yesterday's notes in `progress.md`.
+- 50 min code/read/experiment/study -> 10 min break, repeat.
+- Write 3–5 lines in `progress.md`: what I learned, what confused me.
+- Commit my work to Git ("save my progress").
 
 ---
 
 ## The Roadmap
 
-- [ ] **Phase 1 — Web fundamentals** (~6–8 weeks): HTML, CSS, JavaScript basics.
-- [ ] **Phase 2 — JavaScript in depth + small projects** (~8–10 weeks).
-- [ ] **Phase 3 — React** (~8 weeks).
-- [ ] **Phase 4 — Backend (Node + database) + one full-stack CRUD app** (~10–12 weeks).
+- [x] **Phase 1 — Web fundamentals** (~6–8 weeks): HTML, CSS, JavaScript basics.
+- [ ] **Phase 2 — JavaScript in depth + small projects**.
+   - [ ] Doctor's website.
+- [ ] **Phase 3 — React**.
+- [ ] **Phase 4 — Backend (Node + database) + one full-stack CRUD app**.
 - [ ] **Phase 5 — Portfolio + job hunt** (woven throughout, intensifying at the end).
-
-## Main resources
-- [freeCodeCamp](https://www.freecodecamp.org/) — structured free curriculum (the backbone).
-- My mentor — for explanations, code reviews, quizzes, and project guidance.
-- [MDN Web Docs](https://developer.mozilla.org/) — the official reference for web tech.
-
----
-
-## Continuing on another PC (AI + git sync)
-
-This repo is set up so lessons continue seamlessly across machines:
-
-1. **Finish session:** commit + push (`progress.md`, lesson folder, `AI-CONTEXT.md`)
-2. **Other PC:** `git pull`, open the folder in Cursor
-3. **AI picks up context** from:
-   - `AI-CONTEXT.md` — teaching style, current lesson, roadmap
-   - `progress.md` — your personal learning log
-   - `.cursor/rules/mentor.mdc` — auto-loaded by Cursor on every chat
-
-When you finish a lesson, the AI mentor updates the **Current status** table in `AI-CONTEXT.md` — you don't need to do it yourself.

@@ -81,8 +81,7 @@ day-NN-topic/
 
 - **Introduce more than ~2 new concepts in one lesson.** This has now failed twice:
   Lesson 15 (HTML+CSS at once) and Lesson 30 (Node + npm + Vite + JSX + components +
-  `useState` at once). Kewin can *get it working* by googling, but ends up with no mental
-  model and a bad session. Split tooling setup from language concepts.
+  `useState` at once). Kewin can *get it working* by googling, but ends up with a bad session. Split tooling setup from language concepts.
 - Assume he learns from terse specs alone — for genuinely new paradigms he needs
   **study notes** he can reread (see `day-30-react-intro/REFERENCE.md` for the format
   that works: one idea per section, compared against his own vanilla code).

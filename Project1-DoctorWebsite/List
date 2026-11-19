@@ -1,20 +1,14 @@
 To Do:
 
-[ ] Watch content on flex, grow, shrink, basis?
-[ ] Study the Array.from(parent.children).forEach(child => ...) 
-
-[ ] Reference the images used?
+[x] Reference the images used?
 [ ] Make the website adjust To different resolutions.
-    [ ] Do a font-size check - I don't want small inaccuracy where .desc in one section has 1.1rem and 1rem in another. 
+    [x] Do a font-size check - I don't want small inaccuracy where .desc in one section has 1.1rem and 1rem in another. 
     [ ] Check how the site responds on phone    
-    [ ] periodic card swipes on opinion cards below 760px
-    [x] Remove hover from opinion cards at 760px - Did I do it right?    
-    [x] Fix no focus on dropDown 
-    [x] Fix focus on hidden nav    
-
-[x] Add ScrollUp function?
-[x] Style :focus on all buttons
-[x] Why can the dropDown be selected by tab and clicked with enter but fa-bars:focus does not style it?
+    [x] periodic card swipes on opinion cards below 760px
+    [x] Fix grey box around buttons when clicking on phone.
+    [x] Should I stop the cards swipe in js on higher width?
+[x] Change the logo, the old one wasn't really free (oops)    
+[ ] Read AI's final website code review.
 
 Good site to inspire from: 
 https://neuroaxishealth.com/# 

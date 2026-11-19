@@ -1152,10 +1152,39 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 - **What I learned:**
   - **Simple code** - I feel like today's experience has showed me that I should always aim for the simplest code possible and kinda sparked and idea on how to do it - in my next problem I will try to simplify it and work from the end, so for example in this case that I had just now: Since I already figured out the cards positioning with `svw` (one card being 80svw + 10svw on the left, 10svw on the right to always keep it centered and hide the other cards) I should have think of a way to simple move the card by 90svw with each click.
 
-  ## Project #1 - Doctor's website (day 30)
+## Project #1 - Doctor's website (day 30)
 
 - **Date:** 2026-11-18 · Streak day 75
 - **What I did:** Today I mainly styled the :focus state on all buttons. This took more time than it should, but at least it's done now. I also had to fix the focus on hidden nav links, because the keyboard user could select those while there were hidden.
 - **Note:** Yesterday I deleted `animation: none` from opinion-list at the end of the session. I haven't realized this made the cards start rolling ay 760px, so that commit looks really bad.
 - **What I learned:**
   - **`<a>` has no .disabled** - For buttons I can use `btn.style.disabled = "true"` but links don't have that attribute. I had to use `link.tabIndex = -1`.
+
+
+## Project #1 - Doctor's website (day 31)
+
+- **Date:** 2026-11-19 · Streak day 76
+- **What I did:** I added the periodic opinion cards swipes, made it turn on only for low width screen. Fixed (I hope) a grey box blinking around buttons when clicked on phone. Changed the logo, the old one wasn't really free. Added a README.md with image credits.
+- **What I learned:**
+  - **Query** - I can create a standing question in js and use it to check for things such as the screen width.
+  ``` js
+  const carouselQuery = window.matchMedia("(max-width: 760px)");
+
+  if (carouselQuery.matches) {
+        moveCardsPeriodically();
+        return;
+    }
+  ```
+  - **query.addEventListener("change")** - I can add a listener to a query to run a function whenever the query changes between true or false.
+  ``` js
+  carouselQuery.addEventListener("change", syncCarouselToWidth);
+  ```
+  - **Interval** - I can set intervals to run something over and over with a delay. setInterval returns and id to that set interval, it can be later cleared with `clearInterval(interval)` to stop it from repeating.
+  ``` js
+  intervalId = setInterval(moveOpinionCardsRight, delay);
+  
+  if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+    }
+  ```
