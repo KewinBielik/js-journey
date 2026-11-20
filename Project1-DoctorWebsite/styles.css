@@ -10,6 +10,8 @@
 
     --font-heading: Montserrat, sans-serif;
     --font-body: Lora, serif;
+
+    interpolate-size: allow-keywords;
 }
 
 * {
@@ -74,7 +76,7 @@ nav a:hover {
     color: var(--details);
 }
 
-nav a:focus {
+nav a:focus-visible {
     color: var(--details);
 }
 
@@ -182,7 +184,7 @@ nav a:focus {
         color: var(--background1);
     }
 
-    .nav-horizontal-content a:focus {
+    .nav-horizontal-content a:focus-visible {
         outline: none;    
         background-color: var(--details);
         color: var(--background1);
@@ -212,7 +214,7 @@ nav a:focus {
     
     .nav-horizontal img {
         display: block;
-        width: 28%;
+        width: 50px;
         padding: 0.3rem 0;
     }
 
@@ -240,7 +242,7 @@ nav a:focus {
 }
 
 .about-me {
-    scroll-margin-top: 200px;
+    scroll-margin-top: 60px;
     display: flex;
     max-width: 1400px;  
     margin: auto;
@@ -299,7 +301,7 @@ nav a:focus {
     color: var(--details);
 }
 
-.info-buttons button:focus {
+.info-buttons button:focus-visible {
     outline-offset: 5px;
     border-color: var(--details);
     background-color: var(--background1);
@@ -320,7 +322,7 @@ nav a:focus {
 .info-buttons .consultation-btn {
     border: 2px solid var(--text);
     background-color: var(--background1);
-    color: var(--text)
+    color: var(--text);
 }
     
 .about-me img {
@@ -374,7 +376,7 @@ nav a:focus {
 
     .about-me-bg {
         padding: 0;
-        background-image: url("aboutMeBg.png");
+        background-image: url("aboutMeBg.jpg");
         background-position: center;
         background-size: cover;
         background-color: rgba(0, 0, 0, 0.6);
@@ -442,7 +444,7 @@ nav a:focus {
         color: var(--background1);
     }
 
-    .info-buttons .contact-btn:focus {
+    .info-buttons .contact-btn:focus-visible {
         border-color: var(--details2);
         background-color: var(--details2);
         color: var(--background1);  
@@ -457,10 +459,10 @@ nav a:focus {
     .info-buttons .consultation-btn:hover {
         border-color: var(--details2);
         background-color: transparent;
-        color: var(--details2);;
+        color: var(--details2);
     }
 
-    .info-buttons .consultation-btn:focus {
+    .info-buttons .consultation-btn:focus-visible {
         border-color: var(--details2);
         background-color: transparent;
         color: var(--details2);
@@ -579,7 +581,7 @@ nav a:focus {
     color: var(--details);
 }
 
-.treatments-list button:focus {
+.treatments-list button:focus-visible {
     outline-offset: 5px;
     background-color: var(--background1);
     color: var(--details);
@@ -826,12 +828,12 @@ nav a:focus {
         background-color: transparent;
     }
 
-    .opinions-buttons button:focus {
+    .opinions-buttons button:focus-visible {
         outline: none;
     }
 
     .opinions-buttons button:focus-visible .fa-solid {
-        outline: 1px solid black;
+        outline: 1px solid var(--text);
     }
 
     .opinions-buttons button.pop .fa-solid {
@@ -900,6 +902,13 @@ nav a:focus {
       }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .opinions-list {
+        animation: none;
+        transition: none;
+    }
+}
+
 .qualifications-bg {
     background-color: var(--background1);
 }
@@ -912,6 +921,10 @@ nav a:focus {
     max-width: 1400px;
     margin: auto;
     padding: 5rem 2rem;
+}
+
+.qualifications-info {
+    width: 100%;
 }
 
 .qualifications .eyebrow {
@@ -927,19 +940,6 @@ nav a:focus {
 }
 
 .qualifications-toggle {
-    display: none;
-}
-
-.qualifications-toggle:checked + .qualifications-toggle-label {
-    color: var(--details);
-}
-
-.qualifications-toggle:checked + .qualifications-toggle-label + .qualifications-content {
-    max-height: 15rem;
-    padding-bottom: 2rem;
-}
-
-.qualifications-toggle-label {
     display: flex;
     
     margin: 0 0 2rem 0;
@@ -951,7 +951,11 @@ nav a:focus {
     transition: color 0.2s;
 }
 
-.qualifications-toggle-label:hover {
+.qualifications-toggle:hover {
+    color: var(--details);
+}
+
+.qualifications-toggle:focus-visible {
     color: var(--details);
 }
 
@@ -961,33 +965,44 @@ nav a:focus {
     color: var(--text-muted);
 }
 
-.qualifications-content {
+details[open] .qualifications-toggle {
+    color: var(--details);
+}
+
+details::details-content {
+    block-size: 0;
     overflow: hidden;
-    max-width: 50rem;
-    max-height: 0;
+    
     margin: 0 0 2rem 0;
     border-bottom: 2px solid var(--background2);
     
     font-size: 1.2rem;
     color: var(--text-muted);
     
-    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+    transition: block-size 0.3s, content-visibility 0.3s, padding 0.3s ease-in-out;
+    transition-behavior: allow-discrete;
 }
 
-.qualifications-info ul {
+details[open]::details-content {
+    block-size: auto;
+    padding-bottom: 2rem;
+}
+
+details ul {
     display: grid;
     gap: 1rem;
+    margin: 0;
     padding-left: 1.5rem;
 }
 
-.qualifications-info li::marker {
+details li::marker {
     font-size: 1.5rem;
     color: var(--details);
 }
 
 .qualifications img {
     max-width: 50%;
-    margin: 2rem 0 auto;
+    margin-bottom: auto;
     border-radius: 20px;
 }
 
@@ -1002,11 +1017,7 @@ nav a:focus {
         font-size: 2rem;
     }
 
-    .qualifications-toggle:checked + .qualifications-toggle-label + .qualifications-content {
-        padding-bottom: 1rem;
-    }
-
-    .qualifications-toggle-label {
+    .qualifications-toggle {
         margin-bottom: 1rem;
         font-size: 1.5rem;
     }
@@ -1015,12 +1026,16 @@ nav a:focus {
         min-width: 40px;
     }
 
-    .qualifications-content {
+    details::details-content {
         margin-bottom: 1rem;
         font-size: 1rem;
     }
 
-    .qualifications-info li::marker {
+    details[open]::details-content {
+        padding-bottom: 1rem;
+    }
+
+    details li::marker {
         font-size: 1.1rem;
     }
 }
@@ -1028,7 +1043,7 @@ nav a:focus {
 @media (max-width: 760px) {
     
     .qualifications-bg {
-        background-image: url("qualibg.jpg");
+        background-image: url("qualiBg.jpg");
         background-position: center top;
         background-size: auto 100vh;
         background-repeat: no-repeat;
@@ -1052,15 +1067,15 @@ nav a:focus {
         text-align: center;
     }
 
-    .qualifications-toggle:checked + .qualifications-toggle-label {
-        color: var(--details2);
-    }
-    
-    .qualifications-toggle-label {
+    .qualifications-toggle {
         color: var(--background1);
     }
     
-    .qualifications-toggle-label:hover {
+    .qualifications-toggle:hover {
+        color: var(--details2);
+    }
+    
+    .qualifications-toggle:focus-visible {
         color: var(--details2);
     }
 
@@ -1068,12 +1083,22 @@ nav a:focus {
         color: var(--details2);
     }
 
-    .qualifications-content {
+    details[open] .qualifications-toggle {
+        color: var(--details2);
+    }    
+
+    details::details-content {
         color: var(--background1);
     }
 
     .qualifications img {
         display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    details::details-content {
+        transition: none;
     }
 }
 
@@ -1175,7 +1200,7 @@ footer {
     color: var(--details);
     
     cursor: pointer;
-    transition: color 0.3s ease-in, background-color 0.3s ease-in, border-color 0.3s ease-in, transform 0.1 ease;
+    transition: color 0.3s ease-in, background-color 0.3s ease-in, border-color 0.3s ease-in, transform 0.1s ease;
 }
 
 .copyright .fa-brands:hover {
@@ -1243,7 +1268,7 @@ footer {
         font-size: 0.9rem;
     }
 
-    .phone, .email, .adress {
+    .phone, .email, .address {
         display: flex;
         align-items: center;
     }

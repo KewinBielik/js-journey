@@ -1,14 +1,35 @@
 To Do:
 
-[x] Reference the images used?
+[ ] CONSIDER DOING MORE COMMITS (instead of a one big commit)
+
 [ ] Make the website adjust To different resolutions.
-    [x] Do a font-size check - I don't want small inaccuracy where .desc in one section has 1.1rem and 1rem in another. 
     [ ] Check how the site responds on phone    
-    [x] periodic card swipes on opinion cards below 760px
-    [x] Fix grey box around buttons when clicking on phone.
-    [x] Should I stop the cards swipe in js on higher width?
-[x] Change the logo, the old one wasn't really free (oops)    
-[ ] Read AI's final website code review.
+[x] Read AI's final website code review.
+[x] Change all images, use free pictures and add credits
+
+
+[x] Change all quali elements to the the </details> and </summary> structure.
+    [ ] Should I style the details tag or should I use my own class like qualifications-content? 
+[ ] Move the "hamburger" to the right?
+[ ] Contact button moves user to footer?
+[ ] change opinionCardsAmount to equal opinionListDots.length?
+[ ] Add meta name=description.
+[ ] Add more stuff in the README A portfolio README needs more than credits. Say what the project is, link the GitHub Pages URL, list what it shows (responsive layout, carousel, accordion, sticky header, plain JavaScript), and add a screenshot. Recruiters often open the repo before the site.
+
+
+Ask:
+[ ] The tabIndex seems to work all good for me
+[ ] I dont understand the bug about fake bold and italic fonts, u gotta explain more.
+[ ] Specify the aria labels and aria-expanded
+[ ] check the cards periodic move code.
+[ ] I dont understand this "The header logo's alt text repeats the <h1> next to it. Use alt="" on that one.". the alt text on the logo says what the image is, the h1 has it's header text.
+[ ] The reduced motion, I added it onto the opinion cards and qualifications expand thing. Should I also add it to the topbar and the scrollTop button?
+[ ] You are saying that the topbar image at 760px screen width should be just 48px all the time?
+[ ] if I set the scroll-margin-top to the h2 height (around 60px) then it looks like it doesnt move high enough. I just tested it on the about-me section. I tried to make all the sections allign well, I dont think there can be one value that will work for all sections and for all screen widths.
+
+
+[ ] Change move right and move left to one function, pass 1 or -1 for left or right, use dictionary to switch the position from 6 to 0 and from 0 to 6?
+
 
 Good site to inspire from: 
 https://neuroaxishealth.com/# 

@@ -1,10 +1,9 @@
-const showScrollTopAtHeight = 600; // for shoving the scroll to top button after scrolling past the first section.
+const showScrollTopAtHeight = 600; // for showing the scroll to top button after scrolling past the first section.
 const hideScrollTopAtWidth = 430; // for hiding the scroll to top button on lower resolutions.
 const scrollTop = document.getElementById("scrollTop");
 
-const heightThreshold = 920; // to push the button slightly up after scrolling to the site's bottom.
-const widthThreshold = 1620; // to disable the adjustment for higher resolutions - the button does not cover anything.
-const bottomOffset = parseFloat(getComputedStyle(scrollTop).bottom); 
+const widthThreshold = 1620; // to disable the adjustment for wider screns - the button does not cover anything.
+const bottomOffset = 20; // to keep the button slighlty above the copyright section.
 const copyrightSection = document.getElementById("copyright");
 
 const topbarBg = document.getElementById("topbar-bg");
@@ -31,7 +30,7 @@ function showScrollTop(){
         return;
     }
 
-    if ( document.body.scrollTop > showScrollTopAtHeight || document.documentElement.scrollTop > showScrollTopAtHeight ) {
+    if ( window.scrollY > showScrollTopAtHeight ) {
         scrollTop.classList.add(`is-visible`);
     } else {
         scrollTop.classList.remove(`is-visible`);
@@ -46,8 +45,8 @@ function adjustBottom() {
     }
 
     let distanceFromThreshold = copyrightSection.offsetTop - document.documentElement.scrollTop;
-    if ( distanceFromThreshold <= heightThreshold ) {
-        let bottom = Math.abs((distanceFromThreshold - heightThreshold)) + bottomOffset;
+    if ( distanceFromThreshold <= window.innerHeight ) {
+        let bottom = window.innerHeight - distanceFromThreshold + bottomOffset;
         scrollTop.style.bottom = bottom + "px";
     } else {
         scrollTop.style.bottom = "";
@@ -122,15 +121,12 @@ function moveCardsPeriodically() {
 
 function syncCarouselToWidth() {
 
-    if (intervalId) {
-        clearInterval(intervalId);  
-        intervalId = null;
-    }
-
     toggleOpinionListDot();
     opinionCardsPosition = 0;
     toggleOpinionListDot();
     opinionsList.style.left = "";
+
+    moveCardsPeriodically();
 }
 
 carouselQuery.addEventListener("change", syncCarouselToWidth);

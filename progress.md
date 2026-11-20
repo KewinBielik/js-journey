@@ -1188,3 +1188,20 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
         intervalId = null;
     }
   ```
+
+
+## Project #1 - Doctor's website (day 32)
+
+- **Date:** 2026-11-20 · Streak day 77
+- **What I did:** I made sure that my website is only using free images, updated the credits in readme and began applying fixes from the review: no more labales and hidden checkboxes in qualifications section, now I am using `<details>` and `<summary>`. Fixed the scrollToTop adjustment on higher screens. Changed .focus to .focus-visible.
+- **What I learned:**
+  -**`<details>` and `<summary>` structure** - An easy way to create expanding "labels".
+  ``` js
+  <details>
+    <summary>
+      I have keys but no doors. I have space but no room. You can enter but can't
+      leave. What am I?
+    </summary>
+    A keyboard.
+  </details>
+  ```
