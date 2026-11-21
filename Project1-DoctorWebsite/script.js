@@ -57,8 +57,9 @@ function toggleDropDown() {
     dropDown.classList.toggle(`active`);
     topbarBg.classList.toggle(`active`);
     hiddenNav.classList.toggle(`is-visible`);
+    const newTabIndex = hiddenNav.classList.contains(`is-visible`) ? 0 : -1;
     hiddenNavContent.forEach (el => {
-        el.tabIndex = !el.tabIndex;
+        el.tabIndex = newTabIndex;
     })
 }
 
