@@ -1205,3 +1205,25 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
     A keyboard.
   </details>
   ```
+
+
+## Project #1 - Doctor's website (day 33)
+
+- **Date:** 2026-11-21 · Streak day 78
+- **What I did:** 
+  - fixed tabIndex on hamburger menu (it was switching between 0 and 1 instead of 0 and -1)
+  - fixed fake bold and italic and all the google fonts
+  - added aria-labels, aria-expanded and removed unecessery .active classes from the dropDown icon and the topbarBg (I can style it by the aria-expanded state now).
+  - Removed alt from logo, the header already speaks for it. 
+  - Stopped the card periodic swipe completely for the reduced motion. 
+  - Set fixed image size for 760px width screen. 
+  - Changed scroll-margin-top for all sections to match one standard. 
+  - Fixed swapped labels on left and right button in opinion section. 
+  - Changed visible email to .example. 
+  - Added back the qualifications heading and eyebrow (didn't reazlied I removed it) and moved the 760px design up to 900px.
+  - Started to make a different design for the opinion cards when motion reduced is one (user could only see first 2 cards).
+- **What I learned:**
+  - **Ask for weight** - I was asking google for fonts but I was not asking for the bold and weight, this needs to be done like this:
+  ``` html 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,700&family=Lora:wght@400&display=swap" rel="stylesheet">
+  ```

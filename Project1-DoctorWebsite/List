@@ -1,15 +1,12 @@
 To Do:
 
-[ ] CONSIDER DOING MORE COMMITS (instead of a one big commit)
+[x] CONSIDER DOING MORE COMMITS (instead of a one big commit)
 
 [ ] Make the website adjust To different resolutions.
-    [ ] Check how the site responds on phone    
-[x] Read AI's final website code review.
-[x] Change all images, use free pictures and add credits
+    [ ] Check how the site responds on phone
 
 
-[x] Change all quali elements to the the </details> and </summary> structure.
-    [ ] Should I style the details tag or should I use my own class like qualifications-content? 
+[ ] Should I style the details tag or should I use my own class like qualifications-content? 
 [ ] Move the "hamburger" to the right?
 [ ] Contact button moves user to footer?
 [ ] change opinionCardsAmount to equal opinionListDots.length?
@@ -18,14 +15,16 @@ To Do:
 
 
 Ask:
-[ ] The tabIndex seems to work all good for me
-[ ] I dont understand the bug about fake bold and italic fonts, u gotta explain more.
-[ ] Specify the aria labels and aria-expanded
-[ ] check the cards periodic move code.
-[ ] I dont understand this "The header logo's alt text repeats the <h1> next to it. Use alt="" on that one.". the alt text on the logo says what the image is, the h1 has it's header text.
-[ ] The reduced motion, I added it onto the opinion cards and qualifications expand thing. Should I also add it to the topbar and the scrollTop button?
-[ ] You are saying that the topbar image at 760px screen width should be just 48px all the time?
-[ ] if I set the scroll-margin-top to the h2 height (around 60px) then it looks like it doesnt move high enough. I just tested it on the about-me section. I tried to make all the sections allign well, I dont think there can be one value that will work for all sections and for all screen widths.
+[x] The tabIndex seems to work all good for me
+[x] I dont understand the bug about fake bold and italic fonts, u gotta explain more.
+[x] Specify the aria labels and aria-expanded
+[x] check the cards periodic move code.
+[x] I dont understand this "The header logo's alt text repeats the <h1> next to it. Use alt="" on that one.". the alt text on the logo says what the image is, the h1 has it's header text.
+[x] The reduced motion, I added it onto the opinion cards and qualifications expand thing. Should I also add it to the topbar and the scrollTop button?
+[x] You are saying that the topbar image at 760px screen width should be just 48px all the time?
+[x] if I set the scroll-margin-top to the h2 height (around 60px) then it looks like it doesnt move high enough. I just tested it on the about-me section. I tried to make all the sections allign well, I dont think there can be one value that will work for all sections and for all screen widths.
+[ ] the project is inside the jsJourney, shouldn't I keep it outside? because now the commits are mixed with the lessons commits and someone cannot just look into the website project without going through the first few folders. 
+[ ] Now that I am making more commits I realized I can't easily see the changes in the editor and I was using that feature to go through the code quickly and clean it up.
 
 
 [ ] Change move right and move left to one function, pass 1 or -1 for left or right, use dictionary to switch the position from 6 to 0 and from 0 to 6?
