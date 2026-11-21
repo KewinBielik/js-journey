@@ -214,7 +214,7 @@ nav a:focus-visible {
     
     .nav-horizontal img {
         display: block;
-        width: 50px;
+        width: 80px;
         padding: 0.3rem 0;
     }
 
@@ -242,7 +242,7 @@ nav a:focus-visible {
 }
 
 .about-me {
-    scroll-margin-top: 60px;
+    scroll-margin-top: 180px;
     display: flex;
     max-width: 1400px;  
     margin: auto;
@@ -384,7 +384,6 @@ nav a:focus-visible {
     }
 
     .about-me {
-        scroll-margin-top: 240px;
         padding: 3rem 1rem; 
         backdrop-filter: blur(7px);
         -webkit-backdrop-filter: blur(7px);
@@ -479,7 +478,7 @@ nav a:focus-visible {
 }
 
 .treatments {
-    scroll-margin-top: 200px;
+    scroll-margin-top: 180px;
     max-width: 1400px;
     margin: auto;
     padding: 0 1rem;
@@ -593,10 +592,6 @@ nav a:focus-visible {
 
 @media (max-width: 1180px) {
 
-    .treatments {
-        scroll-margin-top: 190px;
-    }
-
     .treatments .eyebrow {
         font-size: 0.8rem;
     }
@@ -627,15 +622,7 @@ nav a:focus-visible {
     }
 }
 
-@media (max-width: 760px) {
-
-    .treatments {
-        scroll-margin-top: 300px;
-    }
-}
-
 @media (max-width: 736px) {
-
 
     .treatments-list li {
         max-width: none;
@@ -658,7 +645,7 @@ nav a:focus-visible {
 }
 
 .opinions {
-    scroll-margin-top: 200px;
+    scroll-margin-top: 180px;
     max-width: 1400px;
     margin: auto;
     padding: 0 1rem;
@@ -753,10 +740,6 @@ nav a:focus-visible {
 
 @media (max-width: 1180px) {
 
-    .opinions {
-        scroll-margin-top: 185px;
-    }
-
     .opinions h2 {
         max-width: 650px;
         margin-bottom: 1rem;
@@ -793,10 +776,6 @@ nav a:focus-visible {
 }
 
 @media (max-width: 760px) {
-
-    .opinions {
-        scroll-margin-top: 300px;
-    }
 
     .opinions-list-bg {
         position: relative;
@@ -913,7 +892,7 @@ nav a:focus-visible {
 }
 
 .qualifications {
-    scroll-margin-top: 100px;   
+    scroll-margin-top: 180px;   
     display: flex;
     gap: 4rem;
     
@@ -1051,7 +1030,6 @@ details li::marker {
     }
 
     .qualifications {
-        scroll-margin-top: 250px;
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
     }
