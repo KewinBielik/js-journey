@@ -22,6 +22,7 @@ const opinionsListDots = Array.from(opinionsListDotsDom.children)
 let intervalId = null;
 const delay = 7000;
 const carouselQuery = window.matchMedia("(max-width: 760px)");
+const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 function showScrollTop(){
     
@@ -97,6 +98,29 @@ function moveOpinionCardsLeft() {
     moveCardsPeriodically(); 
 }
 
+function moveCardsPeriodically() {
+    if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+    }
+    
+    if (!carouselQuery.matches || reducedMotionQuery.matches) {
+        return;
+    }
+    
+    intervalId = setInterval(moveOpinionCardsRight, delay);
+}
+
+function syncCarouselToWidth() {
+    
+    toggleOpinionListDot();
+    opinionCardsPosition = 0;
+    toggleOpinionListDot();
+    opinionsList.style.left = "";
+    
+    moveCardsPeriodically();
+}
+
 function buttonPop(btn) {
     btn.disabled = true;
     btn.classList.toggle("pop");
@@ -104,29 +128,6 @@ function buttonPop(btn) {
         btn.disabled = false;
         btn.classList.toggle("pop");
     }, 1000);
-}
-
-function moveCardsPeriodically() {
-    if (intervalId) {
-        clearInterval(intervalId);
-        intervalId = null;
-    }
-
-    if (!carouselQuery.matches) {
-        return;
-    }
-
-    intervalId = setInterval(moveOpinionCardsRight, delay);
-}
-
-function syncCarouselToWidth() {
-
-    toggleOpinionListDot();
-    opinionCardsPosition = 0;
-    toggleOpinionListDot();
-    opinionsList.style.left = "";
-
-    moveCardsPeriodically();
 }
 
 carouselQuery.addEventListener("change", syncCarouselToWidth);

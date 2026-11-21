@@ -165,7 +165,7 @@ nav a:focus-visible {
         transition: color 0.2s ease-in-out;
     }
 
-    .nav-drop-down.active {
+    .nav-drop-down[aria-expanded="true"] {
         color: var(--details);
     }
 
@@ -197,7 +197,7 @@ nav a:focus-visible {
         transition: background-color 0.3s ease-in-out;
     }
     
-    .topbar-bg.active {
+    .topbar-bg:has(.nav-drop-down[aria-expanded="true"]){
         background-color: var(--background2);
     }
     
@@ -905,7 +905,6 @@ nav a:focus-visible {
 @media (prefers-reduced-motion: reduce) {
     .opinions-list {
         animation: none;
-        transition: none;
     }
 }
 
