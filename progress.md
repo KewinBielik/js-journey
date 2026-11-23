@@ -1227,3 +1227,10 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   ``` html 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,700&family=Lora:wght@400&display=swap" rel="stylesheet">
   ```
+
+## Project #1 - Doctor's website (day 34)
+
+- **Date:** 2026-11-23 · Streak day 79
+- **What I did:** 
+  - reduced motion opinion cards design, overflow-x: scroll.
+- **What I learned:**

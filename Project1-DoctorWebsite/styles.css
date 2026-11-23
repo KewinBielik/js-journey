@@ -746,117 +746,18 @@ nav a:focus-visible {
 
 @media (prefers-reduced-motion: reduce) and (width > 760px) {
 
+    .opinions-list-bg {
+        overflow-x: scroll;
+    }
+
     .opinions-list {
         animation: none;
-        
     }
 
     .opinions-list li[aria-hidden="true"] {
         display: none;
     }
 
-    .opinions-list-bg {
-        position: relative;
-    }
-    
-    .opinions-buttons {
-        display: block;
-    }
-
-    .opinions-btn-left {
-        position: absolute;
-        top: 50%;
-        left: 5svw;
-        transform: translate(-50%, -50%);
-        z-index: 998;
-       
-        border: none; 
-        background-color: transparent;
-    }
-
-    .opinions-btn-right {
-        position: absolute;
-        top: 50%;
-        left: 95svw;
-        transform: translate(-50%, -50%);
-        z-index: 998;
-
-        border: none; 
-        background-color: transparent;
-    }
-
-    .opinions-buttons button:focus-visible {
-        outline: none;
-    }
-
-    .opinions-buttons button:focus-visible .fa-solid {
-        outline: 1px solid var(--text);
-    }
-
-    .opinions-buttons button.pop .fa-solid {
-        animation: pop 0.2s linear 1;
-    }
-
-    .opinions-buttons button .fa-solid {
-        display: flex;
-        justify-content: center;
-        align-items: center; 
-        
-        width: 65px;
-        height: 65px;
-        border-radius: 50%;
-        background-color: var(--background2);
-        
-        font-size: 3.4rem;
-        color: var(--details);
-
-        cursor: pointer;
-        transition:  transform 0.1s ease, color 0.1s ease;
-    }
-
-    .opinions-list-dots  {
-        display: flex;
-        align-items: center;
-        gap: 0.2rem;
-        position: absolute;
-        top: 105%;
-        left: 50%;
-        transform: translateX(-50%);
-
-        color: var(--details);
-    }
-
-    .opinions-list-dots .fa-solid {
-        font-size: 1.2rem;
-    }
-
-    .opinions-list {
-        justify-content: center;
-        gap: 5svw;
-        position: relative;
-        left: 0;
-
-        padding-left: 5svw;
-        
-        transition: left 1s ease-in-out;
-        animation:  none;
-    }
-
-    .opinions-list li {
-        box-sizing: border-box;
-        width: 42.5svw;
-        padding: 2rem;
-    }
-
-    .opinions-list li:hover {
-        border-color: var(--background1);
-    }
-
-    @keyframes pop {
-        0% { transform: scale(1); }
-        50% { transform: scale(0.95); }
-        100% { transform: scale(1); }
-      }
 }
 
 @media (max-width: 1180px) {
