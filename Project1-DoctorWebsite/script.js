@@ -11,7 +11,7 @@ const dropDown = document.getElementById("nav-drop-down");
 const hiddenNav = document.getElementById("hidden-nav");
 const hiddenNavContent = Array.from(hiddenNav.children);
 
-let opinionCardsPosition = 0;
+let opinionsCardsPosition = 0;
 const opinionsList = document.getElementById("opinions-list");
 const opinionsBtnLeft = document.getElementById("opinions-btn-left");
 const opinionsBtnRight = document.getElementById("opinions-btn-right");
@@ -77,38 +77,24 @@ function intializeDots() {
 }
 
 function toggleOpinionListDot(){
-    opinionsListDots[opinionCardsPosition].classList.toggle("fa-solid");
-    opinionsListDots[opinionCardsPosition].classList.toggle("fa-regular");
+    opinionsListDots[opinionsCardsPosition].classList.toggle("fa-solid");
+    opinionsListDots[opinionsCardsPosition].classList.toggle("fa-regular");
 }
 
-function moveOpinionCardsRight() {
-
+function moveOpinionCards(x) {
     toggleOpinionListDot();
-    opinionCardsPosition += 1;
+    opinionsCardsPosition += x;
 
-    if (opinionCardsPosition >= opinionsCards.length) {
-        opinionCardsPosition = 0;
+    if (opinionsCardsPosition < 0) {
+        opinionsCardsPosition = opinionsCards.length - 1;
+    } else if (opinionsCardsPosition > 5) {
+        opinionsCardsPosition = 0;
     }
 
     toggleOpinionListDot();
-    opinionsList.style.left = -(opinionCardsPosition * 90) + "svw";
-    
+    opinionsList.style.left = -(opinionsCardsPosition * 90) + "svw";
+
     moveCardsPeriodically();
-}
-
-function moveOpinionCardsLeft() {
-
-    toggleOpinionListDot();
-    opinionCardsPosition -= 1;
-
-    if (opinionCardsPosition < 0) {
-        opinionCardsPosition += opinionsCards.length;
-    }
-
-    toggleOpinionListDot();
-    opinionsList.style.left = -(opinionCardsPosition * 90) + "svw";
-
-    moveCardsPeriodically(); 
 }
 
 function moveCardsPeriodically() {
@@ -121,13 +107,13 @@ function moveCardsPeriodically() {
         return;
     }
     
-    intervalId = setInterval(moveOpinionCardsRight, delay);
+    intervalId = setInterval(()=>{moveOpinionCards(1)}, delay);
 }
 
 function syncCarouselToWidth() {
     
     toggleOpinionListDot();
-    opinionCardsPosition = 0;
+    opinionsCardsPosition = 0;
     toggleOpinionListDot();
     opinionsList.style.left = "";
     
@@ -156,12 +142,12 @@ hiddenNavContent.forEach(el => {
 });
 
 opinionsBtnRight.addEventListener("click", () => { 
-    moveOpinionCardsRight(); 
+    moveOpinionCards(1); 
     buttonPop(opinionsBtnRight);
 });
 
 opinionsBtnLeft.addEventListener("click", () => {
-    moveOpinionCardsLeft();
+    moveOpinionCards(-1);
     buttonPop(opinionsBtnLeft);
 });
 

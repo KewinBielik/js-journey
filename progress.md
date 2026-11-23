@@ -1240,4 +1240,4 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   - Added meta description.
   - Contact button now calls the phone number.
   - intilalizeDots() and opinionCards.length.
-- **What I learned:**
+  - Merged moveOpinionCardsRight and moveOpinionCardsLeft, one function that take 1 or -1.
