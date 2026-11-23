@@ -2,8 +2,8 @@ const showScrollTopAtHeight = 600; // for showing the scroll to top button after
 const hideScrollTopAtWidth = 430; // for hiding the scroll to top button on lower resolutions.
 const scrollTop = document.getElementById("scrollTop");
 
-const widthThreshold = 1620; // to disable the adjustment for wider screns - the button does not cover anything.
-const bottomOffset = 20; // to keep the button slighlty above the copyright section.
+const widthThreshold = 1620; // to disable the adjustment for wider screens - the button does not cover anything.
+const bottomOffset = 20; // to keep the button slightly above the copyright section.
 const copyrightSection = document.getElementById("copyright");
 
 const topbarBg = document.getElementById("topbar-bg");
@@ -155,7 +155,6 @@ opinionsBtnLeft.addEventListener("click", () => {
 scrollTop.addEventListener("click", ()=>{
     window.scrollTo({
         left: 0,
-        top: 0,
-        behavior: "smooth"
+        top: 0
     })
 })

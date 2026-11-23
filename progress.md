@@ -1232,5 +1232,8 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 
 - **Date:** 2026-11-23 · Streak day 79
 - **What I did:** 
-  - reduced motion opinion cards design, overflow-x: scroll.
+  - Reduced motion opinion cards design, overflow-x: scroll.
+  - Fixed typos in js comments.
+  - Removed the colons from the section headers.
+  - Filled up README.md with more info and a screenshot.
 - **What I learned:**
