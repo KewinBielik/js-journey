@@ -1,19 +1,21 @@
 # The Marlow Clinic
 
-A one-page site for a fictional ear, nose and throat clinic in Bristol. Built as a portfolio project: layout, responsive CSS, and a small amount of JavaScript. No build step. Open `index.html` in a browser.
+A one-page site for a fictional clinic in Bristol. Built as a portfolio project: layout, responsive CSS, and a small amount of JavaScript. No build step. Open `index.html` in a browser.
 
 **Live site:** https://kewinbielik.github.io/js-journey/Project1-DoctorWebsite/
 
 ![The Marlow Clinic on a desktop screen](screenshot.png)
 
-## What it does
+## Features
 
-- The header stays on screen. Below 1020px the links move into a menu button.
 - Four sections: about the doctor, treatments, patient reviews, and qualifications.
-- On a wide screen the reviews scroll on their own. Below 760px, buttons move one card at a time.
-- The qualification rows open and close with `<details>` and `<summary>`.
-- A back-to-top button appears after scrolling down.
-- When the browser asks for less motion, the automatic movement stops. On a wide screen the reviews can still be scrolled sideways.
+- Sticky top bar.
+- Back-to-top button.
+- When the browser asks for less motion, the automatic movement stops.
+- The layout changes with the screen width:
+    - The top bar menu switches to "hamburger".
+    - Each section changes design to better fit the screen.
+    - On a wide screen the reviews scroll on their own. Below 760px, buttons move one card at a time.
 
 ## Image credits
 

@@ -1236,4 +1236,8 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   - Fixed typos in js comments.
   - Removed the colons from the section headers.
   - Filled up README.md with more info and a screenshot.
+  - Fixed to big buttons in treatments section.
+  - Added meta description.
+  - Contact button now calls the phone number.
+  - intilalizeDots() and opinionCards.length.
 - **What I learned:**

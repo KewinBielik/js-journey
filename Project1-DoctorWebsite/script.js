@@ -12,12 +12,12 @@ const hiddenNav = document.getElementById("hidden-nav");
 const hiddenNavContent = Array.from(hiddenNav.children);
 
 let opinionCardsPosition = 0;
-const opinionCardsAmount = 6;
 const opinionsList = document.getElementById("opinions-list");
 const opinionsBtnLeft = document.getElementById("opinions-btn-left");
 const opinionsBtnRight = document.getElementById("opinions-btn-right");
 const opinionsListDotsDom = document.getElementById("opinions-list-dots");
-const opinionsListDots = Array.from(opinionsListDotsDom.children)
+let opinionsListDots = Array.from(opinionsListDotsDom.children); 
+const opinionsCards = Array.from(opinionsList.children).filter(el => el.getAttribute(`aria-hidden`) !== `true`);
 
 let intervalId = null;
 const delay = 7000;
@@ -63,6 +63,19 @@ function toggleDropDown() {
     })
 }
 
+function intializeDots() {
+    const dot = opinionsListDots[0];
+    dot.classList.toggle("fa-solid");
+    dot.classList.toggle("fa-regular");    
+    
+    for(let i = 1; i < opinionsCards.length; i++){
+        const dotCopy = dot.cloneNode(true);
+        opinionsListDotsDom.appendChild(dotCopy);
+    }
+    opinionsListDots = Array.from(opinionsListDotsDom.children); 
+    toggleOpinionListDot();
+}
+
 function toggleOpinionListDot(){
     opinionsListDots[opinionCardsPosition].classList.toggle("fa-solid");
     opinionsListDots[opinionCardsPosition].classList.toggle("fa-regular");
@@ -73,7 +86,7 @@ function moveOpinionCardsRight() {
     toggleOpinionListDot();
     opinionCardsPosition += 1;
 
-    if (opinionCardsPosition >= opinionCardsAmount) {
+    if (opinionCardsPosition >= opinionsCards.length) {
         opinionCardsPosition = 0;
     }
 
@@ -89,7 +102,7 @@ function moveOpinionCardsLeft() {
     opinionCardsPosition -= 1;
 
     if (opinionCardsPosition < 0) {
-        opinionCardsPosition += opinionCardsAmount;
+        opinionCardsPosition += opinionsCards.length;
     }
 
     toggleOpinionListDot();
@@ -158,3 +171,5 @@ scrollTop.addEventListener("click", ()=>{
         top: 0
     })
 })
+
+intializeDots();

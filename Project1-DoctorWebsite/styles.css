@@ -281,6 +281,10 @@ nav a:focus-visible {
     gap: 1rem;
 }
 
+.info-buttons a {
+    text-decoration: none;
+}
+
 .info-buttons button {
     display: flex;
     gap: 0.2rem;
@@ -573,7 +577,7 @@ nav a:focus-visible {
     background-color: var(--details);
 
     font-family: var(--font-heading);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     color: var(--background1);
     
@@ -717,12 +721,13 @@ nav a:focus-visible {
 }
 
 .opinions-list h3 {
+    margin: 0 0 1rem;
     font-family: var(--font-heading);
     font-size: 1.5rem;
 }
 
 .opinions-list .reviewer {
-    margin-top: 0.7rem;
+    margin-top: 0;
     font-family: var(--font-heading);
     font-size: 1.2rem;
     color: var(--details);
@@ -735,7 +740,7 @@ nav a:focus-visible {
 .opinions-list .date {
     margin: auto 0 0 0;
     border-top: 2px solid var(--details);
-    padding-top: 2rem;
+    padding-top: 1rem;
     color: var(--text-muted);
 }
 
@@ -959,11 +964,11 @@ nav a:focus-visible {
     color: var(--text-muted);
 }
 
-details[open] .qualifications-toggle {
+.qualifications [open] .qualifications-toggle {
     color: var(--details);
 }
 
-details::details-content {
+.qualifications details::details-content {
     block-size: 0;
     overflow: hidden;
     
@@ -977,19 +982,19 @@ details::details-content {
     transition-behavior: allow-discrete;
 }
 
-details[open]::details-content {
+.qualifications details[open]::details-content {
     block-size: auto;
     padding-bottom: 2rem;
 }
 
-details ul {
+.qualifications details ul {
     display: grid;
     gap: 1rem;
     margin: 0;
     padding-left: 1.5rem;
 }
 
-details li::marker {
+.qualifications details li::marker {
     font-size: 1.5rem;
     color: var(--details);
 }
@@ -1020,16 +1025,16 @@ details li::marker {
         min-width: 40px;
     }
 
-    details::details-content {
+    .qualifications details::details-content {
         margin-bottom: 1rem;
         font-size: 1rem;
     }
 
-    details[open]::details-content {
+    .qualifications details[open]::details-content {
         padding-bottom: 1rem;
     }
 
-    details li::marker {
+    .qualifications details li::marker {
         font-size: 1.1rem;
     }
 }
@@ -1076,11 +1081,11 @@ details li::marker {
         color: var(--details2);
     }
 
-    details[open] .qualifications-toggle {
+    .qualifications details[open] .qualifications-toggle {
         color: var(--details2);
     }    
 
-    details::details-content {
+    .qualifications details::details-content {
         color: var(--background1);
     }
 
