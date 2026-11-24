@@ -285,7 +285,7 @@ nav a:focus-visible {
     text-decoration: none;
 }
 
-.info-buttons button {
+.info-buttons .consultation-btn, .info-buttons .contact-btn {
     display: flex;
     gap: 0.2rem;
 
@@ -305,24 +305,6 @@ nav a:focus-visible {
     color 0.2s ease-in;
 }
 
-.info-buttons button:hover {
-    border-color: var(--details);
-    background-color: var(--background1);
-    color: var(--details);
-}
-
-.info-buttons button:focus-visible {
-    outline-offset: 5px;
-    border-color: var(--details);
-    background-color: var(--background1);
-    color: var(--details);
-}
-
-.info-buttons button .fa-phone, .info-buttons button .fa-calendar {
-    margin: auto 0;
-    font-size: 1rem;
-}
-
 .info-buttons .contact-btn {
     border: 2px solid var(--details);
     background-color: var(--details);
@@ -334,7 +316,38 @@ nav a:focus-visible {
     background-color: var(--background1);
     color: var(--text);
 }
-    
+
+.info-buttons .contact-btn:hover {
+    border-color: var(--details);
+    background-color: var(--background1);
+    color: var(--details);
+}
+
+.info-buttons .contact-btn:focus-visible {
+    outline-offset: 5px;
+    border-color: var(--details);
+    background-color: var(--background1);
+    color: var(--details);
+}
+
+.info-buttons .consultation-btn:hover {
+    border-color: var(--details);
+    background-color: var(--background1);
+    color: var(--details);
+}
+
+.info-buttons .consultation-btn:focus-visible {
+    outline-offset: 5px;
+    border-color: var(--details);
+    background-color: var(--background1);
+    color: var(--details);
+}
+
+.info-buttons .contact-btn .fa-phone, .info-buttons .consultation-btn .fa-calendar {
+    margin: auto 0;
+    font-size: 1rem;
+}
+
 .about-me img {
     max-width: 33%;
     margin: 1rem 0 1rem 3rem;
@@ -358,13 +371,13 @@ nav a:focus-visible {
     .about-me .bio {
         font-size: 1rem;
     }
-
-    .info-buttons button {
+    
+    .info-buttons .contact-btn, .info-buttons .consultation-btn {
         padding: 0.3rem 1.5rem;
         font-size: 0.9rem;
     }
 
-    .info-buttons button .fa-phone, .info-buttons button .fa-calendar {
+    .info-buttons .contact-btn .fa-phone, .info-buttons .consultation-btn .fa-calendar {
         font-size: 0.9rem;
     }
 }
@@ -394,9 +407,10 @@ nav a:focus-visible {
     }
 
     .about-me {
-        padding: 3rem 1rem; 
+        justify-content: center;
         backdrop-filter: blur(7px);
         -webkit-backdrop-filter: blur(7px);
+        padding: 3rem 1rem; 
     }
 
     .about-me .info {
@@ -406,7 +420,6 @@ nav a:focus-visible {
     .about-me h2 {
         color: var(--background1);
         text-align: center;
-        white-space: nowrap;
     }
 
     .about-me .role {
@@ -416,7 +429,7 @@ nav a:focus-visible {
     }
 
     .about-me .bio {
-        margin-bottom: 2rem;
+        max-width: 650px;
         color: var(--background1);
     }
 
@@ -426,19 +439,12 @@ nav a:focus-visible {
         gap: 0;
     }
 
-    .info-buttons button {
+    .info-buttons .consultation-btn, .info-buttons .contact-btn {
         justify-content: center;
-        gap: 0.2rem;
-        width: 80%;
+        box-sizing: border-box;
+        max-width: 650px;
+        width: 100%;
         padding: 0.8rem;
-    }
-
-    .info-buttons button .fa-phone {
-        margin: auto 0;
-    }
-
-    .info-buttons button .fa-calendar {
-        margin: auto 0;
     }
 
     .info-buttons .contact-btn {

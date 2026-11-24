@@ -87,7 +87,7 @@ function moveOpinionCards(x) {
 
     if (opinionsCardsPosition < 0) {
         opinionsCardsPosition = opinionsCards.length - 1;
-    } else if (opinionsCardsPosition > 5) {
+    } else if (opinionsCardsPosition > opinionsCards.length - 1) {
         opinionsCardsPosition = 0;
     }
 

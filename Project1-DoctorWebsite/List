@@ -2,24 +2,9 @@ To Do:
 
 [ ] Make the website adjust To different resolutions.
     [ ] Check how the site responds on phone
-    [ ] Fix about me button size at 760px
-
-[x] Style the opinion cards at reduced motion
-
-[x] Should I style the details tag or should I use my own class like qualifications-content? 
-[x] change opinionCardsAmount to equal opinionListDots.length?
-[x] Add meta name=description.
-[x] Add more stuff in the README A portfolio README needs more than credits. Say what the project is, link the GitHub Pages URL, list what it shows (responsive layout, carousel, accordion, sticky header, plain JavaScript), and add a screenshot. Recruiters often open the repo before the site.
-
-[x] Change the opinion to opinions
-[ ] Write the opinionsCardsPosition condition in one line
-
-Ask:
-[x] the project is inside the jsJourney, shouldn't I keep it outside? because now the commits are mixed with the lessons commits and someone cannot just look into the website project without going through the first few folders. 
-[x] Now that I am making more commits I realized I can't easily see the changes in the editor and I was using that feature to go through the code quickly and clean it up.
+    [x] Fix about me button size at 760px
 
 
-[x] Change move right and move left to one function, pass 1 or -1 for left or right, use dictionary to switch the position from 6 to 0 and from 0 to 6?
 
 
 Good site to inspire from: 

@@ -1240,4 +1240,13 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   - Added meta description.
   - Contact button now calls the phone number.
   - intilalizeDots() and opinionCards.length.
-  - Merged moveOpinionCardsRight and moveOpinionCardsLeft, one function that take 1 or -1.
+  - Merged moveOpinionCardsRight and moveOpinionCardsLeft, one function that takes 1 or -1.
+
+
+## Project #1 - Doctor's website (day 35)
+
+- **Date:** 2026-11-24 · Streak day 80
+- **What I did:** 
+  - Fixed the contact button size on 760px
+  - Removed button tag from the `<a>` tag, now contact button is a link styled like a button
+  - small fix in js, the check was `opinionCardsPosition > 5`, now it compares with `opinionCards.length -1`.
