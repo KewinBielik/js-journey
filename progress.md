@@ -1249,4 +1249,7 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 - **What I did:** 
   - Fixed the contact button size on 760px
   - Removed button tag from the `<a>` tag, now contact button is a link styled like a button
-  - small fix in js, the check was `opinionCardsPosition > 5`, now it compares with `opinionCards.length -1`.
+  - Small fix in js, the check was `opinionCardsPosition > 5`, now it compares with `opinionCards.length -1`.
+  - Changed toggleOpnionListDot() to updateDots()
+  - Added a listener to reducedMotionQuery()
+  - Removed unused topbarBg in js and it's id

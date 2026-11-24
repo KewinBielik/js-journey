@@ -6,7 +6,6 @@ const widthThreshold = 1620; // to disable the adjustment for wider screens - th
 const bottomOffset = 20; // to keep the button slightly above the copyright section.
 const copyrightSection = document.getElementById("copyright");
 
-const topbarBg = document.getElementById("topbar-bg");
 const dropDown = document.getElementById("nav-drop-down");
 const hiddenNav = document.getElementById("hidden-nav");
 const hiddenNavContent = Array.from(hiddenNav.children);
@@ -65,24 +64,28 @@ function toggleDropDown() {
 
 function intializeDots() {
     const dot = opinionsListDots[0];
-    dot.classList.toggle("fa-solid");
-    dot.classList.toggle("fa-regular");    
+    dot.classList.remove("fa-solid");
+    dot.classList.add("fa-regular");    
     
     for(let i = 1; i < opinionsCards.length; i++){
         const dotCopy = dot.cloneNode(true);
         opinionsListDotsDom.appendChild(dotCopy);
     }
     opinionsListDots = Array.from(opinionsListDotsDom.children); 
-    toggleOpinionListDot();
+    updateDots();
 }
 
-function toggleOpinionListDot(){
-    opinionsListDots[opinionsCardsPosition].classList.toggle("fa-solid");
-    opinionsListDots[opinionsCardsPosition].classList.toggle("fa-regular");
+
+function updateDots() {
+    opinionsListDots.forEach((dot, index) => {
+        const isActive = index === opinionsCardsPosition;
+        dot.classList.toggle("fa-solid", isActive);
+        dot.classList.toggle("fa-regular", !isActive);
+    })
 }
 
 function moveOpinionCards(x) {
-    toggleOpinionListDot();
+    
     opinionsCardsPosition += x;
 
     if (opinionsCardsPosition < 0) {
@@ -91,9 +94,8 @@ function moveOpinionCards(x) {
         opinionsCardsPosition = 0;
     }
 
-    toggleOpinionListDot();
     opinionsList.style.left = -(opinionsCardsPosition * 90) + "svw";
-
+    updateDots();
     moveCardsPeriodically();
 }
 
@@ -112,11 +114,11 @@ function moveCardsPeriodically() {
 
 function syncCarouselToWidth() {
     
-    toggleOpinionListDot();
     opinionsCardsPosition = 0;
-    toggleOpinionListDot();
     opinionsList.style.left = "";
-    
+
+    updateDots()
+
     moveCardsPeriodically();
 }
 
@@ -129,8 +131,10 @@ function buttonPop(btn) {
     }, 1000);
 }
 
-carouselQuery.addEventListener("change", syncCarouselToWidth);
+intializeDots();
 syncCarouselToWidth();
+carouselQuery.addEventListener("change", syncCarouselToWidth);
+reducedMotionQuery.addEventListener("change", moveCardsPeriodically);
 
 window.addEventListener("scroll", showScrollTop, {passive: true});
 window.addEventListener("scroll", adjustBottom, {passive: true});
@@ -157,5 +161,3 @@ scrollTop.addEventListener("click", ()=>{
         top: 0
     })
 })
-
-intializeDots();
