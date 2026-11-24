@@ -662,13 +662,16 @@ nav a:focus-visible {
 
 .opinions {
     scroll-margin-top: 180px;
+}
+
+.opinions-info {
     max-width: 1400px;
     margin: auto;
     padding: 0 1rem;
     text-align: center;
 }
 
-.opinions h2 {
+.opinions-info h2 {
     max-width: 900px;
     margin: 0 auto 2rem;
     border-bottom: 2px solid var(--details);
@@ -678,7 +681,7 @@ nav a:focus-visible {
     font-size: 3rem;
 }
 
-.opinions .desc {
+.opinions-info .desc {
     max-width: 800px;
     margin: 2rem auto 5rem;
     font-size: 1.2rem;
@@ -762,6 +765,7 @@ nav a:focus-visible {
     }
 
     .opinions-list {
+        padding-right: 4rem;
         animation: none;
     }
 
@@ -773,14 +777,14 @@ nav a:focus-visible {
 
 @media (max-width: 1180px) {
 
-    .opinions h2 {
+    .opinions-info h2 {
         max-width: 650px;
         margin-bottom: 1rem;
         padding-bottom: 1rem;
         font-size: 2rem;
     }
 
-    .opinions .desc {
+    .opinions-info .desc {
         max-width: 600px;
         margin-top: 1rem;
         margin-bottom: 3rem;

@@ -1253,3 +1253,6 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   - Changed toggleOpnionListDot() to updateDots()
   - Added a listener to reducedMotionQuery()
   - Removed unused topbarBg in js and it's id
+  - Opinions section tag now wraps the whole section, the header and description sit in a new tag `opinions-info`.
+- **What I learned:**
+  - **Toggle with 2 parameters** - `el.classList.toggle("class")` removed the class from an element if it had that class, added it if it didn't have it. `el.classList.toggle("class", condition)` adds the class if the condition is true and removes it if the condition is false.  
