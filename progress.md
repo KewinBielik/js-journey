@@ -824,36 +824,38 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 
 ## Project #1 - Doctor's website (day 1)
 
-- **Date:** 2026-10-10 · Steak day 47
-- **What project, why project:** I decided that continuing the lessons would be unproductive and started a somewhat simple website project. The goal is to finish this site with minimal help, doing as much as I can by myself to make it challanging and prove that I got have gotten better. The finished project should be a webiste that some doctor could potentially use.
-- **What I did:** Created the project folder, started from an empty HTML and build the website's skeleton with basic styling. Wrote a list of things that should end up on the website.
+- **Date:** 2026-10-10 · Streak day 47
+- **What project, why project:** I decided that continuing the lessons would be unproductive and started a somewhat simple website project. The goal is to finish this site with minimal help, doing as much as I can by myself to make it challenging and prove that I have gotten better. The finished project should be a website that some doctor could potentially use.
+- **What I did:** Created the project folder, started from an empty HTML and built the website's skeleton with basic styling. Wrote a list of things that should end up on the website.
 - **What I learned:**
-  - **HTML sematics are for clarity.** I am always getting confused by this so this time I made some research to be sure - you could create a whole page with `divs` but sematic tags such as `<header>`, `<nav>`, `<main>`, `<footer>` are better to read for everyone (search engines, humans,  screen readers). *They don't do anything alone.*
-  - **Topbar bottom border.** Doing a div inside the `<header` is the right way to do it. Put a bottom border on header and style the rest in that div.
+  - **HTML semantics are for clarity.** I am always getting confused by this so this time I made some research to be sure — you could create a whole page with `div`s but semantic tags such as `<header>`, `<nav>`, `<main>`, `<footer>` are better to read for everyone (search engines, humans, screen readers). *They don't do anything alone.*
+  - **Topbar bottom border.** Doing a `div` inside the `<header>` is the right way to do it. Put a bottom border on `header` and style the rest in that `div`.
 
 ## Project #1 - Doctor's website (day 2)
+
 - **Date:** 2026-10-12 · Streak day 48
-- **What I did:** 
-  - Started the day by watching one video about learning how to code. I think I am gonna keep this as a part of the schedule - as long as watching content is only 5% of my work, it should be beneficial and not unproductive. I made some notes out of the video and added two sections "Roadmap" and "For future", so that I can better plan my moves and note down things that I will need later - once I start applying to the job. 
-  - I chose and added fonts, color pallete, highlits on nav links, added a logo (a free template), rounded corners and shadow under the big image.
+- **What I did:**
+  - Started the day by watching one video about learning how to code. I think I am gonna keep this as a part of the schedule — as long as watching content is only 5% of my work, it should be beneficial and not unproductive. I made some notes out of the video and added two sections "Roadmap" and "For future", so that I can better plan my moves and note down things that I will need later — once I start applying to the job.
+  - I chose and added fonts, color palette, highlights on nav links, added a logo (a free template), rounded corners and shadow under the big image.
 - **What I learned:**
-  - **Using google fonts.** Besdies standard fonts in HTML there are many more which are not included by default. To include such font you need a `style sheet link` in `<head>`, like this:
->  ```html
->    <head>
-><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
-><style>
->body {
-> font-family: "Sofia", sans-serif;
->}
-></style>
-></head>
->  ```
+  - **Using Google Fonts.** Besides standard fonts in HTML there are many more which are not included by default. To include such a font you need a stylesheet link in `<head>`, like this:
+  ```html
+  <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <style>
+      body {
+        font-family: "Sofia", sans-serif;
+      }
+    </style>
+  </head>
+  ```
 
 ## Project #1 - Doctor's website (day 3)
+
 - **Date:** 2026-10-13 · Streak day 49
-- **What I did:** Changed website language to english, made up some data so the website does not use real info, added more in the about me section, fixed the naming convention of classes and started adding another section.
-- **What I learned:** 
-  - The most widely adopted convention for styling is `BEM` (Block, Element, Modifier). To put it simply: .some-card (block), .some-card__title (element), .some-card__title--active (modifier).
+- **What I did:** Changed website language to English, made up some data so the website does not use real info, added more in the about me section, fixed the naming convention of classes and started adding another section.
+- **What I learned:**
+  - The most widely adopted convention for styling is `BEM` (Block, Element, Modifier). To put it simply: `.some-card` (block), `.some-card__title` (element), `.some-card__title--active` (modifier).
 
 ## Project #1 - Doctor's website (day 4)
 
@@ -861,144 +863,132 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 - **What I did:** I have put some content inside the Treatments section, I styled the list as cards, borders, shadows, fonts and buttons. So far the buttons don't align properly, I gotta fix it next time.
 - **What I learned:**
   - When styling `border-radius` using `px` instead of `%` can allow for more rounded corners without turning the whole button into a circle.
-  - Styling cards as `ul` and `li`'s is the right approach. `flex-wrap: wrap;` allows the list items to wrap around and `list-style: none;` removes default list styling. Combine with `display: flex;` and style it like divs - the upside is that the html reads better.
+  - Styling cards as `ul` and `li`s is the right approach. `flex-wrap: wrap;` allows the list items to wrap around and `list-style: none;` removes default list styling. Combine with `display: flex;` and style it like `div`s — the upside is that the HTML reads better.
 
 ## Project #1 - Doctor's website (day 5)
 
 - **Date:** 2026-10-15 · Streak day 51
-- **What I did:** Styling adjustments of the treatment cards, fixnig the button alignment, Implementing the sticky top bar (easier than I expected), making the nav links work and adding another section "opinions".
+- **What I did:** Styling adjustments of the treatment cards, fixing the button alignment, implementing the sticky top bar (easier than I expected), making the nav links work and adding another section "opinions".
 - **What I learned:**
   - Top bar that stays on top is easy to do:
   ```css
   .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 999; 
+    position: sticky;
+    top: 0;
+    z-index: 999;
   }
   ```
-
 
 ## Project #1 - Doctor's website (day 6)
 
 - **Date:** 2026-10-16 · Streak day 52
 - **What I did:** Designed opinion cards and implemented automatic slow right to left scrolling.
-- **What I learned:** 
+- **What I learned:**
   - I can create animations by creating `@keyframes` like this:
   ```css
-    @keyframes scroll-left {
-    from {transform: translateX(0%);}
-    to {transform: translateX(100%);}
-    }
+  @keyframes scroll-left {
+    from { transform: translateX(0%); }
+    to { transform: translateX(100%); }
+  }
   ```
   and then use on a section like this:
   ```css
-    .section {
-      animation: scroll-left 10s linear infinite;
-    }
+  .section {
+    animation: scroll-left 10s linear infinite;
+  }
   ```
 
 ## Project #1 - Doctor's website (day 7)
 
 - **Date:** 2026-10-17 · Streak day 53
 - **What I did:** I fixed the opinion cards scrolling so that now it goes from 0 to 50% (instead of some values measured by the eye), fixed the topbar not showing, added scroll to top button.
-- **What I learned:** 
+- **What I learned:**
   - I learned how to add a script that applies a function on scrolling and that I should import the script at the end of the `<body>` so that the page can load before the script does.
-
-
 
 ## Project #1 - Doctor's website (day 8)
 
 - **Date:** 2026-10-19 · Streak day 54
-- **What I did:** Added transition effect to the scroll to top button, decided on the final structure and started adding the last section "Qualifications"
-- **What I learned:** 
-  - A simple transition can be done purely by styling, use `transition` attribute and a secondary class. For example:
+- **What I did:** Added transition effect to the scroll to top button, decided on the final structure and started adding the last section "Qualifications".
+- **What I learned:**
+  - A simple transition can be done purely by styling, use the `transition` property and a secondary class. For example:
   ```css
-    .a-class {
-      width: 400px;
-      transition: width 2s;
-    }
+  .a-class {
+    width: 400px;
+    transition: width 2s;
+  }
 
-    .a-class .wider {
-      width: 600px;
-    }
-  ``` 
-  Now if an element has class `a-class` and we give it the class `.wider` its going to transition the width smoothly in 2s. If we later remove the other class then the width will transitin again.
-
+  .a-class.wider {
+    width: 600px;
+  }
+  ```
+  Now if an element has class `a-class` and we give it the class `wider` it's going to transition the width smoothly in 2s. If we later remove the other class then the width will transition again.
 
 ## Project #1 - Doctor's website (day 9)
 
 - **Date:** 2026-10-20 · Streak day 55
 - **What I did:** Added a bit of styling in the quali section, colors, fonts, hover and expandable elements. I was trying to make a smooth expanding animation but right now it's only smooth on the way back.
 - **What I learned:**
-  - Attaching a `label` to an `input checkbox` and then hiding the `checkbox` so that the user only sees the label and clicks it to activate the checkbox.
-  - Using the "+" combinator allows to influence one element with a certain class (even if mutiple elements have that class). This was very helpful today. 
-  ``` css 
-    .quali-toggle:checked + .quali-toggle-label {
+  - Attaching a `label` to an `input` checkbox and then hiding the checkbox so that the user only sees the label and clicks it to activate the checkbox.
+  - Using the `+` combinator allows to influence one element with a certain class (even if multiple elements have that class). This was very helpful today.
+  ```css
+  .quali-toggle:checked + .quali-toggle-label {
     color: var(--details);
-    }
+  }
   ```
-
 
 ## Project #1 - Doctor's website (day 10)
 
 - **Date:** 2026-10-21 · Streak day 56
 - **What I did:** Fixed smooth expanding, styled the insides of each quali header, added an image in the quali section. Trying out different ideas and styles took most of the time today, I decided to keep an image next to the quali but I am not sure about that design.
 - **What I learned:**
-  - Two headers with `margin 2rem` will keep distance of `2rem` between each other, but if there is anything between them its gonna be: 2rem, element, 2rem. I had an element with height = 0, and even though it was not visible it was still causing that margin to add up. It was very painful to debug. This was the key to the smooth headers expanding, now I am not changing `display` and only use heigh, margin and padding which css can transition smoothly.
-
+  - Two headers with `margin: 2rem` will keep distance of `2rem` between each other, but if there is anything between them it's gonna be: `2rem`, element, `2rem`. I had an element with `height: 0`, and even though it was not visible it was still causing that margin to add up. It was very painful to debug. This was the key to the smooth headers expanding, now I am not changing `display` and only use `height`, `margin` and `padding` which CSS can transition smoothly.
 
 ## Project #1 - Doctor's website (day 11)
 
 - **Date:** 2026-10-22 · Streak day 57
-- **What I did:** For the `about me` section: found a better photo, adjusted the styling and implemented two buttons. Slighlty adjusted the `Quali section`. Started creating and styling the footer section.
+- **What I did:** For the `about-me` section: found a better photo, adjusted the styling and implemented two buttons. Slightly adjusted the Quali section. Started creating and styling the footer section.
 - **What I learned:**
-  - **Padding impacts border-radius**, this was causing my image in the `about me section` to not round properly when I changed the `border-radius`. Also, the `border-radius` behaves differently when it's passed `%` and when it's passed `px`. Unless I am coping.
+  - **Padding impacts `border-radius`**, this was causing my image in the about me section to not round properly when I changed the `border-radius`. Also, the `border-radius` behaves differently when it's passed `%` and when it's passed `px`. Unless I am coping.
 
 ## Project #1 - Doctor's website (day 12)
 
 - **Date:** 2026-10-23 · Streak day 58
-- **What I did:** Fixed the structure of the quali and footer section to match the overall website's structure. Finished footer section and added icons from font-awesome.
+- **What I did:** Fixed the structure of the quali and footer section to match the overall website's structure. Finished footer section and added icons from Font Awesome.
 - **What I learned:**
-  - Font-awsome can be imported just as the google font and it includes many great icons.
-
+  - Font Awesome can be imported just as the Google Font and it includes many great icons.
 
 ## Project #1 - Doctor's website (day 13)
 
 - **Date:** 2026-10-25 · Streak day 59
 - **What I did:** Added icons to the treatment cards and improved a lot of the styling there. Minor changes all over the site: icons in about me buttons, description in treatments, changed the img in the scrollUp to an icon and added color transition, fixed color transitions in the footer section. The website now looks finished! Now I have to clean up the mess in the code and make the website adjust to different resolutions and phones.
-- **What I learned:** I don't think there was any new big thing learned today, but I practiced the font-awesome icons more.
-
+- **What I learned:** I don't think there was any new big thing learned today, but I practiced the Font Awesome icons more.
 
 ## Project #1 - Doctor's website (day 14)
 
 - **Date:** 2026-10-26 · Streak day 60
-- **What I did:** Made the buttons in treatments interactive, fixed scroll up button transition, added pause on opinions when hovered and began to clean up and fix the css and html.
-- **What I learned:** 
-  - Using `<p>` inside `<button>` is not allowed. Instead use `<span>`
+- **What I did:** Made the buttons in treatments interactive, fixed scroll up button transition, added pause on opinions when hovered and began to clean up and fix the CSS and HTML.
+- **What I learned:**
+  - Using `<p>` inside `<button>` is not allowed. Instead use `<span>`.
   - You can use one `+` after another to select an element further away.
-  - `:has() pseudo class` allows to style based on the presence, state, or position of its descendants or siblings. In my case I used to style a parent element when it's child is hovered.
+  - The `:has()` pseudo-class allows to style based on the presence, state, or position of its descendants or siblings. In my case I used it to style a parent element when its child is hovered.
   ```css
-    .opinions-list:has(li:hover)
-    {
-      animation-play-state: paused;
-    }
+  .opinions-list:has(li:hover) {
+    animation-play-state: paused;
+  }
   ```
-
 
 ## Project #1 - Doctor's website (day 15)
 
 - **Date:** 2026-10-27 · Streak day 61
-- **What I did:** Fixed quali styling, added opinion cards border highlight, Fixed missing styling all over the site (I had to somehow mess it up while changing font in all occurences), finally began cleaning up and ordering the css.
+- **What I did:** Fixed quali styling, added opinion cards border highlight, fixed missing styling all over the site (I had to somehow mess it up while changing font in all occurrences), finally began cleaning up and ordering the CSS.
 - **What I learned:**
-  - **CSS convention -** I found out how things should be organized in css, the idea is to from the outside of the box inward like this:
-  
-    - **1. Layout -** `display`, `flex-direction`, `flex-wrap`, `justify-content`, `align-items`, `gap`.
-    - **2. Box -** `width`, `height`, `margin`, `border`, `border-radius`, `padding`, `background-color`.
-    - **3. Text -** `font-family`, `font-size`, `font-weight`, `line-height`, `color`, `text-align`.
-    - **4. Motion -** `cursor` first, then `transition`.
-    
-    So first comes a property that sets a `mode` and then properties that depend on it, for example `justify-content` comes after `display` or `border-radius` comes after `border`.  
+  - **CSS convention —** I found out how things should be organized in CSS, the idea is to go from the outside of the box inward like this:
+    - **1. Layout —** `display`, `flex-direction`, `flex-wrap`, `justify-content`, `align-items`, `gap`.
+    - **2. Box —** `width`, `height`, `margin`, `border`, `border-radius`, `padding`, `background-color`.
+    - **3. Text —** `font-family`, `font-size`, `font-weight`, `line-height`, `color`, `text-align`.
+    - **4. Motion —** `cursor` first, then `transition`.
 
+    So first comes a property that sets a mode and then properties that depend on it, for example `justify-content` comes after `display` or `border-radius` comes after `border`.
 
 ## Project #1 - Doctor's website (day 16)
 
@@ -1006,197 +996,175 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 - **What I did:** Finished cleaning up the CSS.
 - **What I learned:** On the next project I will aim to write my CSS cleanly as I go, so that I don't have to clean it up later.
 
-
 ## Project #1 - Doctor's website (day 17)
 
 - **Date:** 2026-10-30 · Streak day 63
-- **What I did:** I have begun to make small changes to the html structure (removing unecessery sections or changing them into divs, "quali" to "qualifications"), following it with the styling and changing the js a bit (window.onscroll to addEventListener). 
+- **What I did:** I have begun to make small changes to the HTML structure (removing unnecessary sections or changing them into `div`s, `quali` to `qualifications`), following it with the styling and changing the JS a bit (`window.onscroll` to `addEventListener`).
 - **What I learned:**
-  - **Section vs Div -** A `section` is a block of content with it's own heading, otherwise I should use `div`.
-  - **window.onscroll vs window.addEventListener("scroll", ...) -** The `window.onscroll` that I have been using holds a single function, assigning it again will replace the whatever was stored there. `The window.addEventListener("scroll", ...)` can add a function to a list. Another listener can be added later and both will run.
-
+  - **Section vs Div —** A `section` is a block of content with its own heading, otherwise I should use `div`.
+  - **`window.onscroll` vs `window.addEventListener("scroll", ...)` —** The `window.onscroll` that I have been using holds a single function, assigning it again will replace whatever was stored there. `window.addEventListener("scroll", ...)` can add a function to a list. Another listener can be added later and both will run.
 
 ## Project #1 - Doctor's website (day 18)
 
 - **Date:** 2026-11-02 · Streak day 63
-- **What I did:** I made sure that html are css are both fine and begun to make the site adjust to different sizes. So far it scales well down to 1150px width. I spent most of today's session on making the scroll to top button position adjust - I wanted it to be higher once it hits the bottom of the page, because it was covering the social media links. I managed to write the code and figure out the right math all by myself and it was super satisfying to solve a problem on my own.
+- **What I did:** I made sure that HTML and CSS are both fine and begun to make the site adjust to different sizes. So far it scales well down to 1150px width. I spent most of today's session on making the scroll to top button position adjust — I wanted it to be higher once it hits the bottom of the page, because it was covering the social media links. I managed to write the code and figure out the right math all by myself and it was super satisfying to solve a problem on my own.
 - **What I learned:**
-  - You can get the Y position of any html element in js with element.offsetTop (first fint element by id ofc.)
-
-
+  - You can get the Y position of any HTML element in JS with `element.offsetTop` (first find the element by id ofc.).
 
 ## Project #1 - Doctor's website (day 19)
 
 - **Date:** 2026-11-03 · Streak day 64
-- **What I did:** I styled the nav in topbar to appear as a dropdown menu. I am not sure whetever I like the styling and if it should show after just a hover, but for now I will keep it like this. I may have done some mess in the css while experimenting so I will clean this up tomorrow.
-- **What I learned:** 
-  - I couldn't figure out how to center the dropdown content under the dropdown icon, it was aligning by it's left corner and I needed to center it by it's middle. The solution was to change the `left` and `transform`.
+- **What I did:** I styled the nav in topbar to appear as a dropdown menu. I am not sure whether I like the styling and if it should show after just a hover, but for now I will keep it like this. I may have done some mess in the CSS while experimenting so I will clean this up tomorrow.
+- **What I learned:**
+  - I couldn't figure out how to center the dropdown content under the dropdown icon, it was aligning by its left corner and I needed to center it by its middle. The solution was to change the `left` and `transform`.
   ```css
-    .nav-horizontal-content {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-  ```  
-
-  `left: 50%` made it so the left corner attached to the middle of the icon (rather than it's left side) and `transform: translate(-50%)` has moved it to the left by 50% of it's width. 
-
+  .nav-horizontal-content {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  ```
+  `left: 50%` made it so the left corner attached to the middle of the icon (rather than its left side) and `transform: translateX(-50%)` has moved it to the left by 50% of its width.
 
 ## Project #1 - Doctor's website (day 20)
 
 - **Date:** 2026-11-04 · Streak day 65
-- **What I did:** I improved the drop down menu on width < 1150px. It now expands on click rather on hover and it's width matches the free space on topbar - this one took me long to figure out and was really satisfying to find the solution. I also adjusted the about-me section slightly, to remove the line in the middle and make the picture bigger in width < 1150px. I tried to make treatment cards scale their width but run out of time for today.
-- **What I learned:** 
-  - The `width: 100%` on the dropDown content was not working because the horizontal nav width was really small. The key was to make both nav and nav-horizontal width to expand fully by adding `width: 100%`. Then I could apply the same for nav-horizontal-content. This was very confusing because I did not realize the first div's not expanding fully and I couldn't understand why the width is just the icon's width.
-
+- **What I did:** I improved the dropdown menu on width < 1150px. It now expands on click rather than hover and its width matches the free space on topbar — this one took me long to figure out and was really satisfying to find the solution. I also adjusted the about-me section slightly, to remove the line in the middle and make the picture bigger in width < 1150px. I tried to make treatment cards scale their width but ran out of time for today.
+- **What I learned:**
+  - The `width: 100%` on the dropdown content was not working because the horizontal nav width was really small. The key was to make both `nav` and `.nav-horizontal` width expand fully by adding `width: 100%`. Then I could apply the same for `.nav-horizontal-content`. This was very confusing because I did not realize the first `div`s were not expanding fully and I couldn't understand why the width is just the icon's width.
 
 ## Project #1 - Doctor's website (day 21)
 
 - **Date:** 2026-11-05 · Streak day 66
-- **What I did:** I Played a bit with `flex`, `flex-grow`, `flex-shrink` and `flex-basis` on treatment cards. I couldn't figure out how to achieve the same effect as the site that I am comparing to but I got a somewhat satisfying result - the cards now scale a bit before they move to the next row. I also made all fonts scale down at 1000px width, some paddings/margins and the scrollTop button size too. Maybe I am gonna change this threshold to 1150, so that it scales "earlier".
-- **What I learned:** 
-  - `flex: 1` sets `flex-grow`, `flex-shrink` to 1 and `flex-basis` to 0. This is apparently the best way to make all flex elements scale their size and fill the whole space. My issue was that Some elements were bigger and some smaller - probably because there were 4 in first line and 2 in the second, so the 2 push out elements had more space to expand. I learned something but it's still confusing and not fully clear. 
-
-
+- **What I did:** I played a bit with `flex`, `flex-grow`, `flex-shrink` and `flex-basis` on treatment cards. I couldn't figure out how to achieve the same effect as the site that I am comparing to but I got a somewhat satisfying result — the cards now scale a bit before they move to the next row. I also made all fonts scale down at 1000px width, some paddings/margins and the `#scrollTop` button size too. Maybe I am gonna change this threshold to 1150, so that it scales "earlier".
+- **What I learned:**
+  - `flex: 1` sets `flex-grow`, `flex-shrink` to 1 and `flex-basis` to 0. This is apparently the best way to make all flex elements scale their size and fill the whole space. My issue was that some elements were bigger and some smaller — probably because there were 4 in first line and 2 in the second, so the 2 pushed-out elements had more space to expand. I learned something but it's still confusing and not fully clear.
 
 ## Project #1 - Doctor's website (day 22)
 
 - **Date:** 2026-11-06 · Streak day 67 (six seven lol)
-- **What I did:** I continued making the site scale better for lower res, I made some mess in the code, cleaned up some and made some more. The logos now have transparent background and dont have built in padding (thanks AI). This session was quite chaotic, I definitely want to clean up the code tomorrow.
+- **What I did:** I continued making the site scale better for lower res, I made some mess in the code, cleaned up some and made some more. The logos now have transparent background and don't have built-in padding (thanks AI). This session was quite chaotic, I definitely want to clean up the code tomorrow.
 - **What I learned:**
-  - Adding an on click event to all children elements of an element: 
+  - Adding an onclick event to all children elements of an element:
   ```js
-    Array.from(hiddenNav.children).forEach(child => {
-      child.addEventListener("click", openDropDown);
-    })
+  Array.from(hiddenNav.children).forEach(child => {
+    child.addEventListener("click", openDropDown);
+  })
   ```
-
 
 ## Project #1 - Doctor's website (day 23)
 
 - **Date:** 2026-11-07 · Streak day 68
 - **What I did:** I took my time to clean up the code and make small adjustments.
-- **What I learned:** 
+- **What I learned:**
   - I used `git diff` to see what has changed in my code, so that I didn't have to review all of it.
-  - I realized that my dynamic is a bit inefficient (having to do clean ups after few sessions) and I plan to have a routine of cleaning up the code after end of each session - comparing just the last commit will be much easier than cleaning up commits from 5 sessions.
-
+  - I realized that my dynamic is a bit inefficient (having to do cleanups after few sessions) and I plan to have a routine of cleaning up the code after end of each session — comparing just the last commit will be much easier than cleaning up commits from 5 sessions.
 
 ## Project #1 - Doctor's website (day 24)
 
 - **Date:** 2026-11-09 · Streak day 69 (sixty nine LOL)
-- **What I did:** I changed few names in js to better fit their function and made the adjustBottom function run only for lower width. Added "nav-menu" class to that div in `nav-horizontal` so that it's not unnamed and says it's purpose. Removed the black outline on the ScrollTop button when hovered with `tab`. Added `overflow-x: hidden;` to `opinions-bg` so that the bottom scroll is hidden. I fixed the dropDown content alignment, now it's always positioned at the end of topbar's height.
-- **What I learned:** 
-  - **"An absolute box uses the nearest ancestor whose position is not static."** - while experimneting and trying to figure out how to make the dropDown content "attach" to the bottom of the topbar, I moved the icon under the dropDown and it influenced the adjustment, this got me confused, but it was because the order of elements in flexbox matters - one element with margin/padding pushes the other. the `.nav-horizontal` was the parent all along, it was the icon's size and margin that made it confusing. The final solution was to put the content before the icon and set `top: 100%` - this positions the content's top edge at it's parent bottom edge, the exact result that I needed.
-  - **:focus** - pressing tab on websites swtiches the `focus` from one element to another - if the focus is on a button and enter is pressed then the button activates. Every button has a black outline when hovered, this is a default style for the :focus pseudo-class.
-
-
+- **What I did:** I changed few names in JS to better fit their function and made the `adjustBottom` function run only for lower width. Added `nav-menu` class to that `div` in `.nav-horizontal` so that it's not unnamed and says its purpose. Removed the black outline on the `#scrollTop` button when focused with Tab. Added `overflow-x: hidden;` to `.opinions-bg` so that the bottom scroll is hidden. I fixed the dropdown content alignment, now it's always positioned at the end of topbar's height.
+- **What I learned:**
+  - **"An absolute box uses the nearest ancestor whose position is not static."** — while experimenting and trying to figure out how to make the dropdown content "attach" to the bottom of the topbar, I moved the icon under the dropdown and it influenced the adjustment, this got me confused, but it was because the order of elements in flexbox matters — one element with margin/padding pushes the other. The `.nav-horizontal` was the parent all along, it was the icon's size and margin that made it confusing. The final solution was to put the content before the icon and set `top: 100%` — this positions the content's top edge at its parent bottom edge, the exact result that I needed.
+  - **`:focus`** — pressing Tab on websites switches the focus from one element to another — if the focus is on a button and Enter is pressed then the button activates. Every button has a black outline when focused, this is a default style for the `:focus` pseudo-class.
 
 ## Project #1 - Doctor's website (day 25)
 
 - **Date:** 2026-11-10 · Streak day 70
-- **What I did:** I started working on about-me section scaling below 900px, the image scales alright. Worked on a different desgin below 760px with a blurred background image. Slighlty changed treatment cards - below 1180px the cards have no `max-width` and once it's only one card in the row, the button stretches to full width.
-- **What I learned:** 
-  - **blurry background image** - this can be done by adding an image to the bg and `backdrop-filter` to the element in front. the `background-color` and `blend-mode` darken the image slightly.
-  ``` css
-        .about-me-bg {
-        padding: 0;
-        background-image: url("aboutMeBg.png");
-        background-position: center;
-        background-size: cover;
-        background-color: rgba(0, 0, 0, 0.5);
-        background-blend-mode: darken;
-    }
+- **What I did:** I started working on about-me section scaling below 900px, the image scales alright. Worked on a different design below 760px with a blurred background image. Slightly changed treatment cards — below 1180px the cards have no `max-width` and once it's only one card in the row, the button stretches to full width.
+- **What I learned:**
+  - **Blurry background image** — this can be done by adding an image to the bg and `backdrop-filter` to the element in front. The `background-color` and `background-blend-mode` darken the image slightly.
+  ```css
+  .about-me-bg {
+    padding: 0;
+    background-image: url("aboutMeBg.png");
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: darken;
+  }
 
-        .about-me {
-        padding: 3rem 1rem 5rem; 
-        backdrop-filter: blur(7px);
-        -webkit-backdrop-filter: blur(7px);
-    }
+  .about-me {
+    padding: 3rem 1rem 5rem;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+  }
   ```
-
-
 
 ## Project #1 - Doctor's website (day 26)
 
 - **Date:** 2026-11-11 · Streak day 71
-- **What I did:** I continued the 760px scaling, the `about-me`, `qualifications`, `footer` and `scrollTop` are basically done. I also adjusted the `treatments` a bit, by setting the `max-width: none` at the res when there is just one card in the row and making the `p` tag margin lower. I also fixed the `scroll-marging-top` on each section at 760px. I really like the image in background designs.
+- **What I did:** I continued the 760px scaling, the `about-me`, `qualifications`, `footer` and `#scrollTop` are basically done. I also adjusted the `treatments` a bit, by setting the `max-width: none` at the res when there is just one card in the row and making the `p` tag margin lower. I also fixed the `scroll-margin-top` on each section at 760px. I really like the image in background designs.
 - **What I learned:** Nothing major today.
-
 
 ## Project #1 - Doctor's website (day 27)
 
 - **Date:** 2026-11-14 · Streak day 72
 - **What I did:** I did minor adjustments for the 760px res in about-me and the footer and also started the two button design for opinion cards at 760px.
 - **What I learned:**
-  - The **"An absolute box uses the nearest ancestor whose position is not static."** has hit me again. I was trying to position the buttons at 50% of the opinions-list-bg which would end up always at the half of the opinion cards height. But setting the `top:50%` was putting the buttons waay higher, around the about-me section, and it took me a lot of time and experimenting to figure out that opinions-list-bg needs `position: relative`. I need to remember that the position is set to static by default and the element will look for that nearest ancestor whose position is NOT static.
-
+  - The **"An absolute box uses the nearest ancestor whose position is not static."** has hit me again. I was trying to position the buttons at 50% of the `.opinions-list-bg` which would end up always at the half of the opinion cards height. But setting the `top: 50%` was putting the buttons way higher, around the about-me section, and it took me a lot of time and experimenting to figure out that `.opinions-list-bg` needs `position: relative`. I need to remember that the position is set to `static` by default and the element will look for that nearest ancestor whose position is NOT `static`.
 
 ## Project #1 - Doctor's website (day 28)
 
 - **Date:** 2026-11-16 · Streak day 73
-- **What I did:** I styled the opinion buttons and spent the most of this session on figurting out the right logic for the cards switching in js. This couldn't be done by pure css (I think) because the animations cannot accumulate the position. I am really happy with how things went, it was super satisfying to figure these things out bit by bit. I also made sure that the logic works for different screen widths and keeps working if someone changes the screen width as he is using the buttons.
+- **What I did:** I styled the opinion buttons and spent most of this session on figuring out the right logic for the cards switching in JS. This couldn't be done by pure CSS (I think) because the animations cannot accumulate the position. I am really happy with how things went, it was super satisfying to figure these things out bit by bit. I also made sure that the logic works for different screen widths and keeps working if someone changes the screen width as he is using the buttons.
 - **What I learned:**
-  - **To set `el.style.left` in js the element position cannot be `static`** - This took some time to figure out, but once I fixed that the code has began to work. (statis is set by default, so I changed it to relative).
-  - **The `animationed` event** - I learned new event that I can attach functions to. Animationed runs once the element's animation finishes, it was very useful today.
-  - `el.getBoundClientRect()` - this method returns the size and position of an element relative to the viewport, meaning that if the position changes due to an animation, this method can help get that position. It takes no parameters and is called on a DOM element to retrieve properties including `width`, `height`, `top`, `right`, `bottom`, `left`, `x`, and `y`. 
-
-
+  - **To set `el.style.left` in JS the element position cannot be `static`** — This took some time to figure out, but once I fixed that the code has begun to work. (`static` is set by default, so I changed it to `relative`).
+  - **The `animationend` event** — I learned a new event that I can attach functions to. `animationend` runs once the element's animation finishes, it was very useful today.
+  - `el.getBoundClientRect()` — this method returns the size and position of an element relative to the viewport, meaning that if the position changes due to an animation, this method can help get that position. It takes no parameters and is called on a DOM element to retrieve properties including `width`, `height`, `top`, `right`, `bottom`, `left`, `x`, and `y`.
 
 ## Project #1 - Doctor's website (day 29)
 
 - **Date:** 2026-11-17 · Streak day 74
-- **What I did:** I finished the 760px opinions section's design, implemented better logic. Also slightly improved the js code for adjusting the bottom of scrollTop - had some unoptimal code here too. Added click styles to all buttons (almost). I also fixed the quali image scaling at 760px. The giga wide screen on phone seems to got fixed by itself, will check again at the end of the project.  
-- **Some conclusions:** 
-  - My code logic from yesterday was ok, but it did a lot of unecessery work. For some reason I left like tracking the cards position by increasing/decreasing a variable by 1 is a dumb way and can lead to bugs. My approach was doing almost the same thing, it just had more calculations but it didn't make it less prone to bugs, I would even state the opposite. A better solution was way simpler, I really feel like it was the first idea that came to my mind but I have ditched it and tried to work around the `animation` instead.
-  - I couldn't figure out the right way to fix the background image scaling in qualifications section at 760px because I didn't realize the background-size can also be set to raw values. I should have researched how this property works first. 
+- **What I did:** I finished the 760px opinions section's design, implemented better logic. Also slightly improved the JS code for adjusting the bottom of `#scrollTop` — had some unoptimal code here too. Added click styles to all buttons (almost). I also fixed the quali image scaling at 760px. The giga wide screen on phone seems to got fixed by itself, will check again at the end of the project.
+- **Some conclusions:**
+  - My code logic from yesterday was ok, but it did a lot of unnecessary work. For some reason I felt like tracking the cards position by increasing/decreasing a variable by 1 is a dumb way and can lead to bugs. My approach was doing almost the same thing, it just had more calculations but it didn't make it less prone to bugs, I would even state the opposite. A better solution was way simpler, I really feel like it was the first idea that came to my mind but I have ditched it and tried to work around the `animation` instead.
+  - I couldn't figure out the right way to fix the background image scaling in qualifications section at 760px because I didn't realize the `background-size` can also be set to raw values. I should have researched how this property works first.
 - **What I learned:**
-  - **Simple code** - I feel like today's experience has showed me that I should always aim for the simplest code possible and kinda sparked and idea on how to do it - in my next problem I will try to simplify it and work from the end, so for example in this case that I had just now: Since I already figured out the cards positioning with `svw` (one card being 80svw + 10svw on the left, 10svw on the right to always keep it centered and hide the other cards) I should have think of a way to simple move the card by 90svw with each click.
+  - **Simple code** — I feel like today's experience has showed me that I should always aim for the simplest code possible and kinda sparked an idea on how to do it — in my next problem I will try to simplify it and work from the end, so for example in this case that I had just now: Since I already figured out the cards positioning with `svw` (one card being `80svw` + `10svw` on the left, `10svw` on the right to always keep it centered and hide the other cards) I should have thought of a way to simply move the card by `90svw` with each click.
 
 ## Project #1 - Doctor's website (day 30)
 
 - **Date:** 2026-11-18 · Streak day 75
-- **What I did:** Today I mainly styled the :focus state on all buttons. This took more time than it should, but at least it's done now. I also had to fix the focus on hidden nav links, because the keyboard user could select those while there were hidden.
-- **Note:** Yesterday I deleted `animation: none` from opinion-list at the end of the session. I haven't realized this made the cards start rolling ay 760px, so that commit looks really bad.
+- **What I did:** Today I mainly styled the `:focus` state on all buttons. This took more time than it should, but at least it's done now. I also had to fix the focus on hidden nav links, because the keyboard user could select those while they were hidden.
+- **Note:** Yesterday I deleted `animation: none` from `.opinion-list` at the end of the session. I haven't realized this made the cards start rolling at 760px, so that commit looks really bad.
 - **What I learned:**
-  - **`<a>` has no .disabled** - For buttons I can use `btn.style.disabled = "true"` but links don't have that attribute. I had to use `link.tabIndex = -1`.
-
+  - **`<a>` has no `.disabled`** — For buttons I can use `btn.disabled = true` but links don't have that attribute. I had to use `link.tabIndex = -1`.
 
 ## Project #1 - Doctor's website (day 31)
 
 - **Date:** 2026-11-19 · Streak day 76
-- **What I did:** I added the periodic opinion cards swipes, made it turn on only for low width screen. Fixed (I hope) a grey box blinking around buttons when clicked on phone. Changed the logo, the old one wasn't really free. Added a README.md with image credits.
+- **What I did:** I added the periodic opinion cards swipes, made it turn on only for low width screen. Fixed (I hope) a grey box blinking around buttons when clicked on phone. Changed the logo, the old one wasn't really free. Added a `README.md` with image credits.
 - **What I learned:**
-  - **Query** - I can create a standing question in js and use it to check for things such as the screen width.
-  ``` js
+  - **Query** — I can create a standing question in JS and use it to check for things such as the screen width.
+  ```js
   const carouselQuery = window.matchMedia("(max-width: 760px)");
 
   if (carouselQuery.matches) {
-        moveCardsPeriodically();
-        return;
-    }
+    moveCardsPeriodically();
+    return;
+  }
   ```
-  - **query.addEventListener("change")** - I can add a listener to a query to run a function whenever the query changes between true or false.
-  ``` js
+  - **`query.addEventListener("change")`** — I can add a listener to a query to run a function whenever the query changes between true or false.
+  ```js
   carouselQuery.addEventListener("change", syncCarouselToWidth);
   ```
-  - **Interval** - I can set intervals to run something over and over with a delay. setInterval returns and id to that set interval, it can be later cleared with `clearInterval(interval)` to stop it from repeating.
-  ``` js
+  - **Interval** — I can set intervals to run something over and over with a delay. `setInterval` returns an id to that set interval, it can be later cleared with `clearInterval(intervalId)` to stop it from repeating.
+  ```js
   intervalId = setInterval(moveOpinionCardsRight, delay);
-  
-  if (intervalId) {
-        clearInterval(intervalId);
-        intervalId = null;
-    }
-  ```
 
+  if (intervalId) {
+    clearInterval(intervalId);
+    intervalId = null;
+  }
+  ```
 
 ## Project #1 - Doctor's website (day 32)
 
 - **Date:** 2026-11-20 · Streak day 77
-- **What I did:** I made sure that my website is only using free images, updated the credits in readme and began applying fixes from the review: no more labales and hidden checkboxes in qualifications section, now I am using `<details>` and `<summary>`. Fixed the scrollToTop adjustment on higher screens. Changed .focus to .focus-visible.
+- **What I did:** I made sure that my website is only using free images, updated the credits in readme and began applying fixes from the review: no more labels and hidden checkboxes in qualifications section, now I am using `<details>` and `<summary>`. Fixed the scrollToTop adjustment on higher screens. Changed `:focus` to `:focus-visible`.
 - **What I learned:**
-  -**`<details>` and `<summary>` structure** - An easy way to create expanding "labels".
-  ``` js
+  - **`<details>` and `<summary>` structure** — An easy way to create expanding "labels".
+  ```html
   <details>
     <summary>
       I have keys but no doors. I have space but no room. You can enter but can't
@@ -1206,75 +1174,71 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   </details>
   ```
 
-
 ## Project #1 - Doctor's website (day 33)
 
 - **Date:** 2026-11-21 · Streak day 78
-- **What I did:** 
-  - fixed tabIndex on hamburger menu (it was switching between 0 and 1 instead of 0 and -1)
-  - fixed fake bold and italic and all the google fonts
-  - added aria-labels, aria-expanded and removed unecessery .active classes from the dropDown icon and the topbarBg (I can style it by the aria-expanded state now).
-  - Removed alt from logo, the header already speaks for it. 
-  - Stopped the card periodic swipe completely for the reduced motion. 
-  - Set fixed image size for 760px width screen. 
-  - Changed scroll-margin-top for all sections to match one standard. 
-  - Fixed swapped labels on left and right button in opinion section. 
-  - Changed visible email to .example. 
-  - Added back the qualifications heading and eyebrow (didn't reazlied I removed it) and moved the 760px design up to 900px.
-  - Started to make a different design for the opinion cards when motion reduced is one (user could only see first 2 cards).
+- **What I did:**
+  - Fixed `tabIndex` on hamburger menu (it was switching between 0 and 1 instead of 0 and -1).
+  - Fixed fake bold and italic and all the Google Fonts.
+  - Added `aria-label`s, `aria-expanded` and removed unnecessary `.active` classes from the dropdown icon and the `topbarBg` (I can style it by the `aria-expanded` state now).
+  - Removed `alt` from logo, the header already speaks for it.
+  - Stopped the card periodic swipe completely for reduced motion.
+  - Set fixed image size for 760px width screen.
+  - Changed `scroll-margin-top` for all sections to match one standard.
+  - Fixed swapped labels on left and right button in opinion section.
+  - Changed visible email to `.example`.
+  - Added back the qualifications heading and eyebrow (didn't realize I removed it) and moved the 760px design up to 900px.
+  - Started to make a different design for the opinion cards when reduced motion is on (user could only see first 2 cards).
 - **What I learned:**
-  - **Ask for weight** - I was asking google for fonts but I was not asking for the bold and weight, this needs to be done like this:
-  ``` html 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,700&family=Lora:wght@400&display=swap" rel="stylesheet">
+  - **Ask for weight** — I was asking Google for fonts but I was not asking for the bold and italic weights, this needs to be done like this:
+  ```html
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,700&family=Lora:wght@400&display=swap" rel="stylesheet">
   ```
 
 ## Project #1 - Doctor's website (day 34)
 
 - **Date:** 2026-11-23 · Streak day 79
-- **What I did:** 
-  - Reduced motion opinion cards design, overflow-x: scroll.
-  - Fixed typos in js comments.
+- **What I did:**
+  - Reduced motion opinion cards design, `overflow-x: scroll`.
+  - Fixed typos in JS comments.
   - Removed the colons from the section headers.
-  - Filled up README.md with more info and a screenshot.
-  - Fixed to big buttons in treatments section.
+  - Filled up `README.md` with more info and a screenshot.
+  - Fixed too big buttons in treatments section.
   - Added meta description.
   - Contact button now calls the phone number.
-  - intilalizeDots() and opinionCards.length.
-  - Merged moveOpinionCardsRight and moveOpinionCardsLeft, one function that takes 1 or -1.
-
+  - `initializeDots()` and `opinionCards.length`.
+  - Merged `moveOpinionCardsRight` and `moveOpinionCardsLeft`, one function that takes 1 or -1.
 
 ## Project #1 - Doctor's website (day 35)
 
 - **Date:** 2026-11-24 · Streak day 80
-- **What I did:** 
-  - Fixed the contact button size on 760px
-  - Removed button tag from the `<a>` tag, now contact button is a link styled like a button
-  - Small fix in js, the check was `opinionCardsPosition > 5`, now it compares with `opinionCards.length -1`.
-  - Changed toggleOpnionListDot() to updateDots()
-  - Added a listener to reducedMotionQuery()
-  - Removed unused topbarBg in js and it's id
-  - Opinions section tag now wraps the whole section, the header and description sit in a new tag `opinions-info`.
+- **What I did:**
+  - Fixed the contact button size on 760px.
+  - Removed `button` tag from the `<a>` tag, now contact button is a link styled like a button.
+  - Small fix in JS, the check was `opinionCardsPosition > 5`, now it compares with `opinionCards.length - 1`.
+  - Changed `toggleOpinionListDot()` to `updateDots()`.
+  - Added a listener to `reducedMotionQuery`.
+  - Removed unused `topbarBg` in JS and its id.
+  - Opinions `section` tag now wraps the whole section, the header and description sit in a new tag `.opinions-info`.
 - **What I learned:**
-  - **Toggle with 2 arguments** - `el.classList.toggle("class")` removed the class from an element if it had that class, added it if it didn't have it. `el.classList.toggle("class", condition)` adds the class if the condition is true and removes it if the condition is false.  
-
+  - **Toggle with 2 arguments** — `el.classList.toggle("class")` removed the class from an element if it had that class, added it if it didn't have it. `el.classList.toggle("class", condition)` adds the class if the condition is true and removes it if the condition is false.
 
 ## Project #1 - Doctor's website (day 36)
 
 - **Date:** 2026-11-25 · Streak day 81
-- **What I did:** 
-  - Fixed "intializeDots()" typo and formated the .js document.
-  - The moveOpinionCards() now has a `direction` parameter, rather than `x` (it didn't say what it was doing).
-  - Changed widthThreshold to scrollTopMaxWidth.
-  - Chagned --details and --details2 to --accent and --accent-light.
-  - Changed nav-vertical and nav-horizontal to nav-desktop and nav-mobile
-  - Changed hidden-nav and hiddenNav to nav-mobile-content and navMobile/navMobileContent
-  - contact button and consultation button had same :hover and :focus-visible style but written twice, merged that.
-  - Removed unecessery justify-content at nav
-  - Fixed opinionListDots not centering properly and made all dots the same size.
+- **What I did:**
+  - Fixed `initializeDots()` typo and formatted the `.js` document.
+  - The `moveOpinionCards()` now has a `direction` parameter, rather than `x` (it didn't say what it was doing).
+  - Changed `widthThreshold` to `scrollTopMaxWidth`.
+  - Changed `--details` and `--details2` to `--accent` and `--accent-light`.
+  - Changed `nav-vertical` and `nav-horizontal` to `nav-desktop` and `nav-mobile`.
+  - Changed `hidden-nav` and `hiddenNav` to `nav-mobile-content` and `navMobile` / `navMobileContent`.
+  - Contact button and consultation button had same `:hover` and `:focus-visible` style but written twice, merged that.
+  - Removed unnecessary `justify-content` at `nav`.
+  - Fixed opinion list dots not centering properly and made all dots the same size.
   - Changed names to better tell their purpose.
-  - Changed the first dot style - simpler code.
-  - Added more comments in js.
+  - Changed the first dot style — simpler code.
+  - Added more comments in JS.
   - Fixed qualifications details, changed to accent by mistake.
   - Compressed photos.
-  - Added .gitIgnore and stopped tracking the to do list file.
-- **What I learned:**
+  - Added `.gitignore` and stopped tracking the to-do list file.
