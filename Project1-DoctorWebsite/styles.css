@@ -1,8 +1,8 @@
 :root {
     --background1: #fff;
     --background2: #F0F2F5;
-    --details: #177EE5;
-    --details2: #21cafd;
+    --accent: #177EE5;
+    --accent-light: #21cafd;
     --text: #000;
     --text-muted: #6b7280;
     --text-button: #fff;
@@ -79,11 +79,11 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--details);
+    color: var(--accent);
 }
 
 nav a:focus-visible {
-    color: var(--details);
+    color: var(--accent);
 }
 
 .nav-horizontal {
@@ -172,11 +172,11 @@ nav a:focus-visible {
     }
 
     .nav-drop-down[aria-expanded="true"] {
-        color: var(--details);
+        color: var(--accent);
     }
 
     .nav-drop-down:hover {
-        color: var(--details);
+        color: var(--accent);
     }
 
     .nav-horizontal-content a {
@@ -186,13 +186,13 @@ nav a:focus-visible {
     }
 
     .nav-horizontal-content a:hover {
-        background-color: var(--details);
+        background-color: var(--accent);
         color: var(--background1);
     }
 
     .nav-horizontal-content a:focus-visible {
         outline: none;    
-        background-color: var(--details);
+        background-color: var(--accent);
         color: var(--background1);
     }
 }
@@ -256,7 +256,7 @@ nav a:focus-visible {
 }
 
 .about-me .info {
-    border-right: 4px solid var(--details);
+    border-right: 4px solid var(--accent);
     padding: 5rem 2.5rem 5rem 0;
 }
 
@@ -269,7 +269,7 @@ nav a:focus-visible {
 .about-me .role {
     font-family: var(--font-heading);
     font-size: 1.5rem;
-    color: var(--details);
+    color: var(--accent);
 }
 
 .about-me .bio {
@@ -306,8 +306,8 @@ nav a:focus-visible {
 }
 
 .info-buttons .contact-btn {
-    border: 2px solid var(--details);
-    background-color: var(--details);
+    border: 2px solid var(--accent);
+    background-color: var(--accent);
     color: var(--text-button);
 }
 
@@ -318,29 +318,29 @@ nav a:focus-visible {
 }
 
 .info-buttons .contact-btn:hover {
-    border-color: var(--details);
+    border-color: var(--accent);
     background-color: var(--background1);
-    color: var(--details);
+    color: var(--accent);
 }
 
 .info-buttons .contact-btn:focus-visible {
     outline-offset: 5px;
-    border-color: var(--details);
+    border-color: var(--accent);
     background-color: var(--background1);
-    color: var(--details);
+    color: var(--accent);
 }
 
 .info-buttons .consultation-btn:hover {
-    border-color: var(--details);
+    border-color: var(--accent);
     background-color: var(--background1);
-    color: var(--details);
+    color: var(--accent);
 }
 
 .info-buttons .consultation-btn:focus-visible {
     outline-offset: 5px;
-    border-color: var(--details);
+    border-color: var(--accent);
     background-color: var(--background1);
-    color: var(--details);
+    color: var(--accent);
 }
 
 .info-buttons .contact-btn .fa-phone, .info-buttons .consultation-btn .fa-calendar {
@@ -424,7 +424,7 @@ nav a:focus-visible {
 
     .about-me .role {
         font-size: 1.1rem;
-        color: var(--details2);
+        color: var(--accent-light);
         text-align: center;
     }
 
@@ -450,18 +450,18 @@ nav a:focus-visible {
     .info-buttons .contact-btn {
         border-color: var(--background1);
         background-color: var(--background1);
-        color: var(--details2);
+        color: var(--accent-light);
     }
 
     .info-buttons .contact-btn:hover {
-        border-color: var(--details2);
-        background-color: var(--details2);
+        border-color: var(--accent-light);
+        background-color: var(--accent-light);
         color: var(--background1);
     }
 
     .info-buttons .contact-btn:focus-visible {
-        border-color: var(--details2);
-        background-color: var(--details2);
+        border-color: var(--accent-light);
+        background-color: var(--accent-light);
         color: var(--background1);  
     }
 
@@ -472,15 +472,15 @@ nav a:focus-visible {
     }
 
     .info-buttons .consultation-btn:hover {
-        border-color: var(--details2);
+        border-color: var(--accent-light);
         background-color: transparent;
-        color: var(--details2);
+        color: var(--accent-light);
     }
 
     .info-buttons .consultation-btn:focus-visible {
-        border-color: var(--details2);
+        border-color: var(--accent-light);
         background-color: transparent;
-        color: var(--details2);
+        color: var(--accent-light);
     }
 
     .about-me img {
@@ -503,7 +503,7 @@ nav a:focus-visible {
 
 .treatments .eyebrow {
     font-family: var(--font-heading);
-    color: var(--details);
+    color: var(--accent);
 }
 
 .treatments h2 {
@@ -535,7 +535,7 @@ nav a:focus-visible {
     flex-basis: 265px;
 
     max-width: 320px;
-    border-top: 3px solid var(--details);
+    border-top: 3px solid var(--accent);
     border-radius: 5%;
     padding: 2rem;
     background-color: var(--background2);
@@ -556,7 +556,7 @@ nav a:focus-visible {
     min-width: 40px;    
     border-radius: 50%;
     padding: 0.8rem 0.7rem;
-    background-color: var(--details);
+    background-color: var(--accent);
     
     font-size: 2rem;
     color: var(--background1);
@@ -577,10 +577,10 @@ nav a:focus-visible {
 .treatments-list button {
     max-width: 200px;
     margin: auto auto 0 0;    
-    border: 2px solid var(--details);
+    border: 2px solid var(--accent);
     border-radius: 50px;
     padding: 0.8rem 2rem;
-    background-color: var(--details);
+    background-color: var(--accent);
 
     font-family: var(--font-heading);
     font-size: 1.1rem;
@@ -593,13 +593,13 @@ nav a:focus-visible {
 
 .treatments-list button:hover {
     background-color: var(--background1);
-    color: var(--details);
+    color: var(--accent);
 }
 
 .treatments-list button:focus-visible {
     outline-offset: 5px;
     background-color: var(--background1);
-    color: var(--details);
+    color: var(--accent);
 }
 
 .treatments-list button .fa-solid {
@@ -674,7 +674,7 @@ nav a:focus-visible {
 .opinions-info h2 {
     max-width: 900px;
     margin: 0 auto 2rem;
-    border-bottom: 2px solid var(--details);
+    border-bottom: 2px solid var(--accent);
     padding-bottom:2rem;
     
     font-family: var(--font-heading);
@@ -726,7 +726,7 @@ nav a:focus-visible {
 }
 
 .opinions-list li:hover {
-    border-color: var(--details);
+    border-color: var(--accent);
 }
 
 .opinions-list h3 {
@@ -739,7 +739,7 @@ nav a:focus-visible {
     margin-top: 0;
     font-family: var(--font-heading);
     font-size: 1.2rem;
-    color: var(--details);
+    color: var(--accent);
 }
 
 .opinions-list .review {
@@ -748,7 +748,7 @@ nav a:focus-visible {
 
 .opinions-list .date {
     margin: auto 0 0 0;
-    border-top: 2px solid var(--details);
+    border-top: 2px solid var(--accent);
     padding-top: 1rem;
     color: var(--text-muted);
 }
@@ -867,7 +867,7 @@ nav a:focus-visible {
         background-color: var(--background2);
         
         font-size: 3.4rem;
-        color: var(--details);
+        color: var(--accent);
 
         cursor: pointer;
         transition:  transform 0.1s ease, color 0.1s ease;
@@ -882,7 +882,7 @@ nav a:focus-visible {
         left: 50%;
         transform: translateX(-50%);
 
-        color: var(--details);
+        color: var(--accent);
     }
 
     .opinions-list-dots .fa-solid {
@@ -939,7 +939,7 @@ nav a:focus-visible {
 .qualifications .eyebrow {
     margin-left: 0.2rem;
     font-family: var(--font-heading);
-    color: var(--details);
+    color: var(--accent);
 }
 
 .qualifications h2 {
@@ -961,11 +961,11 @@ nav a:focus-visible {
 }
 
 .qualifications-toggle:hover {
-    color: var(--details);
+    color: var(--accent);
 }
 
 .qualifications-toggle:focus-visible {
-    color: var(--details);
+    color: var(--accent);
 }
 
 .label-number {
@@ -975,10 +975,10 @@ nav a:focus-visible {
 }
 
 .qualifications [open] .qualifications-toggle {
-    color: var(--details);
+    color: var(--accent);
 }
 
-.qualifications details::details-content {
+.qualifications accent::accent-content {
     block-size: 0;
     overflow: hidden;
     
@@ -992,21 +992,21 @@ nav a:focus-visible {
     transition-behavior: allow-discrete;
 }
 
-.qualifications details[open]::details-content {
+.qualifications accent[open]::accent-content {
     block-size: auto;
     padding-bottom: 2rem;
 }
 
-.qualifications details ul {
+.qualifications accent ul {
     display: grid;
     gap: 1rem;
     margin: 0;
     padding-left: 1.5rem;
 }
 
-.qualifications details li::marker {
+.qualifications accent li::marker {
     font-size: 1.5rem;
-    color: var(--details);
+    color: var(--accent);
 }
 
 .qualifications img {
@@ -1035,16 +1035,16 @@ nav a:focus-visible {
         min-width: 40px;
     }
 
-    .qualifications details::details-content {
+    .qualifications accent::accent-content {
         margin-bottom: 1rem;
         font-size: 1rem;
     }
 
-    .qualifications details[open]::details-content {
+    .qualifications accent[open]::accent-content {
         padding-bottom: 1rem;
     }
 
-    .qualifications details li::marker {
+    .qualifications accent li::marker {
         font-size: 1.1rem;
     }
 }
@@ -1066,7 +1066,7 @@ nav a:focus-visible {
     }
 
     .qualifications .eyebrow {
-        color: var(--details2);
+        color: var(--accent-light);
         text-align: center;
     }
 
@@ -1080,22 +1080,22 @@ nav a:focus-visible {
     }
     
     .qualifications-toggle:hover {
-        color: var(--details2);
+        color: var(--accent-light);
     }
     
     .qualifications-toggle:focus-visible {
-        color: var(--details2);
+        color: var(--accent-light);
     }
 
     .label-number {
-        color: var(--details2);
+        color: var(--accent-light);
     }
 
-    .qualifications details[open] .qualifications-toggle {
-        color: var(--details2);
+    .qualifications accent[open] .qualifications-toggle {
+        color: var(--accent-light);
     }    
 
-    .qualifications details::details-content {
+    .qualifications accent::accent-content {
         color: var(--background1);
     }
 
@@ -1105,7 +1105,7 @@ nav a:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    details::details-content {
+    accent::accent-content {
         transition: none;
     }
 }
@@ -1154,7 +1154,7 @@ footer {
 .contact-info .fa-solid {
     margin-right: 0.2rem;
     font-size: 1.1rem;
-    color: var(--details);
+    color: var(--accent);
 }
 
 .contact-info a {
@@ -1171,7 +1171,7 @@ footer {
 }
 
 .contact-info a:hover {
-    color: var(--details);
+    color: var(--accent);
 }
 
 .copyright {
@@ -1201,19 +1201,19 @@ footer {
     
     width: 30px;
     height: 30px;
-    border: 2px solid var(--details);
+    border: 2px solid var(--accent);
     border-radius: 50%;
     background-color: var(--background1);
     
-    color: var(--details);
+    color: var(--accent);
     
     cursor: pointer;
     transition: color 0.3s ease-in, background-color 0.3s ease-in, border-color 0.3s ease-in, transform 0.1s ease;
 }
 
 .copyright .fa-brands:hover {
-    border-color: var(--details);
-    background-color: var(--details);
+    border-color: var(--accent);
+    background-color: var(--accent);
     color: var(--background1);
 }
 
@@ -1297,13 +1297,13 @@ footer {
     width: 80px;
     height: 80px;
     margin: 0;
-    border: 2px solid var(--details);    
+    border: 2px solid var(--accent);    
     border-radius: 50%;
     padding: 0;
     background-color: var(--background1);
 
     font-size: 2rem;
-    color: var(--details);
+    color: var(--accent);
 
     cursor: pointer;
     pointer-events: none;
@@ -1318,7 +1318,7 @@ footer {
 
 #scrollTop:focus-visible {
     outline-offset: 5px;
-    background-color: var(--details);
+    background-color: var(--accent);
     color: var(--background1);
 }
 
@@ -1332,7 +1332,7 @@ footer {
 }
 
 #scrollTop.is-visible:hover {
-    background-color: var(--details);
+    background-color: var(--accent);
     color: var(--background1);
 }
 

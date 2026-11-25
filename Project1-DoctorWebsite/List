@@ -4,9 +4,11 @@ To Do:
     [ ] Check how the site responds on phone
     [x] Fix about me button size at 760px
 
-[x] IntilaizeDots() typo
-
-
+[x] intilaizeDots() typo.
+[x] moveOpinionCards(x) - the x doesn't say what it is.
+[x] widthThreshold to scrollTopMaxWidth.
+[x] --details and --details2 to --accent and --accent-light
+[ ] change nav-vertical and nav-horizontal to nav-desktop and nav-mobile
 
 Good site to inspire from: 
 https://neuroaxishealth.com/# 
