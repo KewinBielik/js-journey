@@ -62,7 +62,7 @@ function toggleDropDown() {
     })
 }
 
-function intializeDots() {
+function initializeDots() {
     const dot = opinionsListDots[0];
     dot.classList.remove("fa-solid");
     dot.classList.add("fa-regular");    
@@ -131,7 +131,7 @@ function buttonPop(btn) {
     }, 1000);
 }
 
-intializeDots();
+initializeDots();
 syncCarouselToWidth();
 carouselQuery.addEventListener("change", syncCarouselToWidth);
 reducedMotionQuery.addEventListener("change", moveCardsPeriodically);
