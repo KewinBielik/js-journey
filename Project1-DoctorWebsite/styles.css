@@ -961,7 +961,7 @@ nav a:focus-visible {
     color: var(--accent);
 }
 
-.qualifications accent::accent-content {
+.qualifications details::details-content {
     block-size: 0;
     overflow: hidden;
     
@@ -975,19 +975,19 @@ nav a:focus-visible {
     transition-behavior: allow-discrete;
 }
 
-.qualifications accent[open]::accent-content {
+.qualifications details[open]::details-content {
     block-size: auto;
     padding-bottom: 2rem;
 }
 
-.qualifications accent ul {
+.qualifications details ul {
     display: grid;
     gap: 1rem;
     margin: 0;
     padding-left: 1.5rem;
 }
 
-.qualifications accent li::marker {
+.qualifications details li::marker {
     font-size: 1.5rem;
     color: var(--accent);
 }
@@ -1018,16 +1018,16 @@ nav a:focus-visible {
         min-width: 40px;
     }
 
-    .qualifications accent::accent-content {
+    .qualifications details::details-content {
         margin-bottom: 1rem;
         font-size: 1rem;
     }
 
-    .qualifications accent[open]::accent-content {
+    .qualifications details[open]::details-content {
         padding-bottom: 1rem;
     }
 
-    .qualifications accent li::marker {
+    .qualifications details li::marker {
         font-size: 1.1rem;
     }
 }
@@ -1074,11 +1074,11 @@ nav a:focus-visible {
         color: var(--accent-light);
     }
 
-    .qualifications accent[open] .qualifications-toggle {
+    .qualifications details[open] .qualifications-toggle {
         color: var(--accent-light);
     }    
 
-    .qualifications accent::accent-content {
+    .qualifications details::details-content {
         color: var(--background1);
     }
 
@@ -1088,7 +1088,7 @@ nav a:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    accent::accent-content {
+    accent::details-content {
         transition: none;
     }
 }

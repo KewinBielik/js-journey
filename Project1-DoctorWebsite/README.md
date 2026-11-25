@@ -4,7 +4,7 @@ A one-page site for a fictional clinic in Bristol. Built as a portfolio project:
 
 **Live site:** https://kewinbielik.github.io/js-journey/Project1-DoctorWebsite/
 
-![The Marlow Clinic on a desktop screen](screenshot.png)
+![The Marlow Clinic on a desktop screen](screenshot.jpg)
 
 ## Features
 

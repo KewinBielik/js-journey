@@ -1274,4 +1274,7 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   - Changed names to better tell their purpose.
   - Changed the first dot style - simpler code.
   - Added more comments in js.
+  - Fixed qualifications details, changed to accent by mistake.
+  - Compressed photos.
+  - Added .gitIgnore and stopped tracking the to do list file.
 - **What I learned:**
