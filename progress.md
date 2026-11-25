@@ -1271,4 +1271,7 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   - contact button and consultation button had same :hover and :focus-visible style but written twice, merged that.
   - Removed unecessery justify-content at nav
   - Fixed opinionListDots not centering properly and made all dots the same size.
+  - Changed names to better tell their purpose.
+  - Changed the first dot style - simpler code.
+  - Added more comments in js.
 - **What I learned:**

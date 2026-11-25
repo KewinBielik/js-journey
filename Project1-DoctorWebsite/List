@@ -19,6 +19,15 @@ To Do:
 [x] Fix opinionListDots not centering properly.
 [x] Make all dots the same size.
 
+[x] Add comment to opinionCardsPosition * 90
+[ ] Ask about carouselQuery and periodic naming.
+[x] Change scrollTopMaxWidth to adjustBottomMaxWidth
+[x] Change distanceFromTreshold to distanceFromCopyrightSection
+[x] Change the first dot to fa-regular, will make the initialize code simpler
+[x] Should direction different than 1 or -1 throw an error or something?
+[x] Add comments for anything that could need a comment
+
+
 Good site to inspire from: 
 https://neuroaxishealth.com/# 
 https://laryngologpoznan.pl/    

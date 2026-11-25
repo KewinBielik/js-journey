@@ -2,15 +2,15 @@ const showScrollTopAtHeight = 600; // for showing the scroll to top button after
 const hideScrollTopAtWidth = 430; // for hiding the scroll to top button on lower resolutions.
 const scrollTop = document.getElementById("scrollTop");
 
-const scrollTopMaxWidth = 1620; // to disable the adjustment for wider screens - the button does not cover anything.
 const bottomOffset = 20; // to keep the button slightly above the copyright section.
+const adjustBottomMaxWidth = 1620; // to disable the adjustment for wider screens - the button does not cover anything.
 const copyrightSection = document.getElementById("copyright");
 
 const dropDown = document.getElementById("nav-drop-down");
 const navMobile = document.getElementById("nav-mobile-content");
 const navMobileContent = Array.from(navMobile.children);
 
-let opinionsCardsPosition = 0;
+let opinionsCardsPosition = 0; // To track and calculate the cards position and to move the opinionListDots.
 const opinionsList = document.getElementById("opinions-list");
 const opinionsBtnLeft = document.getElementById("opinions-btn-left");
 const opinionsBtnRight = document.getElementById("opinions-btn-right");
@@ -18,10 +18,11 @@ const opinionsListDotsDom = document.getElementById("opinions-list-dots");
 let opinionsListDots = Array.from(opinionsListDotsDom.children);
 const opinionsCards = Array.from(opinionsList.children).filter(el => el.getAttribute(`aria-hidden`) !== `true`);
 
-let intervalId = null;
-const delay = 7000;
-const carouselQuery = window.matchMedia("(max-width: 760px)");
-const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+let swipeIntervalId = null;
+const swipeDelay = 7000;
+
+const phoneCarouselQuery = window.matchMedia("(max-width: 760px)"); 
+const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)") 
 
 function showScrollTop() {
 
@@ -37,45 +38,48 @@ function showScrollTop() {
     }
 }
 
+// Pushes the scroll to top button slightly up so that it doesn't cover anything.
 function adjustBottom() {
 
-    if (window.innerWidth > scrollTopMaxWidth) {
+    if (window.innerWidth > adjustBottomMaxWidth) {
         scrollTop.style.bottom = "";
         return;
     }
 
-    let distanceFromThreshold = copyrightSection.offsetTop - document.documentElement.scrollTop;
-    if (distanceFromThreshold <= window.innerHeight) {
-        let bottom = window.innerHeight - distanceFromThreshold + bottomOffset;
+    let distanceFromCopyrightSection = copyrightSection.offsetTop - document.documentElement.scrollTop - window.innerHeight;
+    if (distanceFromCopyrightSection <= 0) {
+        let bottom =  -distanceFromCopyrightSection + bottomOffset;
         scrollTop.style.bottom = bottom + "px";
     } else {
         scrollTop.style.bottom = "";
     }
 }
 
-function toggleDropDown() {
+function toggleDropDownMenu() {
     navMobile.classList.toggle(`is-visible`);
     dropDown.ariaExpanded = navMobile.classList.contains(`is-visible`);
+    
+    // toggle tabIndex so that user can't set focus on hidden nav links
     const newTabIndex = navMobile.classList.contains(`is-visible`) ? 0 : -1;
     navMobileContent.forEach(el => {
         el.tabIndex = newTabIndex;
     })
 }
 
+// Creates the dots that sit under opinion cards at screen width <= 760px, copy the first dot and clone for each card
 function initializeDots() {
     const dot = opinionsListDots[0];
-    dot.classList.remove("fa-solid");
-    dot.classList.add("fa-regular");
 
     for (let i = 1; i < opinionsCards.length; i++) {
         const dotCopy = dot.cloneNode(true);
         opinionsListDotsDom.appendChild(dotCopy);
     }
+    // update opinionsListDots, because it only sees the first dot
     opinionsListDots = Array.from(opinionsListDotsDom.children);
     updateDots();
 }
 
-
+// Fills the dot corresponding to the visible opinion card, sets the rest to empty dot
 function updateDots() {
     opinionsListDots.forEach((dot, index) => {
         const isActive = index === opinionsCardsPosition;
@@ -84,6 +88,7 @@ function updateDots() {
     })
 }
 
+// Direction is either 1 or -1
 function moveOpinionCards(direction) {
 
     opinionsCardsPosition += direction;
@@ -94,24 +99,27 @@ function moveOpinionCards(direction) {
         opinionsCardsPosition = 0;
     }
 
+    // 90 because: 10svw gap + 80svw card's witdh = 90svw
     opinionsList.style.left = -(opinionsCardsPosition * 90) + "svw";
     updateDots();
-    moveCardsPeriodically();
+    restartAutoSwipe();
 }
 
-function moveCardsPeriodically() {
-    if (intervalId) {
-        clearInterval(intervalId);
-        intervalId = null;
+// Stops an interval, checks for queries - if new interval should start, runs new interval
+function restartAutoSwipe() {
+    if (swipeIntervalId) {
+        clearInterval(swipeIntervalId);
+        swipeIntervalId = null;
     }
 
-    if (!carouselQuery.matches || reducedMotionQuery.matches) {
+    if (!phoneCarouselQuery.matches || reducedMotionQuery.matches) {
         return;
     }
 
-    intervalId = setInterval(() => { moveOpinionCards(1) }, delay);
+    swipeIntervalId = setInterval(() => { moveOpinionCards(1) }, swipeDelay);
 }
 
+// On phoneCarouselQuery change: reset the opinion cards position and stop the auto swipe from running in the background
 function syncCarouselToWidth() {
 
     opinionsCardsPosition = 0;
@@ -119,7 +127,7 @@ function syncCarouselToWidth() {
 
     updateDots()
 
-    moveCardsPeriodically();
+    restartAutoSwipe();
 }
 
 function buttonPop(btn) {
@@ -133,15 +141,16 @@ function buttonPop(btn) {
 
 initializeDots();
 syncCarouselToWidth();
-carouselQuery.addEventListener("change", syncCarouselToWidth);
-reducedMotionQuery.addEventListener("change", moveCardsPeriodically);
+phoneCarouselQuery.addEventListener("change", syncCarouselToWidth);
+reducedMotionQuery.addEventListener("change", restartAutoSwipe);
 
 window.addEventListener("scroll", showScrollTop, { passive: true });
 window.addEventListener("scroll", adjustBottom, { passive: true });
-dropDown.addEventListener("click", toggleDropDown);
+dropDown.addEventListener("click", toggleDropDownMenu);
 
+// TabIndex can't be changed by css, initialize it here
 navMobileContent.forEach(el => {
-    el.addEventListener("click", toggleDropDown);
+    el.addEventListener("click", toggleDropDownMenu);
     el.tabIndex = -1;
 });
 
