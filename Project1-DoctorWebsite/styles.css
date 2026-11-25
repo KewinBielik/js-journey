@@ -62,7 +62,6 @@ body {
 
 nav {
     display: flex;
-    justify-content: right;
     align-items: center;
 }
 
@@ -317,26 +316,13 @@ nav a:focus-visible {
     color: var(--text);
 }
 
-.info-buttons .contact-btn:hover {
+.info-buttons .contact-btn:hover, .info-buttons .consultation-btn:hover {
     border-color: var(--accent);
     background-color: var(--background1);
     color: var(--accent);
 }
 
-.info-buttons .contact-btn:focus-visible {
-    outline-offset: 5px;
-    border-color: var(--accent);
-    background-color: var(--background1);
-    color: var(--accent);
-}
-
-.info-buttons .consultation-btn:hover {
-    border-color: var(--accent);
-    background-color: var(--background1);
-    color: var(--accent);
-}
-
-.info-buttons .consultation-btn:focus-visible {
+.info-buttons .contact-btn:focus-visible, .info-buttons .consultation-btn:focus-visible {
     outline-offset: 5px;
     border-color: var(--accent);
     background-color: var(--background1);
@@ -875,18 +861,15 @@ nav a:focus-visible {
 
     .opinions-list-dots  {
         display: flex;
-        align-items: center;
+        align-items:center;
         gap: 0.2rem;
         position: absolute;
         top: 105%;
-        left: 50%;
+        left: 50svw;
         transform: translateX(-50%);
 
-        color: var(--accent);
-    }
-
-    .opinions-list-dots .fa-solid {
         font-size: 1.2rem;
+        color: var(--accent);
     }
 
     .opinions-list {

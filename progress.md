@@ -1268,4 +1268,7 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   - Chagned --details and --details2 to --accent and --accent-light.
   - Changed nav-vertical and nav-horizontal to nav-desktop and nav-mobile
   - Changed hidden-nav and hiddenNav to nav-mobile-content and navMobile/navMobileContent
+  - contact button and consultation button had same :hover and :focus-visible style but written twice, merged that.
+  - Removed unecessery justify-content at nav
+  - Fixed opinionListDots not centering properly and made all dots the same size.
 - **What I learned:**
