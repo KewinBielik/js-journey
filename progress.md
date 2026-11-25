@@ -1255,7 +1255,7 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
   - Removed unused topbarBg in js and it's id
   - Opinions section tag now wraps the whole section, the header and description sit in a new tag `opinions-info`.
 - **What I learned:**
-  - **Toggle with 2 parameters** - `el.classList.toggle("class")` removed the class from an element if it had that class, added it if it didn't have it. `el.classList.toggle("class", condition)` adds the class if the condition is true and removes it if the condition is false.  
+  - **Toggle with 2 arguments** - `el.classList.toggle("class")` removed the class from an element if it had that class, added it if it didn't have it. `el.classList.toggle("class", condition)` adds the class if the condition is true and removes it if the condition is false.  
 
 
 ## Project #1 - Doctor's website (day 36)
@@ -1263,4 +1263,9 @@ Both are ordinary middleware: they do one job to `req` or `res`, then call `next
 - **Date:** 2026-11-25 · Streak day 81
 - **What I did:** 
   - Fixed "intializeDots()" typo and formated the .js document.
+  - The moveOpinionCards() now has a `direction` parameter, rather than `x` (it didn't say what it was doing).
+  - Changed widthThreshold to scrollTopMaxWidth.
+  - Chagned --details and --details2 to --accent and --accent-light.
+  - Changed nav-vertical and nav-horizontal to nav-desktop and nav-mobile
+  - Changed hidden-nav and hiddenNav to nav-mobile-content and navMobile/navMobileContent
 - **What I learned:**

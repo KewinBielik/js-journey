@@ -8,7 +8,11 @@ To Do:
 [x] moveOpinionCards(x) - the x doesn't say what it is.
 [x] widthThreshold to scrollTopMaxWidth.
 [x] --details and --details2 to --accent and --accent-light
-[ ] change nav-vertical and nav-horizontal to nav-desktop and nav-mobile
+[x] change nav-vertical and nav-horizontal to nav-desktop and nav-mobile
+[x] change hidden-nav and hiddenNav to nav-mobile-content and navMobileContent
+
+
+[x] Ask about the DOM naming - opinionListDotsDOM and navMobileContentDOM?
 
 Good site to inspire from: 
 https://neuroaxishealth.com/# 

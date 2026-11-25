@@ -7,8 +7,8 @@ const bottomOffset = 20; // to keep the button slightly above the copyright sect
 const copyrightSection = document.getElementById("copyright");
 
 const dropDown = document.getElementById("nav-drop-down");
-const hiddenNav = document.getElementById("hidden-nav");
-const hiddenNavContent = Array.from(hiddenNav.children);
+const navMobile = document.getElementById("nav-mobile-content");
+const navMobileContent = Array.from(navMobile.children);
 
 let opinionsCardsPosition = 0;
 const opinionsList = document.getElementById("opinions-list");
@@ -54,10 +54,10 @@ function adjustBottom() {
 }
 
 function toggleDropDown() {
-    hiddenNav.classList.toggle(`is-visible`);
-    dropDown.ariaExpanded = hiddenNav.classList.contains(`is-visible`);
-    const newTabIndex = hiddenNav.classList.contains(`is-visible`) ? 0 : -1;
-    hiddenNavContent.forEach(el => {
+    navMobile.classList.toggle(`is-visible`);
+    dropDown.ariaExpanded = navMobile.classList.contains(`is-visible`);
+    const newTabIndex = navMobile.classList.contains(`is-visible`) ? 0 : -1;
+    navMobileContent.forEach(el => {
         el.tabIndex = newTabIndex;
     })
 }
@@ -140,7 +140,7 @@ window.addEventListener("scroll", showScrollTop, { passive: true });
 window.addEventListener("scroll", adjustBottom, { passive: true });
 dropDown.addEventListener("click", toggleDropDown);
 
-hiddenNavContent.forEach(el => {
+navMobileContent.forEach(el => {
     el.addEventListener("click", toggleDropDown);
     el.tabIndex = -1;
 });

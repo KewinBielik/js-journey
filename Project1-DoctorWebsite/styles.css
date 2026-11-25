@@ -66,7 +66,7 @@ nav {
     align-items: center;
 }
 
-.nav-vertical {
+.nav-desktop {
     display: flex;
     gap: 3rem;
 }
@@ -86,7 +86,7 @@ nav a:focus-visible {
     color: var(--accent);
 }
 
-.nav-horizontal {
+.nav-mobile {
     display: none;
 }
 
@@ -118,11 +118,11 @@ nav a:focus-visible {
         width: 100%;
     }
 
-    .nav-vertical {
+    .nav-desktop {
         display: none;
     }
 
-    .nav-horizontal {
+    .nav-mobile {
         position: relative;
         display: block;
         width: 100%;
@@ -130,7 +130,7 @@ nav a:focus-visible {
         text-align: center;
     }
 
-    .nav-horizontal img {
+    .nav-mobile img {
         display: none;
     }
 
@@ -138,7 +138,7 @@ nav a:focus-visible {
         height: 100%;
     }
 
-    .nav-horizontal-content {
+    .nav-mobile-content {
         position: absolute;
         
         overflow: hidden;
@@ -153,7 +153,7 @@ nav a:focus-visible {
         transition: max-height 0.3s ease-in-out;
     }
     
-    .nav-horizontal-content.is-visible {
+    .nav-mobile-content.is-visible {
         max-height: 500px;   
     }
     
@@ -179,18 +179,18 @@ nav a:focus-visible {
         color: var(--accent);
     }
 
-    .nav-horizontal-content a {
+    .nav-mobile-content a {
         display: block;
         padding: 1rem;
         transition: none;
     }
 
-    .nav-horizontal-content a:hover {
+    .nav-mobile-content a:hover {
         background-color: var(--accent);
         color: var(--background1);
     }
 
-    .nav-horizontal-content a:focus-visible {
+    .nav-mobile-content a:focus-visible {
         outline: none;    
         background-color: var(--accent);
         color: var(--background1);
@@ -211,14 +211,14 @@ nav a:focus-visible {
         display: none;
     }
     
-    .nav-horizontal {
+    .nav-mobile {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
         height: 100%;
     }
     
-    .nav-horizontal img {
+    .nav-mobile img {
         display: block;
         width: 80px;
         padding: 0.3rem 0;
@@ -228,13 +228,13 @@ nav a:focus-visible {
         font-size: 1.5rem;
     }
     
-    .nav-horizontal-content {    
+    .nav-mobile-content {    
         left: 50%;
         transform: translateX(-50%);    
         border-radius: 0 0 15px 15px;
     }
 
-    .nav-horizontal-content a {
+    .nav-mobile-content a {
         padding: 0.8rem;
         font-size: 1rem;
         font-weight: bold;
